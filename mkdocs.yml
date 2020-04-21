@@ -1,0 +1,29 @@
+site_name: Quantum Espresso (DFT) Notes
+site_url: https://pranabdas.github.io/
+repo_url: https://github.com/pranabdas/
+repo_name: homepage 
+site_description: Notes on DFT calculation using Quantum Espresso. 
+site_author: Pranab Das 
+
+nav:
+  - Home: index.md 
+  - Installation: install.md
+  - SCF Calculation: scf.md
+  - Band Calculation: band.md
+  - About: about.md 
+
+theme: 
+    name: null 
+    custom_dir: simplicity  
+    static_templates:
+        - 404.html
+
+    include_search_page: true
+    search_index_only: false
+
+    highlightjs: true
+    hljs_languages: python
+
+copyright: © Copyright 2020 Pranab Das. All rights reserved. 
+
+# google_analytics: [UA-163317742-1, https://pranabdas.github.io/]
