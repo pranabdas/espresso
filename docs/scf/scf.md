@@ -55,6 +55,7 @@ ATOMIC_POSITIONS (alat)
 K_POINTS (automatic)
   6 6 6 1 1 1
 ```
+$r_{Bohr} = 0.529~Å$
 
 + I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
 

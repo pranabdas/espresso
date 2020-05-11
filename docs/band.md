@@ -4,15 +4,27 @@
 
 + Notice the **K_PATH** in the bottom of the file, which provides the symmetry direction along which we want to calculate the bands.
 
-+ Now run `pw.x` to calculate bands: `~/QE/qe-6.5/bin/pw.x < si.bands.in > si.bands.out`
++ Now run `pw.x` to calculate bands: 
+```
+pw.x < si.bands.in > si.bands.out
+```
 
 + Create the [bands.in](https://github.com/pranabdas/qe-dft/){:target="_blank"} input file
+```
+&BANDS
+    prefix = 'silicon'
+    outdir = './tmp/'
+    filband = 'bands.dat'
+/
+```
++ Run `bands.x` : 
+```
+bands.x < bands.in > bands.out
+```
 
-+ Run `bands.x` : `~/QE/qe-6.5/bin/bands.x < bands.in > bands.out`
-
-+ Next run `~/QE/qe-6.5/bin/plotband.x` You will see an interactive terminal, provide in the information correctly.
++ Next run `plotband.x` You will see an interactive terminal, provide in the information correctly.
 #
-        $ ~/QE/qe-6.5/bin/plotband.x
+        $ plotband.x
              Input file > bands.dat
         Reading    8 bands at     36 k-points
         Range:   -5.8840   16.0560eV  Emin, Emax > -6 16

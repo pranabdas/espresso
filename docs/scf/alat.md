@@ -26,3 +26,5 @@ foreach alat { 9.7 9.8 9.9 10.0 10.1 10.2 10.3 10.4 10.5 10.6 10.7 } {
 
 close $fid
 ```
+
+![Etot-vs-alat](../img/Etot-vs-alat.png) 
