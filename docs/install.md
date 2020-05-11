@@ -22,3 +22,23 @@ make all
 make run-tests
 ```
 If all is well, you will see **Passed** messages and we are good to go. 
+
+We will install another scripting package `pwtk`. First we need to install following two libraries: 
+```
+sudo apt-get install tcl tcllib
+```
+Download the file from - <http://pwtk.ijs.si/download/pwtk-1.0.2.tar.gz>
+```
+wget "http://pwtk.ijs.si/download/pwtk-1.0.2.tar.gz"
+```
+Above command will download the file to your current directory. Next we need to untar: 
+```
+tar zxvf pwtk-1.0.2.tar.gz
+```
+
+It would be good idea to add the executable path to your bash/zsh PATH. Open your `.bashrc` or `.zshrc` file and add the following line with correct path to the bin directory: 
+```
+export PATH="dir/to/your/installation/qe-6.5/bin:$PATH"
+export PATH="dir/to/your/pwtk-1.0.2:$PATH"
+```
+After this you may need to restart your terminal. 

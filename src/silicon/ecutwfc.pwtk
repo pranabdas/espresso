@@ -8,7 +8,7 @@ set fid [open Etot-vs-ecutwfc.dat w]
 foreach ecut { 12 16 20 24 28 32 } {
 
     # name of I/O files: $name.in & $name.out
-    set name pw.Si.scf.ecutwfc-$ecut
+    set name si.scf.ecutwfc-$ecut
 
     # set the pw.x "ecutwfc" variable
     SYSTEM "ecutwfc = $ecut"

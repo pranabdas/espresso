@@ -6,7 +6,10 @@ site_author: Pranab Das
 nav:
     - Table of Contents: index.md
     - Installation: install.md
-    - SCF Calculation: scf.md
+    - SCF Calculation:
+          - Self Consistent Field: scf/scf.md
+          - Convergence against cutoff energy: scf/scf-cutoff.md
+          - Convergence against k-points: scf/scf-kpoints.md
     - Band Calculation: band.md
 
 theme:
