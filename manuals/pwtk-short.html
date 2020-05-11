@@ -1,0 +1,1168 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>PWTK's Tutorial</TITLE>
+<META NAME="description" CONTENT="PWTK's Tutorial">
+<META NAME="keywords" CONTENT="tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
+
+<LINK REL="STYLESHEET" HREF="tutorial.css">
+
+</HEAD>
+
+<BODY >
+
+<P>
+<H1 class="CENTER">PWTK's Tutorial</H1>
+<DIV CLASS="author_info">
+
+</DIV>
+<BR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html16"
+  HREF="tutorial.html#SECTION00010000000000000000"><SPAN CLASS="arabic">1</SPAN> Introduction</A>
+<UL>
+<LI><A ID="tex2html17"
+  HREF="tutorial.html#SECTION00011000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> The purpose of PWTK</A>
+<LI><A ID="tex2html18"
+  HREF="tutorial.html#SECTION00012000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of PWTK features:</A>
+<LI><A ID="tex2html19"
+  HREF="tutorial.html#SECTION00013000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Simple example</A>
+<LI><A ID="tex2html20"
+  HREF="tutorial.html#SECTION00014000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Syntax of the PWTK scripts</A>
+<LI><A ID="tex2html21"
+  HREF="tutorial.html#SECTION00015000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">5</SPAN> Example: running multiple calculations</A>
+</UL>
+<BR>
+<LI><A ID="tex2html22"
+  HREF="tutorial.html#SECTION00020000000000000000"><SPAN CLASS="arabic">2</SPAN> Input data stacking</A>
+<LI><A ID="tex2html23"
+  HREF="tutorial.html#SECTION00030000000000000000"><SPAN CLASS="arabic">3</SPAN> Customizing the  PWTK</A>
+<UL>
+<LI><A ID="tex2html24"
+  HREF="tutorial.html#SECTION00031000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Main configuration file: $HOME/.pwtk/pwtk.tcl</A>
+<LI><A ID="tex2html25"
+  HREF="tutorial.html#SECTION00032000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of configuration files</A>
+<LI><A ID="tex2html26"
+  HREF="tutorial.html#SECTION00033000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Configuring batch queuing system support</A>
+<LI><A ID="tex2html27"
+  HREF="tutorial.html#SECTION00034000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Configuring math parser</A>
+</UL>
+<BR>
+<LI><A ID="tex2html28"
+  HREF="tutorial.html#SECTION00040000000000000000"><SPAN CLASS="arabic">4</SPAN> Math parser</A>
+<UL>
+<LI><A ID="tex2html29"
+  HREF="tutorial.html#SECTION00041000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> List of predefined constants</A>
+<LI><A ID="tex2html30"
+  HREF="tutorial.html#SECTION00042000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of mathematical functions</A>
+</UL>
+<BR>
+<LI><A ID="tex2html31"
+  HREF="tutorial.html#SECTION00050000000000000000">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<P>
+
+<H1><A ID="SECTION00010000000000000000">
+<SPAN CLASS="arabic">1</SPAN> Introduction</A>
+</H1>
+
+<P>
+
+<H2><A ID="SECTION00011000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> The purpose of PWTK</A>
+</H2>
+
+<P>
+The <SPAN ID="hue402"><B>PWTK</B></SPAN> stands for <B>PW</B><SMALL>SCF</SMALL> <B>T</B><SMALL>OOL</SMALL><B>  K</B><SMALL>IT</SMALL>.
+
+<P>
+Technically, <SPAN ID="hue405"><B>PWTK</B></SPAN> is a Tcl scripting interface for PW<SMALL>SCF</SMALL> set of
+programs contained in the <A ID="tex2html1"
+  HREF="http://www.quantum-espresso.org/"><SPAN ID="hue409"><SPAN  CLASS="texttt">Quantum
+    Espresso</SPAN></SPAN></A>
+distribution.  The
+aim of the <SPAN ID="hue412"><B>PWTK</B></SPAN> package is to make the use of PW<SMALL>SCF</SMALL> easier and to
+provide a more productive framework.
+
+<P>
+Imagine that you want to perform a set of calculations where only a
+few of parameters are varied.  Such set of calculations requires a set
+of input files, one input per each run. Hence we have two choices:
+(i) to make a new input for each calculation, or (ii) to generate the
+files in some automate way.  For simple cases automation can be
+achieved by shell scripts, but such scripts get quickly too
+elaborate. With the <SPAN ID="hue416"><B>PWTK</B></SPAN> this is easily achieved, because the <SPAN ID="hue419"><B>PWTK</B></SPAN> package provides a powerful and flexible scripting interface.
+
+<P>
+
+<H2><A ID="SECTION00012000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of PWTK features:</A>
+</H2>
+
+<P>
+
+<UL>
+<LI>possibility to assign default values of namelist variables on a
+  project basis
+</LI>
+<LI>reassignment of namelist variables at will
+</LI>
+<LI>stacking of input data
+</LI>
+<LI>math-parser: real numbers can be input as math expressions
+</LI>
+<LI>control flow (loops, conditionals, ...)
+</LI>
+<LI>extensible and hierarchical configuration (global,
+  project-based, local) including specification of PW<SMALL>SCF</SMALL>'s binaries,
+  batch script configurations, ...)
+</LI>
+<LI>data retrieval functions (i.e., either loading the data from
+  pre-existing input files or retrieving the data from output files)
+</LI>
+<LI>a few predefined high-level tasks (e.g. lattice parameter search, charge density
+  difference, ...)
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00013000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Simple example</A>
+</H2>
+
+<P>
+Here is a simple example--a comparison between <SPAN  CLASS="texttt">pw.x</SPAN> input file for
+Si bulk and corresponding <SPAN ID="hue424"><B>PWTK</B></SPAN> script.
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT">PW<SMALL>SCF</SMALL> input file: <SPAN ID="hue428"><SPAN  CLASS="texttt">si.scf.in</SPAN></SPAN></TD>
+<TD CLASS="LEFT"><SPAN ID="hue431"><B>PWTK</B></SPAN> script file: <SPAN ID="hue434"><SPAN  CLASS="texttt">si.pwtk</SPAN></SPAN></TD>
+</TR>
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:50%;">
+<TR><TD>
+    <SPAN CLASS="SCRIPTSIZE"><PRE>
+ &amp;CONTROL
+        title = 'Si bulk'
+  calculation = 'scf' ,
+ restart_mode = 'from_scratch' ,
+       outdir = 'Si_example/' ,
+   pseudo_dir = '/home/tone/pw/pseudo/' ,
+ /
+
+ &amp;SYSTEM
+        ibrav = 2,
+    celldm(1) = 10.2,
+          nat = 2,
+         ntyp = 1,
+      ecutwfc = 18.0,
+      ecutrho = 72.0,
+ /
+
+ &amp;ELECTRONS
+     conv_thr = 1d-7,
+ /
+
+ATOMIC_SPECIES
+   Si  1.00  Si.vbc 
+
+ATOMIC_POSITIONS alat 
+   Si    0.00  0.00  0.00    
+   Si    0.25  0.25  0.25    
+
+K_POINTS automatic 
+   4 4 4   1 1 1
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+<TD CLASS="LEFT"><TABLE   STYLE="width:50%;">
+<TR><TD>
+    <SPAN CLASS="SCRIPTSIZE"><PRE>
+CONTROL {
+        title = 'Si bulk'
+  calculation = 'scf' ,
+ restart_mode = 'from_scratch' ,
+       outdir = 'Si_example/' ,
+   pseudo_dir = '/home/tone/pw/pseudo/' ,
+} 
+ 
+SYSTEM {
+        ibrav = 2,
+    celldm(1) = 10.2,
+          nat = 2,
+         ntyp = 1,
+      ecutwfc = 18.0 ,
+      ecutrho = 4*18.0 ,
+}
+
+ELECTRONS {
+      conv_thr = 1d-7,
+}
+
+ATOMIC_SPECIES {
+   Si  1.00  Si.vbc 
+}
+ATOMIC_POSITIONS alat {
+   Si    0.0   0.0   0.0
+   Si    1/4   1/4   1/4
+}
+K_POINTS automatic {
+  4 4 4   1 1 1 
+}
+
+runPW si.scf.in
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+</TR>
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:50%;">
+<TR><TD>
+    This calculation is run as:
+<PRE>
+pw.x &lt; si.scf.in &gt; si.scf.out &amp;
+</PRE></TD></TR>
+</TABLE></TD>
+<TD CLASS="LEFT"><TABLE   STYLE="width:50%;">
+<TR><TD>
+    This&nbsp;calculation&nbsp;is&nbsp;run&nbsp;as:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<PRE>
+pwtk si.pwtk
+</PRE></TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+<BR>
+<P>
+The syntax of the input data in <SPAN ID="hue437"><B>PWTK</B></SPAN>'s scripts is similar to that of
+PW<SMALL>SCF</SMALL>'s input file, but notice that both Fortran namelists
+(e.g. <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">&amp;CONTROL .... /</SPAN></SPAN>) and cards (e.g. <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">ATOMIC_SPECIES</SPAN></SPAN>)
+are enclosed with curly braces (e.g. <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">CONTROL { ... }</SPAN></SPAN>). The
+curly braces are due to the fact that the <SPAN ID="hue450"><B>PWTK</B></SPAN> package is written in
+T<SMALL>CL</SMALL> scripting language.
+
+<P>
+The last line of the above <SPAN ID="hue453"><B>PWTK</B></SPAN> script (i.e. <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">runPW si.scf</SPAN></SPAN>)
+requests the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">pw.x</SPAN></SPAN> calculation. Upon execution the <SPAN ID="hue462"><B>PWTK</B></SPAN> will: 
+
+<UL>
+<LI>construct the <SPAN ID="hue465"><SPAN  CLASS="texttt">si.scf.in</SPAN></SPAN> input file from provided data (the
+  pw.x output will be written to file <SPAN ID="hue468"><SPAN  CLASS="texttt">si.scf.out</SPAN></SPAN>),
+</LI>
+<LI>automatically create the temporary directory as specified by the
+  <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">outdir</SPAN></SPAN> variable if the directory does not exist yet, and
+</LI>
+<LI>run the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">pw.x</SPAN></SPAN> calculation.
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00014000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Syntax of the PWTK scripts</A>
+</H2>
+
+<P>
+Here are main <B>syntactic attributes</B> of the <SPAN ID="hue477"><B>PWTK</B></SPAN> scripts:
+
+<P>
+
+<UL>
+<LI><SPAN ID="hue480"><B>PWTK</B></SPAN> scripts are case-sensitive: the names of namelists and
+  cards are written in uppercase; e.g. to use <SPAN  CLASS="texttt">control</SPAN> instead
+  of <SPAN  CLASS="texttt">CONTROL</SPAN> will produce the error: <SPAN  CLASS="texttt">invalid command
+    name "control" ...</SPAN>
+
+<P>
+</LI>
+<LI>beware that also the names of namelist
+  variables are case-sensitive in <SPAN ID="hue483"><B>PWTK</B></SPAN>.  This implies that, e.g.,
+  <SPAN  CLASS="texttt">ibrav</SPAN> and <SPAN  CLASS="texttt">IBRAV</SPAN> are too different namelist
+  variables.
+
+<P>
+</LI>
+<LI>namelists and cards are bracketed with curly braces or double-quotes,
+  e.g. <SPAN  CLASS="texttt">CONTROL { ... }</SPAN> or <SPAN  CLASS="texttt">CONTROL " ... "</SPAN>, e.g.:
+<PRE>
+# either with curly braces
+SYSTEM { 
+   celldm(1) = 10.2 
+}
+
+# or with double-quotes
+SYSTEM " 
+   celldm(1) = $a 
+"
+</PRE>
+
+<P>
+</LI>
+<LI>the difference between curly braces { } and
+  double-quotes " " is that inside the double-quotes the
+  variable <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">$a</SPAN></SPAN> is substituted by its value, whereas inside curly
+  braces the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">$a</SPAN></SPAN> would be treated literally (i.e. no substitution).
+
+<P>
+</LI>
+<LI>once a given namelist variable is set, it can be unset by
+  assigning it an &ldquo;empty&rdquo; value as follows:
+<PRE>
+# a namelist variable is unset as follows:
+SYSTEM {
+    celldm(3) = 
+}
+</PRE>
+
+<P>
+</LI>
+<LI>numbers can be specified as mathematical expressions:
+  math-parsing is enabled for all cards and all (majority) real type namelist
+  variables. Here is an example:
+  <PRE>
+SYSTEM { 
+   ecutrho = 12*30.0
+}
+</PRE>
+
+<P>
+</LI>
+<LI>indices of <I>ntyp</I>-type array variables, such as
+  <SPAN  CLASS="texttt">starting_magnetization</SPAN>, can be specified with atomic
+  labels:
+  <PRE>
+SYSTEM { 
+   starting_magnetization(Fe) = -0.8
+}
+</PRE>
+  where species <SPAN  CLASS="texttt">Fe</SPAN> is one among atomic species defined by
+  <SPAN  CLASS="texttt">ATOMIC_SPECIES</SPAN> card
+
+<P>
+</LI>
+<LI>the <SPAN ID="hue492"><B>PWTK</B></SPAN> scripts are actually Tcl scripts, which means that
+  one can use all standard Tcl commands.
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00015000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">5</SPAN> Example: running multiple calculations</A>
+</H2>
+
+<P>
+One of the strengths of the <SPAN ID="hue495"><B>PWTK</B></SPAN> is the possibility to (re)assign
+the value of namelist's variable or the content of a given card at
+will. This comes handy when performing multiple calculations, where
+only a few parameters change per run, while the majority of the input
+data is common to all runs.
+
+<P>
+Let us perform a few tests on Si bulk example. We will first construct
+a common script that will be used by all calculations. Let us call it
+<SPAN ID="hue498"><SPAN  CLASS="texttt">Si_common.pwtk</SPAN></SPAN>:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:70%;">
+<TR><TD>
+    <SPAN CLASS="FOOTNOTESIZE"><PRE>
+CONTROL {
+         title = 'Si bulk'
+   calculation = 'scf' ,
+  restart_mode = 'from_scratch' ,
+        outdir = 'Si_example/' ,
+    pseudo_dir = '/home/tone/pw/pseudo/' ,
+} 
+ 
+SYSTEM {
+         ibrav = 2,
+     celldm(1) = 10.2,
+           nat = 2,
+          ntyp = 1,
+       ecutwfc = 18.0 ,
+       ecutrho = 4*18.0 ,
+}
+
+ELECTRONS {
+      conv_thr = 1d-7,
+}
+
+ATOMIC_SPECIES {
+   Si  1.00  Si.vbc 
+}
+
+ATOMIC_POSITIONS alat {
+   Si    0.0   0.0   0.0
+   Si    1/4   1/4   1/4
+}
+
+K_POINTS automatic {
+  4 4 4   1 1 1 
+}
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+Now let's make a script that will scan the energy-cutoff
+(<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">ecutwfc</SPAN></SPAN>), k-point mesh, and lattice parameter
+(<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">celldm(1)</SPAN></SPAN>). Let's call this file <SPAN ID="hue507"><SPAN  CLASS="texttt">scan.pwtk</SPAN></SPAN>.
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:100%;">
+<TR><TD>
+    <SPAN CLASS="FOOTNOTESIZE"><PRE>
+# load the common definitions
+
+source Si_common.pwtk
+
+#------------------------
+# scan the energy-cuttofs
+#------------------------
+
+foreach e {10.0 14.0 18.0 22.0} {
+
+   # load the new energy-cuttofs
+   SYSTEM "ecutwfc = $e, ecutrho = 4*$e"
+
+   # perform the calculation (io files: Si_e$e.scf.in|out)
+   runPW Si_e$e.scf
+}
+
+
+#-----------------
+# scan the kpoints
+#-----------------
+ 
+# say that we want to perform this at 18.0 Ry 
+SYSTEM "ecutwfc = 18.0, ecutrho = 4*18.0"
+
+foreach k {2 4 6} {
+
+   # load new k-points
+   K_POINTS automatic "$k $k $k   1 1 1"
+
+   # perform the calculation (io files: Si_k$k.scf.in|out)
+   runPW Si_k$k.scf
+}
+
+
+#---------------------------
+# scan the lattice-parameter
+#---------------------------
+
+# say that we want to perform this at the following k-mesh
+K_POINTS automatic "4 4 4   1 1 1"
+
+foreach a {9.2 9.4 9.6 9.8 10.0 10.2 10.4 10.6 10.8} {
+
+   # load new celldm(1)
+   SYSTEM " celldm(1) = $a "
+
+   # perform the calculation (io files: Si_a$a.scf.in|out)
+   runPW Si_a$a.scf
+}
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+We run this script by executing: <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">pwtk scan.pwtk</SPAN></SPAN>. Notice from
+this example that the namelist variables and cards can be reassigned
+at will.
+
+<P>
+
+<H1><A ID="SECTION00020000000000000000">
+<SPAN CLASS="arabic">2</SPAN> Input data stacking</A>
+</H1>
+
+<P>
+<SPAN ID="hue513"><B>PWTK</B></SPAN> allows for input data stacking, which is useful when performing
+multiple calculations. For example, we want a set of default
+parameters for all calculations, but each individual calculation
+require some modification of input data. We don't want that a change
+of input data for a given calculation affects the input data for other
+calculations. This can be done by organizing input data into a stack,
+and for this purpose <SPAN ID="hue516"><B>PWTK</B></SPAN> provide <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">input_push</SPAN></SPAN> and
+<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">input_pop</SPAN></SPAN> commands. The concept is illustrated below:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:70%;">
+<TR><TD>
+    <SPAN CLASS="FOOTNOTESIZE"><PRE>
+... define default set of parameters (#0)
+
+# 1st calculation 
+
+input_push
+   # input data has been pushed on the stack;
+   # at this point the input data is the same as in (#0)
+ 
+   ... modify input data for this calculation (#1)
+   ... perform 1st calculation
+input_pop
+
+# the "input_pop" has removed the input data modification (#1),
+# i.e. input data (#1) has been popped from the stack;
+# at this point the input data is the same as in (#0)
+
+# 2nd calculation
+
+input_push
+   # input data still the same as in (#0)
+ 
+   ... modify input data for this calculation (#2)
+   ... perform 2nd calculation
+input_pop
+
+# at this point the input data is again the same as in (#0)
+</PRE></SPAN>
+</TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+As a convenience, there is also the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">input_pushpop { ... }</SPAN></SPAN>
+command, which behaves as the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">input_push ... input_pop</SPAN></SPAN> pair,
+i.e.:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:70%;">
+<TR><TD>
+    <SPAN CLASS="FOOTNOTESIZE"><PRE>
+# example of input_push/input_pop pair
+
+input_push
+   ... modify input data
+   ... perform calculation
+input_pop
+
+# the same example using the input_pushpop { ... } command
+
+input_pushpop {
+   ... modify input data
+   ... perform calculation
+}
+</PRE></SPAN>
+</TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H1><A ID="SECTION00030000000000000000">
+<SPAN CLASS="arabic">3</SPAN> Customizing the  PWTK</A>
+</H1>
+
+<P>
+<SPAN ID="hue531"><B>PWTK</B></SPAN> customization (configuration) files are stored in
+<SPAN ID="hue534"><SPAN  CLASS="texttt">$HOME/.pwtk/</SPAN></SPAN>&nbsp; directory, and the main customization file
+therein is <SPAN ID="hue537"><SPAN  CLASS="texttt">pwtk.tcl</SPAN></SPAN>.  In this file the following items are
+defined (actually default values for those items):
+
+<P>
+
+<UL>
+<LI>the way the PW<SMALL>SCF</SMALL> executables are run: these include prefix,
+  postfix, and the binary directory, where the PW<SMALL>SCF</SMALL> executables are
+  located.
+</LI>
+<LI>directory where pseudo-potential files are located, and
+  temporary directories (outdir, wfcdir)
+</LI>
+<LI>whatever user-defined stuff and extensions
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00031000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Main configuration file: $HOME/.pwtk/pwtk.tcl</A>
+</H2>
+
+<P>
+Here is an example of the <SPAN ID="hue542"><SPAN  CLASS="texttt">$HOME/.pwtk/pwtk.tcl</SPAN></SPAN> file:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:100%;">
+<TR><TD>
+  <SPAN CLASS="FOOTNOTESIZE">
+<BR>
+<PRE  CLASS="verbatim"># ------------------------------------------------------------------------
+# 
+# File: pwtk.tcl -- PWTK main configuration file (simplified version)
+#
+# This is a main configuration file for Pwtk. It contains some custom
+# definitions, such as the PWscf executables and alike.
+#
+# ------------------------------------------------------------------------
+
+
+
+#
+# HOW TO RUN QUANTUM ESPRESSO EXECUTABLES ...
+# 
+# They are run as: prefix bin_dir/program postfix
+
+prefix  "mpirun -np 8"
+postfix ""
+bin_dir /home/tone/src/espresso-5.1/bin
+
+
+# if you wish to define some individual executables explicitly,
+# uncomment appropriate lines below, and set the full-path name
+# accordingly.
+
+# pw       /full/path/to/pw.x
+# pp       /full/path/to/pp.x
+# ph       /full/path/to/ph.x
+# projwfc  /full/path/to/projwfc.x
+
+
+
+#
+# DEFAULT DIRECTORIES ...
+#
+
+# default pseudo_dir
+pseudo_dir    $env(HOME)/pw/pseudo
+
+# top (root) directory where the scatch files will be written
+# (i.e. outdir == outdir_prefix/outdir_postfix)
+
+# either:
+outdir_prefix /scratch/$env(USER)/pw
+wfcdir_prefix /scratch/$env(USER)/pw
+
+# or:
+#outdir        /scratch/$env(USER)/pw/[pid]
+#wfcdir        /scratch/$env(USER)/pw/[pid]
+
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+In this file, the following data are specified:
+
+<UL>
+<LI>location of the <SPAN  CLASS="texttt">PWscf</SPAN> (or <SPAN  CLASS="texttt">Quantum ESPRESSO</SPAN>)
+  executables and how to run them in parallel
+</LI>
+<LI>default directory of where the pseudo-potentials are located
+</LI>
+<LI>default locations for temporary directories, such as,
+  <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">outdir</SPAN></SPAN> and <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">wfcdir</SPAN></SPAN> (the <SPAN ID="hue551"><B>PWTK</B></SPAN> will insert their values
+  in the corresponding input files automatically, when those variables
+  were not explicitly defined in the input data specification).
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00032000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of configuration files</A>
+</H2>
+
+<P>
+The list of configuration files includes:
+
+<UL>
+<LI><A ID="tex2html2"
+  HREF="file:config/pwtk.tcl"><SPAN ID="hue554"><SPAN  CLASS="texttt">pwtk.tcl</SPAN></SPAN></A>
+--
+  main configuration file
+  </LI>
+<LI><A ID="tex2html3"
+  HREF="file:config/pwi.tcl"><SPAN ID="hue557"><SPAN  CLASS="texttt">pwi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to pw.x input data (e.g. definition of
+  all namelists variables for math-parsing)
+  </LI>
+<LI><A ID="tex2html4"
+  HREF="file:config/phi.tcl"><SPAN ID="hue560"><SPAN  CLASS="texttt">phi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to ph.x input data
+  </LI>
+<LI><A ID="tex2html5"
+  HREF="file:config/nebi.tcl"><SPAN ID="hue563"><SPAN  CLASS="texttt">nebi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to neb.x input data
+  </LI>
+<LI><A ID="tex2html6"
+  HREF="file:config/ppi.tcl"><SPAN ID="hue566"><SPAN  CLASS="texttt">ppi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to pp.x input data
+  </LI>
+<LI><A ID="tex2html7"
+  HREF="file:config/pri.tcl"><SPAN ID="hue569"><SPAN  CLASS="texttt">pri.tcl</SPAN></SPAN></A>
+--
+  configuration file related to projwfc.x input data
+  </LI>
+<LI><A ID="tex2html8"
+  HREF="file:config/mpdi.tcl"><SPAN ID="hue572"><SPAN  CLASS="texttt">mpdi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to molecularpdos.x input data
+  </LI>
+<LI><A ID="tex2html9"
+  HREF="file:config/bi.tcl"><SPAN ID="hue575"><SPAN  CLASS="texttt">bi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to bands.x input data
+  </LI>
+<LI><A ID="tex2html10"
+  HREF="file:config/di.tcl"><SPAN ID="hue578"><SPAN  CLASS="texttt">di.tcl</SPAN></SPAN></A>
+--
+  configuration file related to dos.x input data
+  </LI>
+<LI><A ID="tex2html11"
+  HREF="file:config/dmi.tcl"><SPAN ID="hue581"><SPAN  CLASS="texttt">dmi.tcl</SPAN></SPAN></A>
+--
+  configuration file related to dynmat.x input data
+  </LI>
+<LI><A ID="tex2html12"
+  HREF="file:config/eos.tcl"><SPAN ID="hue584"><SPAN  CLASS="texttt">eos.tcl</SPAN></SPAN></A>
+--
+  configuration file related to equation-of-state utility
+  (i.e. lattice parameter and bulk modulus search)
+  </LI>
+<LI><A ID="tex2html13"
+  HREF="file:config/slurm.tcl"><SPAN ID="hue587"><SPAN  CLASS="texttt">slurm.tcl</SPAN></SPAN></A>
+--
+  configuration file for specifying SLURM batch queuing directives
+  </LI>
+<LI><A ID="tex2html14"
+  HREF="file:config/ll.tcl"><SPAN ID="hue590"><SPAN  CLASS="texttt">ll.tcl</SPAN></SPAN></A>
+--
+  configuration file for Load-Leveler batch queuing directives
+  </LI>
+<LI><A ID="tex2html15"
+  HREF="file:config/lsf.tcl"><SPAN ID="hue593"><SPAN  CLASS="texttt">lsf.tcl</SPAN></SPAN></A>
+--
+  configuration file for Platform-LSF batch queuing directives
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00033000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Configuring batch queuing system support</A>
+</H2>
+
+<P>
+When running calculations via batch queuing system one needs to
+provide some batch queuing system specific instructions in the shell
+script files, such as the name of the queue, number of processors,
+some other resources, etc. Instead of putting this instructions in
+each shell script (or <SPAN ID="hue596"><B>PWTK</B></SPAN> script, if one is using <SPAN ID="hue599"><B>PWTK</B></SPAN> instead),
+the queuing system specific instructions can be stored in the
+corresponding <SPAN ID="hue602"><B>PWTK</B></SPAN>'s configuration file
+(e.q. <SPAN ID="hue605"><SPAN  CLASS="texttt">$HOME/.pwtk/slurm.tcl</SPAN></SPAN>, <SPAN ID="hue608"><SPAN  CLASS="texttt">$HOME/.pwtk/ll.tcl</SPAN></SPAN> or <SPAN ID="hue611"><SPAN  CLASS="texttt">$HOME/.pwtk/lsf.tcl</SPAN></SPAN>). One can define different sets of
+instructions. We will call this sets of instructions &ldquo;profiles&rdquo;. Let
+us see an example, where two different profiles are defined for
+Load-Leveler in configuration file <SPAN ID="hue614"><SPAN  CLASS="texttt">$HOME/.pwtk/ll.tcl</SPAN></SPAN>:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:70%;">
+<TR><TD>
+<SPAN CLASS="FOOTNOTESIZE"><PRE>
+# ------------------------------------------------------------------------
+# 
+# ll == Load-Leveler
+#
+# This is a configuration file for Pwtk's Load-Leveler support: $HOME/.pwtk/ll.tcl
+#
+# ------------------------------------------------------------------------
+
+set profile(parallel) {
+    #!/bin/sh
+    # @ job_name         = XXXX
+    # @ job_type         = parallel
+    # @ class            = parallel
+    # @ wall_clock_limit = 6:00:00
+    # @ network.MPI      = csss,shared,us
+    # @ blocking         = 1
+    # @ total_tasks      = 16
+    # @ output           = $(job_name).out
+    # @ error            = $(job_name).err
+    # @ notification     = never
+    # @ resources        = ConsumableCpus(1) ConsumableMemory(512 MB)
+    # @ queue
+}
+
+set profile(longpar) {
+    #!/bin/sh
+    # @ job_name         = XXXX
+    # @ job_type         = parallel
+    # @ class            = longpar
+    # @ wall_clock_limit = 24:00:00
+    # @ network.MPI      = csss,shared,us
+    # @ blocking         = 1
+    # @ total_tasks      = 16
+    # @ output           = $(job_name).out
+    # @ error            = $(job_name).err
+    # @ notification     = never
+    # @ resources        = ConsumableCpus(1) ConsumableMemory(512 MB)
+    # @ queue
+}
+
+# let's make parallel profile a default one
+
+set profile(default) $profile(parallel)
+</PRE></SPAN>
+</TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+In this example two profiles are defined with the <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">profile</SPAN></SPAN> variable (technically speaking <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">profile</SPAN></SPAN> is an associated array),
+which are named as <EM>parallel</EM> and <EM>longpar</EM>. The last line of
+the script sets the <EM>parallel</EM> profile as a default-profile.  A
+given profile can be requested in the <SPAN ID="hue623"><B>PWTK</B></SPAN> script with the
+<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">***_setHead</SPAN></SPAN> command, where *** stands for given batch queing
+system (e.q. <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">slurm_setHead</SPAN></SPAN>, <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">ll_setHead</SPAN></SPAN>,
+<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">lsf_setHead</SPAN></SPAN>). For example, for Load-Leveler that would be:
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:70%;">
+<TR><TD>
+<SPAN CLASS="FOOTNOTESIZE"><PRE>
+# whatever we want to calculated
+# ... INSERT HERE ...
+
+# request the longpar profile
+
+ll_setHead longpar -total_tasks 32 
+
+# here the script continues
+# ...
+</PRE></SPAN>
+</TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+In the above call to <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">ll_setHead</SPAN></SPAN> we have also specified an
+option <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">-total_tasks</SPAN></SPAN>, which overwrites the default
+<SPAN  CLASS="textbf"><SPAN  CLASS="texttt">total_tasks = 16</SPAN></SPAN>&nbsp; specification as specified in the
+configuration file.
+
+<P>
+
+<H2><A ID="SECTION00034000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Configuring math parser</A>
+</H2>
+
+<P>
+As for the input data specified in the <SPAN ID="hue647"><B>PWTK</B></SPAN> scripts (namelist and
+cards), floating-point numbers can be specified as mathematical
+expressions. Math-parsing is enabled for all cards and for namelist
+variables of real type. For the latter, the <SPAN ID="hue650"><B>PWTK</B></SPAN> needs to know which
+of the namelist variables are of real type. This is specified in
+configuration files (<SPAN ID="hue653"><SPAN  CLASS="texttt">pwi.tcl</SPAN></SPAN>, <SPAN ID="hue656"><SPAN  CLASS="texttt">phi.tcl</SPAN></SPAN>, <SPAN ID="hue659"><SPAN  CLASS="texttt">ppi.tcl</SPAN></SPAN>,
+<SPAN ID="hue662"><SPAN  CLASS="texttt">pri.tcl</SPAN></SPAN>). Here is an example for the <B>pp.x</B> namelists
+(file: <SPAN ID="hue665"><SPAN  CLASS="texttt">$HOME/.pwtk/ppi.tcl</SPAN></SPAN>):
+
+<P>
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:100%;">
+<TR><TD>
+  <SPAN CLASS="FOOTNOTESIZE">
+<BR>
+<PRE  CLASS="verbatim">#------------------------------------------------------------------------
+# Default configuration file for pp.x input
+#------------------------------------------------------------------------
+
+#
+# Here is a LIST OF NAMELIST VARIABLES for which the MATH-PARSING is
+# ENABLED. It is safe to math-parse all variables of REAL type.
+#
+# If the variable is not a scalar, but a vector, matrix, ... then mark
+# it by a "(*)" postfix, like: celldm(*)
+#
+
+namespace eval ::pwtk {
+
+    #
+    # INPUTPP namelist
+    #
+    set mathparse_variables(INPUTPP) {
+	emin
+	emax
+	epsilon
+        sample_bias
+    }
+    
+    
+    #
+    # PLOT namelist
+    #
+    set mathparse_variables(PLOT) {
+	weight(*) 
+	e1(*)
+	e2(*)
+	e3(*)
+	x0(*)
+	radius
+    }
+}
+</PRE></SPAN>
+  </TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H1><A ID="SECTION00040000000000000000">
+<SPAN CLASS="arabic">4</SPAN> Math parser</A>
+</H1>
+
+<P>
+As specified above floating-point numbers can be specified as
+mathematical expressions. Here is an example expression:
+1/4*exp(2*log(0.23)). Here is how this is used for specifying input
+data:
+
+<P>
+<TABLE class="PAD " style="">
+<TR><TD CLASS="LEFT"><TABLE   STYLE="width:100%;">
+<TR><TD>
+  <SPAN CLASS="FOOTNOTESIZE"><PRE>
+SYSTEM { celldm(1) = 7.5*sqrt(2)*$angs2bohr }
+ATOMIC_POSITIONS alat {
+   Si    0.0   0.0   0.0
+   Si    1/4   1/4   1/4
+}
+</PRE></SPAN>
+ </TD></TR>
+</TABLE></TD>
+</TR>
+</TABLE>
+
+<P>
+<B>IMPORTANT:</B> mathematical expression should be written without any
+whitespaces or else should be double-quoted, e.g:
+<SPAN  CLASS="texttt">1/4&nbsp;*&nbsp;sqrt(2)</SPAN> will be treated as three separate input-fields
+and the parser will return
+<SPAN  CLASS="texttt">.25000000000000000000&nbsp;*&nbsp;1.41421356237309504880</SPAN>, whereas
+<SPAN  CLASS="texttt">"1/4&nbsp;*&nbsp;sqrt(2)"</SPAN> would return <SPAN  CLASS="texttt">.35355339059327376220</SPAN>.
+
+<P>
+Notice the use of <SPAN  CLASS="textbf"><SPAN  CLASS="texttt">$angs2bohr</SPAN></SPAN> in the example above. This a
+predefined constant (a conversion factor from &#197; to Bohr units).
+
+<P>
+
+<H2><A ID="SECTION00041000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> List of predefined constants</A>
+</H2>
+
+<P>
+Here is a list of predefined constant that can be used in
+mathematical expressions, and their values:
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="texttt">$bohr2angs</SPAN> -- 0.52917721092 
+</LI>
+<LI><SPAN  CLASS="texttt">$angs2bohr</SPAN> -- 1.0/<SPAN  CLASS="texttt">$angs2bohr</SPAN> 
+</LI>
+<LI><SPAN  CLASS="texttt">$ry2ev</SPAN> -- 13.60569253 
+</LI>
+<LI><SPAN  CLASS="texttt">$ev2ry</SPAN> -- 1.0/<SPAN  CLASS="texttt">$ry2ev</SPAN> 
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00042000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> List of mathematical functions</A>
+</H2>
+
+<P>
+Here is a list of supported mathematical functions (actually this are
+functions supported by the Tcl):
+
+<P>
+
+<UL>
+<LI><B>abs</B>(<I>number</I>) -- returns the absolute value of <I>number</I>. <I>number</I> may be
+  either integer or floating-point, and the result is returned in the
+  same form;
+
+<P>
+</LI>
+<LI><B>acos</B>(<I>number</I>) --
+    returns the arc cosine of <I>number</I>, in the range [0,<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>] radians. <I>number</I> should be in the range [-1,1];
+
+<P>
+</LI>
+<LI><B>asin</B>(<I>number</I>) --
+    returns the arc sine of <I>number</I>, in the range [-<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>/2,<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>/2] radians. <I>number</I> should be in the range [-1,1];
+
+<P>
+</LI>
+<LI><B>atan</B>(<I>number</I>) -- 
+    returns the arc tangent of <I>number</I>, in the range [-<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>/2,<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>/2] radians;
+
+<P>
+</LI>
+<LI><B>atan2</B>(<I>x</I>, <I>y</I>) -- 
+    returns the arc tangent of <I>y/x</I>, in the range [-<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>,<SPAN CLASS="MATH"><IMG STYLE="height: 1.21ex; vertical-align: -0.11ex; " SRC="img1.svg"
+ ALT="$\pi$"></SPAN>] radians. <I>x</I> and <I>y</I> cannot both be 0;
+
+<P>
+</LI>
+<LI><B>ceil</B>(<I>number</I>) -- 
+    returns the smallest integer value not less than <I>number</I>;
+
+<P>
+</LI>
+<LI><B>cos</B>(<I>number</I>) -- 
+    returns the cosine of <I>number</I>, measured in radians;
+
+<P>
+</LI>
+<LI><B>cosh</B>(<I>number</I>) -- 
+    returns the hyperbolic cosine of <I>number</I>. If the result would cause an overflow, an error is returned;
+
+<P>
+</LI>
+<LI><B>double</B>(<I>number</I>) -- 
+    if <I>number</I> is a floating value, returns <I>number</I>, otherwise converts <I>number</I> to floating and returns the converted value;
+
+<P>
+</LI>
+<LI><B>exp</B>(<I>number</I>) -- 
+    returns the exponential of <I>number</I>. If the result would cause an overflow, an error is returned;
+
+<P>
+</LI>
+<LI><B>floor</B>(<I>number</I>) -- 
+    returns the largest integral value not greater than <I>number</I>;
+
+<P>
+</LI>
+<LI><B>fmod</B>(<I>x</I>, <I>y</I>) -- 
+    returns the floating-point remainder of the division of <I>x</I> by <I>y</I>. If <I>y</I> is 0, an error is returned;
+
+<P>
+</LI>
+<LI><B>hypot</B>(<I>x</I>, <I>y</I>) -- computes the length of the
+    hypotenuse of a right-angled triangle (<I>x*x</I> + <I>y*y</I>);
+
+<P>
+</LI>
+<LI><B>int</B>(<I>number</I>) -- 
+    if <I>number</I> is an integer value, returns <I>number</I>, otherwise converts <I>number</I> to integer by truncation and returns the converted value;
+
+<P>
+</LI>
+<LI><B>log</B>(<I>number</I>) -- 
+    returns the natural logarithm of <I>number</I>. <I>number</I> must be a positive value;
+
+<P>
+</LI>
+<LI><B>log10</B>(<I>number</I>) -- 
+    returns the base 10 logarithm of <I>number</I>. <I>number</I> must be a positive value;
+
+<P>
+</LI>
+<LI><B>pow</B>(<I>x</I>, <I>y</I>) -- 
+    computes the value of <I>x</I> raised to the power <I>y</I>. If <I>x</I> is negative, <I>y</I> must be an integer value;
+
+<P>
+</LI>
+<LI><B>rand</B>() -- 
+    returns a floating point number from zero to just less than one or, in mathematical terms, the range [0,1). The seed comes from the internal clock of the machine or may be set manual with the srand function;
+
+<P>
+</LI>
+<LI><B>round</B>(<I>number</I>) -- 
+    if <I>number</I> is an integer value, returns <I>number</I>, otherwise converts <I>number</I> to integer by rounding and returns the converted value;
+
+<P>
+</LI>
+<LI><B>sin</B>(<I>number</I>) -- 
+    returns the sine of <I>number</I>, measured in radians;
+
+<P>
+</LI>
+<LI><B>sinh</B>(<I>number</I>) -- 
+    returns the hyperbolic sine of <I>number</I>. If the result would cause an overflow, an error is returned;
+
+<P>
+</LI>
+<LI><B>sqrt</B>(<I>number</I>) -- 
+    returns the square root of <I>number</I>. <I>number</I> must be non-negative;
+
+<P>
+</LI>
+<LI><B>srand</B>(<I>number</I>) -- 
+    the <I>number</I>, which must be an integer, is used to reset the seed for the random number generator. Returns the first random number from that seed. Each interpreter has it's own seed;
+
+<P>
+</LI>
+<LI><B>tan</B>(<I>number</I>) -- 
+    returns the tangent of <I>number</I>, measured in radians;
+
+<P>
+</LI>
+<LI><B>tanh</B>(<I>number</I>) -- 
+    returns the hyperbolic tangent of <I>number</I>.
+</LI>
+</UL>
+<H1><A ID="SECTION00050000000000000000">
+About this document ...</A>
+</H1>
+ <STRONG>PWTK's Tutorial</STRONG><P>
+This document was generated using the
+<A HREF="http://www.latex2html.org/">LaTeX2HTML</A> translator Version 2019 (Released January 1, 2019)
+<P>
+The command line arguments were: <BR>
+ <kbd>latex2html -split 1 -t 'PWTK's Tutorial' -no_navigation -toc_stars -show_section_numbers -link 4 -toc_depth 4 tutorial.tex</kbd>
+<P>
+The translation was initiated on 2019-11-12
+<BR><HR>
+
+</BODY>
+</HTML>

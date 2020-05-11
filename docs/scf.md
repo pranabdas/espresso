@@ -5,20 +5,20 @@
 + We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}. The input files are typically named with a prefix `.in`. In inputs are organized as `&namelists` followed by their fields or cards. The `&control`, `&system`, and `&electrons` namelists are required. There are also optional `&cell` and  `&ions`, you must provide them if your calculation require them. Most variables in the namelist have certain default values (which may or may not fit your needs), however some variables you must always provide. Comment lines can be added with lines starting with a `!` like in Fortran. 
 ```
 &CONTROL
-!   we want to perform self consistent field calculation 
-    calculation = 'scf', 
+! we want to perform self consistent field calculation 
+  calculation = 'scf', 
 
-!   prefix is reference to the output files. Outputs will be saved in <prefix>.save 
-    prefix = 'silicon', 
+! prefix is reference to the output files. Outputs will be saved in <prefix>.save 
+  prefix = 'silicon', 
 
-!   output directory. Note that it is deprecated. 
-    outdir = './tmp/' 
+! output directory. Note that it is deprecated. 
+  outdir = './tmp/' 
 
-!   directory for the pseudo potential directory 
-    pseudo_dir = './' 
+! directory for the pseudo potential directory 
+  pseudo_dir = './' 
 
-!   verbosity high will give more details on the output file
-    verbosity = 'high'
+! verbosity high will give more details on the output file
+  verbosity = 'high'
 /
 
 &SYSTEM
@@ -36,6 +36,9 @@
 
 ! kinetic energy cutoff for wavefunctions in Ry
   ecutwfc = 25 
+
+! number of bands to calculate 
+  nbnd = 8
 /
 
 &ELECTRONS
@@ -51,7 +54,6 @@ ATOMIC_POSITIONS (alat)
 
 K_POINTS (automatic)
   6 6 6 1 1 1
-
 ```
 
 + I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
@@ -86,7 +88,41 @@ estimated scf accuracy    <       0.00000086 Ry
 The total energy is the sum of the following terms:
 ```
 
-##### Convergence testing
+#### Convergence testing using `pwtk` 
+We can automate the above self consistent calculation by varying a certain parameter. Say we want to check the total energy of the system for various values of `ecutwfc`. We can do that by using `pwtk` script. 
+``` 
+# load the pw.x input from file
+load_fromPWI si.scf.in
+
+# open a file for writing resulting total energies
+set fid [open Etot-vs-ecutwfc.dat w]
+
+# loop over different "ecut" values
+foreach ecut { 12 16 20 24 28 32 } {
+
+    # name of I/O files: $name.in & $name.out
+    set name pw.Si.scf.ecutwfc-$ecut
+
+    # set the pw.x "ecutwfc" variable
+    SYSTEM "ecutwfc = $ecut"
+
+    # run the pw.x calculation
+    runPW $name.in
+
+    # extract the "total energy" and write it to file
+    set Etot [::pwtk::pwo::totene $name.out]
+    puts $fid "$ecut $Etot"
+} 
+
+close $fid
+
+``` 
+To run the above script: 
+```
+pwtk ecutwfc.pwtk
+```
+
+#### Convergence testing using UNIX shell script 
 + We can do the convergence test with various parameters. We can calculate the total energy of the system by varying various parameters. We will use the shell script ([si.script.sh](https://github.com/pranabdas/qe-dft/){:target="_blank"}) to automate the process with different cutoff energy values. `./si.script.sh`
 ```
 #!/bin/sh

@@ -1,18 +1,18 @@
 &CONTROL
-!   we want to perform self consistent field calculation 
-    calculation = 'scf', 
+! we want to perform self consistent field calculation 
+  calculation = 'scf', 
 
-!   prefix is reference to the output files. Outputs will be saved in <prefix>.save 
-    prefix = 'silicon', 
+! prefix is reference to the output files. Outputs will be saved in <prefix>.save 
+  prefix = 'silicon', 
 
-!   output directory. Note that it is deprecated. 
-    outdir = './tmp/' 
+! output directory. Note that it is deprecated. 
+  outdir = './tmp/' 
 
-!   directory for the pseudo potential directory 
-    pseudo_dir = './' 
+! directory for the pseudo potential directory 
+  pseudo_dir = './' 
 
-!   verbosity high will give more details on the output file
-    verbosity = 'high'
+! verbosity high will give more details on the output file
+  verbosity = 'high'
 /
 
 &SYSTEM
@@ -30,6 +30,8 @@
 
 ! kinetic energy cutoff for wavefunctions in Ry
   ecutwfc = 25 
+
+! number of bands to calculate 
   nbnd = 8
 /
 

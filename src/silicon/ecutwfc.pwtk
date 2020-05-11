@@ -1,0 +1,24 @@
+# load the pw.x input from file
+load_fromPWI si.scf.in
+
+# open a file for writing resulting total energies
+set fid [open Etot-vs-ecutwfc.dat w]
+
+# loop over different "ecut" values
+foreach ecut { 12 16 20 24 28 32 } {
+
+    # name of I/O files: $name.in & $name.out
+    set name pw.Si.scf.ecutwfc-$ecut
+
+    # set the pw.x "ecutwfc" variable
+    SYSTEM "ecutwfc = $ecut"
+
+    # run the pw.x calculation
+    runPW $name.in
+
+    # extract the "total energy" and write it to file
+    set Etot [::pwtk::pwo::totene $name.out]
+    puts $fid "$ecut $Etot"
+} 
+
+close $fid
