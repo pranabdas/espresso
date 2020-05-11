@@ -1,18 +1,18 @@
-## Band Calculation
+### Band Calculation
 
-+ Input file for our non-self-consistent band calculation is *[si.bands.in](https://github.com/pranabdas/qe-dft/)*
++ Input file for our non-self-consistent band calculation is [si.bands.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}
 
 + Notice the **K_PATH** in the bottom of the file, which provides the symmetry direction along which we want to calculate the bands.
 
-+ Now run `pw.x` to calculate bands: `~/QE/qe-6.5MaX/bin/pw.x < si.bands.in > si.bands.out`
++ Now run `pw.x` to calculate bands: `~/QE/qe-6.5/bin/pw.x < si.bands.in > si.bands.out`
 
-+ Create the *[bands.in](https://github.com/pranabdas/qe-dft/)* input file
++ Create the [bands.in](https://github.com/pranabdas/qe-dft/){:target="_blank"} input file
 
-+ Run `bands.x` : `~/QE/qe-6.5MaX/bin/bands.x < bands.in > bands.out`
++ Run `bands.x` : `~/QE/qe-6.5/bin/bands.x < bands.in > bands.out`
 
-+ Next run `~/QE/qe-6.5MaX/bin/plotband.x` You will see an interactive terminal, provide in the information correctly.
++ Next run `~/QE/qe-6.5/bin/plotband.x` You will see an interactive terminal, provide in the information correctly.
 #
-        $ ~/QE/qe-6.5MaX/bin/plotband.x
+        $ ~/QE/qe-6.5/bin/plotband.x
              Input file > bands.dat
         Reading    8 bands at     36 k-points
         Range:   -5.8840   16.0560eV  Emin, Emax > -6 16

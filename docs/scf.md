@@ -1,14 +1,14 @@
-## Self consistent calculation for silicon
+### Self consistent calculation for silicon
 
 + Let us create a new directory for our silicon calculations. Go to the directory using terminal.
 
-+ We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is *[si.scf.in](https://github.com/pranabdas/qe-dft/)*
++ We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}
 
-+ We will also need the pseudo potential file for silicon. I am using one (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials).
++ We will also need the pseudo potential file for silicon. I am using one (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}.
 
-+ Run `pw.x` in self consistent mode for silicon. `~/QE/qe-6.5MaX/bin/pw.x < si.scf.in > si.scf.out`
++ Run `pw.x` in self consistent mode for silicon. `~/QE/qe-6.5/bin/pw.x < si.scf.in > si.scf.out`
 
-+ Now let’s look at the output file `si.scf.out` and see how the convergence is reached: `grep -e 'total energy' -e estimate si.scf.out` and you should see something like this:
++ Now let’s look at the output file `si.scf.out` and see how the convergence is reached: `grep -e 'total energy' -e estimate si.scf.out` and you should see something like this: 
 #
         $ grep -e 'total energy' -e estimate si.scf.out
          total energy              =     -15.84919929 Ry
@@ -26,10 +26,10 @@
          The total energy is the sum of the following terms:
 
 
-## Convergence testing
-+ We can do the convergence test with various parameters. We can calculate the total energy of the system by varying various parameters. We will use the shell script (*[si.script.sh](https://github.com/pranabdas/qe-dft/)* ) to automate the process with different cutoff energy values. `./si.script.sh`
+### Convergence testing
++ We can do the convergence test with various parameters. We can calculate the total energy of the system by varying various parameters. We will use the shell script ([si.script.sh](https://github.com/pranabdas/qe-dft/){:target="_blank"}) to automate the process with different cutoff energy values. `./si.script.sh`
 
-+ We can plot the energy vs cut off energy, and choose a reasonable value.
++ We can plot the energy vs cut off energy, and choose a reasonable value. 
 
 **Note:** I had initially problem is running the script in MacOS. The problem was the script file format was set to DOS. The file format of a script (.sh) file could be checked in the following way:  
 Open the file in **vi** editor. `vi si.script.sh` Now in **vi** editor command mode (ESC key), type `:set ff?` This would tell you the file format. Now to change file format, use the  command `:set fileformat=unix`

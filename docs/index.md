@@ -1,4 +1,4 @@
-#### Quantum Espresso (DFT) Notes
+### Quantum Espresso (DFT) Notes
 
 Table of contents:  
 
@@ -6,6 +6,4 @@ Table of contents:
 + [Self consistent calculation (for silicon)](scf.md)
 + [Band Calculation](band.md)
 
-The source files used in this tutorial can be found on the Github repository - [https://github.com/pranabdas/qe-dft/](https://github.com/pranabdas/qe-dft/)
-
-I took these notes while trying to learn DFT myself. If you have some feedback, suggestions, please let me know. You can find contact details in my homepage - <https://pranabdas.github.io>
+The source files used in this tutorial can be found on the Github repository - [https://github.com/pranabdas/qe-dft/](https://github.com/pranabdas/qe-dft/){:target="_blank"}
