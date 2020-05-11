@@ -30,7 +30,7 @@
 
 ! kinetic energy cutoff for wavefunctions in Ry
   ecutwfc = 25 
-  nband = 8
+  nbnd = 8
 /
 
 &ELECTRONS
