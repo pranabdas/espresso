@@ -33,7 +33,7 @@ K_POINTS (automatic)
   6 6 6 1 1 1
 EOF
 
-~/qe/qe-6.1/bin/pw.x < ${NAME}_${CUTOFF}.in > ${NAME}_${CUTOFF}.out
+~/qe/qe-6.5/bin/pw.x < ${NAME}_${CUTOFF}.in > ${NAME}_${CUTOFF}.out
 echo ${NAME}_${CUTOFF}
 grep ! ${NAME}_${CUTOFF}.out
 
