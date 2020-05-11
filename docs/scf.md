@@ -2,39 +2,61 @@
 
 + Let us create a new directory for our silicon calculations. Go to the directory using terminal.
 
-+ We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}
++ We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}. The input files are typically named with a prefix `.in`. In inputs are organized as `&namelists` followed by their fields or cards. The `&control`, `&system`, and `&electrons` namelists are required. There are also optional `&cell` and  `&ions`, you must provide them if your calculation require them. Most variables in the namelist have certain default values (which may or may not fit your needs), however some variables you must always provide. Comment lines can be added with lines starting with a `!` like in Fortran. 
 ```
-&control
-    calculation = 'scf',
-    prefix = 'silicon',
-    outdir = './tmp/'
-    pseudo_dir = './'
+&CONTROL
+!   we want to perform self consistent field calculation 
+    calculation = 'scf', 
+
+!   prefix is reference to the output files. Outputs will be saved in <prefix>.save 
+    prefix = 'silicon', 
+
+!   output directory. Note that it is deprecated. 
+    outdir = './tmp/' 
+
+!   directory for the pseudo potential directory 
+    pseudo_dir = './' 
+
+!   verbosity high will give more details on the output file
     verbosity = 'high'
- /
-&system
-    ibrav =  2,
-    celldm(1) = 10.26,
-    nat =  2,
-    ntyp = 1,
-    ecutwfc = 25
-    nbnd = 8
- /
-&electrons
-    mixing_beta = 0.6
- /
+/
+
+&SYSTEM
+! Bravais lattice index, which is 2 for FCC structure
+  ibrav =  2, 
+
+! Lattice constant in BOHR 
+  celldm(1) = 10.26, 
+
+! number of atoms in an unit cell 
+  nat =  2,
+
+! number of different types of atom in the cell 
+  ntyp = 1,
+
+! kinetic energy cutoff for wavefunctions in Ry
+  ecutwfc = 25 
+/
+
+&ELECTRONS
+  mixing_beta = 0.6
+/
 
 ATOMIC_SPECIES
- Si 28.086  Si.pz-vbc.UPF
+  Si 28.086  Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
- Si 0.0 0.0 0.0
- Si 0.25 0.25 0.25
+  Si 0.0 0.0 0.0
+  Si 0.25 0.25 0.25
 
 K_POINTS (automatic)
   6 6 6 1 1 1
+
 ```
 
-+ We will also need the pseudo potential file for silicon. I am using one (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}.
++ I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
+
++ You must read the **PWscf user manual** for in-depth understanding. Check the `PW/Doc/` folder under your installation directory. There is also another file `INPUT_PW.html` regarding the details of input parameters. 
 
 + Run `pw.x` in self consistent mode for silicon. 
 ```
@@ -74,22 +96,22 @@ NAME="ecut"
 for CUTOFF in  10 15 20 25 30 35 40
 do
 cat > ${NAME}_${CUTOFF}.in << EOF
- &control
-    calculation = 'scf',
-    prefix = 'silicon'
-    outdir = './tmp/'
-    pseudo_dir = '/Users/Pranab/Dropbox/Shared/NUS_PC/DFT/Projects/Si/'
- /
- &system
-    ibrav =  2,
-    celldm(1) = 10.0,
-    nat =  2,
-    ntyp = 1,
-    ecutwfc = $CUTOFF
- /
- &electrons
-    mixing_beta = 0.6
- /
+&control
+calculation = 'scf',
+prefix = 'silicon'
+outdir = './tmp/'
+pseudo_dir = '/Users/Pranab/Dropbox/Shared/NUS_PC/DFT/Projects/Si/'
+/
+&system
+ibrav =  2,
+celldm(1) = 10.0,
+nat =  2,
+ntyp = 1,
+ecutwfc = $CUTOFF
+/
+&electrons
+mixing_beta = 0.6
+/
 
 ATOMIC_SPECIES
  Si 28.086  Si.pz-vbc.UPF
@@ -107,7 +129,8 @@ echo ${NAME}_${CUTOFF}
 grep ! ${NAME}_${CUTOFF}.out
 
 done
-```
+``` 
+
 + We can plot the energy vs cut off energy, and choose a reasonable value. 
 
 **Note:** I had initially problem is running the script in macOS. The problem was the script file format was set to DOS. The file format of a script (.sh) file could be checked in the following way:  
