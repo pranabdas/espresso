@@ -15,7 +15,8 @@
   outdir = './tmp/' 
 
 ! directory for the pseudo potential directory 
-  pseudo_dir = './' 
+!  pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/' 
+  pseudo_dir = './'
 
 ! verbosity high will give more details on the output file
   verbosity = 'high'
@@ -35,7 +36,7 @@
   ntyp = 1,
 
 ! kinetic energy cutoff for wavefunctions in Ry
-  ecutwfc = 25 
+  ecutwfc = 30 
 
 ! number of bands to calculate 
   nbnd = 8
@@ -46,16 +47,20 @@
 /
 
 ATOMIC_SPECIES
-  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+#  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  Si 28.086 Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
   Si 0.0 0.0 0.0
   Si 0.25 0.25 0.25
 
 K_POINTS (automatic)
-  6 6 6 1 1 1
+  6 6 6 1 1 1 
+
 ```
-$r_{Bohr} = 0.529~Å$
+$r_{Bohr} = 0.529~Å$$
+
++ I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
 
 + You must read the **PWscf user manual** for in-depth understanding. Check the `PW/Doc/` folder under your installation directory. There is also another file `INPUT_PW.html` regarding the details of input parameters. 
 
@@ -71,17 +76,17 @@ grep -e 'total energy' -e estimate si.scf.out
 ```
 and you should see something like this: 
 ```
-     total energy              =     -22.83815795 Ry
-     Harris-Foulkes estimate   =     -22.85088298 Ry
-     estimated scf accuracy    <       0.05631694 Ry
-     total energy              =     -22.83930867 Ry
-     Harris-Foulkes estimate   =     -22.83996961 Ry
-     estimated scf accuracy    <       0.00508279 Ry
-     total energy              =     -22.83955280 Ry
-     Harris-Foulkes estimate   =     -22.83955238 Ry
-     estimated scf accuracy    <       0.00008429 Ry
-!    total energy              =     -22.83958113 Ry
-     Harris-Foulkes estimate   =     -22.83958126 Ry
-     estimated scf accuracy    <       0.00000090 Ry
+     total energy              =     -15.85014573 Ry
+     Harris-Foulkes estimate   =     -15.86899637 Ry
+     estimated scf accuracy    <       0.06093037 Ry
+     total energy              =     -15.85194177 Ry
+     Harris-Foulkes estimate   =     -15.85292281 Ry
+     estimated scf accuracy    <       0.00462014 Ry
+     total energy              =     -15.85218359 Ry
+     Harris-Foulkes estimate   =     -15.85220235 Ry
+     estimated scf accuracy    <       0.00011293 Ry
+!    total energy              =     -15.85219789 Ry
+     Harris-Foulkes estimate   =     -15.85219831 Ry
+     estimated scf accuracy    <       0.00000099 Ry
      The total energy is the sum of the following terms:
 ```
