@@ -9,7 +9,8 @@
   outdir = './tmp/' 
 
 ! directory for the pseudo potential directory 
-  pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/' 
+!  pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/' 
+  pseudo_dir = './'
 
 ! verbosity high will give more details on the output file
   verbosity = 'high'
@@ -40,11 +41,13 @@
 /
 
 ATOMIC_SPECIES
-  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+#  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  Si 28.086 Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
   Si 0.0 0.0 0.0
   Si 0.25 0.25 0.25
 
 K_POINTS (automatic)
-  6 6 6 1 1 1
+  6 6 6 1 1 1 
+
