@@ -14,8 +14,7 @@
 /
 
 &electrons
-    conv_thr=1e-7
-    mixing_beta = 0.6
+    conv_thr=1e-8
 /
 
 &ions
