@@ -46,7 +46,7 @@
 /
 
 ATOMIC_SPECIES
-  Si 28.086  Si.pz-vbc.UPF
+  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
 
 ATOMIC_POSITIONS (alat)
   Si 0.0 0.0 0.0
@@ -56,8 +56,6 @@ K_POINTS (automatic)
   6 6 6 1 1 1
 ```
 $r_{Bohr} = 0.529~Å$
-
-+ I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
 
 + You must read the **PWscf user manual** for in-depth understanding. Check the `PW/Doc/` folder under your installation directory. There is also another file `INPUT_PW.html` regarding the details of input parameters. 
 
@@ -73,18 +71,17 @@ grep -e 'total energy' -e estimate si.scf.out
 ```
 and you should see something like this: 
 ```
-$ grep -e 'total energy' -e estimate si.scf.out
-total energy              =     -15.84919929 Ry
-Harris-Foulkes estimate   =     -15.86803778 Ry
-estimated scf accuracy    <       0.06085067 Ry
-total energy              =     -15.85098989 Ry
-Harris-Foulkes estimate   =     -15.85196978 Ry
-estimated scf accuracy    <       0.00461281 Ry
-total energy              =     -15.85122603 Ry
-Harris-Foulkes estimate   =     -15.85124499 Ry
-estimated scf accuracy    <       0.00011255 Ry
-!    total energy              =     -15.85123897 Ry
-Harris-Foulkes estimate   =     -15.85123936 Ry
-estimated scf accuracy    <       0.00000086 Ry
-The total energy is the sum of the following terms:
+     total energy              =     -22.83815795 Ry
+     Harris-Foulkes estimate   =     -22.85088298 Ry
+     estimated scf accuracy    <       0.05631694 Ry
+     total energy              =     -22.83930867 Ry
+     Harris-Foulkes estimate   =     -22.83996961 Ry
+     estimated scf accuracy    <       0.00508279 Ry
+     total energy              =     -22.83955280 Ry
+     Harris-Foulkes estimate   =     -22.83955238 Ry
+     estimated scf accuracy    <       0.00008429 Ry
+!    total energy              =     -22.83958113 Ry
+     Harris-Foulkes estimate   =     -22.83958126 Ry
+     estimated scf accuracy    <       0.00000090 Ry
+     The total energy is the sum of the following terms:
 ```

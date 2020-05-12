@@ -1,4 +1,4 @@
-#### Convergence testing using `pwtk` 
+#### Convergence test using `pwtk` 
 
 We can automate the previous self consistent calculation by varying a certain parameter. Say we want to check the total energy of the system for various values of `ecutwfc`. We can do that by using `pwtk` script. 
 ``` 
@@ -35,9 +35,9 @@ pwtk ecutwfc.pwtk
 
 Now we can plot the total energy with respect to ecutwfc. The data is in `Etot-vs-ecutwfc.dat` 
 
-![Etot-vs-ecutwfc](../img/Etot-vs-ecutwfc.png) 
+![Etot-vs-ecutwfc](../img/Etot-vs-ecutwfc.png){:style="width:500px"} 
 
-#### Convergence testing using UNIX shell script 
+#### Convergence test using UNIX shell script 
 + We can do the convergence test with various parameters. We can calculate the total energy of the system by varying various parameters. We will use the shell script to automate the process with different cutoff energy values. `./si.script.sh`
 ```
 #!/bin/sh

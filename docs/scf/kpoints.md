@@ -20,4 +20,4 @@ foreach k { 2 4 6 8 } {
 close $fid
 ```
 
-![Etot-vs-kpoints](../img/Etot-vs-kpoints.png)  
+![Etot-vs-kpoints](../img/Etot-vs-kpoints.png){:style="width:500px"} 

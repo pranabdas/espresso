@@ -1,10 +1,10 @@
 load_fromPWI si.scf.in
 
-# please uncomment & insert value as determined in the "ecutwfc" excercise
-#SYSTEM { ecutwfc = ... }
+# please uncomment & insert value as determined in the "ecutwfc" exercise
+SYSTEM { ecutwfc = 30 }
 
-# please uncomment & insert values as determined in the "kpoints" excercise
-#K_POINTS automatic { ... }
+# please uncomment & insert values as determined in the "kpoints" exercise
+K_POINTS automatic { 6 6 6 1 1 1 }
 
 
 set fid [open Etot-vs-alat.dat w]
