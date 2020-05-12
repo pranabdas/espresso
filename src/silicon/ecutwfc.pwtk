@@ -5,7 +5,7 @@ load_fromPWI si.scf.in
 set fid [open Etot-vs-ecutwfc.dat w]
 
 # loop over different "ecut" values
-foreach ecut { 12 16 20 24 28 32 } {
+foreach ecut { 12 16 20 24 28 32 36 40} {
 
     # name of I/O files: $name.in & $name.out
     set name si.scf.ecutwfc-$ecut

@@ -2,7 +2,7 @@
     calculation = 'vc-relax'
     prefix = 'silicon'
     outdir = './tmp/'
-    pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/'
+    pseudo_dir = './'
     etot_conv_thr = 1e-5
     forc_conv_thr = 1e-4
 /
@@ -26,7 +26,7 @@
 /
 
 ATOMIC_SPECIES
-  Si  28.0855  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  Si  28.0855  Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
   Si 0.00 0.00 0.00 0 0 0
