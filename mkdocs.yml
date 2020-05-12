@@ -7,12 +7,13 @@ nav:
     - Table of Contents: index.md
     - Installation: install.md
     - Pseudo potentials: pseudo.md
-    - SCF Calculation:
+    - SCF (Silicon):
           - Self Consistent Field (silicon): scf/scf.md
           - Convergence against cutoff energy: scf/ecutoff.md
           - Convergence against k-points: scf/kpoints.md
           - Convergence against lattice constant: scf/alat.md
     - Cell relaxation: relax.md
+    - DOS calculation: dos.md
     - Band Calculation: band.md
 
 theme:

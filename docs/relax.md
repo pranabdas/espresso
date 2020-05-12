@@ -2,22 +2,23 @@
 
 ```
 &control
-  calculation = 'vc-relax'
-  prefix = 'silicon'
-  outdir = './tmp/'
-  pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/'
-  etot_conv_thr = 1e-5
-  forc_conv_thr = 1e-4
+    calculation = 'vc-relax'
+    prefix = 'silicon'
+    outdir = './tmp/'
+    pseudo_dir = './'
+    etot_conv_thr = 1e-5
+    forc_conv_thr = 1e-4
 /
 
 &system
-  ibrav=2, celldm(1) =14,
-  nat=2, ntyp=1,
-  ecutwfc=30
+    ibrav=2, celldm(1) =14,
+    nat=2, ntyp=1,
+    ecutwfc=30
 /
 
 &electrons
-  conv_thr=1e-7
+    conv_thr=1e-7
+    mixing_beta = 0.6
 /
 
 &ions
@@ -28,7 +29,7 @@
 /
 
 ATOMIC_SPECIES
-  Si  28.0855  Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  Si  28.0855  Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
   Si 0.00 0.00 0.00 0 0 0
@@ -60,4 +61,4 @@ Si            0.0000000000        0.0000000000        0.0000000000    0   0   0
 Si            0.1822781896        0.1822781896        0.1822781896    0   0   0
 End final coordinates
 ```
-Lattice constant = 0.364556379*14/0.5 = 10.2076 
+Lattice constant = 0.364556379 * 14 / 0.5 = 10.2076 Bohr. 
