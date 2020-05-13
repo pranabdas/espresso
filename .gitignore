@@ -4,4 +4,8 @@ simplicity/
 /**/.ipynb_checkpoints 
 /**/tmp/ 
 *.out 
+*.gnuplot.* 
+*.log 
+*.rap 
+*.ps  
 
