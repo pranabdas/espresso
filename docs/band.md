@@ -1,4 +1,4 @@
-### Band Calculation
+### Bandstructure Calculation
 
 - Again before running our code for band calculation we need to perform self consistent field calculation. We have our input scf file with some new parameters: 
 ```

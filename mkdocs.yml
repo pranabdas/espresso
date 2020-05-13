@@ -14,7 +14,7 @@ nav:
           - Convergence against lattice constant: scf/alat.md
     - Cell relaxation: relax.md
     - DOS calculation: dos.md
-    - Band Calculation: band.md
+    - Band calculation: band.md
 
 theme:
     name: null

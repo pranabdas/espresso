@@ -10,6 +10,6 @@ Table of contents:
     - [Convergence against lattice constant](scf/alat.md) 
 + [Cell relaxation](relax.md) 
 + [DOS calculation](dos.md) 
-+ [Band Calculation](band.md)
++ [Bandstructure calculation](band.md)
 
 The source files used in this tutorial can be found on the Github repository - [https://github.com/pranabdas/qe-dft/](https://github.com/pranabdas/qe-dft/){:target="_blank"}

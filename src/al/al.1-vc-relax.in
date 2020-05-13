@@ -1,0 +1,36 @@
+&CONTROL 
+  calculation= 'vc-relax', 
+  prefix= 'al', 
+  outdir= './tmp/' 
+  pseudo_dir = './'
+  etot_conv_thr= 1e-6, 
+  forc_conv_thr= 1e-5
+/
+
+&SYSTEM 
+  ibrav=  2, 
+  celldm(1)= 7.652, 
+  nat=  1,
+  ntyp= 1,
+  ecutwfc = 50, 
+  ecutrho= 500,  
+  occupations= 'smearing', 
+  smearing= 'gaussian', 
+  degauss= 0.01
+/
+
+&ELECTRONS
+  conv_thr= 1e-8
+/
+
+&CELL 
+  cell_dofree= 'ibrav'
+
+ATOMIC_SPECIES
+  Si 26.981539 Al.pbe-n-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (alat)
+  Al 0.0 0.0 0.0
+
+K_POINTS (automatic)
+  10 10 10 0 0 0 
