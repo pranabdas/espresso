@@ -3,4 +3,5 @@ Lowdin Charges:
 
      Atom #   1: total charge =   2.9203, s =  0.9319, 
      Atom #   1: total charge =   2.9203, p =  1.9884, pz=  0.6628, px=  0.6628, py=  0.6628, 
+
      Spilling Parameter:   0.0266
