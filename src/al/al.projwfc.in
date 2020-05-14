@@ -1,7 +1,6 @@
 &PROJWFC 
   prefix= 'al', 
-  outdir= './tmp/', 
-  lwrite_overlaps= .true, 
+  outdir= './tmp/',  
   filpdos= 'al.pdos.dat' 
 /
 
