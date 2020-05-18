@@ -17,6 +17,16 @@ cd qe-6.5
 ./configure --enable-parallel 
 make all
 ```
+- If you want to take advantage of multiple processors (which is necessary if you want to perform computationally intensive tasks), you must configure accordingly. You may need to install `mpich` library. If you are on Ubuntu: 
+```
+sudo apt-get install mpich
+``` 
+Now you can run Quantum Espresso `pw.x` (or any other program) using `mpirun` by following command: 
+```
+mpirun -np 4 pw.x -inp inputfile > outputfile
+```
+Where `-np 4` specifies the number of processors (in my case 4). 
+
 - Once completed, we can check test if everything is OK. Go to the `test-suite` directory and run 
 ```
 make run-tests
@@ -31,7 +41,7 @@ Download the file from - <http://pwtk.ijs.si/download/pwtk-1.0.2.tar.gz>
 ```
 wget "http://pwtk.ijs.si/download/pwtk-1.0.2.tar.gz"
 ```
-Above command will download the file to your current directory. Next we need to untar: 
+Above command will download the file to your current directory. Next we need to just untar (no need to compile): 
 ```
 tar zxvf pwtk-1.0.2.tar.gz
 ```

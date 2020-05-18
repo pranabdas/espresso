@@ -2,20 +2,25 @@
 
 + Let us create a new directory for our silicon calculations. Go to the directory using terminal.
 
-+ We need to create an input file where we will provide various important parameters for the self consistent calculation. Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}. The input files are typically named with a prefix `.in`. In inputs are organized as `&namelists` followed by their fields or cards. The `&control`, `&system`, and `&electrons` namelists are required. There are also optional `&cell` and  `&ions`, you must provide them if your calculation require them. Most variables in the namelist have certain default values (which may or may not fit your needs), however some variables you must always provide. Comment lines can be added with lines starting with a `!` like in Fortran. 
++ We need to create an input file where we will provide various important parameters for the self consistent calculation (solves the Kohn-Sham equation self-consistently). In QE input files, there are `NAMELISTS` and `INPUT_CARDS`. `NAMELISTS` variables have default values, and should be provided a new value as required by specific calculation. The variables can be declared in any specific order. On the other hand, the variables in the `INPUT_CARDS` has always to be specified and in specific order. Logically independent `INPUT_CARDS` may be organized in any order. 
+
++ There are three mandatory `NAMELISTS` in `PWscf`: `&CONTROL` (specifies the flux of computation), `&SYSTEM` (specifies the system), and `&ELECTRONS` (specifies the algorithms used to solve the Kohn-Sham equation). There are two other `NAMELISTS`: `&IONS` and `&CELLS`, which need to be specified depending on the calculation. 
+
++ Three `INPUT_CARDS`: `ATOMIC_SPECIES`, `ATOMIC_POSITIONS`, and `K_POINTS` in `PWscf` are mandatory. There are few others that must be provided in certain calculations. 
+
++ Our input file is [si.scf.in](https://github.com/pranabdas/qe-dft/){:target="_blank"}. The input files are typically named with a prefix `.in`. In inputs are organized as `&namelists` followed by their fields or cards. The `&control`, `&system`, and `&electrons` namelists are required. There are also optional `&cell` and  `&ions`, you must provide them if your calculation require them. Most variables in the namelist have certain default values (which may or may not fit your needs), however some variables you must always provide. Comment lines can be added with lines starting with a `!` like in Fortran. 
 ```
 &CONTROL
 ! we want to perform self consistent field calculation 
   calculation = 'scf', 
 
-! prefix is reference to the output files. Outputs will be saved in <prefix>.save 
+! prefix is reference to the output files  
   prefix = 'silicon', 
 
 ! output directory. Note that it is deprecated. 
   outdir = './tmp/' 
 
 ! directory for the pseudo potential directory 
-!  pseudo_dir = '/mnt/d/Pranab/QE/SSSP_efficiency_pseudos/' 
   pseudo_dir = './'
 
 ! verbosity high will give more details on the output file
@@ -35,7 +40,7 @@
 ! number of different types of atom in the cell 
   ntyp = 1,
 
-! kinetic energy cutoff for wavefunctions in Ry
+! kinetic energy cutoff for wavefunction in Ry
   ecutwfc = 30 
 
 ! number of bands to calculate 
@@ -43,11 +48,11 @@
 /
 
 &ELECTRONS
+! Mixing factor used in the self-consistent method  
   mixing_beta = 0.6
 /
 
 ATOMIC_SPECIES
-#  Si 28.086  Si.pbe-n-rrkjus_psl.1.0.0.UPF
   Si 28.086 Si.pz-vbc.UPF
 
 ATOMIC_POSITIONS (alat)
@@ -55,7 +60,7 @@ ATOMIC_POSITIONS (alat)
   Si 0.25 0.25 0.25
 
 K_POINTS (automatic)
-  6 6 6 1 1 1 
+  6 6 6 0 0 0 
 
 ```
 $r_{Bohr} = 0.529~Å$$

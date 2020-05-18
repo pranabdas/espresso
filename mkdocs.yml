@@ -5,16 +5,20 @@ site_author: Pranab Das
 
 nav:
     - Table of Contents: index.md
-    - Installation: install.md
+    - DFT Introduction: dft.md
+    - QE Installation: install.md
     - Pseudo potentials: pseudo.md
     - SCF (Silicon):
-          - Self Consistent Field (silicon): scf/scf.md
+          - Self Consistent Field: scf/scf.md
           - Convergence against cutoff energy: scf/ecutoff.md
           - Convergence against k-points: scf/kpoints.md
           - Convergence against lattice constant: scf/alat.md
     - Cell relaxation: relax.md
     - DOS calculation: dos.md
     - Band calculation: band.md
+    - Metal system (Al): al/al.md
+    - Projected Density of States: al/proj.md
+    - Bandstructure of GaAs: GaAs/GaAs.md
 
 theme:
     name: null
