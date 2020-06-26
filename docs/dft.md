@@ -4,12 +4,12 @@ We want to calculate the electronic structure of real material, and their physic
 
 $$ \left[-\frac{\hbar^2 \nabla^2}{2m} + v(\textbf{r})\right] \Psi(\textbf{r}) = \epsilon \Psi(\textbf{r}) $$ 
 
-Once we have the wavefunction, we can calculate the observables by taking the expectation values. However, a real physical system is consists of large number of atoms. The Schrödinger equation becomes coupled many-body equation. With today's available computing power, it is not feasible to solve the actual electronic wavefunction, where $N$ is of the order of $10^{23}$. Density functional theory (DFT) handles this problem by focusing on the electronic density which a function of three spacial coordinates instead of fining the full wave function. DFT tries to minimize the energy of a system (ground state) in a self consistent way, and it is very successful in calculating the electronic structure of solid state systems. 
+Once we have the wavefunction, we can calculate the observables by taking the expectation values. However, a real physical system is consists of large number of atoms. The Schrödinger equation becomes coupled many-body equation. With today's available computing power, it is not feasible to solve the actual electronic wavefunction, where $N$ is of the order of $10^{23}$. Density functional theory (DFT) handles this problem by focusing on the electronic density which a function of three spacial coordinates instead of finding the  wave functions. DFT tries to minimize the energy of a system (ground state) in a self consistent way, and it is very successful in calculating the electronic structure of solid state systems. 
 
 ##### Hohenberg-Kohn Theorem 1 
 > The ground state density $n(\textbf{r})$ determines the external potential energy $v(\textbf{r})$ to within a trivial additive constant. 
 
-For non-degenerate ground states, two different Hamiltonian cannot have the same ground-state electron density. It is possible to define the ground-state energy as a function of electronic density. 
+So what Hohenberg-Kohn theorem says, may not sound very trivial. Schrödinger equation says how we can get the wavefunction from a given potential. Then there is the Schrödinger equation, if we can solve it (which could be difficult), we know how to get the density. Now Hohenberg and Kohn says the opposite is also true. For a given density, the potential can be uniquely determined. For non-degenerate ground states, two different Hamiltonian cannot have the same ground-state electron density. It is possible to define the ground-state energy as a function of electronic density. 
 
 ##### Hohenberg-Kohn Theorem 2 
 > Total energy of the system $E(n)$ is minimal when $n(\textbf{r})$ is the actual ground-state density, among all possible electron densities. 

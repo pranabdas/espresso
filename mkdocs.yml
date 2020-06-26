@@ -7,6 +7,7 @@ nav:
     - Table of Contents: index.md
     - DFT Introduction: dft.md
     - QE Installation: install.md
+    - Crystal Structure: crystal-structure.md
     - Pseudo potentials: pseudo.md
     - SCF (Silicon):
           - Self Consistent Field: scf/scf.md
@@ -19,6 +20,7 @@ nav:
     - Metal system (Al): al/al.md
     - Projected Density of States: al/proj.md
     - Bandstructure of GaAs: GaAs/GaAs.md
+    - Miscellaneous: misc.md
 
 theme:
     name: null

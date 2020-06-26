@@ -11,21 +11,21 @@ tar -zxvf qe-6.5-ReleasePack.tgz
 ```
 cd qe-6.5
 ```
-- Configure the installation. Here you can provide various configuration options. For example, if you want to have the parallel processing, you can use the flag. Read the manual in oder to properly understand. But in most cases you will be just fine with defaults. 
+- Configure the installation. Here you can provide various configuration options. For example, if you want to have the parallel processing, you can use the flag. Read the manual in oder to properly understand. But in most cases you will be just fine with defaults. If you want parallel processing, you have to install the necessary libraries before. After that if you run `configure`, it should detect your system automatically, in case you don't get what you want, try the `flags`. 
 ```
 ./configure 
 ./configure --enable-parallel 
 make all
 ```
-- If you want to take advantage of multiple processors (which is necessary if you want to perform computationally intensive tasks), you must configure accordingly. You may need to install `mpich` library. If you are on Ubuntu: 
+- If you want to take advantage of multiple processors or running your codes in a cluster (which is necessary if you want to perform computationally intensive tasks), you must configure accordingly. You may need to install `mpich` library. If you are on Ubuntu: 
 ```
 sudo apt-get install mpich
 ``` 
 Now you can run Quantum Espresso `pw.x` (or any other program) using `mpirun` by following command: 
 ```
-mpirun -np 4 pw.x -inp inputfile > outputfile
+mpirun -np 12 pw.x -inp inputfile > outputfile
 ```
-Where `-np 4` specifies the number of processors (in my case 4). 
+Where `-np 12` specifies the number of processors (in my case 12). 
 
 - Once completed, we can check test if everything is OK. Go to the `test-suite` directory and run 
 ```

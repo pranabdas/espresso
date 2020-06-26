@@ -41,45 +41,7 @@ We run:
 pw.x < si.scf-band.in > si.scf-band.out 
 ``` 
 
-- Next step is our non-self consistent field calculation: 
-```
-&CONTROL
-  calculation = 'nscf',
-  restart_mode = 'from_scratch',
-  prefix = 'silicon',
-  outdir = './tmp/'
-  pseudo_dir = './'
-  verbosity = 'high'
-/
-
-&SYSTEM
-  ibrav =  2,
-  celldm(1) = 10.2076,
-  nat =  2,
-  ntyp = 1,
-  ecutwfc = 50,
-  ecutrho = 400,
-  nbnd = 8,
-  occupations='tetrahedra'
-/
-
-&ELECTRONS
-  conv_thr = 1e-8,
-  mixing_beta = 0.6
-/
-
-ATOMIC_SPECIES
-  Si 28.086 Si.pz-vbc.UPF
-
-ATOMIC_POSITIONS (alat)
-  Si 0.0 0.0 0.0
-  Si 0.25 0.25 0.25
-
-K_POINTS (automatic)
-  12 12 12 0 0 0
-```
-- Run the above code using `pw.x` 
-- Next we create the input file for band calculation: 
+- Next step is our band calculation (non-self consistent field) calculation. We create the input file for band calculation: 
 ```
 &control
   calculation = 'bands',
