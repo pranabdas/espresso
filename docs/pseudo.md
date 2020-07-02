@@ -5,3 +5,4 @@ We can choose form various pseudo potentials. Choice of pseudo potential depends
 - [https://www.quantum-espresso.org/pseudopotentials](https://www.quantum-espresso.org/pseudopotentials){:target='_blank'}
 - [https://www.materialscloud.org/discover/sssp/table/efficiency](https://www.materialscloud.org/discover/sssp/table/efficiency){:target="_blank"}
 - [http://www.pseudo-dojo.org](http://www.pseudo-dojo.org){:target='_blank'} 
+- [https://www.physics.rutgers.edu/gbrv/](https://www.physics.rutgers.edu/gbrv/){:target="_blank"}

@@ -14,7 +14,7 @@ pw.x < GaAs.relax.in > GaAs.relax.out
 pw.x < GaAs.scf.in > GaAs.scf.out
 ```
 
-3) Give denser k-points and perform non-self consistent calculation  
+3) Give denser k-points and perform non-self consistent calculation. This step is only necessary if you need to obtain density of states. 
 ```
 pw.x < GaAs.nscf.in > GaAs.nscf.out
 ```
