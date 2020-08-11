@@ -17,6 +17,7 @@ Table of contents:
 + [Metal system (Al)](al/al.md) 
 + [Projected Density of States (pDOS)](al/proj.md) 
 + [Bandstructure of GaAs](GaAs/GaAs.md) 
++ [DFT+U calculation](dft-u.md)
 + [Miscellaneous](misc.md) 
 
 The source codes of this tutorial can be found on the Github repository - [https://github.com/pranabdas/qe-dft/](https://github.com/pranabdas/qe-dft/){:target="_blank"}

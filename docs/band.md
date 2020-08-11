@@ -1,6 +1,6 @@
 ### Bandstructure Calculation
 
-- Again before running our code for band calculation we need to perform self consistent field calculation. We have our input scf file with some new parameters: 
+- Before we can run `bands` calculation, we need to perform single-point self consistent field calculation (`scf`). We have our input `scf` file with some new parameters: 
 ```
 &CONTROL
   calculation = 'scf',
@@ -41,7 +41,7 @@ We run:
 pw.x < si.scf-band.in > si.scf-band.out 
 ``` 
 
-- Next step is our band calculation (non-self consistent field) calculation. We create the input file for band calculation: 
+- Next step is our band calculation (non-self consistent field) calculation. Now we can specify `nbnd` and denser k-points grid. We create the input file for band calculation: 
 ```
 &control
   calculation = 'bands',

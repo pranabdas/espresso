@@ -19,7 +19,8 @@ nav:
     - Band calculation: band.md
     - Metal system (Al): al/al.md
     - Projected Density of States: al/proj.md
-    - Bandstructure of GaAs: GaAs/GaAs.md
+    - Bandstructure of GaAs: GaAs/GaAs.md 
+    - DFT+U calculation: dft-u.md
     - Miscellaneous: misc.md
 
 theme:
