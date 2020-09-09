@@ -1,12 +1,12 @@
 ### Installation of Quantum Espresso
 
-- We can install Quantum Espresso in our own laptops or desktops for running quick calculations and learning. If you need to calculate more complicated/larger systems, you need access to better computing facilities with large number of processors/cores, memory, and even better with GPU support.  
-- I am testing the codes on Ubuntu 20.04. Before you install Quantum Espresso, make sure your system has following packages and libraries: 
+- We can install Quantum Espresso in our own laptops or desktops for running quick calculations and learning purposes. If we need to calculate more computationally intensive large systems, we would need access to better computing resources with large number of CPU cores, memory, or even with GPU support.  
+- I am testing the codes on Ubuntu 20.04. Before we install Quantum Espresso, make sure our system has recommended libraries installed: 
 ```
 sudo apt-get install build-essential gfortran mpich fftw3-dev
 ```
 LAPACK Installation: 
-Download package from: http://www.netlib.org/lapack/
+Download package from: [http://www.netlib.org/lapack/](http://www.netlib.org/lapack/){:target="_blank"}
 ```
 wget https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz 
 tar -xzvf v3.9.0.tar.gz
@@ -28,14 +28,15 @@ tar -zxvf qe-6.5-ReleasePack.tgz
 ```
 cd qe-6.5
 ```
-- Configure the installation. Here you can provide various configuration options. For example, if you want to have the parallel processing, you can use the flag. Read the manual in oder to properly understand. But in most cases you will be just fine with defaults. If you want parallel processing, you have to install the necessary libraries before. After that if you run `configure`, it should detect your system automatically, in case you don't get what you want, try the `flags`. If certain libraries are not detected, you can include them using `LIBDIRS`. 
+- Configure the installation. Here we can provide various configuration options. For example, if we want to have the parallel processing, we can use the flag. Read the manual in oder to properly understand. But in most cases we will be just fine with defaults. If we want parallel processing, we have to install the necessary libraries before. After that if we run `configure`, it should detect wer system automatically, in case we don't get what we want, try the various configuration `flags`. 
 ```
 ./configure 
 make all
 ```
-Note that `configure` might not pick the right settings is all systems, in that case you have to some manual work. 
 
-Now you can run Quantum Espresso `pw.x` (or any other program) using `mpirun` by following command: 
+Note that certain programs bundled with Quantum espresso might not work correctly in parallel compilation, so we may need a serial compilation for them. We can set that by `./configure --disable-parallel`. 
+
+Now we can run Quantum Espresso `pw.x` (or any other program) using `mpirun` by following command: 
 ```
 mpirun -np 12 pw.x -inp inputfile > outputfile
 ```
@@ -45,7 +46,7 @@ Where `-np 12` specifies the number of processors.
 ```
 make run-tests
 ```
-If all is well, you will see **Passed** messages and we are good to go. 
+If all is well, we will see **Passed** messages and we are good to go. 
 
 We will install another scripting package `pwtk`. First we need to install following two libraries: 
 ```
@@ -60,12 +61,12 @@ Above command will download the file to your current directory. Next we need to 
 tar zxvf pwtk-1.0.2.tar.gz
 ```
 
-It would be good idea to add the executable path to your bash/zsh PATH. Open your `.bashrc` or `.zshrc` file and add the following line with correct path to the bin directory: 
+It would be good idea to add the executable path to your bash/zsh PATH. Open `.bashrc` or `.zshrc` file and add the following line with correct path to the bin directory: 
 ```
 export PATH="dir/to/your/installation/qe-6.5/bin:$PATH"
 export PATH="dir/to/your/pwtk-1.0.2:$PATH"
 ```
-After this you may need to restart your terminal. 
+After this you may need to restart your terminal or source `.bashrc`. 
 
 ```
 source ~/.bashrc

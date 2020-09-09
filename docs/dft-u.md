@@ -1,1 +1,11 @@
 ### DFT+U calculation 
+
+```
+&SYSTEM
+    ...
+    lda_plus_u = .TRUE.
+    Hubbard_u(i) = 2.0
+    ...
+/
+```
+Here i refers to the atomic index in the &ATOMIC_SPECIES card corresponding to each ntyp. We can specify Hubbard_u for more atoms in separate lines. 

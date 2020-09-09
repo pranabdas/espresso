@@ -9,12 +9,10 @@ Density functional theory (DFT) calculations are *ab-initio* meaning the calcula
 - [http://aflowlib.org/CrystalDatabase/](http://aflowlib.org/CrystalDatabase/){:target='_blank'} 
 - [http://crystdb.nims.go.jp/crystdb/search-materials](http://crystdb.nims.go.jp/crystdb/search-materials){:target='_blank'}
 
-You can download and save a CIF file in your directory: 
-```
-wget https://correcturl.com/file.cif 
-``` 
+##### Various useful tools:
+Vesta - [https://jp-minerals.org/vesta/en/](https://jp-minerals.org/vesta/en/){:target='_blank'} It helps you explore crystal structure, make structures, super cells and many more functionality. 
 
-Later we can prepare our Quantum Espresso input file using *cif2cell* utility. If you do not have *cif2cell* installed, you can use *pip* to install: 
+We can prepare our Quantum Espresso input file using *cif2cell* utility. If you do not have *cif2cell* installed, you can use *pip* to install: 
 ```
 sudo pip3 install cif2cell
 ``` 
