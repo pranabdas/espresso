@@ -71,3 +71,19 @@ After this you may need to restart your terminal or source `.bashrc`.
 ```
 source ~/.bashrc
 ```
+
+#### Running Quantum Espresso jobs in NUS HPC
+Quantum Espresso is already installed in NUS HPC clusters. Here is a sample job script for NUS HPC clusters:
+```
+#!/bin/bash
+#PBS -q parallel12
+#PBS -l select=2:ncpus=12:mpiprocs=12:mem=45GB 
+#PBS -j eo 
+#PBS -N qe-job
+source /etc/profile.d/rec_modules.sh
+module load espresso6.5-intel_18
+## module load espresso6.5-Centos6_Intel
+cd $PBS_O_WORKDIR;
+np=$( cat  ${PBS_NODEFILE} |wc -l );
+mpirun -np $np -f ${PBS_NODEFILE} pw.x -inp qe-scf.in > qe-scf.out
+```

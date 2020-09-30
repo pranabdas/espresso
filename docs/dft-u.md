@@ -8,4 +8,4 @@
     ...
 /
 ```
-Here i refers to the atomic index in the &ATOMIC_SPECIES card corresponding to each ntyp. We can specify Hubbard_u for more atoms in separate lines. 
+Here `i` refers to the atomic index in the `&ATOMIC_SPECIES` card corresponding to each `ntyp`. We can specify `Hubbard_u(i)` corresponding to more than one atom in separate lines. 

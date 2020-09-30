@@ -79,7 +79,9 @@ We obtain relaxed lattice constant = 7.652 * 0.498611683 / 0.5 = 7.63075 Bohr. W
 &ELECTRONS
   conv_thr= 1e-8
 /
-
+ATOMIC_SPECIES
+  Al 26.981539 Al.pbe-n-rrkjus_psl.1.0.0.UPF
+  
 ATOMIC_POSITIONS (alat)
   Al 0.00 0.00 0.00
 

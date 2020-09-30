@@ -15,9 +15,12 @@ Table of contents:
 + [DOS calculation](dos.md) 
 + [Bandstructure calculation](band.md) 
 + [Metal system (Al)](al/al.md) 
-+ [Projected Density of States (pDOS)](al/proj.md) 
++ [Projected Density of States (pDOS)](al/pdos.md) 
++ [k-resolved DOS](kpdos.md) 
++ [Orbital weights in bandstructure](pdos-bands.md)
 + [Bandstructure of GaAs](GaAs/GaAs.md) 
 + [DFT+U calculation](dft-u.md)
++ [Spin-orbit coupling](soc.md)
 + [Miscellaneous](misc.md) 
 
 The source codes of this tutorial can be found on the Github repository - [https://github.com/pranabdas/qe-dft/](https://github.com/pranabdas/qe-dft/){:target="_blank"}
