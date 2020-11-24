@@ -41,7 +41,7 @@ $ pw.x -inp si-scf.in > si-scf.out
 Next we perform the band calculation. Input as follows: 
 ```
 &CONTROL
-  calculation = 'scf'
+  calculation = 'bands'
   prefix = 'silicon'
   outdir = './tmp/' 
   pseudo_dir = '../pseudo/'
@@ -91,7 +91,15 @@ Calculate the orbital projections with k-resolved information:
     filpdos      = 'silicon.k'
 /
 ```
-This will give separate orbital projections, as well as total sum for k-resolved DOS. We can sum desired projections using `sumpdos.x` as well. 
+
+```
+$ projwjc.x inp si-projwfc.in > si-projwfc.out
+```
+
+This will give separate orbital projections, as well as total sum for k-resolved DOS. We can sum desired projections using `sumpdos.x` as well. For example: 
+```
+sumpdos.x *\(Cl\)*\(p\) > Cl_2p_tot.dat
+```
 
 ![kpdos.png](img/kpdos.png){:style="width:600px"} 
 

@@ -97,3 +97,11 @@ $$ \psi_k(\textbf{r}) = \frac{1}{\Omega} \sum_G c_{\textbf{k,G}} e^{i (\textbf{k
 Contribution from higher Fourier components are small, we can limit the sum at finite $|\textbf{k + G}|$
 
 $$  \frac{\hbar^2 |\textbf{k + G}|}{2m} \le E_{cutoff}  $$
+
+#### Some great resources: 
+
+- [MIT Course](https://ocw.mit.edu/courses/materials-science-and-engineering/3-320-atomistic-computer-modeling-of-materials-sma-5107-spring-2005/video-lectures/){:target="_blank"}
+
+- [Quantum Espresso Tutorials](https://www.quantum-espresso.org/resources/tutorials){:target="_blank"}
+
+- [http://compmatphys.epotentia.com](http://compmatphys.epotentia.com/){:target="_blank"}

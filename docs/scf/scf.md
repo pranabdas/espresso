@@ -63,7 +63,7 @@ K_POINTS (automatic)
   6 6 6 0 0 0 
 
 ```
-$r_{Bohr} = 0.529177249~Å$  
+1 Bohr = 0.529177249 Å   
 1 Rydberg (Ry) = 13.6056981 eV
 
 + I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum Espresso Website](https://www.quantum-espresso.org/pseudopotentials){:target="_blank"}. 
