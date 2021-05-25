@@ -1,8 +1,0 @@
-&DOS 
-  prefix= 'al', 
-  outdir= './tmp/', 
-  fildos= 'al.dos.dat', 
-  emin= -10, 
-  emax= 35 
-/ 
-

@@ -1,0 +1,222 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+/* :root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+} */
+
+:root {
+  --color-primary: #0099ff;
+  --color-secondary: #ED297A;
+  --color-white: #F5F6F7;
+  --color-black: #000;
+  --color-green: #31D76C;
+  --color-red: #FA4045;
+  --color-blue: #00C1FF;
+  --color-orange: #FAAD00;
+  --border-color: #D1DCE5;
+  --ifm-code-font-size: 95%;
+  --ifm-tabs-color: var(--color-black);
+  --ifm-menu-color-background-hover: rgba(0, 193, 255, .15);
+  --ifm-menu-color-background-active: rgba(0, 193, 255, .15);
+  --ifm-font-color-base: var(--color-black);
+  --ifm-menu-color: var(--color-black);
+  --ifm-toc-link-color: var(--color-black);
+  --ifm-alert-color: var(--color-black);
+  --ifm-color-primary: var(--color-primary);
+  --ifm-color-primary-dark: var(--color-primary);
+  --ifm-color-primary-darker: var(--color-primary);
+  --ifm-color-primary-darkest: var(--color-primary);
+  --ifm-color-primary-light: var(--color-primary);
+  --ifm-color-primary-lighter: var(--color-primary);
+  --ifm-color-primary-lightest: var(--color-primary);
+  --ifm-toc-border-color: var(--border-color);
+  --ifm-color-success: var(--color-green);
+  --ifm-color-danger: var(--color-red);
+  --ifm-color-info: var(--color-blue);
+  --ifm-color-warning: var(--color-orange);
+}
+html[data-theme='dark'] {
+  --ifm-background-color: var(--color-black);
+  --ifm-background-surface-color: var(--color-black);
+  --border-color: #3F4554;
+  --ifm-font-color-base: var(--color-white);
+  --ifm-alert-color: var(--color-white);
+  --ifm-menu-color: var(--color-white);
+  --ifm-toc-link-color: var(--color-white);
+  --ifm-tabs-color: var(--color-white);
+}
+
+.hero--primary {
+  --ifm-hero-background-color: rgba(255, 255, 255, 0.1);;
+  --ifm-hero-text-color: var(--ifm-color-secondary);
+}
+
+html[data-theme='light'] .hero--primary {
+  --ifm-hero-text-color: var(--color-black);
+  --ifm-hero-background-color: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme='light'] .hero--primary .button--outline {
+  background-color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+html[data-theme='light'] .hero--primary .button--outline:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--color-white)
+}
+
+/* html[data-theme='light'] .features_src-pages- {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme='dark'] .features_src-pages- {
+  background-color: rgba(255, 255, 255, 0.1);
+} */
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+/* If you have a different syntax highlighting theme for dark mode. */
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3); /* Color which works with dark mode syntax highlighting theme */
+}
+
+.footer {
+  padding: 0.5rem 0.05rem;
+  color: #ccc;
+  font-size: 0.75rem;
+}
+
+html[data-theme='dark'] .footer {
+  background-color: #161b22;  /* match the navbar color in dark mode */
+}
+
+.header-github-link:hover {
+  opacity: 0.6;
+}
+
+.header-github-link:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+html[data-theme='dark'] .header-github-link:before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+a {
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-secondary);
+}
+
+.table-of-contents__link:hover, .table-of-contents__link:hover code,
+.table-of-contents__link--active, .table-of-contents__link--active code,
+.menu__link--active {
+  transition: 0.2s color;
+}
+
+.pagination-nav__link {
+  border-color: var(--border-color);
+}
+
+.pagination-nav__link {
+  transition: color 0.2s, border-color 0.2s;
+}
+.pagination-nav__link:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.alert {
+  /* border-radius: initial; */
+  border: none;
+  border-left: 8px solid;
+}
+.alert--success {
+  background-color: rgba(49, 215, 108, .15);
+  border-color: var(--ifm-color-success)
+}
+.alert--warning {
+  background-color: rgba(250, 173, 0, .15);
+  border-color: var(--ifm-color-warning);
+}
+.alert--danger {
+  background-color: rgba(250, 64, 69, .15);
+  border-color: var(--ifm-color-danger);
+}
+.alert--info {
+  background-color: rgba(0, 193, 255, .15);
+  border-color: var(--ifm-color-info);
+}
+html[data-theme='dark'] .alert--secondary {
+  border-color: rgba(0, 0, 0, 0.6);
+  /* the original border-color is indistinguishable with dark background */
+}
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+html[data-theme='dark'] .navbar {
+  background-color: #161b22;  /* distinguishable from the page background */
+  border-bottom: 0;
+}
+
+/*
+html[data-theme='light'] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+  --docsearch-container-background: rgba(94, 100, 112, 0.7);
+  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
+  --docsearch-searchbox-background: var(--ifm-color-secondary);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-white);
+  --docsearch-footer-background: var(--ifm-color-white);
+}
+
+html[data-theme='dark'] .DocSearch {
+  --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+  --docsearch-container-background: rgba(47, 55, 69, 0.7);
+  --docsearch-modal-background: var(--ifm-background-color);
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-color-black);
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  --docsearch-footer-background: var(--ifm-background-surface-color);
+  --docsearch-key-gradient: linear-gradient(
+    -26.5deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 100%
+  );
+} */
