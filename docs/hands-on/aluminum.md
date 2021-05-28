@@ -4,7 +4,7 @@ sidebar_label: Al (metal)
 ---
 ## Variable cell relaxation
 First we are going to relax the cell and choose appropriate lattice constant for
-our chosen pseudo potential. In case of metal, it is important to provide
+our chosen pseudo potential. In case of metals, it is important to provide
 smearing parameters in the input file.
 
 ```bash title="src/al/al_relax.in"
@@ -101,7 +101,6 @@ We run our self consistent calculation:
 ```bash
 pw.x < al_scf.in > al_scf.out
 ```
-
 ## Non-self consistent field calculation
 Inspect the output file, and let's proceed to next step non-self consistent
 calculation:
@@ -230,3 +229,20 @@ bands.x < al_bands_pp.in > al_bands_pp.out
 We obtain the following bandstructure:
 
 ![Bandstructure-Al](../../static/img/al-bands.png)
+
+## Importance of smearing in convergence
+
+Here we will test the convergence using PWTK against number of k-points, three
+different smearing functions (Gauss, Methfessel-Paxton, and Marzari-Vanderbilt),
+and for various smearing values.
+
+```bash
+pwtk al.degauss.pwtk
+```
+
+![convergence against smearing-Al](../../static/img/al-smearing.png)
+
+We see that the `m-v` and `m-p` broadening allow for faster and smother
+convergence while depending less on `degauss` value than Gaussian broadening.
+The number suffix next to the legend labels are number of uniform k-points in
+Monkhorst-Plank grid.

@@ -59,24 +59,7 @@ import numpy as np
 %matplotlib inline
 
 # load data
-fid = open('../src/silicon/si_dos.dat', 'r')
-data = fid.readlines()
-fid.close()
-
-energy = []
-dos = []
-idos = []
-
-for row in range(len(data)):
-    data_row = data[row]
-    if (data_row[0][0] != '#'):
-        data_row = data_row[:-1].split('  ')
-        energy.append(float(data_row[1]))
-        dos.append(float(data_row[2]))
-        idos.append(float(data_row[3]))
-
-energy = np.asarray(energy)
-dos = np.asarray(dos)
+energy, dos, idos = np.loadtxt('../src/silicon/si_dos.dat', unpack=True)
 
 # make plot
 plt.figure(figsize = (12, 6))

@@ -11,9 +11,19 @@ Throughout this tutorial, I will be using a Ubuntu system for smaller
 calculations while other computationally intensive calculations will be done in
 HPC clusters.
 
-Here is the installation steps for latest version of Quantum Espresso (6.7) in a
-Ubuntu (LTS 20.04) machine. I will be compiling for single processor. First
-install the libraries and dependencies:
+Perhaps the most easiest way to install Quantum Espresso is from the package
+manager of respective Linux distribution. This should work fine for us and this
+is recommended option. If you are on Ubuntu/ Debian:
+```bash
+sudo apt install --no-install-recommends \
+    libfftw3-dev \
+    quantum-espresso
+```
+
+If you want to compile from the source yourself, here are the installation steps
+for latest version of Quantum Espresso (6.7) in a Ubuntu (LTS 20.04) machine. I
+will be compiling for single processor. First install the libraries and
+dependencies:
 
 ```bash
 sudo apt install --no-install-recommends \
@@ -60,11 +70,12 @@ properly understand. But in most cases we will be just fine with the defaults,
 it should detect the system configuration automatically, in case you don't get
 what you want, try the various configuration `flags` with configure.
 
-:::danger
+:::caution
 
 Note that certain programs/utilities bundled with Quantum Espresso might not
 work correctly in parallel compilation, so we may need serial compilation for
-them. We can set that by `./configure --disable-parallel`.
+them by `./configure --disable-parallel` option if parallel option is
+automatically detected.
 
 :::
 
@@ -75,7 +86,7 @@ make pw
 # or compile everything
 make all
 # we can parallelize e.g., below command uses 2 CPUs
-make -j2 all
+make -j 2 all
 ```
 
 Now, the binary files or their symbolic links (shortcuts) would be placed in the
@@ -98,9 +109,10 @@ pw.x -inp inputfile > outputfile
 # For parallel version
 mpirun -np 12 pw.x -inp inputfile > outputfile
 ```
-Where `-np 12` specifies the number of processors.
+Where `-np 12` specifies the number of processors. `-inp` stands for input file,
+and we can alternatively use `-i`, or `-in`, or `-input`.
 
-Once installation is completed, optionally we can check test if everything went
+Once installation is completed, optionally we can run tests if everything went
 OK. Go to the `test-suite` directory and run
 ```bash
 make run-tests
@@ -140,24 +152,3 @@ Add the path to `.bashrc`:
 echo 'export PATH="/root/pwtk-2.0:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
-
-## Abort and restart a calculation
-
-Create an empty file named `{prefix}.EXIT` in the directory where you have the
-input file or in the `outdir`.
-```bash
-touch {prefix}.EXIT
-```
-
-That will stop the program on next iteration, and save the state. In order to
-restart, set the `restart_mode` in `&CONTROL` card to `'restart'` and re-run
-with necessary changes. You must rerun with same number of processors.
-
-```bash
-&CONTROL
-  ...
-  restart_mode = 'restart'
-  ...
-/
-```
-

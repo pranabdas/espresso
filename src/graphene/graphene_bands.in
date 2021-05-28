@@ -1,0 +1,36 @@
+ &CONTROL
+    calculation = 'bands',
+    prefix      = 'graphene',
+    outdir      = './tmp/',
+    pseudo_dir  = './',
+ /
+
+ &SYSTEM
+    ibrav     = 4,
+    celldm(1) = 4.654,
+    celldm(3) = 3.0,
+    nat  = 2,
+    ntyp = 1,
+    ecutwfc = 20.0,
+    ecutrho = 200.0,
+    nbnd=8
+    !occupations = 'tetrahedra'
+ /
+
+ &ELECTRONS
+    conv_thr = 1.0d-8
+ /
+
+ATOMIC_SPECIES
+   C  12.0107 C.pbe-rrkjus.UPF
+ATOMIC_POSITIONS {alat}
+   C    0.000000    0.0000000   0.000000
+   C    0.000000    0.5773503   0.000000
+
+K_POINTS {crystal_b}
+4
+# Gamma-K-M-Gamma
+   0.0000000000     0.0000000000     0.0000000000     20
+   0.3333333333     0.3333333333     0.0000000000     10
+   0.0000000000     0.5000000000     0.0000000000     17
+   0.0000000000     0.0000000000     0.0000000000     0

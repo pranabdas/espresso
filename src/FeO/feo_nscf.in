@@ -1,0 +1,47 @@
+&control
+    calculation='nscf'
+    restart_mode='from_scratch',
+    prefix='FeO'
+    pseudo_dir = './'
+    outdir='./tmp/'
+    verbosity='high'
+ /
+ &system
+    ibrav = 0,
+    celldm(1) = 8.19,
+    nat = 4,
+    ntyp = 3,
+    ecutwfc = 30.0,
+    ecutrho = 240.0,
+    occupations = 'smearing',
+    smearing = 'mv',
+    degauss = 0.02,
+    nspin = 2,
+    starting_magnetization(1) =  0.5,
+    starting_magnetization(2) = -0.5
+    lda_plus_u = .true.,
+    lda_plus_u_kind = 0,
+    U_projection_type = 'atomic',
+    Hubbard_U(1) =  1.d-8
+    Hubbard_U(2) =  1.d-8
+    nbnd = 35
+ /
+ &electrons
+    conv_thr =  1.d-9
+    mixing_beta = 0.3
+ /
+ATOMIC_SPECIES
+Fe1  55.845  Fe.pbesol-spn-kjpaw_psl.0.2.1.UPF
+Fe2  55.845  Fe.pbesol-spn-kjpaw_psl.0.2.1.UPF
+O     16.0   O.pbesol-n-kjpaw_psl.0.1.UPF
+CELL_PARAMETERS {alat}
+ 0.50  0.50  1.00
+ 0.50  1.00  0.50
+ 1.00  0.50  0.50
+ATOMIC_POSITIONS {crystal}
+ Fe1  0.00  0.00  0.00
+ Fe2  0.50  0.50  0.50
+ O    0.25  0.25  0.25
+ O    0.75  0.75  0.75
+K_POINTS {automatic}
+ 6 6 6 0 0 0

@@ -149,54 +149,26 @@ plt.rcParams["figure.facecolor"]="white"
 plt.rcParams["figure.figsize"]=(8, 6)
 
 # load data
-fid = open('../src/silicon/si_bands.dat.gnu', 'r')
-data = fid.readlines()
-fid.close()
+data = np.loadtxt('../src/silicon/si_bands.dat.gnu')
 
-k = []
-e = []
-line_breaks = [0]
-ii = -1
-jj = 1
+energy = np.unique(data[:, 0])
+bands = np.reshape(data[:, 1], (-1, len(energy)))
 
-for row in range(len(data)):
-    ii = ii + 1
-    data_row = data[row][:-1]
-    if (data_row == ''):
-        line_breaks.append(ii-jj)
-        jj = jj + 1
-    else:
-        data_row = data_row.split('   ')
-        k.append(float(data_row[1]))
-        e.append(float(data_row[2]))
+for band in range(len(bands)):
+    plt.plot(energy, bands[band, :], linewidth=1, alpha=0.5, color='k')
+plt.xlim(min(energy), max(energy))
 
-k = np.asarray(k)
-e = np.asarray(e)
-line_breaks = np.asarray(line_breaks)
-
-# make plots
-for ii in range(len(line_breaks)-1):
-    if (ii == 0):
-        offset=0
-    else:
-        offset = 1
-
-    plt.plot(k[line_breaks[ii]+offset : line_breaks[ii+1]], \
-             e[line_breaks[ii]+offset : line_breaks[ii+1]], \
-             linewidth=1, alpha=0.75, color='k')
-plt.xlim(k[0], k[line_breaks[1]-1])
-plt.axvline(x=0.8660, linewidth=0.5, color='k', alpha=0.5)
-plt.axvline(x=1.8660, linewidth=0.5, color='k', alpha=0.5)
-plt.axvline(x=2.2196, linewidth=0.5, color='k', alpha=0.5)
-plt.axhline(y=6.6416, linewidth=0.5, color='k', alpha=0.5, linestyle=(0, (5, 5)))
-plt.xticks([])
-plt.ylabel('Energy (eV)')
+# Fermi energy
+plt.axhline(6.6416, linestyle=(0, (5, 5)), linewidth=0.75, color='k', alpha=0.5)
+# High symmetry k-points (check bands_pp.out)
+plt.axvline(0.8660, linewidth=0.75, color='k', alpha=0.5)
+plt.axvline(1.8660, linewidth=0.75, color='k', alpha=0.5)
+plt.axvline(2.2196, linewidth=0.75, color='k', alpha=0.5)
+# text labels
+plt.xticks(ticks= [0, 0.8660, 1.8660, 2.2196, 3.2802], \
+           labels=['L', '$\Gamma$', 'X', 'U', '$\Gamma$'])
+plt.ylabel("Energy (eV)")
 plt.text(2.3, 5.6, 'Fermi energy', fontsize= small)
-plt.gcf().text(0.12, 0.06, 'L', fontsize=16, fontweight='normal')
-plt.gcf().text(0.325, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
-plt.gcf().text(0.563, 0.06, 'X', fontsize=16, fontweight='normal')
-plt.gcf().text(0.646, 0.06, 'U', fontsize=16, fontweight='normal')
-plt.gcf().text(0.892, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
 plt.show()
 ```
 

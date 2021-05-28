@@ -1,5 +1,5 @@
 # Density Functional Theory using Quantum Espresso
 
-This repository contains the input files and jupyter notebooks (mainly for
-plotting) for the tutorial. Please read the notes at
+This repository contains the various input files and jupyter notebooks (for post
+processing and plotting) of the project. Please follow the tutorial at
 <https://pranabdas.github.io/qe-dft/>

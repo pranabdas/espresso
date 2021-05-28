@@ -94,7 +94,8 @@ Espresso Website](https://www.quantum-espresso.org/pseudopotentials).
 
 You must read the **PWscf user manual** for in-depth understanding. Check the
 `PW/Doc/` folder under your installation directory. There is also another file
-`INPUT_PW.html` regarding the details of input parameters.
+`INPUT_PW.html` regarding the details of input parameters. PW stands for plane
+waves.
 
 Run `pw.x` in self consistent mode for silicon.
 ```bash
@@ -106,8 +107,7 @@ mpirun -np 4 pw.x -inp si_scf.in > si_scf.out
 :::note
 
 Note that I have added the executable path to my bash/zsh profile, otherwise you
-have to provide the full path where the `pw.x` file is installed. PW stands for
-plane wave.
+have to provide the full path where the `pw.x` executable is located.
 
 :::
 

@@ -43,6 +43,8 @@ If everything goes well, you will get the bandstructure as below:
 
 Sometimes a calculation with same inputs converges in one computer, while fails
 in another due to library configuration or even due to floating point
-approximations.
+approximations. The final output numbers will always vary slightly for different
+machines, or even among different runs in the same machine. Also check the
+Quantum Espresso version for reproducibility.
 
 :::

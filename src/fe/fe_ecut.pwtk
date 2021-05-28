@@ -1,0 +1,22 @@
+# load the pw.x input from file
+load_fromPWI fe_scf_fm.in
+
+# dual is the ratio ecutrho/ecutwfc
+foreach dual { 4 8 12 } {
+
+    set fid [open etot-vs-ecutwfc.dual$dual.dat w]
+
+    foreach ecutwfc [seq 25 5 50] {
+
+        set name pw.Fe.scf.ecutwfc-$ecutwfc.dual-$dual
+
+        SYSTEM "ecutwfc = $ecutwfc
+                ecutrho = $ecutwfc*$dual "
+        runPW $name.in
+
+        set Etot [pwo_totene $name.out]
+        puts $fid "$ecutwfc $Etot"
+    }
+
+    close $fid
+}

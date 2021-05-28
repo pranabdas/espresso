@@ -1,0 +1,10 @@
+&projwfc
+    prefix='FeO'
+    outdir='./tmp/'
+    ngauss = 0,
+    degauss = 0.005,
+    Emin = -15.0,
+    Emax =  30.0,
+    DeltaE = 0.01,
+    filpdos = 'feo_dos.dat'
+ /

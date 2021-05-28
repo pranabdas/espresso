@@ -1,8 +1,10 @@
 ---
-title: Cell Relaxation
+title: Structure optimization
 ---
-Here we allow the lattice constant to change in order to calculate the minimum
-energy for the system.
+There are two types of structural optimization calculations in Quantum espresso:
+(1) **relax**: where only the atomic positions are allowed to vary, and (2)
+**vc-relax**: which allows to vary both the atomic positions and lattice
+constants.
 
 ```bash title="si_relax.in"
 &control

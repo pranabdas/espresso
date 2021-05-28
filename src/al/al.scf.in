@@ -1,0 +1,29 @@
+ &CONTROL
+    prefix = 'al'
+    outdir = './tmp/'
+    pseudo_dir = './',
+ /
+
+ &SYSTEM
+    ibrav =  2,
+    celldm(1) = 7.50,
+    nat =  1,
+    ntyp = 1,
+    ecutwfc = 12.0,
+
+    occupations = 'smearing',
+    smearing = 'marzari-vanderbilt',
+    degauss = 0.06
+ /
+
+ &ELECTRONS
+ /
+
+ATOMIC_SPECIES
+   Al  26.98 Al.pz-vbc.UPF
+
+ATOMIC_POSITIONS alat
+   Al 0.00 0.00 0.00
+
+K_POINTS automatic
+   6 6 6 1 1 1

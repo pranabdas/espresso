@@ -1,0 +1,35 @@
+ &CONTROL
+    prefix='fe',
+    pseudo_dir = './',
+    outdir = './tmp/'
+    verbosity = 'high',
+ /
+
+ &SYSTEM
+    ibrav = 3,
+    celldm(1) = 5.42,
+    nat = 1,
+    ntyp = 1,
+    ecutwfc = 25.0,
+    ecutrho = 200.0,
+
+    occupations = 'smearing',
+    smearing    = 'mv',
+    degauss     = 0.01,
+
+    nspin = 2,
+    starting_magnetization(1) = 0.6
+ /
+
+ &ELECTRONS
+ /
+
+ATOMIC_SPECIES
+# the second field, atomic mass, is not  used except for MD calculations
+   Fe  1.0  Fe.pbe-nd-rrkjus.UPF
+
+ATOMIC_POSITIONS crystal
+   Fe 0.0  0.0  0.0
+
+K_POINTS automatic
+   8 8 8   1 1 1

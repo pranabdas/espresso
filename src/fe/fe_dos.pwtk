@@ -1,0 +1,33 @@
+load_fromPWI fe_scf_fm.in
+
+SYSTEM " ecutwfc = 40
+         ecutrho = 320 "
+
+set name Fe
+
+runPW pw.$name.scf.in
+
+CONTROL { calculation = 'nscf' }
+SYSTEM  { occupations = 'tetrahedra' ,
+          degauss = ,  ! this is how variable is unset in PWTK
+}
+K_POINTS automatic {
+    12 12 12   1 1 1
+}
+runPW pw.$name.nscf.in
+
+DOS "
+    fildos = '$name.dos.dat'
+    Emin = 5.0
+    Emax = 20.0,
+    DeltaE = 0.1
+"
+runDOS dos.$name.in
+
+PROJWFC "
+    filpdos = '$name.pdos.dat'
+    Emin = 5.0
+    Emax = 20.0,
+    DeltaE = 0.1
+"
+runPROJWFC projwfc.$name.in

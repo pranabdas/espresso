@@ -24,11 +24,27 @@ du -hs .
 du -hs /path/
 ```
 
+Rsync to synchronize two folders:
+```bash
+rsync -azhv --delete /source/my_project/ /destination/my_project
+```
+
 ## Running jobs at NUS HPC
 
-Check your disc quota:
+Check your storage quota:
 ```bash
 hpc s
+```
+
+PBS commands:
+```bash
+hpc pbs summary
+```
+
+Example scrips for job submissions:
+```bash
+hpc pbs script parallel20
+hpc pbs vasp
 ```
 
 List available modules:
@@ -62,14 +78,31 @@ np=$( cat  ${PBS_NODEFILE} |wc -l );
 mpirun -np $np -f ${PBS_NODEFILE} pw.x -inp qe-scf.in > qe-scf.out
 ```
 
+:::info
+
+Notice that the lines beginning with `#PBS` are actually PBS commands, not
+comments. For comments, I am using `##`.
+
+:::
+
+Query about a queue systems:
+```bash
+qstat -q
+```
+
+Check status of a particular queue system:
+```bash
+qstat -Qx parallel20
+```
+
 Submitting a job:
 ```bash
 qsub my_sample_job.txt
 ```
 
-Query about a job:
+Check running jobs:
 ```bash
-qstat -q
+qstat
 ```
 
 Details about a job:
@@ -82,6 +115,26 @@ Stopping a job:
 qdel {job-id}
 ```
 
+## Abort and restart a calculation
+
+Create an empty file named `{prefix}.EXIT` in the directory where you have the
+input file or in the `outdir` as set in the `&CONTROL` card of input file.
+```bash
+touch {prefix}.EXIT
+```
+
+That will stop the program on next iteration, and save the state. In order to
+restart, set the `restart_mode` in `&CONTROL` card to `'restart'` and re-run
+with necessary changes. You must rerun with same number of processors.
+
+```bash
+&CONTROL
+  ...
+  restart_mode = 'restart'
+  ...
+/
+```
+
 ## Resources
-- http://bobcat.nus.edu.sg:3080/HPC/pbs/index.html
 - https://nusit.nus.edu.sg/services/getting-started/introductory-guide-for-new-hpc-users/
+- https://help.nscc.sg/pbspro-quickstartguide/

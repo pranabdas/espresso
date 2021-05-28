@@ -1,0 +1,26 @@
+# load the pw.x input from file
+load_fromPWI al.scf.in
+
+# to turn restart-mode on, uncomment this line
+#restart true
+
+foreach nk {4 8 12 16} {
+    K_POINTS automatic "$nk $nk $nk   1 1 1"
+
+    foreach smearing { gauss m-p m-v } {
+        set fid [open $smearing.k$nk.dat w]
+
+        foreach degauss {0.003 0.01 0.03 0.1} {
+            set name pw.Al.scf.degauss-$degauss.$smearing.k$nk
+
+            SYSTEM " smearing = '$smearing',
+                     degauss  = $degauss "
+            runPW $name.in
+
+            set Etot [pwo_totene $name.out]
+            puts $fid "$degauss $Etot"
+        }
+
+        close $fid
+    }
+}
