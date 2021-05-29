@@ -1,6 +1,6 @@
 ---
 title: Introduction to Density Functional Theory
-sidebar_label: DFT Introduction
+sidebar_label: DFT overview
 ---
 
 We want to calculate the electronic structure of real materials, and their
@@ -79,7 +79,8 @@ equation says how we can get the wavefunction from a given potential. Then there
 is the Schrödinger equation, if we can solve it (which could be difficult), we
 know how to get the density. Now Hohenberg and Kohn says the opposite is also
 true. For a given density, the potential can be uniquely determined. For
-non-degenerate ground states, two different Hamiltonian cannot have the same ground-state electron density. It is possible to define the ground-state energy
+non-degenerate ground states, two different Hamiltonian cannot have the same
+ground-state electron density. It is possible to define the ground-state energy
 as a function of electronic density.
 
 ## Hohenberg-Kohn Theorem 2
@@ -121,9 +122,9 @@ in turn depends on $$v_{ext}$$. Therefore the problem is non-linear. It is
 usually solved computationally by starting from a trial potential and iterate
 to self-consistency. Also note that we have not included the kinetic energy term
 for the nucleus. This is because the nuclear mass is about three orders of
-magnitude heavier than the electronic mass (M >> m), so essentially electronic
-dynamics is much faster than the nuclear dynamics (see Born-Oppenheimer
-approximation).
+magnitude heavier than the electronic mass ($$M \gg m)$$, so essentially
+electronic dynamics is much faster than the nuclear dynamics (see
+Born-Oppenheimer approximation).
 
 ## Algorithmic implementation
 
@@ -138,13 +139,30 @@ construct a pseudo potential for the nuclear potential. In tern, we have the
 Hamiltonian. Solve for $$\psi_i(\textbf{r})$$, subsequently $$n(\textbf{r})$$,
 and iterate until self consistency is achieved.
 
+![self consistent solution](../static/img/self-consistent-solution.png)
+<p className="fig-caption">Self consistency loop in DFT calculation. The above
+screenshot was taken from lecture slide of Professor Ralph Gevauer from {" "}
+<a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable">
+ICTP MAX School 2021</a>.</p>
+
+The potential due to the ions is replaced by the pseudo potentials which removes
+the oscillations near the atomic core (reducing number of required plane wave
+basis vectors) and simulates the exact behavior elsewhere. The pseudo potential
+is also different for different exchange correlation functional, and it is
+specified in the pseudo potential file. If a system had more than one type of
+atom, always choose the pseudo potentials with same exchange correlation (e.g.,
+PBE).
+
 It is important to note that DFT is calculations are not exact solution to the
-real systems because exact functional we need to solve the Kohn-Sham equation is
-not known. Therefore, we have to compare the results with experimental
-observations.
+real systems because exact functional ($$v_{xc}$$) we need to solve the
+Kohn-Sham equation is not known. Therefore, we have to compare the results with
+experimental observations.
 
 ## Plane-wave expansion
-The wavefunctions are expanded in terms of a basis set:
+The wavefunctions are expanded in terms of a basis set. In quantum espresso, the
+the basis function is plane waves. There exists other DFT codes that uses
+localized basis function as well. Plane waves are simpler but generally requires
+much large number of them compared to other localized basis sets.
 
 $$
 \psi_i(\textbf{r}) = \sum_{\alpha = 1} ^{N_b} c_{i\alpha} f_{\alpha}(\textbf{r})
@@ -160,7 +178,7 @@ $$
 \Rightarrow \begin{pmatrix} H_{11} &  ... & H_{1b}\\ ... & ... & ... \\ H_{b1} &
  ... & H_{bb}\end{pmatrix} \begin{pmatrix}c_1\\...\\c_b \end{pmatrix} =
  \epsilon_i \begin{pmatrix}c_1\\...\\c_b \end{pmatrix}
- $$
+$$
 
 This is a linear algebra problem, solving the above involves diagonalization of
 ($$N_b \times N_b$$) matrix which gives us corresponding eigenvalue and
@@ -207,6 +225,24 @@ finite $$|\textbf{k + G}|$$
 $$
 \frac{\hbar^2 |\textbf{k + G}|}{2m} \le E_{cutoff}
 $$
+
+The charge density can be obtained from:
+
+$$
+n(\textbf{r}) = \sum_k \psi_k^*(\textbf{r}) \psi_k(\textbf{r})
+$$
+
+We need two set of basis vectors: one to store the wavefunctions, and another
+for the charge density.
+
+:::info
+
+We need about 4 times the cutoff for the charge density compared to the cutoff
+for the wavefunction. In case of ultrasoft pseudo potentials, we require lower
+cutoff for energy, therefore `ecutrho` might require 8 or 12 times higher than
+the `ecutwfc`.
+
+:::
 
 ## Resources
 

@@ -188,6 +188,14 @@ html[data-theme='dark'] .navbar {
   border-bottom: 0;
 }
 
+.fig-caption {
+  padding: 0.5em;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  font-style: italic;
+  color: #666;
+}
+
 /*
 html[data-theme='light'] .DocSearch {
   --docsearch-primary-color: var(--ifm-color-primary);

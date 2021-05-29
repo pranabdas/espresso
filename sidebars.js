@@ -4,15 +4,8 @@ module.exports = {
       type: "category",
       label: "Docs",
       items: [
-        "introduction",
-        {
-          type: "category",
-          label: "Theory",
-          collapsed: false,
-          items: [
-            "theory/dft"
-          ],
-        },
+        "welcome",
+        "dft",
         {
           type: "category",
           label: "Setup",
