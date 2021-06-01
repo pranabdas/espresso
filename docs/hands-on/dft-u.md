@@ -1,6 +1,10 @@
 ---
 title: DFT+U calculation
 ---
+Electronic structure for transition-metals (with localized $$d$$ or $$f$$
+electrons) is not accurately described by standard DFT, and therefore the need
+for DFT+U formulation.
+
 ```bash
 &SYSTEM
     ...
@@ -12,6 +16,27 @@ title: DFT+U calculation
 Here `i` refers to the atomic index in the `&ATOMIC_SPECIES` card corresponding
 to each `ntyp`. We can specify `Hubbard_u(i)` corresponding to more than one
 atom in separate lines.
+
+There is also $$U_{eff} = U - J$$ implementation in QE. $$J$$ represents on-site
+exchange interaction. Number of $$J$$ terms depends on the manifold of localized
+electrons. For $$p$$, we have 1; for $$d$$, we have 2; and for $$f$$, we have 3
+terms.
+
+```bash
+    ...
+    lda_plus_u = .TRUE.
+    lda_plus_u_kind = 1
+    Hubbard_u(i) = U
+    Hubbard_J(k,i) = J_ki
+    ...
+```
+
+:::danger COMMON ERRORS
+
+If you add `Hubbard_u` for elements that is not implemented to have $$U$$ term
+in QE, you might see a "pseudopotential not yet inserted" error.
+
+:::
 
 ## DFT calculation for FeO
 We will first perform the standard DFT calculation.

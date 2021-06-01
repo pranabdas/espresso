@@ -109,8 +109,10 @@ pw.x -inp inputfile > outputfile
 # For parallel version
 mpirun -np 12 pw.x -inp inputfile > outputfile
 ```
-Where `-np 12` specifies the number of processors. `-inp` stands for input file,
-and we can alternatively use `-i`, or `-in`, or `-input`.
+Where `-np 12` specifies the number of processors. `-inp` stands for input file.
+Alternatively, we can use `-i`, or `-in`, or `-input`, or even standard input
+redirect `<`. But beware some systems may not interpret all the different
+options, I think safe option is to use `-i`.
 
 Once installation is completed, optionally we can run tests if everything went
 OK. Go to the `test-suite` directory and run
@@ -130,8 +132,8 @@ knowledge about high performance computing.
 :::
 
 ## Installing PWTK
-We will install another scripting package `pwtk`. First we need to install
-following two libraries:
+We will install a very hand scripting package PWscf Toolkit (PWTK). First we
+need to install following dependencies:
 ```bash
 sudo apt install tcl tcllib
 ```
@@ -141,13 +143,13 @@ Download the file from - <http://pwtk.ijs.si/download/pwtk-2.0.tar.gz>
 wget "http://pwtk.ijs.si/download/pwtk-2.0.tar.gz"
 ```
 
-Above command will download the file to your current directory. Next we need to
-just un-tar (no need to compile):
+Above command will download and save the file to your current directory. Next we
+need to just un-tar (no need to compile):
 ```bash
 tar zxvf pwtk-2.0.tar.gz
 ```
 
-Add the path to `.bashrc`:
+Add the path (modify below as appropriate) to `.bashrc`:
 ```bash
 echo 'export PATH="/root/pwtk-2.0:$PATH"' >> ~/.bashrc
 source ~/.bashrc

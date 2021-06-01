@@ -88,7 +88,7 @@ html[data-theme='dark'] .features_src-pages- {
 } */
 
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
+  background-color: #ffff99;
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
@@ -96,7 +96,7 @@ html[data-theme='dark'] .features_src-pages- {
 
 /* If you have a different syntax highlighting theme for dark mode. */
 html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3); /* Color which works with dark mode syntax highlighting theme */
+  background-color: #666600; /* Color which works with dark mode syntax highlighting theme */
 }
 
 .footer {

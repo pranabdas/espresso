@@ -37,7 +37,7 @@ module.exports = {
           href: "https://pranabdas.github.io",
           label: "About me",
           position: "left",
-          // target: "_self",
+          target: "_self",
         },
         {
           href: "https://github.com/pranabdas/qe-dft",
