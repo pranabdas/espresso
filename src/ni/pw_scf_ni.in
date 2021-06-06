@@ -1,0 +1,37 @@
+ &control
+    calculation='scf',
+    restart_mode='from_scratch',
+    pseudo_dir = '../pseudos/',
+    outdir='./tmp/',
+    prefix='ni',
+ /
+
+ &system
+    ibrav=2,
+    celldm(1) =6.648,
+    nat=1,
+    ntyp=1,
+    nspin = 2,
+    starting_magnetization(1)=0.7,
+    nbnd = 10,
+    ecutwfc = 45.0,
+    ecutrho = 360.0,
+    occupations='smearing',
+    smearing='m-v',
+    degauss=0.01
+ /
+
+ &electrons
+    diagonalization='david'
+    conv_thr = 1.0e-8
+    mixing_beta = 0.7
+ /
+
+ATOMIC_SPECIES
+ Ni 58.69 ni_pbe_v1.4.uspp.F.UPF
+
+ATOMIC_POSITIONS alat
+ Ni 0.0 0.0 0.0
+
+K_POINTS AUTOMATIC
+14 14 14 1 1 1

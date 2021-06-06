@@ -1,0 +1,6 @@
+&BANDS
+    outdir='./tmp/',
+    prefix='fe',
+    filband='fe_bands_soc.dat',
+    lsigma(3)=.true.
+/

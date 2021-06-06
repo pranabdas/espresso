@@ -4,15 +4,15 @@ sidebar_label: P-DOS
 ---
 Here we continue with our Aluminum example.
 Often it is needed to know the contribution from each individual atoms and/or
-each of their orbital contributions. We can achieve that using `projwfc.x` code.
-First, we must perform the self consistent field calculation followed by the
-non-self consistent field calculation with denser k-points.
+each of their orbital contributions. We can achieve that using **projwfc.x**
+code. First, we must perform the self consistent field calculation followed by
+the non-self consistent field calculation with denser k-points.
 ```bash
 pw.x < al_scf.in > al_scf.out
 pw.x < al_nscf.in > al_nscf.out
 ```
 
-Then we prepare the input file for `projwfc.x`:
+Then we prepare the input file for **projwfc.x**:
 ```bash title="src/al/al_projwfc.in"
 &PROJWFC
   prefix= 'al',
@@ -26,6 +26,33 @@ Perform the calculation:
 ```bash
 projwfc.x < al_projwfc.in > al_projwfc.out
 ```
+
+**Output data format:** the DOS values are written in the file
+`{filpdos}.pdos_atm#N(X)_wfc#M(l)`, where `N` is atom number, `X` is atom
+symbol, `M` is wfc number, and `l=s,p,d,f` one file for each atomic wavefunction
+read from pseudopotential file. The header of file looks like (for spin
+polarized calculations, we have separate up and down columns):
+```bash
+E  LDOS(E) PDOS_1(E) ... PDOS_{2l+1}(E)
+```
+
+$$LDOS = \sum\limits_{m=1}^{2l+1} PDOS_m (E)$$
+
+$$PDOS_m (E) \rightarrow$$ projected DOS on atomic wfc with component $m$.
+
+**Orbital order:**
+- for $l=1$:
+  - $p_z~(m=0)$
+  - $p_x$ (real combination of $m=\pm 1$ with cosine)
+  - $p_y$ (real combination of $m=\pm 1$ with sine)
+
+- for $l=2$:
+  - $d_{z^2}~(m=0)$
+  - $d_{zx}$ (real combination of $m=\pm 1$ with cosine)
+  - $d_{zy}$ (real combination of $m=\pm 1$ with sine)
+  - $d_{x^2-y^2}$ (real combination of $m=\pm 2$ with cosine)
+  - $d_{xy}$ (real combination of $m=\pm 2$ with sine)
+
 Let's make our plots:
 ```python title="src/notebooks/al-pdos.ipynb"
 import matplotlib.pyplot as plt
@@ -81,8 +108,8 @@ Here is how our projected density of states plot looks like:
 
 ![PDOS](../../static/img/al-pdos.png)
 
-We can perform sums of specific atom or orbital contributions using `sumpdos.x`
-code if there are multiple $s$ or $p$ orbitals:
+We can perform sums of specific atom or orbital contributions using
+**sumpdos.x** code if there are multiple $s$ or $p$ orbitals:
 ```bash
 sumpdos.x *\(Al\)* > atom_Al_tot.dat
 sumpdos.x *\(Al\)*\(s\) > atom_Al_s.dat

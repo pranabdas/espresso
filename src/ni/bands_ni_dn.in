@@ -1,0 +1,6 @@
+&BANDS
+    outdir='./tmp/',
+    prefix='ni',
+    filband='ni_bands_dn.dat',
+    spin_component = 2,
+/

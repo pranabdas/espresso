@@ -75,6 +75,34 @@ hp.x -in feo_hp.in > feo_hp.out
 
 Check the file `FeO.Hubbard_parameters.dat`.
 
+:::info
+
+1. We need to check the convergence against q-mesh (as well as k-mesh in SCF
+calculation). Here $1\times 1\times 1$ mesh is used.
+
+2. We can update the obtained $U$ value in our SCF calculation, and repeat
+linear response calculation until we have reached self consistency in $U$ value.
+
+3. To go even further one can check the convergence of geometry during $U$
+updates.
+
+4. There is also inter-site Hubbard correction DFT+U+V calculation. The results
+could be more closer to hybrid functionals like GW. The $V$ can also be
+calculated using Quantum Espresso **hp.x** code.
+
+5. Obtained value of $U$ depends on pseudopotential, Hubbard manifold (whether
+atomic, ortho-atomic etc.).
+
+:::
+
+:::danger
+
+The above **hp.x** code is not suitable for closed cell systems (e.g., fully
+occupied d-shell element), in such cases this linear response method gives
+unrealistically large $U$ value.
+
+:::
+
 ## DFT+U calculation
 We repeat the calculation after setting in the `&SYSTEM` card:
 ```bash
@@ -86,3 +114,19 @@ We repeat the above calculation, and plot the results. Now we find insulating
 ground state.
 
 ![FeO pdos DFT+U](../../static/img/feo-pdos-dft-u.png)
+
+:::info
+
+`U_projection_type = 'ortho-atomic'` might give more realistic result than the
+default 'atomic'.
+
+:::
+
+:::tip
+
+Here we have plotted the `lpdos` (local density of states). If we want to know
+the contribution of $d_{z^2}, d_{yz}, d_{x^2-z^2}$ ect., we can find them from
+the `pdos` columns. Also there are important Lowdin charges information in the
+`feo_projwfc.out` file.
+
+:::

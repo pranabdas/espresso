@@ -32,7 +32,7 @@ $$
 \Psi(\textbf{r}, t) = \psi(\textbf{r}) f(t)
 $$
 
-Then we have time independent Schrödinger equation:
+That reduces our task to solving only time independent Schrödinger equation:
 
 $$
 \left[-\frac{\hbar^2 \nabla^2}{2m} + v(\textbf{r})\right] \psi(\textbf{r}) =
@@ -64,7 +64,7 @@ With today's available computing power, it is far from feasible to solve the
 actual electronic wavefunction of a condensed matter system, where $N$ is of the
 order of $$10^{23}$$.
 
-Density functional theory (DFT) handles this problem by focusing on the
+Density functional theory (DFT) approaches this problem by focusing on the
 electronic density which a function of three spacial coordinates instead of
 finding the  wave functions. DFT tries to minimize the energy of a system
 (ground state) in a self consistent way, and it is very successful in

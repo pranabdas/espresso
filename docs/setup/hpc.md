@@ -138,16 +138,18 @@ after necessary changes. You must rerun with same number of processors.
 /
 ```
 
-## Compiling Quantum Espresso using Intel Math Kernel Libraries (MKL)
+## Compiling Quantum Espresso using Intel&reg; Math Kernel Libraries (MKL)
 If you need a newer or specific version of Quantum Espresso that is not
-installed in the NUS clusters, here are the steps that I followed. Download and
-un-tar the source files.
+installed in the NUS clusters or you have modified the source codes yourself,
+here are the steps that I followed to successfully compile. Download and
+un-compress the source files.
 ```bash
 wget https://github.com/QEF/q-e/releases/download/qe-6.7.0/qe-6.7-ReleasePack.tgz
 tar zxvf qe-6.7-ReleasePack.tgz
 ```
 
-Load the necessary modules:
+Load the necessary modules (applicable for NUS clusters, last checked in May
+2021):
 ```bash
 module load xe_2018
 module load fftw/3.3.7
@@ -167,11 +169,12 @@ LAPACK_LIBS=
 FFT_LIBS=
 ...
 ```
+
 For me the `LAPACK_LIBS` and `FFT_LIBS` libs were not automatically detected. We
 need to specify them manually. First get the link libraries line specific to
-your version of software and other configurations from the [Intel link advisor](
-https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl/link-line-advisor.html)
-. For my case, the link line was:
+your version of MKL and other configurations from the [Intel link advisor](
+https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl/link-line-advisor.html).
+For my case, the link line was:
 ```bash
 -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 ```
@@ -182,41 +185,38 @@ We need to insert the link for `BLAS_LIBS`, `LAPACK_LIBS`, and `SCALAPACK_LIBS`.
 We also need to find out where is the FFTW lib located. In NUS HPC, we can use
 `module avail` command to see where a particular module is located, usually
 under `/app1/modules/`. Open `make.inc` and make following changes
-(highlighted):
-```bash title="make.inc"
+(replace the lines highlighted in red by the one in green):
+```diff title="make.inc"
 ...
+CFLAGS         = -O2 $(DFLAGS) $(IFLAGS)
 CFLAGS         = -O3 $(DFLAGS) $(IFLAGS)
 F90FLAGS       = $(FFLAGS) -nomodule -fpp $(FDFLAGS) $(CUDA_F90FLAGS) $(IFLAGS) $(MODFLAGS)
 
 # compiler flags with and without optimization for fortran-77
 # the latter is NEEDED to properly compile dlamch.f, used by lapack
-// highlight-start
-FFLAGS         = -O3 -assume byterecl -g -traceback
-// highlight-end
+- FFLAGS         = -O2 -assume byterecl -g -traceback
++ FFLAGS         = -O3 -assume byterecl -g -traceback
 FFLAGS_NOOPT   = -O0 -assume byterecl -g -traceback
 ...
 # If you have nothing better, use the local copy
 # BLAS_LIBS = $(TOPDIR)/LAPACK/libblas.a
-// highlight-start
-BLAS_LIBS      = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
-// highlight-end
+- BLAS_LIBS      =   -lmkl_intel_lp64  -lmkl_sequential -lmkl_core
++ BLAS_LIBS      = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 # If you have nothing better, use the local copy
 # LAPACK_LIBS_SWITCH = internal
 # LAPACK_LIBS = $(TOPDIR)/LAPACK/liblapack.a
-// highlight-start
-LAPACK_LIBS    = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
-// highlight-end
+- LAPACK_LIBS    =
++ LAPACK_LIBS    = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 LAPACK_LIBS_SWITCH = external
 
-// highlight-start
-SCALAPACK_LIBS = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
-// highlight-end
+- SCALAPACK_LIBS =
++ SCALAPACK_LIBS = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
+
 # nothing needed here if the the internal copy of FFTW is compiled
 # (needs -D__FFTW in DFLAGS)
 
-// highlight-start
-FFT_LIBS       = -L/app1/centos6.3/gnu/fftw/3.3.7/lib/ -lmpi
-// highlight-end
+- FFT_LIBS       =
++ FFT_LIBS       = -L/app1/centos6.3/gnu/fftw/3.3.7/lib/ -lmpi
 ...
 ```
 
@@ -225,10 +225,13 @@ Now we are ready to compile:
 make all -j8
 ```
 
-I am using 8 processors to speed things up. You may add the `qe-6.7/bin` path to
-your `.bashrc`, and don't forget to load following modules before calling QE
-executables.
+I am parallelizing with 8 processors to speed things up. You may add the
+`qe-6.7/bin` path to your `.bashrc`:
+```bash
+echo 'export PATH="/home/svu/{username}/qe-6.7/bin:$PATH"' >> ~/.bashrc
+```
 
+And don't forget to load dependencies before calling QE executables.
 ```bash
 module load xe_2018
 module load fftw/3.3.7

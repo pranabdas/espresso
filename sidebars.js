@@ -20,7 +20,7 @@ module.exports = {
         {
           type: "category",
           label: "Hands-on",
-          collapsed: false,
+          collapsed: true,
           items: [
             "hands-on/scf",
             "hands-on/convergence",
@@ -33,6 +33,7 @@ module.exports = {
             "hands-on/graphene",
             "hands-on/GaAs",
             "hands-on/fe",
+            "hands-on/ni",
             "hands-on/dft-u",
             "hands-on/soc",
           ],

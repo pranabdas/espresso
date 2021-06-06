@@ -51,9 +51,9 @@ plt.rcParams["figure.dpi"]=150
 plt.rcParams["figure.facecolor"]="white"
 
 x, y = np.loadtxt('../src/silicon/etot-vs-ecutwfc.dat', delimiter=' ', unpack=True)
-plt.plot(x, y, label='Etot vs ecutwfc')
-plt.xlabel('ecutwfc')
-plt.ylabel('Etot')
+plt.plot(x, y, "o-", markersize=5, label='Etot vs ecutwfc')
+plt.xlabel('ecutwfc (Ry)')
+plt.ylabel('Etot (Ry)')
 plt.legend(frameon=False)
 plt.show()
 ```
@@ -164,9 +164,9 @@ pwtk si_scf_kpoints.pwtk
 
 ```python title="notebooks/silicon-scf.ipynb"
 x, y = np.loadtxt('../src/silicon/etot-vs-kpoint.dat', delimiter=' ', unpack=True)
-plt.plot(x, y, label='Etot vs kpoints')
-plt.xlabel('kpoints')
-plt.ylabel('Etot')
+plt.plot(x, y, "o-", markersize=5, label='Etot vs kpoints')
+plt.xlabel('# kpoints')
+plt.ylabel('Etot (Ry)')
 plt.legend(frameon=False)
 plt.show()
 ```
@@ -208,9 +208,9 @@ pwtk si_scf_alat.pwtk
 
 ```python title="notebooks/silicon-scf.ipynb"
 x, y = np.loadtxt('../src/silicon/etot-vs-alat.dat', delimiter=' ', unpack=True)
-plt.plot(x, y, label='Etot vs alat')
-plt.xlabel('alat')
-plt.ylabel('Etot')
+plt.plot(x, y, "o-", markersize=5, label='Etot vs alat')
+plt.xlabel('alat (Bohr)')
+plt.ylabel('Etot (Ry)')
 plt.legend(frameon=False)
 plt.show()
 ```
