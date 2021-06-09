@@ -16,15 +16,18 @@
     "gh-deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.0",
-    "@docusaurus/preset-classic": "^2.0.0-beta.0",
+    "@docusaurus/core": "2.0.0-beta.1",
+    "@docusaurus/preset-classic": "2.0.0-beta.1",
     "@mdx-js/react": "^1.6.22",
+    "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
+    "file-loader": "^6.2.0",
+    "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "prism-react-renderer": "^1.1.1",
     "rehype-katex": "^5.0.0",
-    "remark-math": "^3.0.1"
+    "remark-math": "^3.0.1",
+    "url-loader": "^4.1.1"
   },
   "browserslist": {
     "production": [
@@ -39,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.2.2"
   }
 }

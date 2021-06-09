@@ -37,7 +37,7 @@ bands.x < GaAs_bands_pp.in > GaAs_bands_pp.out
 ```
 If everything goes well, you will get the bandstructure as below:
 
-![GaAs-bandstructure](../../static/img/GaAs-bands.png)
+![GaAs-bandstructure](/img/GaAs-bands.png)
 
 :::caution Warning
 

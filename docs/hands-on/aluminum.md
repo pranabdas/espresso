@@ -164,7 +164,7 @@ dos.x < al_dos.in > al_dos.out
 Note from our `al_nscf.out` that our Fermi energy is at 7.9421 eV. We plot our
 density of states:
 
-![Al-DOS](../../static/img/al-dos.png)
+![Al-DOS](/img/al-dos.png)
 
 ## Bandstructure calculation
 We prepare the input file the same as the case of our previous example silicon:
@@ -228,7 +228,7 @@ bands.x < al_bands_pp.in > al_bands_pp.out
 ```
 We obtain the following bandstructure:
 
-![Bandstructure-Al](../../static/img/al-bands.png)
+![Bandstructure-Al](/img/al-bands.png)
 
 ## Importance of smearing in convergence
 
@@ -240,7 +240,7 @@ and for various smearing values.
 pwtk al.degauss.pwtk
 ```
 
-![convergence against smearing-Al](../../static/img/al-smearing.png)
+![convergence against smearing-Al](/img/al-smearing.png)
 
 We see that the `m-v` and `m-p` broadening allow for faster and smother
 convergence while depending less on `degauss` value than Gaussian broadening.

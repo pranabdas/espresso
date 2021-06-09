@@ -22,7 +22,7 @@ pw.x -i graphene_nscf.in > graphene_nscf.out
 dos.x -i graphene_dos.in > graphene_dos.out
 ```
 
-![Graphene DOS](../../static/img/graphene-dos.png)
+![Graphene DOS](/img/graphene-dos.png)
 
 ## Bandstructure calculation
 First run the bands calculation for given k-path:
@@ -57,4 +57,4 @@ plt.ylabel("Energy (eV)")
 plt.show()
 ```
 
-![Graphene bands](../../static/img/graphene-bands.png)
+![Graphene bands](/img/graphene-bands.png)

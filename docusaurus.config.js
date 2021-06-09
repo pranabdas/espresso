@@ -14,7 +14,7 @@ module.exports = {
   themeConfig: {
     prism: {
       theme: require("prism-react-renderer/themes/github"),
-      darkTheme: require("prism-react-renderer/themes/dracula"),
+      darkTheme: require("prism-react-renderer/themes/nightOwl"),
       additionalLanguages: ["docker", "fortran"],
     },
     hideableSidebar: true,
@@ -34,7 +34,7 @@ module.exports = {
       },
       items: [
         {
-          href: "https://pranabdas.github.io",
+          to: "https://pranabdas.github.io",
           label: "About me",
           position: "left",
           target: "_self",

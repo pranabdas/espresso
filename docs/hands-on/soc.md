@@ -37,12 +37,14 @@ We can constrain the magnetic moment:
 ```
 
 Starting magnetization can be specified by `angle1` (angle with $z$ axis) and
-`angle2` (angle of projection in $xy$ plane):
+`angle2` (angle of projection in $xy$ plane). Also check the penalty function
+($\lambda$).
 ```bash
 &SYSTEM
   ...
   angle1(i) = 0.0d0
   angle2(i) = 0.0d0
+  lambda = 0.5
   ...
 /
 ```
@@ -64,11 +66,16 @@ density to perform non-colinear spin orbit calculation.
 /
 ```
 
-Also check the penalty function ($\lambda$):
+When starting with non-collinear calculation from an existing charge density
+file from a collinear lsda calculation, we need to set `lforcet=.true.`. It
+assumes previous density points in z direction, and rotates in the direction
+specified by `angle1` (initial magnetization angle with z axis in degrees), and
+`angle2` (angle in degrees for projections in x-y plane).
 ```bash
 &SYSTEM
 ...
-  lambda = 0.5
+  angle1(i) = 0.0
+  angle2(i) = 0.0
   lforcet = .true.
 /
 ```

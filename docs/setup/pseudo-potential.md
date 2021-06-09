@@ -1,13 +1,18 @@
 ---
 title: Pseudo potentials
 ---
+In Quantum Espresso, pseudopotential replaces the actual electron-ion
+interaction. The the rapidly changing potential field near the atomic core is
+replaced by a smoother function that simulates the potential field far from the
+core very well. By doing so, it requires less number plane wave basis for
+wavefunction expansion.
 
-We can choose form various pseudo potential libraries. Choice of pseudo
-potential depends on the problem we are investigating, e.g., if there is a heavy
-element present in our system and we are interested in the spin-orbit coupling
-effects, we should choose a full relativistic pseudo potential. We need to be
-careful whether our chosen pseudo potential correctly reproduces physical
-properties. Pseudo potential libraries:
+We can choose form various pseudopotential libraries. Choice of pseudopotential
+depends on the problem we are investigating, e.g., if there is a heavy element
+present in our system and we are interested in the spin-orbit coupling effects,
+we should choose a full relativistic pseudo potential. We need to be careful
+whether our chosen pseudo potential correctly reproduces physical properties.
+Various pseudopotential libraries:
 
 - [https://www.quantum-espresso.org/pseudopotentials](https://www.quantum-espresso.org/pseudopotentials)
 - [https://www.materialscloud.org/discover/sssp/table/efficiency](https://www.materialscloud.org/discover/sssp/table/efficiency)

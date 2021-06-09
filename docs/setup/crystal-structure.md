@@ -40,3 +40,10 @@ You can explore the crystal structure, find out k-path and many more using
 
 You can generate **PWscf** input files using tools in this website as well
 <https://www.materialscloud.org/work/tools/qeinputgenerator>
+
+Same website also has a tool for k-path visualization and generation
+<https://www.materialscloud.org/work/tools/seekpath>
+
+
+## Resources
+- [Supercell construction using Vesta](https://www.youtube.com/watch?v=Jk0QUB1fkMU)

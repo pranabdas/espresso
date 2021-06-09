@@ -2,6 +2,8 @@
 title: High Performance Computing
 sidebar_label: HPC
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 In order to perform computationally heavy calculations, we would require access
 to high performance computing facilities.
 
@@ -128,7 +130,8 @@ touch {prefix}.EXIT
 
 That will stop the program on next iteration, and save the state. In order to
 restart, set the `restart_mode` in `&CONTROL` card to `'restart'` and re-run
-after necessary changes. You must rerun with same number of processors.
+after necessary changes. You must re-submit the job with same number of
+processors.
 
 ```bash
 &CONTROL
@@ -142,7 +145,7 @@ after necessary changes. You must rerun with same number of processors.
 If you need a newer or specific version of Quantum Espresso that is not
 installed in the NUS clusters or you have modified the source codes yourself,
 here are the steps that I followed to successfully compile. Download and
-un-compress the source files.
+decompress the source files.
 ```bash
 wget https://github.com/QEF/q-e/releases/download/qe-6.7.0/qe-6.7-ReleasePack.tgz
 tar zxvf qe-6.7-ReleasePack.tgz
@@ -179,15 +182,14 @@ For my case, the link line was:
 -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 ```
 
-![Intel link line adviser](../../static/img/intel-link-line-adviser.png)
+<img src={useBaseUrl("/img/intel-link-line-adviser.png")} alt="Intel link line adviser" width="600px" />
 
 We need to insert the link for `BLAS_LIBS`, `LAPACK_LIBS`, and `SCALAPACK_LIBS`.
 We also need to find out where is the FFTW lib located. In NUS HPC, we can use
 `module avail` command to see where a particular module is located, usually
-under `/app1/modules/`. Open `make.inc` and make following changes
-(replace the lines highlighted in red by the one in green):
+under `/app1/modules/`. Open `make.inc` and make following changes:
 ```diff title="make.inc"
-...
+# ...
 CFLAGS         = -O2 $(DFLAGS) $(IFLAGS)
 CFLAGS         = -O3 $(DFLAGS) $(IFLAGS)
 F90FLAGS       = $(FFLAGS) -nomodule -fpp $(FDFLAGS) $(CUDA_F90FLAGS) $(IFLAGS) $(MODFLAGS)
@@ -197,7 +199,7 @@ F90FLAGS       = $(FFLAGS) -nomodule -fpp $(FDFLAGS) $(CUDA_F90FLAGS) $(IFLAGS) 
 - FFLAGS         = -O2 -assume byterecl -g -traceback
 + FFLAGS         = -O3 -assume byterecl -g -traceback
 FFLAGS_NOOPT   = -O0 -assume byterecl -g -traceback
-...
+# ...
 # If you have nothing better, use the local copy
 # BLAS_LIBS = $(TOPDIR)/LAPACK/libblas.a
 - BLAS_LIBS      =   -lmkl_intel_lp64  -lmkl_sequential -lmkl_core
@@ -217,7 +219,7 @@ LAPACK_LIBS_SWITCH = external
 
 - FFT_LIBS       =
 + FFT_LIBS       = -L/app1/centos6.3/gnu/fftw/3.3.7/lib/ -lmpi
-...
+# ...
 ```
 
 Now we are ready to compile:
@@ -241,7 +243,7 @@ module load fftw/3.3.7
 
 If you are submitting job via PBS queue, you need to provide full path of the QE
 executables, e.g., `/home/svu/{username}/qe-6.7/bin/pw.x`. PBS system won't read
-your bash settings, neither relative paths of your login node would apply.
+your bash settings, neither the relative paths of your login node would apply.
 
 :::
 

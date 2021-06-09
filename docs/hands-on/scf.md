@@ -3,35 +3,36 @@ title: Self consistent field calculation for silicon
 sidebar_label: SCF calculation
 ---
 
-We need to create an input file where we will provide various important
-parameters for the self consistent calculation (solves the Kohn-Sham equation
-self-consistently). In QE input files, there are `NAMELISTS` and `INPUT_CARDS`.
-`NAMELISTS` variables have default values, and should be provided a new value as
-required by specific calculation. The variables can be declared in any specific
-order. On the other hand, the variables in the `INPUT_CARDS` has always to be
-specified and in specific order. Logically independent `INPUT_CARDS` may be
-organized in any order.
+We need to provide various important parameters for the self consistent
+calculation (solves the Kohn-Sham equation self-consistently) via an input file.
+In QE input files, there are `NAMELISTS` and `INPUT_CARDS`. `NAMELISTS`
+variables have default values, and should be provided a new value as required by
+specific calculation. The variables can be declared in any specific order. On
+the other hand, the variables in the `INPUT_CARDS` has always to be specified
+and in specific order. Logically independent `INPUT_CARDS` may be organized in
+any order.
 
-There are three mandatory `NAMELISTS` in `PWscf`: `&CONTROL` (specifies the flux
-of computation), `&SYSTEM` (specifies the system), and `&ELECTRONS` (specifies
-the algorithms used to solve the Kohn-Sham equation). There are two other
-`NAMELISTS`: `&IONS` and `&CELLS`, which need to be specified depending on the
-calculation.
+There are three mandatory `NAMELISTS` in `PWscf`: (1) `&CONTROL`: specifies the
+flux of computation, (2) `&SYSTEM`: specifies the system, and (3) `&ELECTRONS`:
+specifies the algorithms used to solve the Kohn-Sham equation. There are two
+other `NAMELISTS`: `&IONS` and `&CELLS`, which need to be specified depending on
+the calculation.
 
 Three `INPUT_CARDS`: `ATOMIC_SPECIES`, `ATOMIC_POSITIONS`, and `K_POINTS` in
 `PWscf` are mandatory. There are few others that must be provided in certain
 calculations.
 
-Our input file is [si_scf.in](https://github.com/pranabdas/qe-dft/). The input
-files are typically named with a prefix `.in`. The inputs are organized as
-`&namelists` followed by their fields or cards. The `&control`, `&system`, and
-`&electrons` namelists are required. There are also optional `&cell` and
-`&ions`, you must provide them if your calculation require them. Most variables
-in the namelist have certain default values (which may or may not fit your
-needs), however some variables you must always provide. Comment lines can be
-added with lines starting with a `!` like in Fortran.
+Blow is out input file is [pw.scf.silicon.in](
+https://github.com/pranabdas/qe-dft/). The input files are typically named with
+a prefix `.in`. The inputs are organized as `&namelists` followed by their
+fields or cards. The `&control`, `&system`, and `&electrons` namelists are
+required. There are also optional `&cell` and `&ions`, you must provide them if
+your calculation require them. Most variables in the `namelists` have certain
+default values (which may or may not fit your needs), however some variables you
+must always provide. Comment lines can be added with lines starting with a `!`
+like in Fortran.
 
-```bash title="src/silicon/si_scf.in"
+```bash title="src/silicon/pw.scf.silicon.in"
 &CONTROL
 ! we want to perform self consistent field calculation
   calculation = 'scf',
@@ -39,7 +40,7 @@ added with lines starting with a `!` like in Fortran.
 ! prefix is reference to the output files
   prefix = 'silicon',
 
-! output directory. Note that it is deprecated.
+! output directory
   outdir = './tmp/'
 
 ! directory for the pseudo potential directory
@@ -89,15 +90,15 @@ I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum
 Espresso Website](https://www.quantum-espresso.org/pseudopotentials).
 
 You must read the **PWscf user manual** for in-depth understanding. Check the
-`PW/Doc/` folder under your installation directory. There is also another file
-`INPUT_PW.html` regarding the details of input parameters. PW stands for plane
-waves.
+`qe-x.x/PW/Doc/` folder under your installation directory. There is also another
+file `INPUT_PW.html` regarding the details of input parameters. PW stands for
+plane waves.
 
 Run `pw.x` in self consistent mode for silicon.
 ```bash
-pw.x < si_scf.in > si_scf.out
+pw.x < pw.scf.silicon.in > pw.scf.silicon.out
 # For parallel execution
-mpirun -np 4 pw.x -inp si_scf.in > si_scf.out
+mpirun -np 4 pw.x -inp pw.scf.silicon.in > pw.scf.silicon.out
 ```
 
 :::note
@@ -107,10 +108,10 @@ have to provide the full path where the `pw.x` executable is located.
 
 :::
 
-Now let’s look at the output file `si_scf.out` and see how the convergence is
-reached:
+Now let’s look at the output file `pw.scf.silicon.out` and see how the
+convergence is reached:
 ```bash
-grep -e 'total energy' -e estimate si_scf.out
+grep -e 'total energy' -e estimate pw.scf.silicon.out
 ```
 
 and you should see something like this:

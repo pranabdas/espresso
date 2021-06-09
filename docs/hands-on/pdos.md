@@ -106,7 +106,7 @@ plt.show()
 
 Here is how our projected density of states plot looks like:
 
-![PDOS](../../static/img/al-pdos.png)
+![PDOS](/img/al-pdos.png)
 
 We can perform sums of specific atom or orbital contributions using
 **sumpdos.x** code if there are multiple $s$ or $p$ orbitals:

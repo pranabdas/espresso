@@ -64,7 +64,7 @@ plt.gcf().text(0.892, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
 plt.show()
 ```
 
-![kpdos](../../static/img/silicon-kpdos.png)
+![kpdos](/img/silicon-kpdos.png)
 
 :::info
 

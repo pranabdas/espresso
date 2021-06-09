@@ -12,8 +12,8 @@ $$
 \lambda \cdot p = h
 $$
 
-where $$h$$ is the Plank constant. Wavefunction of an electron in a potential
-filed ($$V$$) is calculated by solving the Schrödinger equation:
+where $h$ is the Plank constant. Wavefunction of an electron in a potential
+filed ($V$) is calculated by solving the Schrödinger equation:
 
 $$
 -\frac{\hbar^2}{2m} \nabla^2 \Psi(\textbf{r}, t) + V(\textbf{r}, t) = i\hbar
@@ -21,7 +21,7 @@ $$
 $$
 
 Fortunately, in most practical purposes, the potential field is not a function
-of time ($$t$$), or even if it is a function of time, they changes relatively
+of time ($t$), or even if it is a function of time, they changes relatively
 slowly compared to the dynamics we are interested in. For example, the electrons
 inside a material are subjected to the Coulomb filed of the nucleus. The nucleus
 is heavy and their motion is much slower than the motion of the electrons. In
@@ -62,13 +62,34 @@ $$= E\psi(\textbf{r}_1, \textbf{r}_2, ...,
 
 With today's available computing power, it is far from feasible to solve the
 actual electronic wavefunction of a condensed matter system, where $N$ is of the
-order of $$10^{23}$$.
+order of $10^{23}$.
 
 Density functional theory (DFT) approaches this problem by focusing on the
 electronic density which a function of three spacial coordinates instead of
 finding the  wave functions. DFT tries to minimize the energy of a system
 (ground state) in a self consistent way, and it is very successful in
 calculating the electronic structure of solid state systems.
+
+:::info
+
+A functional is a function whose argument is itself a function. $f(x)$ is a
+function of the variable $x$ while $F[f]$ is a functional of the function $f$.
+
+$$
+y = f(x)
+$$
+
+$f$ is a function, it takes a number $x$ as input and output $y$ is also a
+number.
+
+$$
+y = F[f(x)]
+$$
+
+$F$ is a functional it takes function $f(x)$ as input and output $y$ is a
+number.
+
+:::
 
 ## Hohenberg-Kohn Theorem 1
 > The ground state density $$n(\textbf{r})$$ determines the external potential
@@ -84,18 +105,18 @@ ground-state electron density. It is possible to define the ground-state energy
 as a function of electronic density.
 
 ## Hohenberg-Kohn Theorem 2
-> Total energy of the system $$E(n)$$ is minimal when $$n(\textbf{r})$$ is the
+> Total energy of the system $E(n)$ is minimal when $n(\textbf{r})$ is the
 actual ground-state density, among all possible electron densities.
 
-The ground state energy can therefore be found by minimizing $$E(n)$$ instead of
+The ground state energy can therefore be found by minimizing $E(n)$ instead of
 solving for the many-electron wavefunction. However, note that HK theorems do
 not tell us how the energy depends on the electron density. In reality, apart
-form some special cases, the exact $$E(n)$$ is unknown and only approximate
+form some special cases, the exact $E(n)$ is unknown and only approximate
 functionals are used.
 
 ## Kohn-Sham hypothesis
 > For any system of $N$ interacting electrons in a given external potential
-$$v_{ext} (\textbf{r})$$, there is a virtual system of $N$ non-interacting
+$v_{ext} (\textbf{r})$, there is a virtual system of $N$ non-interacting
 electrons with exactly the same density as the interacting one. The
 non-interacting electrons subjected to a different external (single particle)
 potential.
@@ -114,17 +135,25 @@ $$
 n(\textbf{r}) = \sum_i f_i |\psi_i (\textbf{r})|^2
 $$
 
-where $$f_i$$ is the occupation factor of electrons ($$0 \le f_i \le 2$$). The
-KS equation looks like single particle Schrödinger equation, however $$e^2 \int
-d^3r' \frac{n(\textbf{r})}{|\textbf{r} - \textbf{r}'|}$$ and $$v_{xc}
-(\textbf{r}; [n])$$ terms depend on $$n(\textbf{r})$$ i.e., on $$\psi_i$$ which
-in turn depends on $$v_{ext}$$. Therefore the problem is non-linear. It is
-usually solved computationally by starting from a trial potential and iterate
-to self-consistency. Also note that we have not included the kinetic energy term
+where $f_i$ is the occupation factor of electrons ($0 \le f_i \le 2$). The
+KS equation looks like single particle Schrödinger equation, however $e^2 \int
+d^3r' \frac{n(\textbf{r})}{|\textbf{r} - \textbf{r}'|}$ and $v_{xc} (\textbf{r};
+[n])$ terms depend on $n(\textbf{r})$ i.e., on $\psi_i$ which in turn depends on
+$v_{ext}$. Therefore the problem is non-linear. It is usually solved
+computationally by starting from a trial potential and iterate to
+self-consistency. Also note that we have not included the kinetic energy term
 for the nucleus. This is because the nuclear mass is about three orders of
-magnitude heavier than the electronic mass ($$M \gg m)$$, so essentially
+magnitude heavier than the electronic mass ($M \gg m)$, so essentially
 electronic dynamics is much faster than the nuclear dynamics (see
 Born-Oppenheimer approximation).
+
+
+:::info
+
+$v_{ext}(\textbf{r})$ includes the potential energy due to nuclear field, and
+external electric and magnetic fields if present.
+
+:::
 
 ## Algorithmic implementation
 
@@ -134,12 +163,12 @@ $$
 \hat{H} \ket{\psi} = E\ket{\psi}
 $$
 
-We start with an initial guess for the electron density $$n(\textbf{r})$$, and
+We start with an initial guess for the electron density $n(\textbf{r})$, and
 construct a pseudo potential for the nuclear potential. In tern, we have the
-Hamiltonian. Solve for $$\psi_i(\textbf{r})$$, subsequently $$n(\textbf{r})$$,
-and iterate until self consistency is achieved.
+Hamiltonian. Solve for $\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and
+iterate until self consistency is achieved.
 
-![self consistent solution](../static/img/self-consistent-solution.png)
+![self consistent solution](/img/self-consistent-solution.png)
 <p className="fig-caption">Self consistency loop in DFT calculation. The above
 screenshot was taken from lecture slide of Professor Ralph Gevauer from {" "}
 <a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable">
@@ -154,8 +183,8 @@ atom, always choose the pseudo potentials with same exchange correlation (e.g.,
 PBE).
 
 It is important to note that DFT is calculations are not exact solution to the
-real systems because exact functional ($$v_{xc}$$) we need to solve the
-Kohn-Sham equation is not known. Therefore, we have to compare the results with
+real systems because exact functional ($v_{xc}$) we need to solve the Kohn-Sham
+equation is not known. Therefore, we have to compare the results with
 experimental observations.
 
 ## Plane-wave expansion
@@ -168,7 +197,7 @@ $$
 \psi_i(\textbf{r}) = \sum_{\alpha = 1} ^{N_b} c_{i\alpha} f_{\alpha}(\textbf{r})
 $$
 
-Where $$N_b$$ is the size basis set. Then the eigenvalue equation becomes:
+Where $N_b$ is the size basis set. Then the eigenvalue equation becomes:
 
 $$
 \sum_{\beta} \rm{H}_{\alpha\beta} c_{i\beta} = \epsilon_i c_{i\alpha}
@@ -181,7 +210,7 @@ $$
 $$
 
 This is a linear algebra problem, solving the above involves diagonalization of
-($$N_b \times N_b$$) matrix which gives us corresponding eigenvalue and
+($N_b \times N_b$) matrix which gives us corresponding eigenvalue and
 eigenfunction.
 
 ## Variational Principle
@@ -200,9 +229,11 @@ $$
 $$
 \psi_k(r) = e^{i \textbf{k} \cdot \textbf{r}} u_k(\textbf{r})
 $$
+
 $$
 u_k(\textbf{r}) = u_k(\textbf{r} + \textbf{R})
 $$
+
 $$\textbf{R}$$ is lattice vector.
 
 Fourier expansion:
@@ -220,7 +251,7 @@ e^{i (\textbf{k + G}) \cdot \textbf{r}}
 $$
 
 Contribution from higher Fourier components are small, we can limit the sum at
-finite $$|\textbf{k + G}|$$
+finite $|\textbf{k + G}|$
 
 $$
 \frac{\hbar^2 |\textbf{k + G}|}{2m} \le E_{cutoff}

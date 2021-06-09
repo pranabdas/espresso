@@ -75,4 +75,4 @@ plt.text(6, 1.7, 'Fermi energy', fontsize= med, rotation=90)
 plt.show()
 ```
 
-![DOS](../../static/img/silicon-dos.png)
+![DOS](/img/silicon-dos.png)

@@ -172,7 +172,7 @@ plt.text(2.3, 5.6, 'Fermi energy', fontsize= small)
 plt.show()
 ```
 
-![band.png](../../static/img/silicon-bands.png)
+![band.png](/img/silicon-bands.png)
 
 :::info
 

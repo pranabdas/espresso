@@ -30,5 +30,5 @@ mpirun -np 8 bands.x -i bands_ni_up.in > bands_ni_up.out
 ```
 Similarly, we process the spin down bands `spin_component=2` and plot them.
 
-![ni spin polarized bands](../../static/img/ni-spin-bands.png)
+![ni spin polarized bands](/img/ni-spin-bands.png)
 

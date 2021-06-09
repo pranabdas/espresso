@@ -15,15 +15,18 @@ GitHub: [pranabdas/qe-dft](https://github.com/pranabdas/qe-dft).
 
 ## Filename conventions
 Lately, I decided to follow specific pattern for the filenames, but you can
-choose whatever works best for you. Note that older example files in this
-tutorial does not follow this convention.
+choose whatever works best for you. Note that all example files in this
+tutorial does not follow this convention yet.
 ```
-{program}_{calculation}_{system}.{in, out}
-{pw, pp, ...}_{scf, bands, ...}_{silicon, ...}.{in, out}
+{program}.{calculation}.{system}.{in, out}
+{program}.{calculation}.{system_description}.{in, out}
+{pw, pp, ...}.{scf, bands, ...}.{silicon, al_slab}.{in, out}
 ```
 
-Example: *pw_bands_silicon.in* → *input* file for the *bands* calculation using
+Example: *pw.bands.silicon.in* → *input* file for the *bands* calculation using
 *PWscf* program for *silicon*.
+
+For PWTK scripts, we will use `.pwtk` extension (e.g., *silicon_vc_relax.pwtk*).
 
 ## Unit conversions
 

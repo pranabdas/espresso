@@ -27,7 +27,7 @@ terms.
     lda_plus_u = .TRUE.
     lda_plus_u_kind = 1
     Hubbard_u(i) = U
-    Hubbard_J(k,i) = J_ki
+    Hubbard_J(k, i) = J_{ki}
     ...
 ```
 
@@ -55,7 +55,7 @@ pw.x -in feo_nscf.in > feo_nscf.out
 ```bash
 projwfc.x -in feo_projwfc.in > feo_projwfc.out
 ```
-![FeO pdos DFT](../../static/img/feo-pdos-dft.png)
+![FeO pdos DFT](/img/feo-pdos-dft.png)
 
 This gives us metallic density of states. In practice we get insulating FeO.
 
@@ -113,7 +113,7 @@ Hubbard_U(2) = 4.6
 We repeat the above calculation, and plot the results. Now we find insulating
 ground state.
 
-![FeO pdos DFT+U](../../static/img/feo-pdos-dft-u.png)
+![FeO pdos DFT+U](/img/feo-pdos-dft-u.png)
 
 :::info
 

@@ -48,6 +48,7 @@
   --ifm-color-info: var(--color-blue);
   --ifm-color-warning: var(--color-orange);
 }
+
 html[data-theme='dark'] {
   --ifm-background-color: var(--color-black);
   --ifm-background-surface-color: var(--color-black);
@@ -57,11 +58,13 @@ html[data-theme='dark'] {
   --ifm-menu-color: var(--color-white);
   --ifm-toc-link-color: var(--color-white);
   --ifm-tabs-color: var(--color-white);
+  --ifm-background-surface-color: #161b22;
 }
 
 .hero--primary {
-  --ifm-hero-background-color: rgba(255, 255, 255, 0.1);;
+  --ifm-hero-background-color: rgba(255, 255, 255, 0.1);
   --ifm-hero-text-color: var(--ifm-color-secondary);
+
 }
 
 html[data-theme='light'] .hero--primary {
@@ -173,9 +176,25 @@ a:hover {
   background-color: rgba(0, 193, 255, .15);
   border-color: var(--ifm-color-info);
 }
+
 html[data-theme='dark'] .alert--secondary {
-  border-color: rgba(0, 0, 0, 0.6);
-  /* the original border-color is indistinguishable with dark background */
+  border-color: #990099;
+  background-color: #330033;
+  color: var(--color-white);
+}
+
+html[data-theme='dark'] .admonition-note {
+  --ra-admonition-icon-color: var(--color-white);
+}
+
+html[data-theme='light'] .alert--secondary {
+  border-color: #8661c5;
+  background-color: #efd9fd;
+  color: var(--color-black);
+}
+
+html[data-theme='light'] .admonition-note {
+  --ra-admonition-icon-color: var(--color-black);
 }
 
 .navbar {
@@ -184,7 +203,6 @@ html[data-theme='dark'] .alert--secondary {
 }
 
 html[data-theme='dark'] .navbar {
-  background-color: #161b22;  /* distinguishable from the page background */
   border-bottom: 0;
 }
 

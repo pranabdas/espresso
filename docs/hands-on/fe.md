@@ -71,7 +71,7 @@ Run the script:
 pwtk fe_ecut.pwtk
 ```
 
-![Fe convergence](../../static/img/fe-convergence.png)
+![Fe convergence](/img/fe-convergence.png)
 
 ## Density of states calculation
 
@@ -114,6 +114,6 @@ runPROJWFC projwfc.$name.in
 
 Below is the plots of total and projected density of states.
 
-![density of states](../../static/img/fe-dos.png)
+![density of states](/img/fe-dos.png)
 
-![projected density of states](../../static/img/fe-pdos.png)
+![projected density of states](/img/fe-pdos.png)
