@@ -1,9 +1,9 @@
 &control
   calculation = 'scf'
   prefix = 'GaAs'
-  pseudo_dir = './'
+  pseudo_dir = '../pseudos/'
   outdir = './tmp/'
-  verbosity = 'high' 
+  verbosity = 'high'
   wf_collect = .true.
 /
 

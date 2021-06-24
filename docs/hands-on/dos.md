@@ -76,3 +76,14 @@ plt.show()
 ```
 
 ![DOS](/img/silicon-dos.png)
+
+:::info Important
+
+For a set of calculation, we must keep the `prefix` same. For example, the
+**nscf** or **bands** calculation uses the wavefunction calculated by the
+**scf** calculation. When performing different calculations, for example you
+change a parameter and want to see the changes, you must use different output
+folder or unique `prefix` for different calculations so that the outputs do not
+get mixed.
+
+:::

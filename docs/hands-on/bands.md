@@ -59,7 +59,7 @@ band calculation:
   restart_mode = 'from_scratch',
   prefix = 'silicon',
   outdir = './tmp/'
-  pseudo_dir = './pseudos/'
+  pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
 
@@ -151,12 +151,12 @@ plt.rcParams["figure.figsize"]=(8, 6)
 # load data
 data = np.loadtxt('../src/silicon/si_bands.dat.gnu')
 
-energy = np.unique(data[:, 0])
-bands = np.reshape(data[:, 1], (-1, len(energy)))
+k = np.unique(data[:, 0])
+bands = np.reshape(data[:, 1], (-1, len(k)))
 
 for band in range(len(bands)):
-    plt.plot(energy, bands[band, :], linewidth=1, alpha=0.5, color='k')
-plt.xlim(min(energy), max(energy))
+    plt.plot(k, bands[band, :], linewidth=1, alpha=0.5, color='k')
+plt.xlim(min(k), max(k))
 
 # Fermi energy
 plt.axhline(6.6416, linestyle=(0, (5, 5)), linewidth=0.75, color='k', alpha=0.5)

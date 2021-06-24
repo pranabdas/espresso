@@ -1,0 +1,41 @@
+&control
+   calculation='bands'
+   pseudo_dir = '../pseudos/',
+   outdir='./tmp/'
+   prefix='fe'
+/
+
+&system
+   ibrav = 3,
+   celldm(1) = 5.39,
+   nat= 1,
+   ntyp= 1,
+   noncolin=.true.,
+   lspinorb=.true.,
+   starting_magnetization(1)=0.3,
+   ecutwfc = 70,
+   ecutrho = 850.0,
+   occupations='smearing',
+   smearing='marzari-vanderbilt',
+   degauss=0.02
+/
+&electrons
+   diagonalization='david'
+   conv_thr = 1.0e-8
+   mixing_beta = 0.7
+/
+
+ATOMIC_SPECIES
+Fe 55.845 Fe.rel-pbe-spn-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS alat
+Fe 0.0 0.0 0.0
+
+K_POINTS tpiba_b
+6
+0.000  0.000  0.000  40  !gamma
+0.000  1.000  0.000  40  !H
+0.500  0.500  0.000  30  !N
+0.000  0.000  0.000  30  !gamma
+0.500  0.500  0.500  30  !P
+0.000  1.000  0.000   1  !H

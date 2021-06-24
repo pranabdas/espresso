@@ -38,10 +38,21 @@ with the valence electrons.
 1. We can mix different types of pseudo potentials (e.g., norm conserving,
 ultra-soft, or PAW), but we cannot mix different functional (e.g., PBE and LDA).
 
-2. "sol" in PBE-sol represents solid. For bulk systems PBE-sol should be used,
+2. "sol" in PBE-sol stands for solid. For bulk systems PBE-sol should be used,
 while PBE is appropriate for molecules. In case of 2D materials generally PBE is
 chosen, but one can check PBE-sol.
 
 :::
 
+:::danger Common error
 
+If you mix PBE with PBE-sol type, it results in Error: conflicting values for
+igcx. However, it is allowed to mix those two types of pseudo. We can set
+desired exchange functional via `input_dft` instead of reading from the pseudo
+potential file.
+
+:::
+
+## Resources
+- [Naming convention for PP files](
+https://www.quantum-espresso.org/pseudopotentials/naming-convention)

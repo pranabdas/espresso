@@ -39,12 +39,12 @@ Make plots:
 ```python
 data = np.loadtxt('../src/graphene/graphene_bands.dat.gnu')
 
-energy = np.unique(data[:, 0])
-bands = np.reshape(data[:, 1], (-1, len(energy)))
+k = np.unique(data[:, 0])
+bands = np.reshape(data[:, 1], (-1, len(k)))
 
 for band in range(len(bands)):
-    plt.plot(energy, bands[band, :], linewidth=1, alpha=0.5, color='k')
-plt.xlim(min(energy), max(energy))
+    plt.plot(k, bands[band, :], linewidth=1, alpha=0.5, color='k')
+plt.xlim(min(k), max(k))
 
 # Fermi energy
 plt.axhline(0.921, linestyle=(0, (8, 10)), linewidth=0.75, color='k', alpha=0.5)

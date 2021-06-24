@@ -13,6 +13,7 @@ module.exports = {
           items: [
             "setup/install",
             "setup/hpc",
+            "setup/jupyter",
             "setup/crystal-structure",
             "setup/pseudo-potential",
           ],
@@ -40,6 +41,11 @@ module.exports = {
         },
         "resources",
         "license",
+        {
+          type: 'link',
+          label: 'Other tutorials',
+          href: 'https://pranabdas.github.io/docs/',
+        },
       ],
     },
   ],

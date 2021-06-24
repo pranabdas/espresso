@@ -8,9 +8,11 @@ https://gitlab.com/QEF/materials-for-max-qe2021-online-school)
 https://gitlab.com/QEF/material-for-ljubljana-qe-summer-school)
 - [MASTANI Summer School, IISER Pune 2014](
 http://www.iiserpune.ac.in/~smr2626/talks-presentations.html)
-- Check out the example files included in Quantum Espresso package (e.g., PW
-examples under directory `qe-x.x/PW/examples/`).
+- Examples included in Quantum Espresso (`qe-x.x/PW/examples/`).
+- [QE mailing list archive](https://lists.quantum-espresso.org/pipermail/users/)
+- [Materials square blog](https://www.materialssquare.com/blog/list/module-tip)
 
 ## Books
 - [A bird's–eye view of DFT](https://arxiv.org/abs/cond-mat/0211443)
+- *Electronic Structure Calculations for Solids and Molecules* by *Jorge Kohanoff*
 - [PhD Thesis of Dominik Bogdan Jochym](http://cmt.dur.ac.uk/sjc/thesis_dbj/thesis.html)

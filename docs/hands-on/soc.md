@@ -80,8 +80,12 @@ specified by `angle1` (initial magnetization angle with z axis in degrees), and
 /
 ```
 
+Also, make sure that energy and charge density cutoffs are sufficient. Certain
+pseudo potentials might have issues, try with pseudo potentials from a different
+library. In case of metallic systems, remember to apply smearing.
+
 ## Bandstructure of Fe with SOC
-```bash title="src/fe/pw_scf_fe_soc.in"
+```bash title="src/fe/pw.scf.fe_soc.in"
 &control
    calculation='scf'
    restart_mode='from_scratch',
@@ -123,11 +127,11 @@ K_POINTS AUTOMATIC
 
 Run the scf calculation:
 ```bash
-mpirun -np 8 pw.x -i pw_scf_fe_soc.in > pw_scf_fe_soc.out
+mpirun -np 8 pw.x -i pw.scf.fe_soc.in > pw.scf.fe_soc.out
 ```
 
 Prepare the input file for `nscf` `bands` calculation:
-```bash title="src/fe/pw_bands_fe_soc.in"
+```bash title="src/fe/pw.bands.fe_soc.in"
 &control
    calculation='bands'
    restart_mode='from_scratch',
@@ -173,24 +177,38 @@ K_POINTS tpiba_b
 
 Run the `bands` calculation:
 ```bash
-mpirun -np 8 pw.x -i pw_bands_fe_soc.in > pw_bands_fe_soc.out
+mpirun -np 8 pw.x -i pw.bands.fe_soc.in > pw.bands.fe_soc.out
 ```
 
 Finally post process the bandstructure data:
-```bash title="src/fe/bands_fe_soc.in"
+```bash title="src/fe/pp.bands.fe_soc.in"
 &BANDS
     outdir='./tmp/',
     prefix='fe',
     filband='fe_bands_soc.dat',
-    lsigma(3)=.true.
 /
 ```
 
 In this case `spin_component` has been removed and we add `lsigma(3)=.true.`
 that instructs the program to compute the expectation value for the `z`
 component of the spin operator for each eigenfunction and save all values in
-the file `ni.noncolin.data.3`. All values in this case are either +1/2 or -1/2.
+the file `fe.noncolin.data.3`. All values in this case are either +1/2 or -1/2.
 
 ```bash
-mpirun -np 8 bands.x -i bands_fe_soc.in > bands_fe_soc.out
+mpirun -np 8 bands.x -i pp.bands.fe_soc.in > pp.bands.fe_soc.out
 ```
+
+![Fe bands](/img/fe-soc-bands.png)
+
+## SOC calculation for GaAs
+
+Please check the respective [input files](
+https://github.com/pranabdas/qe-dft/tree/master/src/GaAs).
+
+```bash
+mpirun -np 8 pw.x -i pw.scf.GaAs_soc.in > pw.scf.GaAs_soc.out
+mpirun -np 8 pw.x -i pw.bands.GaAs_soc.in > pw.bands.GaAs_soc.out
+mpirun -np 8 bands.x -i pp.bands.GaAs_soc.in > pp.bands.GaAs_soc.out
+```
+
+![GaAs bands](/img/GaAs-soc-bands.png)

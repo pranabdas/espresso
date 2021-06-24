@@ -26,8 +26,8 @@ different atomic labels. For antiferromagnetic calculation, we need to start
 with opposite initial spins.
 
 ```bash
-pw.x -i fe_scf_fm.in > fe_scf_fm.out
-pw.x -i fe_scf_afm.in > fe_scf_afm.out
+pw.x -i pw.scf.fe_fm.in > pw.scf.fe_fm.out
+pw.x -i pw.scf.fe_afm.in > pw.scf.fe_afm.out
 ```
 
 :::info
@@ -43,7 +43,7 @@ values.
 Below is the PWTK script file:
 ```bash title="src/fe/fe_ecut.pwtk"
 # load the pw.x input from file
-load_fromPWI fe_scf_fm.in
+load_fromPWI pw.scf.fe_fm.in
 
 # dual is the ratio ecutrho/ecutwfc
 foreach dual { 4 8 12 } {
@@ -77,7 +77,7 @@ pwtk fe_ecut.pwtk
 
 PWTK script to calculate DOS and p-DOS:
 ```bash
-load_fromPWI fe_scf_fm.in
+load_fromPWI pw.scf.fe_fm.in
 
 SYSTEM " ecutwfc = 40
          ecutrho = 320 "
@@ -117,3 +117,6 @@ Below is the plots of total and projected density of states.
 ![density of states](/img/fe-dos.png)
 
 ![projected density of states](/img/fe-pdos.png)
+
+Also see bandstructure of Fe with and without [SOC](
+soc#bandstructure-of-fe-with-soc).

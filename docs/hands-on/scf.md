@@ -44,7 +44,7 @@ like in Fortran.
   outdir = './tmp/'
 
 ! directory for the pseudo potential directory
-  pseudo_dir = './'
+  pseudo_dir = '../pseudos/'
 
 ! verbosity high will give more details on the output file
   verbosity = 'high'
@@ -131,13 +131,27 @@ and you should see something like this:
      The total energy is the sum of the following terms:
 ```
 
-:::info Important
+:::note
 
-For a set of calculation, we must keep the `prefix` same. For example, the
-**nscf** or **bands** calculation uses the wavefunction calculated by the
-**scf** calculation. When performing different calculations, for example you
-change a parameter and want to see the changes, you must use different output
-folder or unique `prefix` for different calculations so that the outputs do not
-get mixed.
+In the above calculation, if you check the output file `pw.scf.silicon.out`, you
+will find: highest occupied, lowest unoccupied level (ev): 6.2117 6.8442.
+Therefore, the bandgap is 0.6325 eV, which is an underestimation of actual
+bandgap (1.12 eV).
+
+:::
+
+:::tip Tips on convergence
+
+1. Reduce `mixing_beta` value, especially if there is an oscillation around the
+convergence energy.
+
+2. If it is metallic system, use smearing and degauss. In this case, the SCF
+accuracy gradually goes down then suddenly increases (due to slight change in
+Fermi energy highest occupied / lowest unoccupied levels change).
+
+3. Increase energy and charge density cutoffs (make sure they are sufficient).
+
+4. Certain pseudo potential files have issues, you may try with pseudo
+potentials from different libraries.
 
 :::

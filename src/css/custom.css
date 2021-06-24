@@ -61,8 +61,8 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #161b22;
 }
 
-.hero--primary {
-  --ifm-hero-background-color: rgba(255, 255, 255, 0.1);
+html[data-theme='dark'] .hero--primary {
+  --ifm-hero-background-color: rgb(1, 22, 39);
   --ifm-hero-text-color: var(--ifm-color-secondary);
 
 }
@@ -70,6 +70,8 @@ html[data-theme='dark'] {
 html[data-theme='light'] .hero--primary {
   --ifm-hero-text-color: var(--color-black);
   --ifm-hero-background-color: rgba(0, 0, 0, 0.05);
+  /* background: #eee url(/img/hero-bg.svg) center top no-repeat;
+  background-attachment: fixed; */
 }
 
 html[data-theme='light'] .hero--primary .button--outline {
@@ -212,6 +214,12 @@ html[data-theme='dark'] .navbar {
   line-height: 1.5em;
   font-style: italic;
   color: #666;
+}
+
+@media screen and (min-width: 601px) {
+  .container {
+    --ifm-spacing-horizontal: 1.5rem;
+  }
 }
 
 /*
