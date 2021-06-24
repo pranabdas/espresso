@@ -12,28 +12,28 @@ First check the lattice constant with cell relaxation according to our chosen
 pseudo potential. We use that lattice constant in our next steps.  Our lattice
 constant = 10.6867 * 0.508176602 / 0.5 = 10.861462.
 ```bash
-pw.x < GaAs_relax.in > GaAs_relax.out
+pw.x < pw.relax.GaAs.in > pw.relax.GaAs.out
 ```
 
 Perform self consistent field calculation:
 ```bash
-pw.x < GaAs_scf.in > GaAs_scf.out
+pw.x < pw.scf.GaAs.in > pw.scf.GaAs.out
 ```
 
 Give denser k-points and perform non-self consistent calculation. This step is
 only necessary if you need to obtain density of states.
 ```bash
-pw.x < GaAs_nscf.in > GaAs_nscf.out
+pw.x < pw.nscf.GaAs.in > pw.nscf.GaAs.out
 ```
 
 Perform `bands` calculation
 ```bash
-pw.x < GaAs_bands.in > GaAs_bands.out
+pw.x < pw.bands.GaAs.in > pw.bands.GaAs.out
 ```
 
 Post process the data and plot the bandstructure.
 ```bash
-bands.x < GaAs_bands_pp.in > GaAs_bands_pp.out
+bands.x < pp.bands.GaAs.in > pp.bands.GaAs.out
 ```
 If everything goes well, you will get the bandstructure as below:
 
@@ -48,3 +48,5 @@ machines, or even among different runs in the same machine. Also check the
 Quantum Espresso version for reproducibility.
 
 :::
+
+Also see the bandstructure of GaAs with [SOC](soc#soc-calculation-for-gaas).

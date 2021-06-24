@@ -1,6 +1,6 @@
  &CONTROL
     prefix='fe',
-    pseudo_dir = './',
+    pseudo_dir = '../pseudos/',
     outdir = './tmp/'
     verbosity = 'high',
  /

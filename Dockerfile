@@ -41,6 +41,6 @@ RUN cd /root && \
        >> /etc/jupyter/jupyter_server_config.py && \
 # nodejs LTS (required for full functionality of jupyterlab)
     wget -O - https://deb.nodesource.com/setup_lts.x | bash - && \
-    apt update && apt install -y nodejs
+    apt update && apt install -y --no-install-recommends nodejs
 
 WORKDIR /home
