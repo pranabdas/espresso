@@ -11,10 +11,10 @@ find this tutorial helpful.
 
 The quantum espresso input files, jupyter notebooks (containing python code for
 visualizations), and other source files related to this tutorial can be found on
-GitHub: [pranabdas/qe-dft](https://github.com/pranabdas/qe-dft). You may clone
+GitHub: [pranabdas/espresso](https://github.com/pranabdas/espresso/). You may clone
 the repository to your local machine:
 ```bash
-git clone https://github.com/pranabdas/qe-dft
+git clone https://github.com/pranabdas/espresso.git
 ```
 
 ## Filename conventions

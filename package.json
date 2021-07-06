@@ -1,6 +1,6 @@
 {
   "homepage": ".",
-  "name": "qe-dft",
+  "name": "espresso",
   "version": "0.1.0",
   "private": true,
   "scripts": {

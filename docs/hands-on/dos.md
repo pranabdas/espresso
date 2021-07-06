@@ -11,7 +11,7 @@ denser k-point grid.
 
 I have created a new input file (`si_scf_dos.in`) which is very much same as our
 previous scf input file except some parameters are modified. You can find all
-the input files in my [GitHub repository](https://github.com/pranabdas/qe-dft/).
+the input files in my [GitHub repository](https://github.com/pranabdas/espresso/).
 We used the lattice constant value that we obtained from the relaxation
 calculation. We should not directly use the experimental/real lattice constant
 value. Depending on the method and pseudo-potential, it might result stress in

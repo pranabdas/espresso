@@ -7,7 +7,7 @@ https://gitlab.com/QEF/materials-for-max-qe2021-online-school).
 
 Graphene is single layer of carbon atoms. First perform the self consistent
 field calculation to obtain the Kohn-Sham orbitals. Please check the input files
-in [GitHub](https://github.com/pranabdas/qe-dft) repository. Run `pw.x`:
+in [GitHub](https://github.com/pranabdas/espresso/) repository. Run `pw.x`:
 ```bash
 pw.x -i graphene_scf.in > graphene_scf.out
 ```

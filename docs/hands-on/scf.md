@@ -23,7 +23,7 @@ Three `INPUT_CARDS`: `ATOMIC_SPECIES`, `ATOMIC_POSITIONS`, and `K_POINTS` in
 calculations.
 
 Blow is out input file is [pw.scf.silicon.in](
-https://github.com/pranabdas/qe-dft/). The input files are typically named with
+https://github.com/pranabdas/espresso/). The input files are typically named with
 a prefix `.in`. The inputs are organized as `&namelists` followed by their
 fields or cards. The `&control`, `&system`, and `&electrons` namelists are
 required. There are also optional `&cell` and `&ions`, you must provide them if
@@ -153,5 +153,11 @@ Fermi energy highest occupied / lowest unoccupied levels change).
 
 4. Certain pseudo potential files have issues, you may try with pseudo
 potentials from different libraries.
+
+5. Suggested values for the `conv_thr`: for energy and eigenvalues (scf
+calculation) 1.0d-7, for forces (relax calculation) 1.0d-8, for stress (vc-relax
+calculation) 1.0d-9 Ry. For certain calculation convergence might be very slow
+for the first iteration, one can start the calculation with a higher threshold,
+after few iterations reduce it and restart the calculation.
 
 :::

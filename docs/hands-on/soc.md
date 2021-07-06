@@ -203,7 +203,7 @@ mpirun -np 8 bands.x -i pp.bands.fe_soc.in > pp.bands.fe_soc.out
 ## SOC calculation for GaAs
 
 Please check the respective [input files](
-https://github.com/pranabdas/qe-dft/tree/master/src/GaAs).
+https://github.com/pranabdas/espresso/tree/master/src/GaAs).
 
 ```bash
 mpirun -np 8 pw.x -i pw.scf.GaAs_soc.in > pw.scf.GaAs_soc.out

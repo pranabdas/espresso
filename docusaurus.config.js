@@ -5,12 +5,12 @@ module.exports = {
   title: "Density Functional Theory calculation using Quantum Espresso",
   tagline: "Density Functional Theory calculations using Quantum Espresso",
   url: "https://pranabdas.github.io",
-  baseUrl: "/qe-dft/", // must have a trailing "/"
+  baseUrl: "/espresso/", // must have a trailing "/"
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "pranabdas", // Usually your GitHub org/user name.
-  projectName: "qe-dft", // Usually your repo name.
+  projectName: "espresso", // Usually your repo name.
   themeConfig: {
     prism: {
       theme: require("prism-react-renderer/themes/github"),
@@ -40,7 +40,7 @@ module.exports = {
           target: "_self",
         },
         {
-          href: "https://github.com/pranabdas/qe-dft",
+          href: "https://github.com/pranabdas/espresso",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
@@ -62,7 +62,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: '/',  // this is for docs only mode
           // Please change this to your repo.
-          editUrl: "https://github.com/pranabdas/qe-dft/blob/master/",
+          editUrl: "https://github.com/pranabdas/espresso/blob/master/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
