@@ -1,0 +1,5 @@
+&BANDS
+  outdir = '/hpctmp/slspkd/bi2se3-01/'
+  prefix = 'bi2se3-01'
+  filband = 'bi2se3-bands-bulk-01.dat'
+/

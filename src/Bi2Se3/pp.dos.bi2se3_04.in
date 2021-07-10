@@ -1,0 +1,8 @@
+&DOS
+  prefix= 'bi2se3-04',
+  outdir= '/hpctmp/slspkd/bi2se3-04/',
+  fildos= 'bi2se3_dos_04.dat',
+  emin= 0,
+  emax= 15
+  DeltaE= 0.01
+/

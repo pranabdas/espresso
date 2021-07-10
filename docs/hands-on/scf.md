@@ -161,3 +161,6 @@ for the first iteration, one can start the calculation with a higher threshold,
 after few iterations reduce it and restart the calculation.
 
 :::
+
+## Resources
+- <https://www.quantum-espresso.org/Doc/pw_user_guide/>

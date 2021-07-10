@@ -222,6 +222,22 @@ html[data-theme='dark'] .navbar {
   }
 }
 
+h1 {
+    font-size: 2em !important;
+}
+
+h2 {
+  font-size: 1.5em !important;
+}
+
+h3 {
+  font-size: 1.17em !important;
+}
+
+h4 {
+  font-size: 1em !important;
+}
+
 /*
 html[data-theme='light'] .DocSearch {
   --docsearch-primary-color: var(--ifm-color-primary);

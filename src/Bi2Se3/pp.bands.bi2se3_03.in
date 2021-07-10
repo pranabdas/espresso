@@ -1,0 +1,5 @@
+&BANDS
+  outdir = '/hpctmp/slspkd/bi2se3-03/'
+  prefix = 'bi2se3-03'
+  filband = 'bi2se3-bands-slab-soc-03.dat'
+/

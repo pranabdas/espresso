@@ -121,9 +121,9 @@ make run-tests
 ```
 If all is well, we will see **Passed** messages and we are good to go.
 
-:::tip
+:::caution
 
-Note that the above installation steps may not the most optimal way to run
+Note that the above installation steps may not be the most optimal way to run
 Quantum Espresso in your computer. There are multiple implementations of same
 library. For example, you can replace openmpi libraries with Intel MKL or MPICH
 implementations. Please do research yourself or ask help from someone who has

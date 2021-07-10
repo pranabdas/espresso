@@ -26,13 +26,71 @@ module.exports = {
     //   },
     // },
     navbar: {
-      title: "Quantum Espresso Tutorial",
-      // hideOnScroll: true,
+      title: "Quantum Espresso",
+      hideOnScroll: true,
       logo: {
         alt: "Logo",
         src: "img/favicon.ico",
       },
       items: [
+        {
+          label: "Docs",
+          position: "left",
+          items: [
+            {
+              label: "Quantum Espresso Tutorial",
+              to: "/",
+            },
+            {
+              label: "~ ~ ~ Other Docs ~ ~ ~",
+            },
+            {
+              label: "ARPES Python Tools",
+              to: "https://pranabdas.github.io/arpespythontools/",
+              target: "_self",
+            },
+            {
+              label: "Linux Tutorial",
+              to: "https://pranabdas.github.io/linux/",
+              target: "_self",
+            },
+            {
+              label: "Machine Learning Notes",
+              to: "https://pranabdas.github.io/machine-learning/",
+              target: "_self",
+            },
+            {
+              label: "Python Tutorial",
+              to: "https://pranabdas.github.io/python-tutorial/",
+              target: "_self",
+            },
+            {
+              label: "SUV Python Tools",
+              to: "https://pranabdas.github.io/suvtools/",
+              target: "_self",
+            },
+            {
+              label: "Condensed Matter Notes",
+              href: "https://pranabdas.github.io/docs/condmat-notes/",
+            },
+            {
+              label: "Fortran Programming",
+              href: "https://pranabdas.github.io/docs/fortran/",
+            },
+            {
+              label: "FullProf Tutorial",
+              href: "https://pranabdas.github.io/docs/fullprof/",
+            },
+            {
+              label: "Javascript Tutorial",
+              href: "https://pranabdas.github.io/docs/js-learning/",
+            },
+            {
+              label: "SUV ARPES Manual",
+              href: "https://pranabdas.github.io/docs/arpes-suv-man/",
+            },
+          ],
+        },
         {
           to: "https://pranabdas.github.io",
           label: "About me",

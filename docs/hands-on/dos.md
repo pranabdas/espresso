@@ -23,7 +23,7 @@ pw.x < si_scf_dos.in > si_scf_dos.out
 ```
 
 Next, we have prepared the input file for the `nscf` calculation. Where is have
-added `occupations` in the `&system` card as `tetrahedra` (suitable for DOS
+added `occupations` in the `&system` card as `tetrahedra` (appropriate for DOS
 calculation). We have increased the number of k-points to 12 × 12 × 12 with
 automatic option. Also specify `nosym = .TRUE.` to avoid generation of
 additional k-points in low symmetry cases. `outdir` and `prefix` must be same as
@@ -85,5 +85,13 @@ For a set of calculation, we must keep the `prefix` same. For example, the
 change a parameter and want to see the changes, you must use different output
 folder or unique `prefix` for different calculations so that the outputs do not
 get mixed.
+
+:::
+
+:::tip
+
+Sometimes it is important to sample the $\Gamma$ point for DOS calculation
+(e.g., the conducting bands cross the Fermi surface only at $\Gamma$ point). In
+such cases, we need to use odd k-grid (e.g., 9✕9✕5).
 
 :::

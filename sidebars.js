@@ -9,7 +9,7 @@ module.exports = {
         {
           type: "category",
           label: "Setup",
-          collapsed: false,
+          collapsed: true,
           items: [
             "setup/install",
             "setup/hpc",
@@ -37,15 +37,16 @@ module.exports = {
             "hands-on/ni",
             "hands-on/dft-u",
             "hands-on/soc",
+            "hands-on/Bi2Se3",
           ],
         },
         "resources",
         "license",
-        {
-          type: 'link',
-          label: 'Other tutorials',
-          href: 'https://pranabdas.github.io/docs/',
-        },
+        // {
+        //   type: 'link',
+        //   label: 'Other tutorials',
+        //   href: 'https://pranabdas.github.io/docs/',
+        // },
       ],
     },
   ],

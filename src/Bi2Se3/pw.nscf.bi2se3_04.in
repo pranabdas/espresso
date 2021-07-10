@@ -1,0 +1,56 @@
+&CONTROL
+  calculation = 'nscf'
+  restart_mode = 'from_scratch'
+  etot_conv_thr =   1.5000000000d-04
+  outdir = '/hpctmp/slspkd/bi2se3-04/'
+  prefix = 'bi2se3-04'
+  pseudo_dir = '../pseudo/'
+  verbosity = 'high'
+/
+
+&SYSTEM
+!  degauss =   7.3498618000d-03
+  ecutrho =   4.8000000000d+02
+  ecutwfc =   8.0000000000d+01
+  ibrav = 4
+  celldm(1) = 7.819686140739584
+  celldm(3) = 9.299178210775584
+  nat = 16
+  ntyp = 2
+  occupations = 'tetrahedra'
+  noncolin = .true.
+  lspinorb = .true.
+  starting_magnetization(1) =   0.0d0
+  starting_magnetization(2) =   0.0d0
+/
+
+&ELECTRONS
+  conv_thr =   3.0000000000d-09
+  electron_maxstep = 80
+  mixing_beta =   2.0000000000d-01
+/
+
+ATOMIC_SPECIES
+Bi     208.9804    Bi.NC.FR.PBEsol.stringent.UPF
+Se     78.96       Se.NC.FR.PBEsol.stringent.UPF
+
+ATOMIC_POSITIONS crystal
+Bi     0.000000000         0.000000000         0.295309752
+Bi     0.000000000         0.000000000         0.444814980
+Bi     0.666666687         0.333333343         0.542017996
+Bi     0.666666687         0.333333343         0.691523194
+Bi     0.333333343         0.666666687         0.048601512
+Bi     0.333333343         0.666666687         0.198106721
+Se     0.000000000         0.000000000         0.000000000
+Se     0.000000000         0.000000000         0.740124762
+Se     0.666666687         0.333333343         0.246708259
+Se     0.333333343         0.666666687         0.493416518
+Se     0.000000000         0.000000000         0.152465701
+Se     0.000000000         0.000000000         0.587659061
+Se     0.666666687         0.333333343         0.399173945
+Se     0.666666687         0.333333343         0.094242550
+Se     0.333333343         0.666666687         0.645882189
+Se     0.333333343         0.666666687         0.340950787
+
+K_POINTS automatic
+25 25 5 0 0 0
