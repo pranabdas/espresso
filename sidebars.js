@@ -2,10 +2,19 @@ module.exports = {
   docs: [
     {
       type: "category",
-      label: "Docs",
+      label: "List of Pages",
       items: [
         "welcome",
-        "dft",
+        {
+          type: "category",
+          label: "Theory",
+          collapsed: true,
+          items: [
+            "theory/problem-statement",
+            "theory/hartree-fock",
+            "theory/dft",
+          ],
+        },
         {
           type: "category",
           label: "Setup",

@@ -78,7 +78,8 @@ Check the file `FeO.Hubbard_parameters.dat`.
 :::info
 
 1. We need to check the convergence against q-mesh (as well as k-mesh in SCF
-calculation). Here $1\times 1\times 1$ mesh is used.
+calculation). Here $1\times 1\times 1$ mesh is used. **Important:** `lda_plus_u`
+must be set to `.true.` during the SCF calculation, $U$ maybe set to zero.
 
 2. We can update the obtained $U$ value in our SCF calculation, and repeat
 linear response calculation until we have reached self consistency in $U$ value.

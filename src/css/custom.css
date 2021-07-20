@@ -61,27 +61,37 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #161b22;
 }
 
-html[data-theme='dark'] .hero--primary {
-  --ifm-hero-background-color: rgb(1, 22, 39);
-  --ifm-hero-text-color: var(--ifm-color-secondary);
-
-}
-
-html[data-theme='light'] .hero--primary {
+.hero--primary {
   --ifm-hero-text-color: var(--color-black);
   --ifm-hero-background-color: rgba(0, 0, 0, 0.05);
   /* background: #eee url(/img/hero-bg.svg) center top no-repeat;
   background-attachment: fixed; */
 }
 
-html[data-theme='light'] .hero--primary .button--outline {
+html[data-theme='dark'] .hero--primary {
+  --ifm-hero-background-color: rgb(1, 22, 39);
+  --ifm-hero-text-color: var(--ifm-color-secondary);
+
+}
+
+.hero--primary .button--outline {
   background-color: var(--color-white);
   border-color: var(--color-black);
 }
 
-html[data-theme='light'] .hero--primary .button--outline:hover {
+.hero--primary .button--outline:hover {
   background-color: rgba(0, 0, 0, 0.75);
   color: var(--color-white)
+}
+
+html[data-theme='dark'] .hero--primary .button--outline {
+  background-color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+html[data-theme='dark'] .hero--primary .button--outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 /* html[data-theme='light'] .features_src-pages- {
@@ -179,16 +189,6 @@ a:hover {
   border-color: var(--ifm-color-info);
 }
 
-html[data-theme='dark'] .alert--secondary {
-  border-color: #990099;
-  background-color: #330033;
-  color: var(--color-white);
-}
-
-html[data-theme='dark'] .admonition-note {
-  --ra-admonition-icon-color: var(--color-white);
-}
-
 html[data-theme='light'] .alert--secondary {
   border-color: #8661c5;
   background-color: #efd9fd;
@@ -197,6 +197,16 @@ html[data-theme='light'] .alert--secondary {
 
 html[data-theme='light'] .admonition-note {
   --ra-admonition-icon-color: var(--color-black);
+}
+
+html[data-theme='dark'] .alert--secondary {
+  border-color: #990099;
+  background-color: #330033;
+  color: var(--color-white);
+}
+
+html[data-theme='dark'] .admonition-note {
+  --ra-admonition-icon-color: var(--color-white);
 }
 
 .navbar {
@@ -237,6 +247,18 @@ h3 {
 h4 {
   font-size: 1em !important;
 }
+
+/* .menu {
+  font-weight: normal;
+}
+
+.navbar__link {
+  font-weight: normal;
+}
+
+.dropdown {
+  font-weight: normal;
+} */
 
 /*
 html[data-theme='light'] .DocSearch {
