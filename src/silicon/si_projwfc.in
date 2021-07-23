@@ -1,0 +1,9 @@
+&projwfc
+    outdir       = './tmp/'
+    prefix       = 'silicon'
+    ngauss       = 0
+    degauss      = 0.036748
+    DeltaE       = 0.005
+    kresolveddos = .true.
+    filpdos      = 'silicon.k'
+/

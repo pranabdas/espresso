@@ -1,6 +1,7 @@
 ---
 title: Spin-Orbit Coupling
 ---
+import CodeBlock from '@theme/CodeBlock';
 
 In oder to consider spin orbit coupling effect in our electronic structure
 calculation in quantum espresso, we need to use a full relativistic pseudo
@@ -85,45 +86,10 @@ pseudo potentials might have issues, try with pseudo potentials from a different
 library. In case of metallic systems, remember to apply smearing.
 
 ## Bandstructure of Fe with SOC
-```bash title="src/fe/pw.scf.fe_soc.in"
-&control
-   calculation='scf'
-   restart_mode='from_scratch',
-   pseudo_dir = '../pseudos/',
-   outdir='./tmp/'
-   prefix='fe'
-/
 
-&system
-   ibrav = 3,
-   celldm(1) =5.39,
-   nat= 1,
-   ntyp= 1,
-   noncolin=.true.,
-   lspinorb=.true.,
-   starting_magnetization(1)=0.3,
-   ecutwfc = 70,
-   ecutrho = 850.0,
-   occupations='smearing',
-   smearing='marzari-vanderbilt',
-   degauss=0.02
-/
+import pw_scf_fe_soc_in from '!!raw-loader!/src/fe/pw.scf.fe_soc.in';
 
-&electrons
-   diagonalization='david'
-   conv_thr = 1.0e-8
-   mixing_beta = 0.7
-/
-
-ATOMIC_SPECIES
-Fe 55.845 Fe.rel-pbe-spn-rrkjus_psl.1.0.0.UPF
-
-ATOMIC_POSITIONS alat
-Fe 0.0 0.0 0.0
-
-K_POINTS AUTOMATIC
-14 14 14 1 1 1
-```
+<CodeBlock className="bash" title="src/fe/pw.scf.fe_soc.in">{pw_scf_fe_soc_in}</CodeBlock>
 
 Run the scf calculation:
 ```bash
@@ -131,49 +97,10 @@ mpirun -np 8 pw.x -i pw.scf.fe_soc.in > pw.scf.fe_soc.out
 ```
 
 Prepare the input file for `nscf` `bands` calculation:
-```bash title="src/fe/pw.bands.fe_soc.in"
-&control
-   calculation='bands'
-   restart_mode='from_scratch',
-   pseudo_dir = '../pseudos/',
-   outdir='./tmp/'
-   prefix='fe'
-/
 
-&system
-   ibrav = 3,
-   celldm(1) =5.39,
-   nat= 1, ntyp= 1,
-   noncolin=.true.,
-   lspinorb=.true.,
-   starting_magnetization(1)=0.3,
-   ecutwfc = 70,
-   ecutrho = 850.0,
-   occupations='smearing',
-   smearing='marzari-vanderbilt',
-   degauss=0.02
-/
-&electrons
-   diagonalization='david'
-   conv_thr = 1.0e-8
-   mixing_beta = 0.7
-/
+import pw_bands_fe_soc_in from '!!raw-loader!/src/fe/pw.bands.fe_soc.in';
 
-ATOMIC_SPECIES
-Fe 55.845 Fe.rel-pbe-spn-rrkjus_psl.1.0.0.UPF
-
-ATOMIC_POSITIONS alat
-Fe 0.0 0.0 0.0
-
-K_POINTS tpiba_b
-6
-0.000  0.000  0.000  40  !gamma
-0.000  1.000  0.000  40  !H
-0.500  0.500  0.000  30  !N
-0.000  0.000  0.000  30  !gamma
-0.500  0.500  0.500  30  !P
-0.000  1.000  0.000   1  !H
-```
+<CodeBlock className="bash" title="src/fe/pw.bands.fe_soc.in">{pw_bands_fe_soc_in}</CodeBlock>
 
 Run the `bands` calculation:
 ```bash
@@ -181,13 +108,10 @@ mpirun -np 8 pw.x -i pw.bands.fe_soc.in > pw.bands.fe_soc.out
 ```
 
 Finally post process the bandstructure data:
-```bash title="src/fe/pp.bands.fe_soc.in"
-&BANDS
-    outdir='./tmp/',
-    prefix='fe',
-    filband='fe_bands_soc.dat',
-/
-```
+
+import pp_bands_fe_soc_in from '!!raw-loader!/src/fe/pp.bands.fe_soc.in';
+
+<CodeBlock className="bash" title="src/fe/pp.bands.fe_soc.in">{pp_bands_fe_soc_in}</CodeBlock>
 
 In this case `spin_component` has been removed and we add `lsigma(3)=.true.`
 that instructs the program to compute the expectation value for the `z`

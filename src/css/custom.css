@@ -169,7 +169,7 @@ a:hover {
 
 .alert {
   /* border-radius: initial; */
-  border: none;
+  border: 1px solid;
   border-left: 8px solid;
 }
 .alert--success {

@@ -1,49 +1,16 @@
 ---
 title: Structure optimization
 ---
+import CodeBlock from '@theme/CodeBlock';
+
 There are two types of structural optimization calculations in Quantum espresso:
 (1) **relax**: where only the atomic positions are allowed to vary, and (2)
 **vc-relax**: which allows to vary both the atomic positions and lattice
 constants.
 
-```bash title="si_relax.in"
-&control
-    calculation = 'vc-relax'
-    prefix = 'silicon'
-    outdir = './tmp/'
-    pseudo_dir = './pseudos/'
-    etot_conv_thr = 1e-5
-    forc_conv_thr = 1e-4
-/
+import si_relax_in from '!!raw-loader!/src/silicon/si_relax.in';
 
-&system
-    ibrav=2, celldm(1) =14,
-    nat=2, ntyp=1,
-    ecutwfc=30
-/
-
-&electrons
-    conv_thr=1e-7
-    mixing_beta = 0.6
-/
-
-&ions
-/
-
-&cell
-    cell_dofree='ibrav'
-/
-
-ATOMIC_SPECIES
-  Si  28.0855  Si.pz-vbc.UPF
-
-ATOMIC_POSITIONS (alat)
-  Si 0.00 0.00 0.00 0 0 0
-  Si 0.25 0.25 0.25 0 0 0
-
-K_POINTS (automatic)
-  6 6 6 1 1 1
-```
+<CodeBlock className="bash" title="src/silicon/si_relax.in">{si_relax_in}</CodeBlock>
 
 Perform the plane wave calculation:
 ```bash

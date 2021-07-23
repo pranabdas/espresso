@@ -1,4 +1,4 @@
-load_fromPWI si_scf.in
+load_fromPWI pw.scf.silicon.in
 
 # please uncomment & insert value as determined in the "ecutwfc" exercise
 SYSTEM { ecutwfc = 30 }

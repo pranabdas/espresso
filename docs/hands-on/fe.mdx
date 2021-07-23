@@ -2,6 +2,8 @@
 title: "Magnetic system: bulk iron"
 sidebar_label: Fe (magnetic)
 ---
+import CodeBlock from '@theme/CodeBlock';
+
 I am following this example from the [ICTP online school 2021](
 https://gitlab.com/QEF/materials-for-max-qe2021-online-school).
 
@@ -41,30 +43,10 @@ values.
 
 ## Convergence test for USPP
 Below is the PWTK script file:
-```bash title="src/fe/fe_ecut.pwtk"
-# load the pw.x input from file
-load_fromPWI pw.scf.fe_fm.in
 
-# dual is the ratio ecutrho/ecutwfc
-foreach dual { 4 8 12 } {
+import fe_ecut_pwtk from '!!raw-loader!/src/fe/fe_ecut.pwtk';
 
-    set fid [open etot-vs-ecutwfc.dual$dual.dat w]
-
-    foreach ecutwfc [seq 25 5 50] {
-
-        set name pw.Fe.scf.ecutwfc-$ecutwfc.dual-$dual
-
-        SYSTEM "ecutwfc = $ecutwfc
-                ecutrho = $ecutwfc*$dual "
-        runPW $name.in
-
-        set Etot [pwo_totene $name.out]
-        puts $fid "$ecutwfc $Etot"
-    }
-
-    close $fid
-}
-```
+<CodeBlock className="bash" title="src/fe/fe_ecut.pwtk">{fe_ecut_pwtk}</CodeBlock>
 
 Run the script:
 ```bash
@@ -76,41 +58,10 @@ pwtk fe_ecut.pwtk
 ## Density of states calculation
 
 PWTK script to calculate DOS and p-DOS:
-```bash
-load_fromPWI pw.scf.fe_fm.in
 
-SYSTEM " ecutwfc = 40
-         ecutrho = 320 "
+import fe_dos_pwtk from '!!raw-loader!/src/fe/fe_dos.pwtk';
 
-set name Fe
-
-runPW pw.$name.scf.in
-
-CONTROL { calculation = 'nscf' }
-SYSTEM  { occupations = 'tetrahedra' ,
-          degauss = ,  ! this is how variable is unset in PWTK
-}
-K_POINTS automatic {
-    12 12 12   1 1 1
-}
-runPW pw.$name.nscf.in
-
-DOS "
-    fildos = '$name.dos.dat'
-    Emin = 5.0
-    Emax = 20.0,
-    DeltaE = 0.1
-"
-runDOS dos.$name.in
-
-PROJWFC "
-    filpdos = '$name.pdos.dat'
-    Emin = 5.0
-    Emax = 20.0,
-    DeltaE = 0.1
-"
-runPROJWFC projwfc.$name.in
-```
+<CodeBlock className="bash" title="src/fe/fe_dos.pwtk">{fe_dos_pwtk}</CodeBlock>
 
 Below is the plots of total and projected density of states.
 

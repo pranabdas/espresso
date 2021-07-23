@@ -1,6 +1,8 @@
 ---
 title: DFT+U calculation
 ---
+import CodeBlock from '@theme/CodeBlock';
+
 Electronic structure for transition-metals (with localized $$d$$ or $$f$$
 electrons) is not accurately described by standard DFT, and therefore the need
 for DFT+U formulation.
@@ -60,13 +62,10 @@ projwfc.x -in feo_projwfc.in > feo_projwfc.out
 This gives us metallic density of states. In practice we get insulating FeO.
 
 ## Calculating Hubbard U
-```bash title="src/FeO/feo_hp.in"
-&inputhp
-   prefix = 'FeO'
-   outdir = './tmp/'
-   nq1 = 1, nq2 = 1, nq3 = 1
-/
-```
+
+import feo_hp_in from '!!raw-loader!/src/FeO/feo_hp.in';
+
+<CodeBlock className="bash" title="src/FeO/feo_hp.in">{feo_hp_in}</CodeBlock>
 
 Perform a linear-response calculation using `hp.x` program:
 ```bash

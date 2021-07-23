@@ -1,5 +1,5 @@
 # load the pw.x input from file
-load_fromPWI si_scf.in
+load_fromPWI pw.scf.silicon.in
 
 # open a file for writing resulting total energies
 set fid [open etot_vs_ecutwfc.dat w]

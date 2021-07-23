@@ -2,6 +2,7 @@
 title: Self consistent field calculation for silicon
 sidebar_label: SCF calculation
 ---
+import CodeBlock from '@theme/CodeBlock';
 
 We need to provide various important parameters for the self consistent
 calculation (solves the Kohn-Sham equation self-consistently) via an input file.
@@ -32,59 +33,9 @@ default values (which may or may not fit your needs), however some variables you
 must always provide. Comment lines can be added with lines starting with a `!`
 like in Fortran.
 
-```bash title="src/silicon/pw.scf.silicon.in"
-&CONTROL
-! we want to perform self consistent field calculation
-  calculation = 'scf',
+import pw_scf_silicon_in from '!!raw-loader!/src/silicon/pw.scf.silicon.in';
 
-! prefix is reference to the output files
-  prefix = 'silicon',
-
-! output directory
-  outdir = './tmp/'
-
-! directory for the pseudo potential directory
-  pseudo_dir = '../pseudos/'
-
-! verbosity high will give more details on the output file
-  verbosity = 'high'
-/
-
-&SYSTEM
-! Bravais lattice index, which is 2 for FCC structure
-  ibrav =  2,
-
-! Lattice constant in BOHR
-  celldm(1) = 10.26,
-
-! number of atoms in an unit cell
-  nat =  2,
-
-! number of different types of atom in the cell
-  ntyp = 1,
-
-! kinetic energy cutoff for wavefunction in Ry
-  ecutwfc = 30
-
-! number of bands to calculate
-  nbnd = 8
-/
-
-&ELECTRONS
-! Mixing factor used in the self-consistent method
-  mixing_beta = 0.6
-/
-
-ATOMIC_SPECIES
-  Si 28.086 Si.pz-vbc.UPF
-
-ATOMIC_POSITIONS (alat)
-  Si 0.0 0.0 0.0
-  Si 0.25 0.25 0.25
-
-K_POINTS (automatic)
-  6 6 6 0 0 0
-```
+<CodeBlock className="bash" title="src/silicon/pw.scf.silicon.in">{pw_scf_silicon_in}</CodeBlock>
 
 I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum
 Espresso Website](https://www.quantum-espresso.org/pseudopotentials).

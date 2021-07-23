@@ -1,6 +1,7 @@
 ---
 title: k-resolved DOS
 ---
+import CodeBlock from '@theme/CodeBlock';
 
 Here we will calculate k-resolved density of states for silicon. First we begin
 with self consistent field calculation. Here is the input:
@@ -15,17 +16,10 @@ pw.x -inp si_bands.in > si_bands.out
 ```
 
 Calculate the orbital projections with k-resolved information:
-```bash title="src/silicon/si_projwfc.in"
-&projwfc
-    outdir       = './tmp/'
-    prefix       = 'silicon'
-    ngauss       = 0
-    degauss      = 0.036748
-    DeltaE       = 0.005
-    kresolveddos = .true.
-    filpdos      = 'silicon.k'
-/
-```
+
+import si_projwfc_in from '!!raw-loader!/src/silicon/si_projwfc.in';
+
+<CodeBlock className="bash" title="src/silicon/si_projwfc.in">{si_projwfc_in}</CodeBlock>
 
 ```bash
 projwfc.x -inp si_projwfc.in > si_projwfc.out

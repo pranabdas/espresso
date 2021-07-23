@@ -3,6 +3,7 @@ title: High Performance Computing
 sidebar_label: HPC
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import CodeBlock from '@theme/CodeBlock';
 
 In order to perform computationally heavy calculations, we would require access
 to high performance computing facilities.
@@ -66,19 +67,11 @@ module purge
 
 Quantum Espresso is already installed in NUS HPC clusters. Here is a sample job
 script for [NUS HPC](https://nusit.nus.edu.sg/hpc/) clusters:
-```bash title="my_sample_job.txt"
-#!/bin/bash
-#PBS -q parallel12
-#PBS -l select=2:ncpus=12:mpiprocs=12:mem=45GB
-#PBS -j eo
-#PBS -N qe-job
-source /etc/profile.d/rec_modules.sh
-module load espresso6.5-intel_18
-## module load espresso6.5-Centos6_Intel
-cd $PBS_O_WORKDIR;
-np=$( cat  ${PBS_NODEFILE} |wc -l );
-mpirun -np $np -f ${PBS_NODEFILE} pw.x -inp qe-scf.in > qe-scf.out
-```
+
+import pbs_job_sh from '!!raw-loader!/src/pbs_job.sh';
+
+<CodeBlock className="bash" title="src/pbs_job.sh">{pbs_job_sh}</CodeBlock>
+
 
 :::info
 
@@ -94,12 +87,12 @@ qstat -q
 
 Check status of a particular queue system:
 ```bash
-qstat -Qx parallel20
+qstat -Qx parallel24
 ```
 
 Submitting a job:
 ```bash
-qsub my_sample_job.txt
+qsub pbs_job.sh
 ```
 
 Check running jobs:

@@ -2,6 +2,8 @@
 title: Spin polarized bandstructure calculation for nickel
 sidebar_label: Ni (spin pol. bands)
 ---
+import CodeBlock from '@theme/CodeBlock';
+
 We prepare the input file `pw_scf_ni.in` and run the calculation:
 ```bash
 mpirun -np 8 pw.x -i pw_scf_ni.in > pw_scf_ni.out
@@ -15,14 +17,10 @@ mpirun -np 8 pw.x -i pw_bands_ni.in > pw_bands_ni.out
 
 Now we perform the **bands.x** calculation with `spin_component=1` to process
 only the spin up bands:
-```bash title="src/ni/bands_ni_spinup.in"
-&BANDS
-    outdir='./tmp/',
-    prefix='ni',
-    filband='ni_bands_spinup',
-    spin_component = 1,
-/
-```
+
+import bands_ni_up_in from '!!raw-loader!/src/ni/bands_ni_up.in';
+
+<CodeBlock className="bash" title="src/ni/bands_ni_up.in">{bands_ni_up_in}</CodeBlock>
 
 Run the calculation:
 ```bash

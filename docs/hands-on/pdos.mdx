@@ -2,6 +2,8 @@
 title: Projected Density of States
 sidebar_label: P-DOS
 ---
+import CodeBlock from '@theme/CodeBlock';
+
 Here we continue with our Aluminum example.
 Often it is needed to know the contribution from each individual atoms and/or
 each of their orbital contributions. We can achieve that using **projwfc.x**
@@ -13,14 +15,10 @@ pw.x < al_nscf.in > al_nscf.out
 ```
 
 Then we prepare the input file for **projwfc.x**:
-```bash title="src/al/al_projwfc.in"
-&PROJWFC
-  prefix= 'al',
-  outdir= './tmp/',
-  lwrite_overlaps= .true,
-  filpdos= 'al_pdos.dat'
-/
-```
+
+import al_projwfc_in from '!!raw-loader!/src/al/al_projwfc.in';
+
+<CodeBlock className="bash" title="src/al/al_projwfc.in">{al_projwfc_in}</CodeBlock>
 
 Perform the calculation:
 ```bash
