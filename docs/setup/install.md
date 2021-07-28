@@ -13,7 +13,14 @@ HPC clusters.
 
 Perhaps the most easiest way to install Quantum Espresso is from the package
 manager of respective Linux distribution. This should work fine for us and this
-is recommended option. If you are on Ubuntu/ Debian:
+is recommended option. Following commands are for Ubuntu / Debian. First make
+sure your system is up-to-date.
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Install Quantum Espresso from apt repository:
 ```bash
 sudo apt install --no-install-recommends \
     libfftw3-dev \
@@ -21,9 +28,9 @@ sudo apt install --no-install-recommends \
 ```
 
 If you want to compile from the source yourself, here are the installation steps
-for latest version of Quantum Espresso (6.7) in a Ubuntu (LTS 20.04) machine. I
-will be compiling for single processor. First install the libraries and
-dependencies:
+for latest version of Quantum Espresso (6.8) in a Ubuntu (LTS 20.04) machine. I
+will be compiling for single processor. First install the recommended libraries
+and dependencies:
 
 ```bash
 sudo apt install --no-install-recommends \
@@ -47,21 +54,19 @@ sudo apt install --no-install-recommends \
 ```
 
 [Download](https://github.com/QEF/q-e/releases) Quantum Espresso (latest version
-6.7 at the time of writing):
+6.8 at the time of writing):
 ```bash
-wget https://github.com/QEF/q-e/releases/download/qe-6.7.0/qe-6.7-ReleasePack.tgz
+wget https://github.com/QEF/q-e/releases/download/qe-6.8/qe-6.8-ReleasePack.tgz
 ```
 
-Un-tar the source files in your directory of choice:
+Un-tar the source files:
 ```bash
-tar -zxvf qe-6.7-ReleasePack.tgz
-# delete the archive
-rm qe-6.7-ReleasePack.tgz
+tar -zxvf qe-6.8-ReleasePack.tgz
 ```
 
 Go to the qe directory and issue configure:
 ```bash
-cd qe-6.7
+cd qe-6.8
 ./configure
 ```
 
@@ -74,27 +79,29 @@ what you want, try the various configuration `flags` with configure.
 
 Note that certain programs/utilities bundled with Quantum Espresso might not
 work correctly in parallel compilation, so we may need serial compilation for
-them by `./configure --disable-parallel` option if parallel option is
+those by `./configure --disable-parallel` option in case parallel option is
 automatically detected.
 
 :::
 
 Finally, compile the source files and create the binary executables:
+
 ```bash
 # compile individual packages
 make pw
 # or compile everything
 make all
-# we can parallelize e.g., below command uses 2 CPUs
-make -j 2 all
+# we can parallelize e.g., below command uses 4 CPUs
+make -j4 all
 ```
 
 Now, the binary files or their symbolic links (shortcuts) would be placed in the
 `bin` directory. It would be good idea to include the executable path to your
 `.bashrc` (or `.zshrc` or whatever shell you use) file:
+
 ```bash
 # use the correct path if it differs from mine
-echo 'export PATH="/root/qe-6.7/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/root/qe-6.8/bin:$PATH"' >> ~/.bashrc
 ```
 
 Finally, you may need to restart your terminal or `source .bashrc`.

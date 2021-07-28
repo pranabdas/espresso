@@ -2,7 +2,7 @@
 const math = require("remark-math");
 const katex = require("rehype-katex");
 module.exports = {
-  title: "Density Functional Theory calculation using Quantum Espresso",
+  title: "Quantum Espresso Tutorial",
   tagline: "Density Functional Theory calculations using Quantum Espresso",
   url: "https://pranabdas.github.io",
   baseUrl: "/espresso/", // must have a trailing "/"
@@ -18,13 +18,15 @@ module.exports = {
       additionalLanguages: ["docker", "fortran"],
     },
     hideableSidebar: true,
-    // colorMode: {
-    //   defaultMode: "dark",
-    //   switchConfig: {
-    //     // darkIcon: '☾',
-    //     // lightIcon: "☀️"
-    //   },
+    colorMode: {
+    // disableSwitch: true,
+    // defaultMode: "dark",
+    // respectPrefersColorScheme: false,
+    // switchConfig: {
+    //   darkIcon: '☾',
+    //   lightIcon: "☀️"
     // },
+    },
     navbar: {
       title: "Quantum Espresso",
       hideOnScroll: true,
@@ -34,6 +36,7 @@ module.exports = {
       },
       items: [
         {
+          to: "/",
           label: "Docs",
           position: "left",
           items: [
@@ -43,10 +46,17 @@ module.exports = {
             },
             {
               label: "~ ~ ~ Other Docs ~ ~ ~",
+              to: "https://pranabdas.github.io/docs/",
+              target: "_self",
             },
             {
               label: "ARPES Python Tools",
               to: "https://pranabdas.github.io/arpespythontools/",
+              target: "_self",
+            },
+            {
+              label: "Fortran Programming",
+              to: "https://pranabdas.github.io/fortran/",
               target: "_self",
             },
             {
@@ -57,6 +67,11 @@ module.exports = {
             {
               label: "Machine Learning Notes",
               to: "https://pranabdas.github.io/machine-learning/",
+              target: "_self",
+            },
+            {
+              label: "OpenMX tutorial",
+              to: "https://pranabdas.github.io/openmx/",
               target: "_self",
             },
             {
@@ -72,14 +87,6 @@ module.exports = {
             {
               label: "Condensed Matter Notes",
               href: "https://pranabdas.github.io/docs/condmat-notes/",
-            },
-            {
-              label: "Fortran Programming",
-              href: "https://pranabdas.github.io/docs/fortran/",
-            },
-            {
-              label: "FullProf Tutorial",
-              href: "https://pranabdas.github.io/docs/fullprof/",
             },
             {
               label: "Javascript Tutorial",
@@ -132,9 +139,9 @@ module.exports = {
   ],
   stylesheets: [
     {
-      href: "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css",
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css",
       type: "text/css",
-      integrity: "sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc",
+      integrity: "sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn",
       crossorigin: "anonymous",
     },
   ],

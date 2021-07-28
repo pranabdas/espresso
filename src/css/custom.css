@@ -1,22 +1,3 @@
-/* stylelint-disable docusaurus/copyright-header */
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
-/* :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
-  --ifm-code-font-size: 95%;
-} */
-
 :root {
   --color-primary: #0099ff;
   --color-secondary: #ED297A;
@@ -43,10 +24,7 @@
   --ifm-color-primary-lighter: var(--color-primary);
   --ifm-color-primary-lightest: var(--color-primary);
   --ifm-toc-border-color: var(--border-color);
-  --ifm-color-success: var(--color-green);
-  --ifm-color-danger: var(--color-red);
-  --ifm-color-info: var(--color-blue);
-  --ifm-color-warning: var(--color-orange);
+  --ifm-global-shadow-lw: 0px;
 }
 
 html[data-theme='dark'] {
@@ -61,47 +39,6 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #161b22;
 }
 
-.hero--primary {
-  --ifm-hero-text-color: var(--color-black);
-  --ifm-hero-background-color: rgba(0, 0, 0, 0.05);
-  /* background: #eee url(/img/hero-bg.svg) center top no-repeat;
-  background-attachment: fixed; */
-}
-
-html[data-theme='dark'] .hero--primary {
-  --ifm-hero-background-color: rgb(1, 22, 39);
-  --ifm-hero-text-color: var(--ifm-color-secondary);
-
-}
-
-.hero--primary .button--outline {
-  background-color: var(--color-white);
-  border-color: var(--color-black);
-}
-
-.hero--primary .button--outline:hover {
-  background-color: rgba(0, 0, 0, 0.75);
-  color: var(--color-white)
-}
-
-html[data-theme='dark'] .hero--primary .button--outline {
-  background-color: var(--color-black);
-  border-color: var(--color-white);
-}
-
-html[data-theme='dark'] .hero--primary .button--outline:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
-}
-
-/* html[data-theme='light'] .features_src-pages- {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-html[data-theme='dark'] .features_src-pages- {
-  background-color: rgba(255, 255, 255, 0.1);
-} */
-
 .docusaurus-highlight-code-line {
   background-color: #ffff99;
   display: block;
@@ -109,9 +46,8 @@ html[data-theme='dark'] .features_src-pages- {
   padding: 0 var(--ifm-pre-padding);
 }
 
-/* If you have a different syntax highlighting theme for dark mode. */
 html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: #666600; /* Color which works with dark mode syntax highlighting theme */
+  background-color: rgba(66, 80, 80, 0.6);
 }
 
 .footer {
@@ -145,6 +81,7 @@ html[data-theme='dark'] .header-github-link:before {
 a {
   transition: color 0.2s;
 }
+
 a:hover {
   color: var(--color-secondary);
 }
@@ -162,51 +99,38 @@ a:hover {
 .pagination-nav__link {
   transition: color 0.2s, border-color 0.2s;
 }
+
 .pagination-nav__link:hover {
   color: var(--color-secondary);
   border-color: var(--color-secondary);
 }
 
 .alert {
-  /* border-radius: initial; */
-  border: 1px solid;
-  border-left: 8px solid;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
 }
-.alert--success {
-  background-color: rgba(49, 215, 108, .15);
-  border-color: var(--ifm-color-success)
+
+.alert a {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
 }
-.alert--warning {
-  background-color: rgba(250, 173, 0, .15);
-  border-color: var(--ifm-color-warning);
+
+.alert a:hover, .alert a:focus {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
+  text-decoration-thickness: 1px;
 }
+
 .alert--danger {
-  background-color: rgba(250, 64, 69, .15);
-  border-color: var(--ifm-color-danger);
+  background-color: rgba(250, 64, 69, 0.2);
 }
+
 .alert--info {
-  background-color: rgba(0, 193, 255, .15);
-  border-color: var(--ifm-color-info);
+  background-color: rgba(0, 193, 255, 0.2);
 }
 
-html[data-theme='light'] .alert--secondary {
-  border-color: #8661c5;
-  background-color: #efd9fd;
-  color: var(--color-black);
-}
-
-html[data-theme='light'] .admonition-note {
-  --ra-admonition-icon-color: var(--color-black);
-}
-
-html[data-theme='dark'] .alert--secondary {
-  border-color: #990099;
-  background-color: #330033;
-  color: var(--color-white);
-}
-
-html[data-theme='dark'] .admonition-note {
-  --ra-admonition-icon-color: var(--color-white);
+.alert--secondary {
+  border-color: rgb(179, 0, 179);
+  background-color: rgba(179, 0, 179, 0.2);
 }
 
 .navbar {
@@ -248,47 +172,6 @@ h4 {
   font-size: 1em !important;
 }
 
-/* .menu {
-  font-weight: normal;
+.dropdown__link:hover, .dropdown__link--active {
+  background-color: var(--ifm-menu-color-background-hover);
 }
-
-.navbar__link {
-  font-weight: normal;
-}
-
-.dropdown {
-  font-weight: normal;
-} */
-
-/*
-html[data-theme='light'] .DocSearch {
-  --docsearch-primary-color: var(--ifm-color-primary);
-  --docsearch-text-color: var(--ifm-font-color-base);
-  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
-  --docsearch-container-background: rgba(94, 100, 112, 0.7);
-  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
-  --docsearch-searchbox-background: var(--ifm-color-secondary);
-  --docsearch-searchbox-focus-background: var(--ifm-color-white);
-  --docsearch-hit-color: var(--ifm-font-color-base);
-  --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-white);
-  --docsearch-footer-background: var(--ifm-color-white);
-}
-
-html[data-theme='dark'] .DocSearch {
-  --docsearch-text-color: var(--ifm-font-color-base);
-  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
-  --docsearch-container-background: rgba(47, 55, 69, 0.7);
-  --docsearch-modal-background: var(--ifm-background-color);
-  --docsearch-searchbox-background: var(--ifm-background-color);
-  --docsearch-searchbox-focus-background: var(--ifm-color-black);
-  --docsearch-hit-color: var(--ifm-font-color-base);
-  --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-emphasis-100);
-  --docsearch-footer-background: var(--ifm-background-surface-color);
-  --docsearch-key-gradient: linear-gradient(
-    -26.5deg,
-    var(--ifm-color-emphasis-200) 0%,
-    var(--ifm-color-emphasis-100) 100%
-  );
-} */

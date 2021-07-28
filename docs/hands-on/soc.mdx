@@ -85,6 +85,17 @@ Also, make sure that energy and charge density cutoffs are sufficient. Certain
 pseudo potentials might have issues, try with pseudo potentials from a different
 library. In case of metallic systems, remember to apply smearing.
 
+:::danger Common Errors
+
+- **S matrix not positive definite:** This error might appear due to numerical
+instability from overlapping atoms. Check atomic positions carefully. In one my
+calculations, this error was resolved after setting higher `ecutrho`.
+
+- Simplified LDA+U not implemented with `noncol` magnetism, use
+`lda_plus_u_kind=1`.
+
+:::
+
 ## Bandstructure of Fe with SOC
 
 import pw_scf_fe_soc_in from '!!raw-loader!/src/fe/pw.scf.fe_soc.in';
