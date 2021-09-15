@@ -35,8 +35,16 @@ Running cif2cell command:
 cif2cell file.cif -p quantum-espresso -o inputfile.in
 ```
 
+### Xcrysdens
 You can explore the crystal structure, find out k-path and many more using
 **Xcrysdens** application - [http://www.xcrysden.org](http://www.xcrysden.org)
+
+For certain functionality, Xcrysdens requires basic calculator program. On
+Ubuntu/ Debian:
+```bash
+sudo apt update
+sudo apt install bc
+```
 
 You can generate **PWscf** input files using tools in this website as well
 <https://www.materialscloud.org/work/tools/qeinputgenerator>

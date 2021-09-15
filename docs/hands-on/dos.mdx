@@ -31,7 +31,7 @@ additional k-points in low symmetry cases. `outdir` and `prefix` must be same as
 in the `scf` step, some of the inputs and output are read from previous step.
 
 ```bash
-pw.x bash si_nscf_dos.in > si_nscf_dos.out
+pw.x < si_nscf_dos.in > si_nscf_dos.out
 ```
 
 Now our final step is to calculate the density of states. The DOS input file as

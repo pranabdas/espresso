@@ -139,9 +139,9 @@ module.exports = {
   ],
   stylesheets: [
     {
-      href: "https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css",
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css",
       type: "text/css",
-      integrity: "sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn",
+      integrity: "sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET",
       crossorigin: "anonymous",
     },
   ],

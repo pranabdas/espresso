@@ -27,8 +27,8 @@
 
 ATOMIC_SPECIES
 # the second field, atomic mass, is not used except for MD calculations
-   Fe1  1.0  Fe.pbe-nd-rrkjus.UPF
-   Fe2  1.0  Fe.pbe-nd-rrkjus.UPF
+   Fe1  1.0  Fe.rel-pbe-spn-rrkjus_psl.1.0.0.UPF
+   Fe2  1.0  Fe.rel-pbe-spn-rrkjus_psl.1.0.0.UPF
 
 ATOMIC_POSITIONS crystal
    Fe1 0.0  0.0  0.0
