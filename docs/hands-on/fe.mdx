@@ -3,6 +3,7 @@ title: "Magnetic system: bulk iron"
 sidebar_label: Fe (magnetic)
 ---
 import CodeBlock from '@theme/CodeBlock';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 I am following this example from the [ICTP online school 2021](
 https://gitlab.com/QEF/materials-for-max-qe2021-online-school).
@@ -31,6 +32,16 @@ with opposite initial spins.
 pw.x -i pw.scf.fe_fm.in > pw.scf.fe_fm.out
 pw.x -i pw.scf.fe_afm.in > pw.scf.fe_afm.out
 ```
+
+:::note
+
+In case of the AFM calculation, if we have started with FM (say, for both atom
+types `starting_magnetization=0.6` ), the calculation would still converge to
+AFM state as it is the true ground state for this system, albeit it would take
+more iteration to converge. If you get different results due to different
+starting magnetization, you might need a stricter convergence criteria.
+
+:::
 
 :::info
 
@@ -80,3 +91,19 @@ moments.
 
 Also note that DFT assumes zero temperature, so it makes sense to perform FM or
 AFM calculation for magnetic systems.
+
+## Visualizing magnetic moments
+We can use [XCrySDen](http://www.xcrysden.org) to visualize the orientation of
+magnetic moments. XCrySDen cannot directly read the Quantum Espresso output
+files for magnetic moment vectors, instead we need to create the input `.xsf`
+file with magnetic moments as force vector.
+
+import fe_mag from '!!raw-loader!/src/fe/fe.xsf';
+
+<CodeBlock className="bash" title="src/fe/fe.xsf">{fe_mag}</CodeBlock>
+
+Open the file from XCrySDen Menu: **File → Open Structure → Open XSF**. Then go
+to **Display** menu and select **Forces**. If you want to adjust scaling for the
+force vectors, go to **Modify → Force Settings** and set suitable Length factor.
+
+<img src={useBaseUrl("/img/fe-magnetic-structure.png")} alt="fe-magnetic-structure" width="450px" />

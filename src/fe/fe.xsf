@@ -1,0 +1,23 @@
+# this is a specification for crystal structure
+CRYSTAL
+
+# primitive lattice vectors (in Angstroms)
+PRIMVEC
+    2.8681404710    0.0000000000    0.0000000000
+    0.0000000000    2.8681404710    0.0000000000
+    0.0000000000    0.0000000000    2.8681404710
+
+# conventional lattice vectors (in Angstroms)
+CONVVEC
+    2.8681404710    0.0000000000    0.0000000000
+    0.0000000000    2.8681404710    0.0000000000
+    0.0000000000    0.0000000000    2.8681404710
+
+# First number stands for number of atoms in primitive cell
+# the second number is always 1 for PRIMCOORD coordinates
+# followed by atomic coordinates (in Angstroms) and forces:
+# AtNum   X Y Z   Fx Fy Fz
+PRIMCOORD
+ 2  1
+ 26  0.0000000000  0.0000000000  0.0000000000    0.00  0.00  0.01
+ 26  1.4340702350  1.4340702350  1.4340702350    0.00  0.00 -0.01

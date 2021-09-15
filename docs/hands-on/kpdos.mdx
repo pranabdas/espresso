@@ -35,7 +35,7 @@ import numpy as np
 
 data = np.loadtxt('../src/silicon/silicon.k.pdos_tot')
 
-k = np.unique(data[:,0])  # k values
+k = np.unique(data[:, 0])  # k values
 e = np.unique(data[:, 1])  # dos energy values
 
 dos = np.zeros([len(k), len(e)])
@@ -47,7 +47,7 @@ for i in range(len(data)):
 
 plt.pcolormesh(k, e, dos.T, cmap='magma', shading='auto')
 # plt.ylim(-2, 10)
-plt.xticks([]);
+plt.xticks([])
 plt.ylabel('Energy (eV)')
 plt.xticks([])
 plt.gcf().text(0.12, 0.06, 'L', fontsize=16, fontweight='normal')
