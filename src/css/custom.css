@@ -175,3 +175,40 @@ h4 {
 .dropdown__link:hover, .dropdown__link--active {
   background-color: var(--ifm-menu-color-background-hover);
 }
+
+.appInput {
+  background: hsl(210, 36%, 96%);
+  border-color: rgb(226, 235, 202);
+  border-radius: 5px;
+  padding: 0.25rem 0.25rem;
+  font-size: medium;
+  width: 150px;
+  border-width: 1px;
+  border-style: solid;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.appOutput {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.appBtn {
+  font-size: inherit;
+  background-color: hsl(210, 36%, 96%);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: lightgrey;
+  padding: 0.25rem 0.25rem;
+}
+
+.appBtn:hover {
+  cursor: pointer;
+  border-color: grey;
+}
+
+.appBtn:active {
+  transform: scale(1.25);
+  transition: 0.25s;
+  background-color: grey;
+}

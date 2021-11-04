@@ -12,7 +12,7 @@ $$
 $$
 
 where $h$ is the Plank constant. Wavefunction of an electron in a potential
-filed ($V$) is calculated by solving the Schrödinger equation:
+filed $(V)$ is calculated by solving the Schrödinger equation:
 
 $$
 -\frac{\hbar^2}{2m} \nabla^2 \Psi(\textbf{r}, t) + V(\textbf{r}, t) = i\hbar
@@ -20,7 +20,7 @@ $$
 $$
 
 Fortunately, in most practical purposes, the potential field is not a function
-of time ($t$), or even if it is a function of time, they changes relatively
+of time $(t)$, or even if it is a function of time, they changes relatively
 slowly compared to the dynamics we are interested in. For example, the electrons
 inside a material are subjected to the Coulomb filed of the nucleus. The nucleus
 is heavy and their motion is much slower than the motion of the electrons. In
