@@ -199,7 +199,7 @@ h4 {
   border-width: 1px;
   border-radius: 5px;
   border-color: lightgrey;
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .appBtn:hover {
@@ -210,5 +210,5 @@ h4 {
 .appBtn:active {
   transform: scale(1.25);
   transition: 0.25s;
-  background-color: grey;
+  color:var(--color-black)
 }

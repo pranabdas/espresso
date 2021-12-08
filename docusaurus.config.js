@@ -97,7 +97,7 @@ const config = {
               },
               {
                 label: "SUV ARPES Manual",
-                href: "https://pranabdas.github.io/docs/arpes-suv-man/",
+                href: "https://pranabdas.github.io/docs/arpes-man/",
               },
             ],
           },

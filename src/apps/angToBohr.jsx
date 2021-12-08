@@ -15,7 +15,7 @@ class AngToBohr extends React.Component {
   };
 
   render() {
-    const bohr = (this.state.ang / 0.529177249).toFixed(9);
+    const bohr = (parseFloat(this.state.ang) / 0.529177249).toFixed(10);
 
     return (
       <>
@@ -27,7 +27,8 @@ class AngToBohr extends React.Component {
             value={this.state.ang}
             onChange={this.handleChange}
           />
-          &nbsp;Å&nbsp;= <span className="appOutput">{bohr}</span>&nbsp;Bohr.&ensp;
+          &nbsp;Å&nbsp;= <span className="appOutput">{bohr}</span>
+          &nbsp;Bohr.&ensp;
           <button
             className="appBtn"
             onClick={() => {
