@@ -139,8 +139,8 @@ installed in the NUS clusters or you have modified the source codes yourself,
 here are the steps that I followed to successfully compile. Download and
 decompress the source files.
 ```bash
-wget https://github.com/QEF/q-e/releases/download/qe-6.8/qe-6.8-ReleasePack.tgz
-tar zxvf qe-6.8-ReleasePack.tgz
+wget https://github.com/QEF/q-e/releases/download/qe-7.0/qe-7.0-ReleasePack.tgz
+tar zxvf qe-7.0-ReleasePack.tgz
 ```
 
 Load the necessary modules (applicable for NUS clusters, last checked in May
@@ -152,7 +152,7 @@ module load fftw/3.3.7
 
 Go to QE directory and run `configure`:
 ```bash
-cd qe-6.8
+cd qe-7.0
 ./configure
 ```
 
@@ -224,9 +224,9 @@ make all -j8
 ```
 
 I am parallelizing with 8 processors to speed things up. You may add the
-`qe-6.8/bin` path to your `.bashrc`:
+`qe-7.0/bin` path to your `.bashrc`:
 ```bash
-echo 'export PATH="/home/svu/{username}/qe-6.8/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/svu/{username}/qe-7.0/bin:$PATH"' >> ~/.bashrc
 ```
 
 And don't forget to load dependencies before calling QE executables.
@@ -238,7 +238,7 @@ module load fftw/3.3.7
 :::note
 
 If you are submitting job via PBS queue, you need to provide full path of the QE
-executables, e.g., `/home/svu/{username}/qe-6.8/bin/pw.x`. PBS system won't read
+executables, e.g., `/home/svu/{username}/qe-7.0/bin/pw.x`. PBS system won't read
 your bash settings, neither the relative paths of your login node would apply.
 
 :::

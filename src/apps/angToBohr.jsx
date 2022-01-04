@@ -4,7 +4,7 @@ class AngToBohr extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ang: 5.42,
+      ang: 1,
     };
   }
 
@@ -23,7 +23,7 @@ class AngToBohr extends React.Component {
           <input
             className="appInput"
             type="number"
-            step="0.000000001"
+            step="0.01"
             value={this.state.ang}
             onChange={this.handleChange}
           />
