@@ -59,8 +59,18 @@ async function config() {
                   target: "_self",
                 },
                 {
+                  label: "Condensed Matter Notes",
+                  to: "https://pranabdas.github.io/condmat-notes/",
+                  target: "_self",
+                },
+                {
                   label: "Fortran Programming",
                   to: "https://pranabdas.github.io/fortran/",
+                  target: "_self",
+                },
+                {
+                  label: "Javascript Tutorial",
+                  to: "https://pranabdas.github.io/javascript/",
                   target: "_self",
                 },
                 {
@@ -84,21 +94,14 @@ async function config() {
                   target: "_self",
                 },
                 {
-                  label: "SUV Python Tools",
-                  to: "https://pranabdas.github.io/suvtools/",
+                  label: "SUV ARPES Manual",
+                  to: "https://pranabdas.github.io/arpes-manual/",
                   target: "_self",
                 },
                 {
-                  label: "Condensed Matter Notes",
-                  href: "https://pranabdas.github.io/docs/condmat-notes/",
-                },
-                {
-                  label: "Javascript Tutorial",
-                  href: "https://pranabdas.github.io/docs/js-learning/",
-                },
-                {
-                  label: "SUV ARPES Manual",
-                  href: "https://pranabdas.github.io/docs/arpes-man/",
+                  label: "SUV Python Tools",
+                  to: "https://pranabdas.github.io/suvtools/",
+                  target: "_self",
                 },
               ],
             },
@@ -144,9 +147,23 @@ async function config() {
       ],
     ],
 
+    themes: [
+      [
+        // https://github.com/easyops-cn/docusaurus-search-local
+        require.resolve("@easyops-cn/docusaurus-search-local"),
+        {
+          hashed: true,
+          docsRouteBasePath: "/",
+          indexBlog: false,
+          indexPages:true,
+          highlightSearchTermsOnTargetPage: true,
+        },
+      ],
+    ],
+
     stylesheets: [
       {
-        href: "https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css",
+        href: "https://pranabdas.github.io/drive/webfonts/katex/katex.min.css",
         type: "text/css",
         integrity:
           "sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ",

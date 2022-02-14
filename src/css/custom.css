@@ -212,3 +212,8 @@ h4 {
   transition: 0.25s;
   color:var(--color-black)
 }
+
+.navbar__search-input {
+  font-size: 1rem;
+}
+

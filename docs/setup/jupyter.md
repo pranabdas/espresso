@@ -48,8 +48,9 @@ There are several ways you can run Jupyterlab in your computer.
 - Install [Docker](https://docs.docker.com/get-docker/)
 - Create image with Python and required packages installed
     ```bash
-    # build using the Dockerfile included in my repo
-    # adjust the Dockerfile according to your needs
+    # build using the Dockerfile included in my github repo:
+    # https://github.com/pranabdas/espresso
+    # (adjust the Dockerfile according to your needs)
     docker build -t espresso .
     ```
 - Run a container with port forwarding
@@ -57,3 +58,6 @@ There are several ways you can run Jupyterlab in your computer.
     docker run -it --rm -p 8888:8888 -v ${PWD}:/home espresso bash
     ```
 - Launch Jupyterlab
+    ```
+    jupyter-lab
+    ```
