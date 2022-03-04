@@ -11,7 +11,7 @@ values of `ecutwfc`. We can do that by using `pwtk` script.
 
 import si_scf_ecutoff_pwtk from '!!raw-loader!/src/silicon/si_scf_ecutoff.pwtk';
 
-<CodeBlock className="language-bash" title="src/silicon/si_scf_ecutoff.pwtk">{si_scf_ecutoff_pwtk}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_scf_ecutoff.pwtk">{si_scf_ecutoff_pwtk}</CodeBlock>
 
 To run the above script:
 ```bash
@@ -47,7 +47,7 @@ script to automate the process with different cutoff energy values.
 
 import si_script_sh from '!!raw-loader!/src/silicon/si_script.sh';
 
-<CodeBlock className="language-bash" title="src/silicon/si_script.sh">{si_script_sh}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_script.sh">{si_script_sh}</CodeBlock>
 
 Make sure the file has executable permission for the user:
 ```bash
@@ -81,7 +81,7 @@ k-points in the Monkhorst-Pack mesh.
 
 import si_scf_kpoints_pwtk from '!!raw-loader!/src/silicon/si_scf_kpoints.pwtk';
 
-<CodeBlock className="language-bash" title="src/silicon/si_scf_kpoints.pwtk">{si_scf_kpoints_pwtk}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_scf_kpoints.pwtk">{si_scf_kpoints_pwtk}</CodeBlock>
 
 Run pwtk program:
 ```bash
@@ -104,7 +104,7 @@ Calculating total energy with respect to varying lattice constant.
 
 import si_scf_alat_pwtk from '!!raw-loader!/src/silicon/si_scf_alat.pwtk';
 
-<CodeBlock className="language-bash" title="src/silicon/si_scf_alat.pwtk">{si_scf_alat_pwtk}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_scf_alat.pwtk">{si_scf_alat_pwtk}</CodeBlock>
 
 Run above code:
 ```

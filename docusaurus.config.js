@@ -139,6 +139,7 @@ async function config() {
             editUrl: "https://github.com/pranabdas/espresso/blob/master/",
             remarkPlugins: [math],
             rehypePlugins: [katex],
+            // breadcrumbs: false,
           },
           theme: {
             customCss: require.resolve("./src/css/custom.css"),

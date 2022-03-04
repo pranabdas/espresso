@@ -5,6 +5,9 @@ module.exports = {
       type: "category",
       label: "Theory",
       collapsed: true,
+      link: {
+        type: "generated-index",
+      },
       items: [
         "theory/problem-statement",
         "theory/hartree-fock",
@@ -15,6 +18,9 @@ module.exports = {
       type: "category",
       label: "Setup",
       collapsed: true,
+      link: {
+        type: "generated-index",
+      },
       items: [
         "setup/install",
         "setup/hpc",
@@ -27,6 +33,9 @@ module.exports = {
       type: "category",
       label: "Hands-on",
       collapsed: true,
+      link: {
+        type: "generated-index",
+      },
       items: [
         "hands-on/scf",
         "hands-on/convergence",

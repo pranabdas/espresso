@@ -11,7 +11,7 @@ smearing parameters in the input file.
 
 import al_vc_relax_in from '!!raw-loader!/src/al/al_vc_relax.in';
 
-<CodeBlock className="language-bash" title="src/al/al_vc_relax.in">{al_vc_relax_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_vc_relax.in">{al_vc_relax_in}</CodeBlock>
 
 We run `pw.x` to perform variable cell relaxation calculation:
 ```bash
@@ -28,7 +28,7 @@ We will use this value for our next step, self consistent calculation.
 
 import al_scf_in from '!!raw-loader!/src/al/al_scf.in';
 
-<CodeBlock className="language-bash" title="src/al/al_scf.in">{al_scf_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_scf.in">{al_scf_in}</CodeBlock>
 
 We run our self consistent calculation:
 ```bash
@@ -40,7 +40,7 @@ calculation:
 
 import al_nscf_in from '!!raw-loader!/src/al/al_nscf.in';
 
-<CodeBlock className="language-bash" title="src/al/al_nscf.in">{al_nscf_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_nscf.in">{al_nscf_in}</CodeBlock>
 
 Note the changes in input file. The calculation changed to `nscf` and we are now
 using a higher number of k-points grid.
@@ -53,7 +53,7 @@ Next we go ahead with our density of states calculation:
 
 import al_dos_in from '!!raw-loader!/src/al/al_dos.in';
 
-<CodeBlock className="language-bash" title="src/al/al_dos.in">{al_dos_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_dos.in">{al_dos_in}</CodeBlock>
 
 We run `dos.x` with DOS inputs:
 ```bash
@@ -69,7 +69,7 @@ We prepare the input file the same as the case of our previous example silicon:
 
 import al_bands_in from '!!raw-loader!/src/al/al_bands.in';
 
-<CodeBlock className="language-bash" title="src/al/al_bands.in">{al_bands_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_bands.in">{al_bands_in}</CodeBlock>
 
 Followed by run `pw.x`:
 ```bash
@@ -80,7 +80,7 @@ Now we proceed with post-processing:
 
 import al_bands_pp_in from '!!raw-loader!/src/al/al_bands_pp.in';
 
-<CodeBlock className="language-bash" title="src/al/al_bands_pp.in">{al_bands_pp_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_bands_pp.in">{al_bands_pp_in}</CodeBlock>
 
 And run `bands.x`:
 ```bash

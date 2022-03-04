@@ -100,7 +100,7 @@ calculations, this error was resolved after setting higher `ecutrho`.
 
 import pw_scf_fe_soc_in from '!!raw-loader!/src/fe/pw.scf.fe_soc.in';
 
-<CodeBlock className="language-bash" title="src/fe/pw.scf.fe_soc.in">{pw_scf_fe_soc_in}</CodeBlock>
+<CodeBlock language="bash" title="src/fe/pw.scf.fe_soc.in">{pw_scf_fe_soc_in}</CodeBlock>
 
 Run the scf calculation:
 ```bash
@@ -111,7 +111,7 @@ Prepare the input file for `nscf` `bands` calculation:
 
 import pw_bands_fe_soc_in from '!!raw-loader!/src/fe/pw.bands.fe_soc.in';
 
-<CodeBlock className="language-bash" title="src/fe/pw.bands.fe_soc.in">{pw_bands_fe_soc_in}</CodeBlock>
+<CodeBlock language="bash" title="src/fe/pw.bands.fe_soc.in">{pw_bands_fe_soc_in}</CodeBlock>
 
 Run the `bands` calculation:
 ```bash
@@ -122,7 +122,7 @@ Finally post process the bandstructure data:
 
 import pp_bands_fe_soc_in from '!!raw-loader!/src/fe/pp.bands.fe_soc.in';
 
-<CodeBlock className="language-bash" title="src/fe/pp.bands.fe_soc.in">{pp_bands_fe_soc_in}</CodeBlock>
+<CodeBlock language="bash" title="src/fe/pp.bands.fe_soc.in">{pp_bands_fe_soc_in}</CodeBlock>
 
 In this case `spin_component` has been removed and we add `lsigma(3)=.true.`
 that instructs the program to compute the expectation value for the `z`

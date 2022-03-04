@@ -5,6 +5,7 @@ class AngToBohr extends React.Component {
     super(props);
     this.state = {
       ang: 1,
+      showCopied: false,
     };
   }
 
@@ -12,6 +13,22 @@ class AngToBohr extends React.Component {
     this.setState({
       ang: e.target.value,
     });
+  };
+
+  handleCopy = () => {
+    const bohr = (parseFloat(this.state.ang) / 0.529177249).toFixed(10);
+
+    this.setState({
+      showCopied: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        showCopied: false,
+      });
+    }, 1500);
+
+    navigator.clipboard.writeText(bohr);
   };
 
   render() {
@@ -29,13 +46,8 @@ class AngToBohr extends React.Component {
           />
           &nbsp;Å&nbsp;= <span className="appOutput">{bohr}</span>
           &nbsp;Bohr.&ensp;
-          <button
-            className="appBtn"
-            onClick={() => {
-              navigator.clipboard.writeText(bohr);
-            }}
-          >
-            Copy
+          <button className="appBtn" onClick={this.handleCopy}>
+            {this.state.showCopied ? "Copied" : "Copy"}
           </button>
         </p>
       </>
