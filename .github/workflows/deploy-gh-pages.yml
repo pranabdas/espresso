@@ -1,0 +1,40 @@
+name: Deploy gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare Node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install NPM packages
+        run: npm install
+
+      - name: Apply customizations
+        run: |
+          sed -i.bak 's/f6f8fa/f6f6f6/gI' node_modules/prism-react-renderer/themes/github/index.cjs.js
+          sed -i.bak 's/box-shadow: var(--ifm-global-shadow-lw)/box-shadow: none/gI' node_modules/@docusaurus/theme-classic/src/theme/CodeBlock/styles.module.css
+
+      - name: Build website
+        run: npm run build
+
+      - name: Deploy on gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

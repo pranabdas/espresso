@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #0099ff;
+  --color-primary: #0076df;
   --color-secondary: #ED297A;
   --color-white: #F5F6F7;
   --color-black: #000;
@@ -25,6 +25,8 @@
   --ifm-color-primary-lightest: var(--color-primary);
   --ifm-toc-border-color: var(--border-color);
   --ifm-global-shadow-lw: 0px;
+  --ifm-table-head-background: var(--ifm-table-stripe-background);
+  --ifm-table-row-hover-color: rgba(0, 0, 0, 0.01);
 }
 
 html[data-theme='dark'] {
@@ -37,6 +39,7 @@ html[data-theme='dark'] {
   --ifm-toc-link-color: var(--color-white);
   --ifm-tabs-color: var(--color-white);
   --ifm-background-surface-color: #161b22;
+  --ifm-table-row-hover-color: rgba(255, 255, 255, 0.05);
 }
 
 .docusaurus-highlight-code-line {
@@ -219,4 +222,13 @@ h4 {
 .appBtn:hover {
   cursor: pointer;
   border-color: grey;
+}
+
+tr:hover td {
+  background: var(--ifm-table-row-hover-color);
+}
+
+table td, table th {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
