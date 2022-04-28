@@ -167,9 +167,6 @@ async function config() {
       {
         href: "https://pranabdas.github.io/drive/webfonts/katex/katex.min.css",
         type: "text/css",
-        integrity:
-          "sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB",
-        crossorigin: "anonymous",
       },
     ],
   };

@@ -18,7 +18,7 @@ Then we prepare the input file for **projwfc.x**:
 
 import al_projwfc_in from '!!raw-loader!/src/al/al_projwfc.in';
 
-<CodeBlock language="bash" title="src/al/al_projwfc.in">{al_projwfc_in}</CodeBlock>
+<CodeBlock language="bash" title="src/al/al_projwfc.in" showLineNumbers>{al_projwfc_in}</CodeBlock>
 
 Perform the calculation:
 ```bash
@@ -52,7 +52,7 @@ $$PDOS_m (E) \rightarrow$$ projected DOS on atomic wfc with component $m$.
   - $d_{xy}$ (real combination of $m=\pm 2$ with sine)
 
 Let's make our plots:
-```python title="src/notebooks/al-pdos.ipynb"
+```python title="src/notebooks/al-pdos.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
 from matplotlib import rcParamsDefault
 import numpy as np

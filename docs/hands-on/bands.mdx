@@ -10,7 +10,7 @@ new parameters:
 
 import si_bands_scf_in from '!!raw-loader!/src/silicon/si_bands_scf.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands_scf.in">{si_bands_scf_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_bands_scf.in" showLineNumbers>{si_bands_scf_in}</CodeBlock>
 
 Run the `scf` calculation:
 ```bash
@@ -23,7 +23,7 @@ band calculation:
 
 import si_bands_in from '!!raw-loader!/src/silicon/si_bands.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands.in">{si_bands_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_bands.in" showLineNumbers>{si_bands_in}</CodeBlock>
 
 Again run `pw.x` for `bands` calculation:
 ```bash
@@ -35,7 +35,7 @@ the data in more usable manner. Input file for `bands.x`:
 
 import si_bands_pp_in from '!!raw-loader!/src/silicon/si_bands_pp.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands_pp.in">{si_bands_pp_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_bands_pp.in" showLineNumbers>{si_bands_pp_in}</CodeBlock>
 
 Run `bands.x` from post processing (PP) module:
 ```bash
@@ -66,7 +66,7 @@ bands in PostScript format written to file si_bands.ps
 
 You will have `si_bands.ps` with band diagram. Or you can use your favorite
 plotting program to make plots:
-```python title="notebooks/si-bands.ipynb"
+```python title="notebooks/si-bands.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
 from matplotlib import rcParamsDefault
 import numpy as np

@@ -1,5 +1,6 @@
 ---
 title: Crystal structure
+keywords: ["Crystal structure", "Crystal structure visualization", "Vesta", "Finding crystal structure", "cif2cell", "Xcrysdens", "QE input generator", "Supercell construction"]
 ---
 Density functional theory (DFT) calculations are *ab-initio* meaning the
 calculation is done from the scratch based on given input parameters. We need to
