@@ -1,6 +1,7 @@
 ---
 title: Quantum Espresso installation
 sidebar_label: Installation
+keywords: ["Quantum Espresso installation", "Installing Quantum Espresso", "PWTK"]
 ---
 We can install Quantum Espresso in our personal laptops or desktops to run
 relatively less computationally intensive calculations. If we intend to perform

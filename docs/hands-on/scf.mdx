@@ -1,6 +1,7 @@
 ---
 title: Self consistent field calculation for silicon
 sidebar_label: SCF calculation
+keywords: ["SCF calculation", "Self consistent field calculation", "Self consistent calculation", "SCF calculation using Quantum Espresso", "Silicon bandstructure", "Quantum Espresso input"]
 ---
 import CodeBlock from '@theme/CodeBlock';
 
@@ -35,7 +36,7 @@ like in Fortran.
 
 import pw_scf_silicon_in from '!!raw-loader!/src/silicon/pw.scf.silicon.in';
 
-<CodeBlock language="bash" title="src/silicon/pw.scf.silicon.in">{pw_scf_silicon_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pw.scf.silicon.in" showLineNumbers>{pw_scf_silicon_in}</CodeBlock>
 
 I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum
 Espresso Website](https://www.quantum-espresso.org/pseudopotentials).

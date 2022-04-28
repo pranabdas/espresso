@@ -1,5 +1,6 @@
 ---
 title: k-resolved DOS
+keywords: ["Density of States"]
 ---
 import CodeBlock from '@theme/CodeBlock';
 
@@ -19,7 +20,7 @@ Calculate the orbital projections with k-resolved information:
 
 import si_projwfc_in from '!!raw-loader!/src/silicon/si_projwfc.in';
 
-<CodeBlock language="bash" title="src/silicon/si_projwfc.in">{si_projwfc_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/si_projwfc.in" showLineNumbers>{si_projwfc_in}</CodeBlock>
 
 ```bash
 projwfc.x -inp si_projwfc.in > si_projwfc.out
@@ -27,7 +28,7 @@ projwfc.x -inp si_projwfc.in > si_projwfc.out
 
 This will give separate orbital projections, as well as total sum for k-resolved
 DOS. Make plots:
-```python title="notebooks/silicon-kpdos.ipynb"
+```python title="notebooks/silicon-kpdos.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
 from matplotlib import rcParamsDefault
 import numpy as np

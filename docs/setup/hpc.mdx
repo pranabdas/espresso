@@ -1,6 +1,7 @@
 ---
 title: High Performance Computing
 sidebar_label: HPC
+keywords: ["HPC", "High Performance Computing", "Compiling Quantum Espresso", "Installing Quantum Espresso", "Quantum Espresso Installation", "Intel MKL", "Parallel Computing", "PBS job", "HPC job"]
 ---
 import CodeBlock from '@theme/CodeBlock';
 
@@ -69,7 +70,7 @@ script for [NUS HPC](https://nusit.nus.edu.sg/hpc/) clusters:
 
 import pbs_job_sh from '!!raw-loader!/src/pbs_job.sh';
 
-<CodeBlock language="bash" title="src/pbs_job.sh">{pbs_job_sh}</CodeBlock>
+<CodeBlock language="bash" title="src/pbs_job.sh" showLineNumbers>{pbs_job_sh}</CodeBlock>
 
 
 :::info
@@ -79,7 +80,7 @@ comments. For comments, I am using `##`.
 
 :::
 
-Query about a queue systems:
+Query about a queue system:
 ```bash
 qstat -q
 ```
@@ -133,11 +134,11 @@ processors.
 /
 ```
 
-## Compiling Quantum Espresso using Intel&reg; Math Kernel Libraries (MKL)
+## Compiling Quantum Espresso using Intel&reg; Math Kernel Library (MKL)
 If you need a newer or specific version of Quantum Espresso that is not
 installed in the NUS clusters or you have modified the source codes yourself,
-here are the steps that I followed to successfully compile. Download and
-decompress the source files.
+here are the steps that I followed to successfully compile. [Download](
+https://github.com/QEF/q-e/releases) and decompress the source files.
 ```bash
 wget https://github.com/QEF/q-e/releases/download/qe-7.0/qe-7.0-ReleasePack.tgz
 tar zxvf qe-7.0-ReleasePack.tgz

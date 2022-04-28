@@ -1,5 +1,6 @@
 ---
 title: Jupyter notebooks
+keywords: ["Jupyter notebook", "Setting up jupyter notebook", "Installing jupyter notebook", "Setting up python", "virtualenv"]
 ---
 
 There are several ways you can run Jupyterlab in your computer.

@@ -1,5 +1,6 @@
 ---
 title: DFT+U calculation
+keywords: ["DFT+U", "Hubbard U calculation", "DFT+U calculation in Quantum Espresso", "LDA+U"]
 ---
 import CodeBlock from '@theme/CodeBlock';
 
@@ -65,7 +66,7 @@ This gives us metallic density of states. In practice we get insulating FeO.
 
 import feo_hp_in from '!!raw-loader!/src/FeO/feo_hp.in';
 
-<CodeBlock language="bash" title="src/FeO/feo_hp.in">{feo_hp_in}</CodeBlock>
+<CodeBlock language="bash" title="src/FeO/feo_hp.in" showLineNumbers>{feo_hp_in}</CodeBlock>
 
 Perform a linear-response calculation using `hp.x` program:
 ```bash
