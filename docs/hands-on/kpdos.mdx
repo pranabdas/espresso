@@ -32,9 +32,13 @@ DOS. Make plots:
 import matplotlib.pyplot as plt
 from matplotlib import rcParamsDefault
 import numpy as np
+import zipfile
 %matplotlib inline
 
-data = np.loadtxt('../src/silicon/silicon.k.pdos_tot')
+# data file was compressed to reduce file size
+zipobj = zipfile.ZipFile('../src/silicon/silicon.k.pdos_tot.zip', 'r')
+zipdata = zipobj.open('silicon.k.pdos_tot')
+data = np.loadtxt(zipdata)
 
 k = np.unique(data[:, 0])  # k values
 e = np.unique(data[:, 1])  # dos energy values
@@ -52,10 +56,13 @@ plt.xticks([])
 plt.ylabel('Energy (eV)')
 plt.xticks([])
 plt.gcf().text(0.12, 0.06, 'L', fontsize=16, fontweight='normal')
-plt.gcf().text(0.325, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
-plt.gcf().text(0.563, 0.06, 'X', fontsize=16, fontweight='normal')
-plt.gcf().text(0.646, 0.06, 'U', fontsize=16, fontweight='normal')
+plt.gcf().text(0.29, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
+plt.gcf().text(0.55, 0.06, 'X', fontsize=16, fontweight='normal')
+plt.gcf().text(0.63, 0.06, 'U', fontsize=16, fontweight='normal')
 plt.gcf().text(0.892, 0.06, '$\Gamma$', fontsize=16, fontweight='normal')
+plt.axvline(21, c='yellow', lw=1, alpha=0.5)
+plt.axvline(51, c='yellow', lw=1, alpha=0.5)
+plt.axvline(61, c='yellow', lw=1, alpha=0.5)
 plt.show()
 ```
 

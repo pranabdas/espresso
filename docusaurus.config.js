@@ -22,7 +22,12 @@ async function config() {
           darkTheme: require("prism-react-renderer/themes/nightOwl"),
           additionalLanguages: ["docker", "fortran"],
         },
-        hideableSidebar: true,
+        docs: {
+          sidebar: {
+            hideable: true,
+            autoCollapseCategories: true,
+          }
+        },
         colorMode: {
           // disableSwitch: true,
           // defaultMode: "dark",
@@ -108,15 +113,18 @@ async function config() {
             },
             {
               to: "https://pranabdas.github.io",
-              label: "About me",
-              position: "left",
+              "aria-label": "About me",
+              position: "right",
               target: "_self",
+              className: "header-homepage-link",
+              title: "Pranab's Homepage",
             },
             {
               href: "https://github.com/pranabdas/espresso",
               position: "right",
               className: "header-github-link",
               "aria-label": "GitHub repository",
+              title: "Visit project repository in GitHub",
               // target: "_self",
             },
           ],
