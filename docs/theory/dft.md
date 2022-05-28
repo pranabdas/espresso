@@ -107,7 +107,10 @@ construct a pseudo potential for the nuclear potential. In tern, we have the
 Hamiltonian. Solve for $\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and
 iterate until self consistency is achieved.
 
-![self consistent solution](/img/self-consistent-solution.png)
+<picture>
+  <source type="image/webp" srcset={require("/img/self-consistent-solution.webp").default} />
+  <img src={require("/img/self-consistent-solution.png").default} alt="self-consistent-solution" />
+</picture>
 <p className="fig-caption">Self consistency loop in DFT calculation. The above
 screenshot was taken from lecture slide of Professor Ralph Gevauer from {" "}
 <a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable">

@@ -37,7 +37,10 @@ bands.x < pp.bands.GaAs.in > pp.bands.GaAs.out
 ```
 If everything goes well, you will get the bandstructure as below:
 
-![GaAs-bandstructure](/img/GaAs-bands.png)
+<picture>
+  <source type="image/webp" srcset={require("/img/GaAs-bands.webp").default} />
+  <img src={require("/img/GaAs-bands.png").default} alt="GaAs-bands" />
+</picture>
 
 :::caution Warning
 

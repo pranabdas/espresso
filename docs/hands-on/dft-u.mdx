@@ -58,7 +58,11 @@ pw.x -in feo_nscf.in > feo_nscf.out
 ```bash
 projwfc.x -in feo_projwfc.in > feo_projwfc.out
 ```
-![FeO pdos DFT](/img/feo-pdos-dft.png)
+
+<picture>
+  <source type="image/webp" srcset={require("/img/feo-pdos-dft.webp").default} />
+  <img src={require("/img/feo-pdos-dft.png").default} alt="feo-pdos-dft" />
+</picture>
 
 This gives us metallic density of states. In practice we get insulating FeO.
 
@@ -114,7 +118,10 @@ Hubbard_U(2) = 4.6
 We repeat the above calculation, and plot the results. Now we find insulating
 ground state.
 
-![FeO pdos DFT+U](/img/feo-pdos-dft-u.png)
+<picture>
+  <source type="image/webp" srcset={require("/img/feo-pdos-dft-u.webp").default} />
+  <img src={require("/img/feo-pdos-dft-u.png").default} alt="feo-pdos-dft-u" />
+</picture>
 
 :::info
 

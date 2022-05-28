@@ -38,7 +38,10 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-![Etot-vs-ecutwfc](/img/etot-vs-ecutwfc.png)
+<picture>
+  <source type="image/webp" srcset={require("/img/etot-vs-ecutwfc.webp").default} />
+  <img src={require("/img/etot-vs-ecutwfc.png").default} alt="etot-vs-ecutwfc" />
+</picture>
 
 ## Convergence test using UNIX shell script
 We can do the convergence test with various parameters. We can calculate the
@@ -96,7 +99,11 @@ plt.ylabel('Etot (Ry)')
 plt.legend(frameon=False)
 plt.show()
 ```
-![Etot-vs-kpoints](/img/etot-vs-kpoints.png)
+
+<picture>
+  <source type="image/webp" srcset={require("/img/etot-vs-kpoints.webp").default} />
+  <img src={require("/img/etot-vs-kpoints.png").default} alt="etot-vs-kpoints" />
+</picture>
 
 ## Convergence against lattice constant
 
@@ -120,4 +127,7 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-![Etot-vs-alat](/img/etot-vs-alat.png)
+<picture>
+  <source type="image/webp" srcset={require("/img/etot-vs-alat.webp").default} />
+  <img src={require("/img/etot-vs-alat.png").default} alt="etot-vs-alat" />
+</picture>
