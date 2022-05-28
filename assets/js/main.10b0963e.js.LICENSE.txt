@@ -63,6 +63,8 @@ object-assign
  * Copyright (C) 2020 Oliver Nightingale
  */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /*!***************************************************
 * mark.js v8.11.1
 * https://markjs.io/
