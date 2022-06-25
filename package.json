@@ -18,7 +18,7 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.21",
     "@docusaurus/preset-classic": "2.0.0-beta.21",
-    "@easyops-cn/docusaurus-search-local": "^0.27.0",
+    "@easyops-cn/docusaurus-search-local": "^0.27.2",
     "@mdx-js/react": "^1.6.22",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -44,6 +44,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^4.0.0"
   }
 }

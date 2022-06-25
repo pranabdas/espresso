@@ -43,7 +43,7 @@ symmetry holds and it does not calculate the magnetization. The states are
 still two-component spinors but the total magnetization is zero.
 
 <picture>
-  <source type="image/webp" srcset={require("/img/Bi2Se3-bands.webp").default} />
+  <source type="image/webp" srcSet={require("/img/Bi2Se3-bands.webp").default} />
   <img src={require("/img/Bi2Se3-bands.png").default} alt="Bi2Se3-bands" />
 </picture>
 
@@ -57,7 +57,7 @@ mesh (25✕25✕5) was used. The signature of Dirac cone is evident from the DOS
 figure.
 
 <picture>
-  <source type="image/webp" srcset={require("/img/Bi2Se3-dos.webp").default} />
+  <source type="image/webp" srcSet={require("/img/Bi2Se3-dos.webp").default} />
   <img src={require("/img/Bi2Se3-dos.png").default} alt="Bi2Se3-dos" />
 </picture>
 
