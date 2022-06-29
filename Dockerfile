@@ -4,8 +4,8 @@
 # Currently there is problem with mpi parallel version, could be related to wsl
 # backend in Windows, have not tested in other platforms.
 
-# Get Ubuntu 21.04 to have QE 6.7
-FROM ubuntu:21.04
+# Get Ubuntu 22.04 to have QE 6.7
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 

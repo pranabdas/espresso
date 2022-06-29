@@ -137,15 +137,27 @@ processors.
 ## Compiling Quantum Espresso using Intel&reg; Math Kernel Library (MKL)
 If you need a newer or specific version of Quantum Espresso that is not
 installed in the NUS clusters or you have modified the source codes yourself,
-here are the steps that I followed to successfully compile. [Download](
-https://github.com/QEF/q-e/releases) and decompress the source files.
+here are the steps that I followed to successfully compile.
+
+:::info
+
+Quantum Espresso project is primarily hosted on GitLab, and its mirror is
+maintained at [GitHub](https://github.com/QEF/q-e). You may check their
+repository at [GitLab](https://gitlab.com/QEF/q-e) for more up to date
+information. The releases via GitLab can be found under:
+<https://gitlab.com/QEF/q-e/-/releases>
+
+:::
+
+[Download](https://gitlab.com/QEF/q-e/-/releases) and decompress the source
+files.
 ```bash
-wget https://github.com/QEF/q-e/releases/download/qe-7.0/qe-7.0-ReleasePack.tgz
-tar zxvf qe-7.0-ReleasePack.tgz
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
+tar zxvf q-e-qe-7.1.tar.gz
 ```
 
-Load the necessary modules (applicable for NUS clusters, last checked in May
-2021):
+Load the necessary modules (applicable for NUS clusters, last checked in Jun
+2022):
 ```bash
 module load xe_2018
 module load fftw/3.3.7
@@ -153,7 +165,7 @@ module load fftw/3.3.7
 
 Go to QE directory and run `configure`:
 ```bash
-cd qe-7.0
+cd q-e-qe-7.1
 ./configure
 ```
 
@@ -220,13 +232,13 @@ LAPACK_LIBS_SWITCH = external
 
 Now we are ready to compile:
 ```bash
-make all -j8
+make -j8 all
 ```
 
 I am parallelizing with 8 processors to speed things up. You may add the
-`qe-7.0/bin` path to your `.bashrc`:
+`q-e-qe-7.1/bin` path to your `.bashrc`:
 ```bash
-echo 'export PATH="/home/svu/{username}/qe-7.0/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/svu/{username}/q-e-qe-7.1/bin:$PATH"' >> ~/.bashrc
 ```
 
 And don't forget to load dependencies before calling QE executables.
@@ -238,8 +250,9 @@ module load fftw/3.3.7
 :::note
 
 If you are submitting job via PBS queue, you need to provide full path of the QE
-executables, e.g., `/home/svu/{username}/qe-7.0/bin/pw.x`. PBS system won't read
-your bash settings, neither the relative paths of your login node would apply.
+executables, e.g., `/home/svu/{username}/q-e-qe-7.1/bin/pw.x`. PBS system won't
+read your bash settings, neither the relative paths of your login node would
+apply.
 
 :::
 

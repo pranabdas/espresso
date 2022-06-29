@@ -29,7 +29,7 @@ sudo apt install --no-install-recommends \
 ```
 
 If you want to compile from the source yourself, here are the installation steps
-for latest version of Quantum Espresso (7.0) in a Ubuntu (LTS 20.04) machine. I
+for latest version of Quantum Espresso (7.1) in a Ubuntu (LTS 22.04) machine. I
 will be compiling for single processor. First install the recommended libraries
 and dependencies:
 
@@ -51,23 +51,23 @@ If you want to compile for parallel processing, you need to also install:
 sudo apt install --no-install-recommends \
     libopenmpi-dev \
     libscalapack-openmpi-dev \
-    libelpa4
+    libelpa17  #  use libelpa4 on Ubuntu 20.04
 ```
 
-[Download](https://github.com/QEF/q-e/releases) Quantum Espresso (latest version
-7.0 at the time of writing):
+[Download](https://gitlab.com/QEF/q-e/-/releases) Quantum Espresso (latest
+version 7.1 at the time of writing):
 ```bash
-wget https://github.com/QEF/q-e/releases/download/qe-7.0/qe-7.0-ReleasePack.tgz
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
 ```
 
 Un-tar the source files:
 ```bash
-tar -zxvf qe-7.0-ReleasePack.tgz
+tar -zxvf q-e-qe-7.1.tar.gz
 ```
 
 Go to the qe directory and issue configure:
 ```bash
-cd qe-7.0
+cd q-e-qe-7.1
 ./configure
 ```
 
@@ -102,7 +102,7 @@ Now, the binary files or their symbolic links (shortcuts) would be placed in the
 
 ```bash
 # use the correct path if it differs from mine
-echo 'export PATH="/root/qe-7.0/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/root/q-e-qe-7.1/bin:$PATH"' >> ~/.bashrc
 ```
 
 Finally, you may need to restart your terminal or `source .bashrc`.
