@@ -83,6 +83,11 @@ and you should see something like this:
      The total energy is the sum of the following terms:
 ```
 
+It is important note that the absolute value of DFT total energy is not with
+respect to the vacuum reference, and depends on the chosen pseudopotential. The
+meaningful measure is the difference in total energy, where various offsets
+cancel out.
+
 :::note
 
 In the above calculation, if you check the output file `pw.scf.silicon.out`, you
@@ -113,6 +118,34 @@ for the first iteration, one can start the calculation with a higher threshold,
 after few iterations reduce it and restart the calculation.
 
 :::
+
+There are several other important information is printed on the output file.
+Exchange correlation used in the calculation:
+```bash
+Exchange-correlation= SLA  PZ   NOGX NOGC
+```
+
+Where `SLA` → Slater exchange; `PZ` → Perdew-Zunger parametrization of the LDA;
+`NOGX` and `NOGC` indicates that density gradients are not taken into account.
+
+We can see the total number of plane waves (1067) uses in our calculation:
+```bash
+Parallelization info
+--------------------
+sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+Min         108     108     34                 1489     1489     266
+Max         109     109     35                 1492     1492     267
+Sum         433     433    139                 5961     5961    1067
+```
+
+Number of Kohn-Sham states:
+```bash
+number of electrons       =         8.00
+number of Kohn-Sham states=            8
+```
+
+In our calculation we have specified the number of bands = 8. Otherwise, there
+would be 4 bands for 8 electrons in case of non spin-polarized systems.
 
 ## Resources
 - <https://www.quantum-espresso.org/Doc/pw_user_guide/>

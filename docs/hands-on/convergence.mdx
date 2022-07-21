@@ -131,3 +131,13 @@ plt.show()
   <source type="image/webp" srcSet={require("/img/etot-vs-alat.webp").default} />
   <img src={require("/img/etot-vs-alat.png").default} alt="etot-vs-alat" />
 </picture>
+
+
+## Note on CPU time
+- CPU time is proportional to the number of plane waves used for the
+calculation. Number of plane wave is proportional to the (ecutwfc)<sup>3/2</sup>
+
+- CPU time is proportional to the number if inequivalent k-points
+
+- CPU time increases as N<sup>3</sup>, where N is the number of atoms in the
+system.

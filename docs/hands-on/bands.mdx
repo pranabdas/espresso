@@ -17,9 +17,14 @@ Run the `scf` calculation:
 pw.x < si_bands_scf.in > si_bands_scf.out
 ```
 
-Next step is our band calculation (non-self consistent field) calculation. Now
-we can specify `nbnd` and denser k-points grid. We create the input file for
-band calculation:
+Next step is our band calculation (non-self consistent field) calculation. The
+`bands` calculation is *non self-consistent* in the sense that it uses the
+ground state electron density, Hartree, exchange and correlation potentials
+determined in the previous step. In case of non self-consistent calculation, the
+**pw.x** program determines the Kohn-Sham eigenfunction and eigenvalues without
+updating Kohn-Sham Hamiltonian at every iteration. We need to specify the
+k-points for which we want to calculate the eigenvalues. We can also specify
+`nbnd`. Below is the input file for band calculation:
 
 import si_bands_in from '!!raw-loader!/src/silicon/si_bands.in';
 

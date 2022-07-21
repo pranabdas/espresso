@@ -11,6 +11,7 @@ http://www.iiserpune.ac.in/~smr2626/talks-presentations.html)
 - Examples included in Quantum Espresso (`qe-x.x/PW/examples/`).
 - [QE mailing list archive](https://lists.quantum-espresso.org/pipermail/users/)
 - [Materials square blog](https://www.materialssquare.com/blog/list/module-tip)
+- [Cornell Summer School 2016](https://sites.coecis.cornell.edu/paradim/2016/08/10/summerschool-2016/) ([other years](https://www.paradim.org/summer_schools]))
 
 ### Papers describing DFT implementations in QE
 - [QUANTUM ESPRESSO for quantum simulations of materials](
@@ -24,5 +25,6 @@ https://link.aps.org/doi/10.1103/PhysRevB.103.045141)
 
 ### Books
 - [A bird's–eye view of DFT](https://arxiv.org/abs/cond-mat/0211443)
+- *Materials Modelling using Density Functional Theory* by *Feliciano Giustino*
 - *Electronic Structure Calculations for Solids and Molecules* by *Jorge Kohanoff*
 - [PhD Thesis of Dominik Bogdan Jochym](http://cmt.dur.ac.uk/sjc/thesis_dbj/thesis.html)

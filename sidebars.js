@@ -52,6 +52,7 @@ module.exports = {
         "hands-on/dft-u",
         "hands-on/soc",
         "hands-on/Bi2Se3",
+        "hands-on/epsilon",
       ],
     },
     "resources",

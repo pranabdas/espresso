@@ -1,0 +1,32 @@
+&CONTROL
+  calculation = 'nscf',
+  prefix = 'silicon',
+  outdir = '/tmp/silicon/'
+  pseudo_dir = '../pseudos/'
+  verbosity = 'high'
+/
+
+&SYSTEM
+  ibrav =  2,
+  celldm(1) = 10.26,
+  nat =  2,
+  ntyp = 1,
+  ecutwfc = 30
+  nbnd = 16
+  nosym = .true.
+  noinv = .true.
+/
+
+&ELECTRONS
+  mixing_beta = 0.6
+/
+
+ATOMIC_SPECIES
+  Si 28.086 Si.pz-vbc.UPF
+
+ATOMIC_POSITIONS (alat)
+  Si 0.0 0.0 0.0
+  Si 0.25 0.25 0.25
+
+K_POINTS (automatic)
+  30 30 30 0 0 0

@@ -110,6 +110,18 @@ Finally, you may need to restart your terminal or `source .bashrc`.
 source ~/.bashrc
 ```
 
+You can compile the documentation by going to particular directory (e.g., PW or
+PP) and execute (you need to have LaTeX installed in your system):
+```bash
+make doc
+```
+
+If you want docs in PDF format, you can use `latex` commands to create them as
+well:
+```bash
+pdflatex filename.tex
+```
+
 We are now ready to run Quantum Espresso `pw.x` (or any other program) using
 `mpirun` by following command:
 ```bash

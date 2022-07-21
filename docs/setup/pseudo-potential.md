@@ -2,10 +2,11 @@
 title: Pseudo potentials
 ---
 In Quantum Espresso, pseudopotential replaces the actual electron-ion
-interaction. The the rapidly changing potential field near the atomic core is
-replaced by a smoother function that simulates the potential field far from the
-core very well. By doing so, it requires less number plane wave basis for
-wavefunction expansion.
+interaction. The pseudopotential describes the atomic nucleus and all the
+electrons except teh outermost valence shell. The the rapidly changing potential
+field near the atomic core is replaced by a smoother function that simulates the
+potential field far from the core very well. By doing so, it requires less
+number plane wave basis for wavefunction expansion.
 
 We can choose form various pseudopotential libraries. Choice of pseudopotential
 depends on the problem we are investigating, e.g., if there is a heavy element

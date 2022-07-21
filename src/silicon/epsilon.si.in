@@ -1,0 +1,13 @@
+&inputpp
+  outdir = "/tmp/silicon/"
+  prefix = "silicon"
+  calculation = "eps"
+/
+
+&energy_grid
+  smeartype = "gauss"
+  intersmear = 0.2
+  wmin =  0.0
+  wmax = 30.0
+  nw = 500
+/

@@ -1,0 +1,75 @@
+---
+title: Dielectric constant
+---
+import CodeBlock from '@theme/CodeBlock';
+
+First we perform our self consistent field calculation:
+```bash
+mpirun -np 4 pw.x -in pw.scf.silicon.in > pw.scf.silicon.out
+```
+
+Next step we perform `nscf` calculation:
+
+import pw_nscf_silicon_in from '!!raw-loader!/src/silicon/pw.nscf.silicon_epsilon.in';
+
+<CodeBlock language="bash" title="src/silicon/pw.nscf.silicon_epsilon.in" showLineNumbers>{pw_nscf_silicon_in}</CodeBlock>
+
+Especially, notice following changes:
+```fortran
+  nbnd = 16
+  nosym = .true.
+  noinv = .true.
+```
+
+We turn off the automatic reduction of k-points that `pw.x` does by using
+crystal symmetries (`nosym = .true.` and `noinv = .true.`). This is because
+`epsilon.x` does not recognize crystal symmetries, therefore the entire list of
+k-points in the grid is needed. Secondly, we calculate a larger number of bands
+(16), since we are interested in interband transitions.
+
+Final step is to prepare the input file for `epsilon.x`:
+
+import epsilon_si from '!!raw-loader!/src/silicon/epsilon.si.in';
+
+<CodeBlock language="bash" title="src/silicon/epsilon.si.in" showLineNumbers>{epsilon_si}</CodeBlock>
+
+The variables `smeartype` and `intersmear` define the numerical approximation
+used to represent the Dirac delta functions in the expression for $\epsilon_2$
+given above. The variables `wmin`, `wmax` and `nw` define the energy grid for
+the dielectric function. All the energy variables are in eV.
+
+```bash
+mpirun -np 1 epsilon.x < epsilon.si.in > epsilon.si.out
+```
+
+We will see the results are saved in separate `.dat` files. We can plot the real
+($\epsilon_1$) and imaginary ($\epsilon_2$) parts of dielectric constants:
+```py
+import matplotlib.pyplot as plt
+from matplotlib import rcParamsDefault
+import numpy as np
+%matplotlib inline
+plt.rcParams["figure.dpi"]=150
+plt.rcParams["figure.facecolor"]="white"
+
+data_r = np.loadtxt('../src/silicon/epsr_silicon.dat')
+data_i = np.loadtxt('../src/silicon/epsi_silicon.dat')
+energy_r, epsilon_r = data_r[:, 0], data_r[:, 2]
+energy_i, epsilon_i = data_i[:, 0], data_i[:, 2]
+
+plt.plot(energy_r, epsilon_r, lw=1, label="$\\epsilon_1$")
+plt.plot(energy_i, epsilon_i, lw=1, label="$\\epsilon_2$")
+plt.xlim(0, 15)
+plt.xlabel("Energy (eV)")
+plt.ylabel("$\\epsilon_1~/~\\epsilon_2$")
+plt.legend(frameon=False)
+plt.show()
+```
+
+![silicon-epsilon](/img/silicon-epsilon.png)
+
+:::warning
+
+Ultra-soft pseudopotentials do not work with `epsilon.x`.
+
+:::

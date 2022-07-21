@@ -13,6 +13,7 @@ async function config() {
     favicon: "img/favicon.ico",
     organizationName: "pranabdas", // Usually your GitHub org/user name.
     projectName: "espresso", // Usually your repo name.
+    titleDelimiter: "•",
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
