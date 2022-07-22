@@ -2,12 +2,11 @@
 title: Bandstructure Calculation
 sidebar_label: Bandstructure
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 Before we can run `bands` calculation, we need to perform single-point [self
 consistent field calculation](scf.mdx). We have our input `scf` file with some
 new parameters:
 
+import CodeBlock from '@theme/CodeBlock';
 import si_bands_scf_in from '!!raw-loader!/src/silicon/si_bands_scf.in';
 
 <CodeBlock language="bash" title="src/silicon/si_bands_scf.in" showLineNumbers>{si_bands_scf_in}</CodeBlock>

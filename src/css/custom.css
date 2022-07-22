@@ -255,3 +255,15 @@ table td, table th {
 .navbar__link {
   padding: 0.6em 0.75em;
 }
+
+a.card:hover {
+  border-color: var(--color-secondary);
+}
+
+.theme-admonition a {
+  text-decoration: none;
+}
+
+.theme-admonition a:hover {
+  text-decoration: underline;
+}

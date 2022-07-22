@@ -2,8 +2,6 @@
 title: DFT+U calculation
 keywords: ["DFT+U", "Hubbard U calculation", "DFT+U calculation in Quantum Espresso", "LDA+U"]
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 Electronic structure for transition-metals (with localized $$d$$ or $$f$$
 electrons) is not accurately described by standard DFT, and therefore the need
 for DFT+U formulation.
@@ -91,6 +89,7 @@ This gives us metallic density of states. In practice we get insulating FeO.
 
 ## Calculating Hubbard U
 
+import CodeBlock from '@theme/CodeBlock';
 import feo_hp_in from '!!raw-loader!/src/FeO/feo_hp.in';
 
 <CodeBlock language="bash" title="src/FeO/feo_hp.in" showLineNumbers>{feo_hp_in}</CodeBlock>

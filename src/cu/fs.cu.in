@@ -1,0 +1,4 @@
+&fermi
+  outdir = "/tmp/cu/"
+  prefix = "cu"
+/

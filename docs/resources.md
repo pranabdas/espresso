@@ -11,7 +11,7 @@ http://www.iiserpune.ac.in/~smr2626/talks-presentations.html)
 - Examples included in Quantum Espresso (`qe-x.x/PW/examples/`).
 - [QE mailing list archive](https://lists.quantum-espresso.org/pipermail/users/)
 - [Materials square blog](https://www.materialssquare.com/blog/list/module-tip)
-- [Cornell Summer School 2016](https://sites.coecis.cornell.edu/paradim/2016/08/10/summerschool-2016/) ([other years](https://www.paradim.org/summer_schools]))
+- [Cornell PARADIM Summer School](https://www.paradim.org/summer_schools)
 
 ### Papers describing DFT implementations in QE
 - [QUANTUM ESPRESSO for quantum simulations of materials](

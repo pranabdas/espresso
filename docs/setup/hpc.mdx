@@ -3,8 +3,6 @@ title: High Performance Computing
 sidebar_label: HPC
 keywords: ["HPC", "High Performance Computing", "Compiling Quantum Espresso", "Installing Quantum Espresso", "Quantum Espresso Installation", "Intel MKL", "Parallel Computing", "PBS job", "HPC job"]
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 In order to perform computationally heavy calculations, we would require access
 to high performance computing facilities.
 
@@ -68,6 +66,7 @@ module purge
 Quantum Espresso is already installed in NUS HPC clusters. Here is a sample job
 script for [NUS HPC](https://nusit.nus.edu.sg/hpc/) clusters:
 
+import CodeBlock from '@theme/CodeBlock';
 import pbs_job_sh from '!!raw-loader!/src/pbs_job.sh';
 
 <CodeBlock language="bash" title="src/pbs_job.sh" showLineNumbers>{pbs_job_sh}</CodeBlock>

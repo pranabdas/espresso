@@ -2,13 +2,12 @@
 title: DOS and bandstructure for Aluminum (metal)
 sidebar_label: Al (metal)
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 ## Variable cell relaxation
 First we are going to relax the cell and choose appropriate lattice constant for
 our chosen pseudo potential. In case of metals, it is important to provide
 smearing parameters in the input file.
 
+import CodeBlock from '@theme/CodeBlock';
 import al_vc_relax_in from '!!raw-loader!/src/al/al_vc_relax.in';
 
 <CodeBlock language="bash" title="src/al/al_vc_relax.in" showLineNumbers>{al_vc_relax_in}</CodeBlock>

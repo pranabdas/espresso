@@ -1,0 +1,46 @@
+---
+title: Fermi Surface
+---
+Here we will calculate Fermi surface of copper. First step is to perform self-
+consistent field calculation.
+
+import CodeBlock from '@theme/CodeBlock';
+import pw_scf_cu from '!!raw-loader!/src/cu/pw.scf.cu.in';
+
+<CodeBlock language="bash" title="src/cu/pw.scf.cu.in" showLineNumbers>{pw_scf_cu}</CodeBlock>
+
+```bash
+mpirun -np 4 pw.x -in pw.scf.cu.in > pw.scf.cu.out
+```
+
+Next we perform `bands` calculation over dense uniform k-grid:
+
+import pw_bands_cu from '!!raw-loader!/src/cu/pw.bands.cu.in';
+
+<CodeBlock language="bash" title="src/cu/pw.bands.cu.in" showLineNumbers>{pw_bands_cu}</CodeBlock>
+
+```bash
+mpirun -np 4 pw.x -in pw.bands.cu.in > pw.bands.cu.out
+```
+
+Finally, we process the data with `fs.x` post processing tool. Bellow is the
+input file:
+
+import fs_cu from '!!raw-loader!/src/cu/fs.cu.in';
+
+<CodeBlock language="bash" title="src/cu/fs.cu.in" showLineNumbers>{fs_cu}</CodeBlock>
+
+```bash
+mpirun -np 4 fs.x -in fs.cu.in > fs.cu.out
+```
+
+We can visualize the output file `cu_fs.bxsf` using xcrysdens program:
+
+```bash
+xcrysden --bxsf cu_fs.bxsf
+```
+
+<picture>
+  <source type="image/webp" srcSet={require("/img/fs-cu.webp").default} />
+  <img src={require("/img/fs-cu.png").default} alt="Fermi-surface-copper" />
+</picture>

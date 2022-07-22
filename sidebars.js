@@ -53,6 +53,7 @@ module.exports = {
         "hands-on/soc",
         "hands-on/Bi2Se3",
         "hands-on/epsilon",
+        "hands-on/fermi-surface",
       ],
     },
     "resources",

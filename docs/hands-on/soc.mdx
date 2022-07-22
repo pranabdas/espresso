@@ -2,8 +2,6 @@
 title: Spin-Orbit Coupling
 keywords: ["Spin orbit coupling", "SOC", "SOC calculation", "SOC calculation in DFT", "SOC calculation using Quantum Espresso", "Non collinear spin calculation", "Bandstructure calculation for GaAs"]
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 In oder to consider spin orbit coupling effect in our electronic structure
 calculation in quantum espresso, we need to use a full relativistic pseudo
 potential. Following settings are needed in the `&SYSTEM` card:
@@ -99,6 +97,7 @@ calculations, this error was resolved after setting higher `ecutrho`.
 
 ## Bandstructure of Fe with SOC
 
+import CodeBlock from '@theme/CodeBlock';
 import pw_scf_fe_soc_in from '!!raw-loader!/src/fe/pw.scf.fe_soc.in';
 
 <CodeBlock language="bash" title="src/fe/pw.scf.fe_soc.in" showLineNumbers>{pw_scf_fe_soc_in}</CodeBlock>

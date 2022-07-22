@@ -1,8 +1,6 @@
 ---
 title: Dielectric constant
 ---
-import CodeBlock from '@theme/CodeBlock';
-
 First we perform our self consistent field calculation:
 ```bash
 mpirun -np 4 pw.x -in pw.scf.silicon.in > pw.scf.silicon.out
@@ -10,6 +8,7 @@ mpirun -np 4 pw.x -in pw.scf.silicon.in > pw.scf.silicon.out
 
 Next step we perform `nscf` calculation:
 
+import CodeBlock from '@theme/CodeBlock';
 import pw_nscf_silicon_in from '!!raw-loader!/src/silicon/pw.nscf.silicon_epsilon.in';
 
 <CodeBlock language="bash" title="src/silicon/pw.nscf.silicon_epsilon.in" showLineNumbers>{pw_nscf_silicon_in}</CodeBlock>
@@ -66,7 +65,10 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-![silicon-epsilon](/img/silicon-epsilon.png)
+<picture>
+  <source type="image/webp" srcSet={require("/img/silicon-epsilon.webp").default} />
+  <img src={require("/img/silicon-epsilon.png").default} alt="silicon-epsilon" />
+</picture>
 
 :::warning
 
