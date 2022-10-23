@@ -35,18 +35,19 @@ and dependencies:
 
 ```bash
 sudo apt install --no-install-recommends \
+    autoconf \
     build-essential \
     ca-certificates \
+    gfortran \
     libblas3 \
     libc6 \
     libfftw3-dev \
     libgcc-s1 \
-    gfortran \
     liblapack-dev \
     wget
 ```
 
-If you want to compile for parallel processing, you need to also install:
+If you want to compile for parallel processing, you also need to install:
 ```bash
 sudo apt install --no-install-recommends \
     libopenmpi-dev \

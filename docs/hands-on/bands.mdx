@@ -115,3 +115,33 @@ The k values for high symmetry points can be found in the output file
 (si_bands_pp.out).
 
 :::
+
+## Note on bandgap
+Usually, band gaps computed using common exchange-correction functionals such as
+LDA or GGA are severely underestimated compared to actual experimental values.
+This discrepancy is mainly due to (1) approximations used in the exchange
+correction functional and (2) a derivative discontinuity term, originating from
+the density functional being discontinuous with the total number of electrons in
+the system. The second contribution is larger contributor to the error. It can
+be partly addressed by a variety of techniques such as the GW approximation.
+
+Strategies to improve band gap prediction at moderate to low computational cost
+now been developed by several groups, including Chan and Ceder (delta-sol)[^1],
+Heyd et al. (hybrid functionals)[^2], and Setyawan et al. (empirical fits)[^3].
+
+[^1]: M. Chan, G. Ceder, Efficient Band Gap Predictions for Solids, Physical
+Review Letters 19 (2010) [https://doi.org/10.1103/PhysRevLett.105.196403](
+https://doi.org/10.1103/PhysRevLett.105.196403)
+
+[^2]: J. Heyd, J.E. Peralta, G.E. Scuseria, R.L. Martin, Energy band gaps and
+lattice parameters evaluated with the Heyd-Scuseria-Ernzerhof screened hybrid
+functional, Journal of Chemical Physics 123 (2005)
+[https://doi.org/10.1063/1.2085170](https://doi.org/10.1063/1.2085170)
+
+[^3]: W. Setyawan, R.M. Gaume, S. Lam, R. Feigelson, S. Curtarolo,
+High-throughput combinatorial database of electronic band structures for
+inorganic scintillator materials., ACS Combinatorial Science. (2011)
+[https://doi.org/10.1021/co200012w](https://doi.org/10.1021/co200012w).
+
+## Resources
+- <https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure#accuracy-of-band-structures>

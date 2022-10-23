@@ -60,7 +60,9 @@ DFT+U parameters, there is now new Hubbard card.
 + U Fe2-3d 4.6
 ```
 
-Please refer to the `qe-x.x/Doc/Hubbard_input.pdf` for various details.
+Please refer to the <a target="_blank"
+href={require('/resources/Hubbard_input.pdf').default}>
+qe-x.x/Doc/Hubbard_input.pdf</a> for details.
 
 ## DFT calculation for FeO
 We will first perform the standard DFT calculation.
@@ -149,6 +151,12 @@ ground state.
 
 `U_projection_type = 'ortho-atomic'` might give more realistic result than the
 default 'atomic'.
+
+When performing $DFT+U$ calculation, the ground state might get stuck in a
+**local minimum**, in such cases we need to provide `starting_ns_eigenvalue` to
+help calculation reach desired/actual ground state. Please see <a target="_blank"
+href={require('/resources/dft+u-Iurii-Timrov.pdf').default}>these slides</a> by
+Dr. Iurii Timrov for a relevant example.
 
 :::
 
