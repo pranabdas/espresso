@@ -34,6 +34,9 @@
         "bceskavich.theme-dracula-at-night",
         "streetsidesoftware.code-spell-checker",
         "SirTori.indenticator",
-        "unifiedjs.vscode-mdx"
-    ]
+        "unifiedjs.vscode-mdx",
+        "mutantdino.resourcemonitor"
+    ],
+    "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh",
+    "waitFor": "postCreateCommand"
 }
