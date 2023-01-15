@@ -11,29 +11,41 @@
             "version": "18"
         }
     },
-    "settings": {
-        "telemetry.telemetryLevel": "off",
-        "telemetry.enableTelemetry": false,
-        "workbench.settings.enableNaturalLanguageSearch": false,
-        "editor.wordWrap": "on",
-        "editor.tabSize": 2,
-        "files.insertFinalNewline": true,
-        "files.trimTrailingWhitespace": true,
-        "editor.fontSize": 14,
-        "editor.minimap.enabled": false,
-        "editor.rulers": [
-            80
-        ],
-        "workbench.colorCustomizations": {
-            "editorRuler.foreground": "#fdb88056"
-        },
-        "workbench.colorTheme": "Dracula At Night",
-        "terminal.integrated.fontSize": 13
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "telemetry.telemetryLevel": "off",
+                "telemetry.enableTelemetry": false,
+                "workbench.settings.enableNaturalLanguageSearch": false,
+                "editor.wordWrap": "on",
+                "editor.tabSize": 2,
+                "files.insertFinalNewline": true,
+                "files.trimTrailingWhitespace": true,
+                "editor.fontSize": 14,
+                "editor.minimap.enabled": false,
+                "editor.rulers": [
+                    80
+                ],
+                "workbench.colorCustomizations": {
+                    "editorRuler.foreground": "#fdb88056"
+                },
+                "workbench.colorTheme": "Dracula At Night",
+                "terminal.integrated.fontSize": 13,
+                "cSpell.enableFiletypes": [
+                    "mdx"
+                ]
+            },
+            "extensions": [
+                "bceskavich.theme-dracula-at-night",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "mutantdino.resourcemonitor",
+                "SirTori.indenticator",
+                "streetsidesoftware.code-spell-checker",
+                "unifiedjs.vscode-mdx"
+            ]
+        }
     },
-    "extensions": [
-        "bceskavich.theme-dracula-at-night",
-        "streetsidesoftware.code-spell-checker",
-        "SirTori.indenticator",
-        "unifiedjs.vscode-mdx"
-    ]
+    "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh",
+    "waitFor": "postCreateCommand"
 }

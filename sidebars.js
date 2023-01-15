@@ -3,21 +3,8 @@ module.exports = {
     "welcome",
     {
       type: "category",
-      label: "Theory",
-      collapsed: true,
-      link: {
-        type: "generated-index",
-      },
-      items: [
-        "theory/problem-statement",
-        "theory/hartree-fock",
-        "theory/dft",
-      ],
-    },
-    {
-      type: "category",
       label: "Setup",
-      collapsed: true,
+      collapsed: false,
       link: {
         type: "generated-index",
       },
@@ -27,6 +14,19 @@ module.exports = {
         "setup/jupyter",
         "setup/crystal-structure",
         "setup/pseudo-potential",
+      ],
+    },
+    {
+      type: "category",
+      label: "Theory",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "theory/problem-statement",
+        "theory/hartree-fock",
+        "theory/dft",
       ],
     },
     {
@@ -58,10 +58,5 @@ module.exports = {
     },
     "resources",
     "license",
-    // {
-    //   type: 'link',
-    //   label: 'Other tutorials',
-    //   href: 'https://pranabdas.github.io/docs/',
-    // },
   ],
 };

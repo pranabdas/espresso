@@ -1,6 +1,5 @@
 ---
 title: High Performance Computing
-sidebar_label: HPC
 keywords: ["HPC", "High Performance Computing", "Compiling Quantum Espresso", "Installing Quantum Espresso", "Quantum Espresso Installation", "Intel MKL", "Parallel Computing", "PBS job", "HPC job"]
 ---
 In order to perform computationally heavy calculations, we would require access
@@ -134,6 +133,7 @@ processors.
 ```
 
 ## Compiling Quantum Espresso using Intel&reg; Math Kernel Library (MKL)
+
 If you need a newer or specific version of Quantum Espresso that is not
 installed in the NUS clusters or you have modified the source codes yourself,
 here are the steps that I followed to successfully compile.
@@ -263,28 +263,41 @@ for up to date information.
 
 #### Intel oneAPI Base Toolkit:
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18673/l_BaseKit_p_2022.2.0.262_offline.sh
+wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19079/l_BaseKit_p_2023.0.0.25537_offline.sh
 
-# launch the interactive cli installation
-sh ./l_BaseKit_p_2022.2.0.262_offline.sh -a --cli
+# interactive cli installation
+sudo apt update
+sudo apt install -y --no-install-recommends ncurses-term
+sudo sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --cli
 
 # list components included in oneAPI Base Toolkit
-sh ./l_BaseKit_p_2022.2.0.262_offline.sh -a --list-components
+sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --list-components
 
 # install a subset of components with silent/unattended option
-sh ./l_BaseKit_p_2022.2.0.262_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
+sudo sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
 ```
+
+:::note
+
+If you install oneAPI without `sudo` privilege, it will be installed under the
+user directory: `/home/{username}/intel/oneapi/`. After installation is
+completed, the setup script will print the installation location.
+
+:::
 
 #### HPC Toolkit
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18679/l_HPCKit_p_2022.2.0.191_offline.sh
-sh ./l_HPCKit_p_2022.2.0.191_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19084/l_HPCKit_p_2023.0.0.25400_offline.sh
+sudo sh ./l_HPCKit_p_2023.0.0.25400_offline.sh -a --silent --eula accept
 ```
 
 #### Intel MKL library
+
+Installing individual components:
+
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18483/l_onemkl_p_2022.0.2.136_offline.sh
-sh ./l_onemkl_p_2022.0.2.136_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19138/l_onemkl_p_2023.0.0.25398_offline.sh
+sudo sh ./l_onemkl_p_2023.0.0.25398_offline.sh -a --silent --eula accept
 ```
 
 After installation, do not forget to `source` the environment variables before
@@ -304,6 +317,7 @@ make -j4 all
 ```
 
 ## Compiling Quantum Espresso with CMake
+
 Please check out the [official documentation](
 https://gitlab.com/QEF/q-e/-/wikis/Developers/CMake-build-system) for more
 details. It requires `cmake` version `3.14` or later.
@@ -311,8 +325,8 @@ details. It requires `cmake` version `3.14` or later.
 apt update && apt install autoconf cmake make
 ```
 
-I used following steps to successfully compile using 2022 versions of all Intel
-libraries:
+I used following steps to successfully compile Quantum Espresso using 2023
+versions of Intel libraries in Ubuntu 22.04 system:
 ```bash
 cd q-e-qe-7.1
 mkdir build && cd build

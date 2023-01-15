@@ -1,4 +1,4 @@
 jupyterlab
+matplotlib
 numpy
 scipy
-matplotlib

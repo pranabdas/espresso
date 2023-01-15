@@ -267,3 +267,15 @@ a.card:hover {
 .theme-admonition a:hover {
   text-decoration: underline;
 }
+
+body {
+  tab-size: 4;
+}
+
+.hash-link:hover {
+  text-decoration: none;
+}
+
+.main-wrapper > div {
+  flex: 1 0
+}
