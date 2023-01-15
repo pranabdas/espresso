@@ -32,8 +32,13 @@
     },
     "extensions": [
         "bceskavich.theme-dracula-at-night",
-        "streetsidesoftware.code-spell-checker",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mutantdino.resourcemonitor",
         "SirTori.indenticator",
+        "streetsidesoftware.code-spell-checker",
         "unifiedjs.vscode-mdx"
-    ]
+    ],
+    "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh",
+    "waitFor": "postCreateCommand"
 }

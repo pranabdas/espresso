@@ -17,7 +17,7 @@ async function config() {
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
-        metadata: [{name: 'theme-color', content: '#006bb3'}],
+        metadata: [{ name: "theme-color", content: "#006bb3" }],
         prism: {
           theme: require("prism-react-renderer/themes/github"),
           darkTheme: require("prism-react-renderer/themes/nightOwl"),
@@ -27,7 +27,7 @@ async function config() {
           sidebar: {
             hideable: true,
             autoCollapseCategories: true,
-          }
+          },
         },
         colorMode: {
           // disableSwitch: true,
@@ -142,8 +142,7 @@ async function config() {
         },
         footer: {
           style: "dark",
-          copyright: `Copyright © ${new Date().getFullYear()} Pranab Das. All rights
-      reserved.`,
+          copyright: `Copyright © ${new Date().getFullYear()} Pranab Das. All rights reserved.`,
         },
       }),
 
@@ -176,7 +175,7 @@ async function config() {
           hashed: true,
           docsRouteBasePath: "/",
           indexBlog: false,
-          indexPages:true,
+          indexPages: true,
           highlightSearchTermsOnTargetPage: true,
         },
       ],
