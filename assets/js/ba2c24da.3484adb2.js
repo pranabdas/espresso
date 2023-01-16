@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkespresso=self.webpackChunkespresso||[]).push([[999],{3566:function(e){e.exports=JSON.parse('{"title":"Setup","slug":"/category/setup","permalink":"/espresso/category/setup","navigation":{"previous":{"title":"DFT overview","permalink":"/espresso/theory/dft"},"next":{"title":"Installation","permalink":"/espresso/setup/install"}}}')}}]);
