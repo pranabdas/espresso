@@ -11,6 +11,7 @@ We follow the steps like before:
 First check the lattice constant with cell relaxation according to our chosen
 pseudo potential. We use that lattice constant in our next steps.  Our lattice
 constant = 10.6867 * 0.508176602 / 0.5 = 10.861462.
+
 ```bash
 pw.x < pw.relax.GaAs.in > pw.relax.GaAs.out
 ```
@@ -44,8 +45,8 @@ If everything goes well, you will get the bandstructure as below:
 
 :::caution Warning
 
-Sometimes a calculation with same inputs converges in one computer, while fails
-in another due to library configuration or even due to floating point
+Sometimes a calculation with the same inputs converges in one computer, while
+fails in another due to library configuration or even due to floating point
 approximations. The final output numbers will always vary slightly for different
 machines, or even among different runs in the same machine. Also check the
 Quantum Espresso version for reproducibility.

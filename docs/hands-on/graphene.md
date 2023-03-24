@@ -2,22 +2,26 @@
 title: DOS and Bandstructure of Graphene
 sidebar_label: Graphene
 ---
+
 I am following this example from the [ICTP online school 2021](
 https://gitlab.com/QEF/materials-for-max-qe2021-online-school).
 
 Graphene is single layer of carbon atoms. First perform the self consistent
 field calculation to obtain the Kohn-Sham orbitals. Please check the input files
 in [GitHub](https://github.com/pranabdas/espresso/) repository. Run `pw.x`:
+
 ```bash
 pw.x -i graphene_scf.in > graphene_scf.out
 ```
 
 Next increase the k-grid, and perform the non-self-consistent field calculation.
+
 ```bash
 pw.x -i graphene_nscf.in > graphene_nscf.out
 ```
 
 ## DOS calculation
+
 ```bash
 dos.x -i graphene_dos.in > graphene_dos.out
 ```
@@ -28,6 +32,7 @@ dos.x -i graphene_dos.in > graphene_dos.out
 </picture>
 
 ## Bandstructure calculation
+
 First run the bands calculation for given k-path:
 ```bash
 pw.x -i graphene_bands.in > graphene_bands.out

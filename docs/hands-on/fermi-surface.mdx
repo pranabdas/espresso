@@ -1,6 +1,7 @@
 ---
 title: Fermi Surface
 ---
+
 Here we will calculate Fermi surface of copper. First step is to perform self-
 consistent field calculation.
 
@@ -23,7 +24,7 @@ import pw_bands_cu from '!!raw-loader!/src/cu/pw.bands.cu.in';
 mpirun -np 4 pw.x -in pw.bands.cu.in > pw.bands.cu.out
 ```
 
-Finally, we process the data with `fs.x` post processing tool. Bellow is the
+Finally, we process the data with `fs.x` post processing tool. Below is the
 input file:
 
 import fs_cu from '!!raw-loader!/src/cu/fs.cu.in';

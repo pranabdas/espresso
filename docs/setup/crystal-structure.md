@@ -4,7 +4,7 @@ keywords: ["Crystal structure", "Crystal structure visualization", "Vesta", "Fin
 ---
 Density functional theory (DFT) calculations are *ab-initio* meaning the
 calculation is done from the scratch based on given input parameters. We need to
-provide the crystal structure in order to calculate DFT. Crystal structure are
+provide the crystal structure in order to calculate DFT. Crystal structures are
 widely available in Crystallographic Information File (`.CIF`) format. There are
 several databases where you can find crystal structures.
 
@@ -16,9 +16,11 @@ several databases where you can find crystal structures.
 - [http://crystdb.nims.go.jp/crystdb/search-materials](http://crystdb.nims.go.jp/crystdb/search-materials)
 
 ## Various useful tools:
+
 **Vesta** - [https://jp-minerals.org/vesta/en/](
 https://jp-minerals.org/vesta/en/). It helps you visualize crystal structure,
-create and modify super cells, crystal structures and many more functionality.
+create and modify supercells, crystal structures, and many other useful
+functionalities.
 
 We can prepare our Quantum Espresso input file using **cif2cell** utility. If
 you do not have **cif2cell** installed, you can use **pip** to install:
@@ -68,7 +70,7 @@ and set `export DISPLAY=:0` in your WSL instance.
 You can generate **PWscf** input files using tools in this website as well
 <https://www.materialscloud.org/work/tools/qeinputgenerator>
 
-Same website also has a tool for k-path visualization and generation
+The same website also has a tool for k-path visualization and generation
 <https://www.materialscloud.org/work/tools/seekpath>
 
 

@@ -2,6 +2,7 @@
 title: Density of States calculation
 sidebar_label: DOS calculation
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 
 Before we can run the Density of States (DOS) calculation, we need
@@ -10,14 +11,14 @@ Before we can run the Density of States (DOS) calculation, we need
 2. Fix the parameters and run non-self consistent field (nscf) calculation with
 denser k-point grid.
 
-I have created a new input file (`si_scf_dos.in`) which is very much same as our
-previous scf input file except some parameters are modified. You can find all
-the input files in my [GitHub repository](https://github.com/pranabdas/espresso/).
-We used the lattice constant value that we obtained from the relaxation
-calculation. We should not directly use the experimental/real lattice constant
-value. Depending on the method and pseudo-potential, it might result stress in
-the system. We have increased the `ecutwfc` to have better precision. We run the
-scf calculation:
+I have created a new input file (`si_scf_dos.in`) which is very much the same as
+our previous scf input file except some parameters are modified. You can find
+all the input files in my [GitHub repository](
+https://github.com/pranabdas/espresso/). We used the lattice constant value that
+we obtained from the relaxation calculation. We should not directly use the
+experimental/real lattice constant value. Depending on the method and
+pseudo-potential, it might result stress in the system. We have increased the
+`ecutwfc` to have better precision. We run the scf calculation:
 
 ```bash
 pw.x < si_scf_dos.in > si_scf_dos.out
@@ -27,8 +28,9 @@ Next, we have prepared the input file for the `nscf` calculation. Where is have
 added `occupations` in the `&system` card as `tetrahedra` (appropriate for DOS
 calculation). We have increased the number of k-points to 12 × 12 × 12 with
 automatic option. Also specify `nosym = .TRUE.` to avoid generation of
-additional k-points in low symmetry cases. `outdir` and `prefix` must be same as
-in the `scf` step, some of the inputs and output are read from previous step.
+additional k-points in low symmetry cases. `outdir` and `prefix` must be the
+same as in the `scf` step, some of the inputs and output are read from previous
+step.
 
 ```bash
 pw.x < si_nscf_dos.in > si_nscf_dos.out
@@ -42,9 +44,11 @@ import si_dos_in from '!!raw-loader!/src/silicon/si_dos.in';
 <CodeBlock language="bash" title="src/silicon/si_dos.in" showLineNumbers>{si_dos_in}</CodeBlock>
 
 We run:
+
 ```bash
 dos.x < si_dos.in > si_dos.out
 ```
+
 The DOS data in the `si_dos.dat` file that we specified in our input file. We
 can plot the DOS:
 

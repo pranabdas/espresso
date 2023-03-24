@@ -2,6 +2,7 @@
 title: Projected Density of States
 sidebar_label: P-DOS
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 
 Here we continue with our Aluminum example.
@@ -9,6 +10,7 @@ Often it is needed to know the contribution from each individual atoms and/or
 each of their orbital contributions. We can achieve that using **projwfc.x**
 code. First, we must perform the self consistent field calculation followed by
 the non-self consistent field calculation with denser k-points.
+
 ```bash
 pw.x < al_scf.in > al_scf.out
 pw.x < al_nscf.in > al_nscf.out
@@ -21,6 +23,7 @@ import al_projwfc_in from '!!raw-loader!/src/al/al_projwfc.in';
 <CodeBlock language="bash" title="src/al/al_projwfc.in" showLineNumbers>{al_projwfc_in}</CodeBlock>
 
 Perform the calculation:
+
 ```bash
 projwfc.x < al_projwfc.in > al_projwfc.out
 ```
@@ -30,6 +33,7 @@ projwfc.x < al_projwfc.in > al_projwfc.out
 symbol, `M` is wfc number, and `l=s,p,d,f` one file for each atomic wavefunction
 read from pseudopotential file. The header of file looks like (for spin
 polarized calculations, we have separate up and down columns):
+
 ```bash
 E  LDOS(E) PDOS_1(E) ... PDOS_{2l+1}(E)
 ```
@@ -52,6 +56,7 @@ $$PDOS_m (E) \rightarrow$$ projected DOS on atomic wfc with component $m$.
   - $d_{xy}$ (real combination of $m=\pm 2$ with sine)
 
 Let's make our plots:
+
 ```python title="src/notebooks/al-pdos.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
 from matplotlib import rcParamsDefault
@@ -111,6 +116,7 @@ Here is how our projected density of states plot looks like:
 
 We can perform sums of specific atom or orbital contributions using
 **sumpdos.x** code if there are multiple $s$ or $p$ orbitals:
+
 ```bash
 sumpdos.x *\(Al\)* > atom_Al_tot.dat
 sumpdos.x *\(Al\)*\(s\) > atom_Al_s.dat

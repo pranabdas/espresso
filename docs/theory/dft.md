@@ -4,8 +4,8 @@ sidebar_label: DFT overview
 ---
 
 Density functional theory (DFT) approaches the many-body problem by focusing on
-the electronic density which a function of three spacial coordinates instead of
-finding the  wave functions. DFT tries to minimize the energy of a system
+the electronic density which is a function of three spatial coordinates instead
+of finding the wave functions. DFT tries to minimize the energy of a system
 (ground state) in a self consistent way, and it is very successful in
 calculating the electronic structure of solid state systems.
 
@@ -31,29 +31,32 @@ number.
 :::
 
 ## Hohenberg-Kohn Theorem 1
+
 > The ground state density $$n(\textbf{r})$$ determines the external potential
 energy $$v(\textbf{r})$$ to within a trivial additive constant.
 
 So what Hohenberg-Kohn theorem says, may not sound very trivial. Schrödinger
 equation says how we can get the wavefunction from a given potential. Then there
 is the Schrödinger equation, if we can solve it (which could be difficult), we
-know how to get the density. Now Hohenberg and Kohn says the opposite is also
+know how to get the density. Now Hohenberg and Kohn say the opposite is also
 true. For a given density, the potential can be uniquely determined. For
 non-degenerate ground states, two different Hamiltonian cannot have the same
 ground-state electron density. It is possible to define the ground-state energy
 as a function of electronic density.
 
 ## Hohenberg-Kohn Theorem 2
+
 > Total energy of the system $E(n)$ is minimal when $n(\textbf{r})$ is the
 actual ground-state density, among all possible electron densities.
 
 The ground state energy can therefore be found by minimizing $E(n)$ instead of
 solving for the many-electron wavefunction. However, note that HK theorems do
 not tell us how the energy depends on the electron density. In reality, apart
-form some special cases, the exact $E(n)$ is unknown and only approximate
+from some special cases, the exact $E(n)$ is unknown and only approximate
 functionals are used.
 
 ## Kohn-Sham hypothesis
+
 > For any system of $N$ interacting electrons in a given external potential
 $v_{ext} (\textbf{r})$, there is a virtual system of $N$ non-interacting
 electrons with exactly the same density as the interacting one. The
@@ -103,7 +106,7 @@ $$
 $$
 
 We start with an initial guess for the electron density $n(\textbf{r})$, and
-construct a pseudo potential for the nuclear potential. In tern, we have the
+construct a pseudo potential for the nuclear potential. In turn, we have the
 Hamiltonian. Solve for $\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and
 iterate until self consistency is achieved.
 
@@ -130,8 +133,9 @@ equation is not known. Therefore, we have to compare the results with
 experimental observations.
 
 ## Plane-wave expansion
+
 The wavefunctions are expanded in terms of a basis set. In quantum espresso, the
-the basis function is plane waves. There exists other DFT codes that uses
+the basis function is plane waves. There exists other DFT codes that use
 localized basis function as well. Plane waves are simpler but generally requires
 much large number of them compared to other localized basis sets.
 
@@ -170,6 +174,7 @@ This is a linear algebra problem, solving the above involves diagonalization of
 eigenfunction.
 
 ## Variational Principle
+
 Finding the ground state:
 
 $$
@@ -219,13 +224,13 @@ $$
 n(\textbf{r}) = \sum_k \psi_k^*(\textbf{r}) \psi_k(\textbf{r})
 $$
 
-We need two set of basis vectors: one to store the wavefunctions, and another
+We need two sets of basis vectors: one to store the wavefunctions, and another
 for the charge density.
 
 :::info
 
 We need about 4 times the cutoff for the charge density compared to the cutoff
-for the wavefunction. In case of ultrasoft pseudo potentials, we require lower
+for the wavefunction. In case of ultrasoft pseudo potentials, we require a lower
 cutoff for energy, therefore `ecutrho` might require 8 or 12 times higher than
 the `ecutwfc`.
 

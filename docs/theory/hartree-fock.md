@@ -2,14 +2,15 @@
 title: Hartree-Fock Theory
 sidebar_label: Hartree-Fock
 ---
-Hatree-Fock theory is foundational to many electronic structure theory. It is an
-independent particle model or mean filed theory. Consider we have two
-non-interacting electrons. In that case, the Hamiltonian would be separable, and
-the total wavefunction $\Psi(\textbf{r}_1, \textbf{r}_2)$ would be product of
-the individual wave function. Now if we consider two electrons are forming a
-single system, then there are two issues. (1) We can no longer ignore the
-electron-electron interaction. (2) The wavefunction describing fermions must be
-antisymmetric with respect to the interchange of any set of space-spin
+
+Hatree-Fock theory is foundational to many subsequent electronic structure
+theories. It is an independent particle model or mean filed theory. Consider we
+have two non-interacting electrons. In that case, the Hamiltonian would be
+separable, and the total wavefunction $\Psi(\textbf{r}_1, \textbf{r}_2)$ would
+be product of the individual wave function. Now if we consider two electrons are
+forming a single system, then there are two issues. (1) We can no longer ignore
+the electron-electron interaction. (2) The wavefunction describing fermions must
+be antisymmetric with respect to the interchange of any set of space-spin
 coordinates. A simple **Hartree product** fails to satisfy that condition:
 
 $$
@@ -17,7 +18,7 @@ $$
 \phi_1(\textbf{r}_1) \phi_2(\textbf{r}_2) \cdots \phi_N(\textbf{r}_N)
 $$
 
-In oder to satisfy the antisymmetry condition, for our two electron system we
+In order to satisfy the antisymmetry condition, for our two electron system we
 can formulate a total wavefunction of the form:
 
 $$
@@ -26,6 +27,7 @@ $$
 $$
 
 ## Slater determinant
+
 The above equation can be written as:
 
 $$

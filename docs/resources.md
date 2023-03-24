@@ -1,6 +1,7 @@
 ---
 title: Resources
 ---
+
 - [Quantum Espresso Tutorials](https://www.quantum-espresso.org/resources/tutorials)
 - [ICTP Quantum Espresso workshop 2021](
 https://gitlab.com/QEF/materials-for-max-qe2021-online-school)

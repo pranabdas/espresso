@@ -1,6 +1,7 @@
 ---
 title: License
 ---
+
 ![CC-BY](/img/CC-BY-icon.svg)
 
 This work is licensed under a Creative Commons Attribution 4.0 International

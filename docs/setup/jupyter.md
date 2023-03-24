@@ -5,13 +5,13 @@ keywords: ["Jupyter notebook", "Setting up jupyter notebook", "Installing jupyte
 
 There are several ways you can run Jupyterlab in your computer.
 
-## 1. Install in your computer
+## 1. Install on your computer
 - Install [Python 3](https://www.python.org) in your computer
     ```bash
     # on ubuntu / debian
     apt install python3 python3-pip
     ```
-- Install required python packages in your computer
+- Install the required python packages on your computer
     ```bash
     pip3 install --upgrade -r requirements.txt
     # or
@@ -25,7 +25,7 @@ There are several ways you can run Jupyterlab in your computer.
     ```
 
 ## 2. Install python packages via virtualenv
-- Install Python 3 and virtualenv in your computer
+- Install Python 3 and virtualenv on your computer
     ```bash
     pip3 install --upgrade virtualenv
     ```
@@ -47,7 +47,7 @@ There are several ways you can run Jupyterlab in your computer.
 
 ## 3. Run on a container
 - Install [Docker](https://docs.docker.com/get-docker/)
-- Create image with Python and required packages installed
+- Create an image with Python and the required packages installed
     ```bash
     # build using the Dockerfile included in my github repo:
     # https://github.com/pranabdas/espresso

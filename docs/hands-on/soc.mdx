@@ -2,7 +2,8 @@
 title: Spin-Orbit Coupling
 keywords: ["Spin orbit coupling", "SOC", "SOC calculation", "SOC calculation in DFT", "SOC calculation using Quantum Espresso", "Non collinear spin calculation", "Bandstructure calculation for GaAs"]
 ---
-In oder to consider spin orbit coupling effect in our electronic structure
+
+In order to consider spin orbit coupling effect in our electronic structure
 calculation in quantum espresso, we need to use a full relativistic pseudo
 potential. Following settings are needed in the `&SYSTEM` card:
 
@@ -16,6 +17,7 @@ potential. Following settings are needed in the `&SYSTEM` card:
 ```
 
 ## Non collinear spin
+
 In simple spin polarized calculation (`nspin=2`), the spin quantum number (up or
 down) is considered in the calculation. In non-collinear case, the spin has more
 degrees of freedom, and can be oriented in any direction. Non-collinear
@@ -28,6 +30,7 @@ the spin and lattice interaction. This relativistic effect comes via spin-orbit
 coupling.
 
 We can constrain the magnetic moment:
+
 ```bash
 &SYSTEM
   ...
@@ -39,6 +42,7 @@ We can constrain the magnetic moment:
 Starting magnetization can be specified by `angle1` (angle with $z$ axis) and
 `angle2` (angle of projection in $xy$-plane and with $x$-axis). Also check the
 penalty function ($\lambda$).
+
 ```bash
 &SYSTEM
   ...
@@ -53,6 +57,7 @@ penalty function ($\lambda$).
 
 
 ## Strategy for convergence
+
 Spin-orbit coupling calculations are often hard to converge. Use a smaller
 `mixing_beta` for such calculations. First perform a collinear calculation with
 non-relativistic pseudopotential, and then start from the obtained charge
@@ -71,6 +76,7 @@ file from a collinear lsda calculation, we need to set `lforcet=.true.`. It
 assumes previous density points in z direction, and rotates in the direction
 specified by `angle1` (initial magnetization angle with $z$-axis in degrees),
 and `angle2` (angle in degrees for projections in $xy$-plane and with $x$-axis).
+
 ```bash
 &SYSTEM
 ...

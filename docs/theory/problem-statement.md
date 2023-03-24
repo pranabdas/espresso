@@ -2,7 +2,8 @@
 title: What problem are we trying to solve?
 sidebar_label: Problem statement
 ---
-We want to calculate the electronic structure of real materials, and their
+
+We want to calculate the electronic structure of real materials and their
 physical properties by *ab-initio* method. Electrons are microscopic particle,
 hence their dynamics is governed by the laws of quantum mechanics. Quantum
 particles are described by the wave function.
@@ -11,7 +12,7 @@ $$
 \lambda \cdot p = h
 $$
 
-where $h$ is the Plank constant. Wavefunction of an electron in a potential
+where $h$ is the Plank constant. The Wavefunction of an electron in a potential
 filed $(V)$ is calculated by solving the Schrödinger equation:
 
 $$
@@ -22,9 +23,9 @@ $$
 Fortunately, in most practical purposes, the potential field is not a function
 of time $(t)$, or even if it is a function of time, they changes relatively
 slowly compared to the dynamics we are interested in. For example, the electrons
-inside a material are subjected to the Coulomb filed of the nucleus. The nucleus
+inside a material are subjected to the Coulomb field of the nucleus. The nucleus
 is heavy and their motion is much slower than the motion of the electrons. In
-such situation, we can separate out the spacial and temporal parts of the wave
+such situation, we can separate out the spatial and temporal parts of the wave
 function:
 
 $$
@@ -50,7 +51,7 @@ $$
 $$
 
 However, the challenge is to solve the Schrödinger equation as a real physical
-system is consists of large number of atoms. The Schrödinger equation becomes
+system is consists of a large number of atoms. The Schrödinger equation becomes
 coupled many-body equation.
 
 $$\left[-\frac{\hbar}{2m} \sum_{i=1}^N \nabla_i^2 + \sum_{i=1}^NV(\textbf{r}_i)

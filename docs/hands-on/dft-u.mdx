@@ -2,7 +2,8 @@
 title: DFT+U calculation
 keywords: ["DFT+U", "Hubbard U calculation", "DFT+U calculation in Quantum Espresso", "LDA+U"]
 ---
-Electronic structure for transition-metals (with localized $$d$$ or $$f$$
+
+Electronic structure for transition metals (with localized $$d$$ or $$f$$
 electrons) is not accurately described by standard DFT, and therefore the need
 for DFT+U formulation.
 
@@ -14,6 +15,7 @@ for DFT+U formulation.
     ...
 /
 ```
+
 Here `i` refers to the atomic index in the `&ATOMIC_SPECIES` card corresponding
 to each `ntyp`. We can specify `Hubbard_u(i)` corresponding to more than one
 atom in separate lines.
@@ -40,9 +42,10 @@ in QE, you might see a "pseudopotential not yet inserted" error.
 :::
 
 ## Changes to input syntax in v7.1
-Starting form Quantum Espresso version `7.1`, there are changes to input syntax
+
+Starting from Quantum Espresso version `7.1`, there are changes to input syntax
 for DFT+U calculations. In the new version, instead of defining the necessary
-DFT+U parameters, there is now new Hubbard card.
+DFT+U parameters, now there is a new Hubbard card.
 
 ```diff
 &system
@@ -65,6 +68,7 @@ href={require('/resources/Hubbard_input.pdf').default}>
 qe-x.x/Doc/Hubbard_input.pdf</a> for details.
 
 ## DFT calculation for FeO
+
 We will first perform the standard DFT calculation.
 
 1. Perform the SCF calculation:
@@ -107,7 +111,7 @@ Check the file `FeO.Hubbard_parameters.dat`.
 
 1. We need to check the convergence against q-mesh (as well as k-mesh in SCF
 calculation). Here $1\times 1\times 1$ mesh is used. **Important:** `lda_plus_u`
-must be set to `.true.` during the SCF calculation, $U$ maybe set to zero.
+must be set to `.true.` during the SCF calculation, $U$ may be set to zero.
 
 2. We can update the obtained $U$ value in our SCF calculation, and repeat
 linear response calculation until we have reached self consistency in $U$ value.
@@ -133,13 +137,14 @@ unrealistically large $U$ value.
 :::
 
 ## DFT+U calculation
+
 We repeat the calculation after setting in the `&SYSTEM` card:
 ```bash
 Hubbard_U(1) = 4.6
 Hubbard_U(2) = 4.6
 ```
 
-We repeat the above calculation, and plot the results. Now we find insulating
+We repeat the above calculation and plot the results. Now we find insulating
 ground state.
 
 <picture>
@@ -164,7 +169,7 @@ Dr. Iurii Timrov for a relevant example.
 
 Here we have plotted the `lpdos` (local density of states). If we want to know
 the contribution of $d_{z^2}, d_{yz}, d_{x^2-z^2}$ ect., we can find them from
-the `pdos` columns. Also there are important Lowdin charges information in the
+the `pdos` columns. Also there arise important Lowdin charges information in the
 `feo_projwfc.out` file.
 
 :::

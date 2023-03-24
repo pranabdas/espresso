@@ -110,7 +110,7 @@ qdel {job-id}
 
 ## Abort and restart a calculation
 
-If you need to modify certain parameter while the program is running, e.g., you
+If you need to modify certain parameters while the program is running, e.g., you
 want to change the `mixing_beta` value because SCF accuracy is oscillation
 without any sign of convergence. Create an empty file named `{prefix}.EXIT` in
 the directory where you have the input file or in the `outdir` as set in the
@@ -119,9 +119,9 @@ the directory where you have the input file or in the `outdir` as set in the
 touch {prefix}.EXIT
 ```
 
-That will stop the program on next iteration, and save the state. In order to
-restart, set the `restart_mode` in `&CONTROL` card to `'restart'` and re-run
-after necessary changes. You must re-submit the job with same number of
+That will stop the program on the next iteration, and save the state. In order
+to restart, set the `restart_mode` in `&CONTROL` card to `'restart'` and re-run
+after necessary changes. You must re-submit the job with the same number of
 processors.
 
 ```bash
@@ -177,8 +177,8 @@ FFT_LIBS=
 ...
 ```
 
-For me the `LAPACK_LIBS` and `FFT_LIBS` libs were not automatically detected. We
-need to specify them manually. First get the link libraries line specific to
+For me, the `LAPACK_LIBS` and `FFT_LIBS` libs were not automatically detected. We
+need to specify them manually. First, get the link libraries line specific to
 your version of MKL and other configurations from the [Intel link advisor](
 https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl/link-line-advisor.html).
 For my case, the link line was:
@@ -194,7 +194,8 @@ For my case, the link line was:
 We need to insert the link for `BLAS_LIBS`, `LAPACK_LIBS`, and `SCALAPACK_LIBS`.
 We also need to find out where is the FFTW lib located. In NUS HPC, we can use
 `module avail` command to see where a particular module is located, usually
-under `/app1/modules/`. Open `make.inc` and make following changes:
+under `/app1/modules/`. Open `make.inc` and make the following changes:
+
 ```diff title="make.inc"
 # ...
 CFLAGS         = -O2 $(DFLAGS) $(IFLAGS)
@@ -221,7 +222,7 @@ LAPACK_LIBS_SWITCH = external
 - SCALAPACK_LIBS =
 + SCALAPACK_LIBS = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 
-# nothing needed here if the the internal copy of FFTW is compiled
+# nothing is needed here if the internal copy of FFTW is compiled
 # (needs -D__FFTW in DFLAGS)
 
 - FFT_LIBS       =

@@ -2,7 +2,9 @@
 title: DOS and bandstructure for Aluminum (metal)
 sidebar_label: Al (metal)
 ---
+
 ## Variable cell relaxation
+
 First we are going to relax the cell and choose appropriate lattice constant for
 our chosen pseudo potential. In case of metals, it is important to provide
 smearing parameters in the input file.
@@ -22,6 +24,7 @@ it.
 
 
 ## Self consistent field (SCF) calculation
+
 We obtain relaxed lattice constant = 7.652 * 0.498611683 / 0.5 = 7.63075 Bohr.
 We will use this value for our next step, self consistent calculation.
 
@@ -34,6 +37,7 @@ We run our self consistent calculation:
 pw.x < al_scf.in > al_scf.out
 ```
 ## Non-self consistent field calculation
+
 Inspect the output file, and let's proceed to next step non-self consistent
 calculation:
 
@@ -48,6 +52,7 @@ pw.x < al_nscf.in > al_nscf.out
 ```
 
 ## Density of states
+
 Next we go ahead with our density of states calculation:
 
 import al_dos_in from '!!raw-loader!/src/al/al_dos.in';
@@ -67,6 +72,7 @@ density of states:
 </picture>
 
 ## Bandstructure calculation
+
 We prepare the input file the same as the case of our previous example silicon:
 
 import al_bands_in from '!!raw-loader!/src/al/al_bands.in';
@@ -97,9 +103,9 @@ We obtain the following bandstructure:
 
 ## Importance of smearing in convergence
 
-Here we will test the convergence using PWTK against number of k-points, three
-different smearing functions (Gauss, Methfessel-Paxton, and Marzari-Vanderbilt),
-and for various smearing values.
+Here we will test the convergence using PWTK against the number of k-points,
+three different smearing functions (Gauss, Methfessel-Paxton, and
+Marzari-Vanderbilt), and for various smearing values.
 
 ```bash
 pwtk al.degauss.pwtk

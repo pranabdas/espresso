@@ -1,22 +1,22 @@
-&CONTROL 
-  calculation= 'nscf', 
-  restart_mode= 'from_scratch', 
-  prefix= 'al', 
-  outdir= './tmp/', 
-  pseudo_dir= './' 
-/ 
+&CONTROL
+  calculation= 'nscf',
+  restart_mode= 'from_scratch',
+  prefix= 'al',
+  outdir= './tmp/',
+  pseudo_dir= './'
+/
 
-&SYSTEM 
-  ibrav= 2, 
-  celldm(1) = 7.63075, 
-  nat= 1, 
-  ntyp= 1, 
-  ecutwfc= 50, 
-  ecutrho= 500, 
+&SYSTEM
+  ibrav= 2,
+  celldm(1) = 7.63075,
+  nat= 1,
+  ntyp= 1,
+  ecutwfc= 50,
+  ecutrho= 500,
   occupations= 'smearing',
   smearing= 'gaussian',
   degauss= 0.01
-/ 
+/
 
 &ELECTRONS
   conv_thr= 1e-8
@@ -30,4 +30,3 @@ ATOMIC_POSITIONS (alat)
 
 K_POINTS (automatic)
   40 40 40 0 0 0
-

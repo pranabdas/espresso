@@ -2,6 +2,7 @@
 title: "Magnetic system: bulk iron"
 sidebar_label: Fe (magnetic)
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -53,6 +54,7 @@ values.
 :::
 
 ## Convergence test for USPP
+
 Below is the PWTK script file:
 
 import fe_ecut_pwtk from '!!raw-loader!/src/fe/fe_ecut.pwtk';
@@ -93,6 +95,7 @@ Also see bandstructure of Fe with and without [SOC](
 soc#bandstructure-of-fe-with-soc).
 
 ## Paramagnetism
+
 Paramagnetic materials have fluctuating magnetic moments that may not be
 properly described DFT. One approach is to model paramagnetic materials in DFT
 calculation by building a large supercell and assign randomly oriented magnetic
@@ -102,6 +105,7 @@ Also note that DFT assumes zero temperature, so it makes sense to perform FM or
 AFM calculation for magnetic systems.
 
 ## Visualizing magnetic moments
+
 We can use [XCrySDen](http://www.xcrysden.org) to visualize the orientation of
 magnetic moments. XCrySDen cannot directly read the Quantum Espresso output
 files for magnetic moment vectors, instead we need to create the input `.xsf`

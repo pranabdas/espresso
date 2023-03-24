@@ -2,6 +2,7 @@
 title: Structure optimization
 keywords: ["Structural optimization using DFT", "Structural optimization using Density Functional Theory", "Structural optimization in Quantum Espresso", "Cell relaxation"]
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 
 There are two types of structural optimization calculations in Quantum espresso:
@@ -14,12 +15,14 @@ import si_relax_in from '!!raw-loader!/src/silicon/si_relax.in';
 <CodeBlock language="bash" title="src/silicon/si_relax.in" showLineNumbers>{si_relax_in}</CodeBlock>
 
 Perform the plane wave calculation:
+
 ```bash
 pw.x -inp si_relax.in > si_relax.out
 ```
 
 This produces following output (see the `si_relax.out` for more details, look
 for "Final enthalpy"):
+
 ```bash
      Final enthalpy =     -15.8536258868 Ry
 Begin final coordinates

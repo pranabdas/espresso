@@ -3,7 +3,8 @@ title: Quantum Espresso installation
 sidebar_label: Installation
 keywords: ["Quantum Espresso installation", "Installing Quantum Espresso", "PWTK"]
 ---
-We can install Quantum Espresso in our personal laptops or desktops to run
+
+We can install Quantum Espresso on our personal laptops or desktops to run
 relatively less computationally intensive calculations. If we intend to perform
 computationally heavy tasks, we would need access to better computing resources
 with large number of CPU (or GPU) cores, memory, bandwidth, and disc IO.
@@ -12,10 +13,10 @@ Throughout this tutorial, I will be using a Ubuntu system for smaller
 calculations while other computationally intensive calculations will be done in
 HPC clusters.
 
-Perhaps the most easiest way to install Quantum Espresso is from the package
-manager of respective Linux distribution. This should work fine for us and this
-is recommended option. Following commands are for Ubuntu / Debian. First make
-sure your system is up-to-date.
+Perhaps the easiest way to install Quantum Espresso is from the package manager
+of respective Linux distribution. This should work fine for us and this is
+recommended option. Following commands are for Ubuntu / Debian. First make sure
+your system is up-to-date.
 
 ```bash
 sudo apt update && sudo apt upgrade
@@ -29,9 +30,9 @@ sudo apt install --no-install-recommends \
 ```
 
 If you want to compile from the source yourself, here are the installation steps
-for latest version of Quantum Espresso (7.1) in a Ubuntu (LTS 22.04) machine. I
-will be compiling for single processor. First install the recommended libraries
-and dependencies:
+for the latest version of Quantum Espresso (7.1) in a Ubuntu (LTS 22.04)
+machine. I will be compiling for single processor. First install the recommended
+libraries and dependencies:
 
 ```bash
 sudo apt install --no-install-recommends \
@@ -48,6 +49,7 @@ sudo apt install --no-install-recommends \
 ```
 
 If you want to compile for parallel processing, you also need to install:
+
 ```bash
 sudo apt install --no-install-recommends \
     libopenmpi-dev \
@@ -57,6 +59,7 @@ sudo apt install --no-install-recommends \
 
 [Download](https://gitlab.com/QEF/q-e/-/releases) Quantum Espresso (latest
 version 7.1 at the time of writing):
+
 ```bash
 wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
 ```
@@ -113,18 +116,21 @@ source ~/.bashrc
 
 You can compile the documentation by going to particular directory (e.g., PW or
 PP) and execute (you need to have LaTeX installed in your system):
+
 ```bash
 make doc
 ```
 
 If you want docs in PDF format, you can use `latex` commands to create them as
 well:
+
 ```bash
 pdflatex filename.tex
 ```
 
 We are now ready to run Quantum Espresso `pw.x` (or any other program) using
 `mpirun` by following command:
+
 ```bash
 pw.x -inp inputfile > outputfile
 # For parallel version
@@ -137,6 +143,7 @@ options, I think safe option is to use `-i`.
 
 Once installation is completed, optionally we can run tests if everything went
 OK. Go to the `test-suite` directory and run
+
 ```bash
 make run-tests
 ```
@@ -155,22 +162,26 @@ knowledge about high performance computing.
 ## Installing PWTK
 We will install a very hand scripting package PWscf Toolkit (PWTK). First we
 need to install following dependencies:
+
 ```bash
 sudo apt install tcl tcllib
 ```
 
 Download the file from - <http://pwtk.ijs.si/download/pwtk-2.0.tar.gz>
+
 ```bash
 wget "http://pwtk.ijs.si/download/pwtk-2.0.tar.gz"
 ```
 
 Above command will download and save the file to your current directory. Next we
 need to just un-tar (no need to compile):
+
 ```bash
 tar zxvf pwtk-2.0.tar.gz
 ```
 
 Add the path (modify below as appropriate) to `.bashrc`:
+
 ```bash
 echo 'export PATH="/root/pwtk-2.0:$PATH"' >> ~/.bashrc
 source ~/.bashrc

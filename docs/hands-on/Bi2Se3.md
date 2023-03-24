@@ -2,6 +2,7 @@
 title: Bandstructure of topological insulating Bi2Se3
 sidebar_label: Bi2Se3 (TI)
 ---
+
 Topological insulators are a special class of material that is insulating in the
 bulk, however exhibit conducting states in the surface.
 Bi<sub>2</sub>Se<sub>3</sub> is such a material. Spin orbit coupling and
@@ -11,6 +12,7 @@ bandstructure step by step: first for the bulk, next including SOC, and finally
 for the slab. Please check the respective [input files](
 https://github.com/pranabdas/espresso/tree/master/src/Bi2Se3). I followed the
 following steps:
+
 ```bash
 # SCF calculation for bulk
 mpirun -np 24 pw.x -i pw.scf.bi2se3_01.in > pw.scf.bi2se3_01.out

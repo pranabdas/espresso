@@ -3,6 +3,7 @@ title: Self consistent field calculation for silicon
 sidebar_label: SCF calculation
 keywords: ["SCF calculation", "Self consistent field calculation", "Self consistent calculation", "SCF calculation using Quantum Espresso", "Silicon bandstructure", "Quantum Espresso input"]
 ---
+
 We need to provide various important parameters for the self consistent
 calculation (solves the Kohn-Sham equation self-consistently) via an input file.
 In QE input files, there are `NAMELISTS` and `INPUT_CARDS`. `NAMELISTS`
@@ -46,6 +47,7 @@ file `INPUT_PW.html` regarding the details of input parameters. PW stands for
 plane waves.
 
 Run `pw.x` in self consistent mode for silicon.
+
 ```bash
 pw.x < pw.scf.silicon.in > pw.scf.silicon.out
 # For parallel execution
@@ -61,11 +63,13 @@ have to provide the full path where the `pw.x` executable is located.
 
 Now let’s look at the output file `pw.scf.silicon.out` and see how the
 convergence is reached:
+
 ```bash
 grep -e 'total energy' -e estimate pw.scf.silicon.out
 ```
 
 and you should see something like this:
+
 ```fortran
      total energy              =     -15.85014573 Ry
      Harris-Foulkes estimate   =     -15.86899637 Ry
@@ -82,7 +86,7 @@ and you should see something like this:
      The total energy is the sum of the following terms:
 ```
 
-It is important note that the absolute value of DFT total energy is not with
+It is important to note that the absolute value of DFT total energy is not with
 respect to the vacuum reference, and depends on the chosen pseudopotential. The
 meaningful measure is the difference in total energy, where various offsets
 cancel out.
@@ -90,7 +94,7 @@ cancel out.
 :::note
 
 In the above calculation, if you check the output file `pw.scf.silicon.out`, you
-will find: highest occupied, lowest unoccupied level (ev): 6.2117 6.8442.
+will find: highest occupied, lowest unoccupied level (eV): 6.2117 6.8442.
 Therefore, the bandgap is 0.6325 eV, which is an underestimation of actual
 bandgap (1.12 eV).
 
@@ -101,9 +105,9 @@ bandgap (1.12 eV).
 1. Reduce `mixing_beta` value, especially if there is an oscillation around the
 convergence energy.
 
-2. If it is metallic system, use smearing and degauss. In this case, the SCF
+2. If it is a metallic system, use smearing and degauss. In this case, the SCF
 accuracy gradually goes down then suddenly increases (due to slight change in
-Fermi energy highest occupied / lowest unoccupied levels change).
+Fermi energy highest occupied/ lowest unoccupied levels change).
 
 3. Increase energy and charge density cutoffs (make sure they are sufficient).
 
@@ -120,6 +124,7 @@ after few iterations reduce it and restart the calculation.
 
 There are several other important information is printed on the output file.
 Exchange correlation used in the calculation:
+
 ```bash
 Exchange-correlation= SLA  PZ   NOGX NOGC
 ```
@@ -128,6 +133,7 @@ Where `SLA` → Slater exchange; `PZ` → Perdew-Zunger parametrization of the L
 `NOGX` and `NOGC` indicates that density gradients are not taken into account.
 
 We can see the total number of plane waves (1067) uses in our calculation:
+
 ```bash
 Parallelization info
 --------------------
@@ -138,6 +144,7 @@ Sum         433     433    139                 5961     5961    1067
 ```
 
 Number of Kohn-Sham states:
+
 ```bash
 number of electrons       =         8.00
 number of Kohn-Sham states=            8
