@@ -1,7 +1,7 @@
  &CONTROL
     prefix = 'al'
-    outdir = './tmp/'
-    pseudo_dir = './',
+    outdir = '/tmp/'
+    pseudo_dir = '../pseudos/',
  /
 
  &SYSTEM

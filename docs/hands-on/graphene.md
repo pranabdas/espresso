@@ -45,6 +45,9 @@ bands.x -i graphene_bands_pp.in > graphene_bands_pp.out
 
 Make plots:
 ```python title="notebooks/graphene.ipynb" showLineNumbers
+import numpy as np
+import matplotlib.pyplot as plt
+
 data = np.loadtxt('../src/graphene/graphene_bands.dat.gnu')
 
 k = np.unique(data[:, 0])

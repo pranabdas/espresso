@@ -65,22 +65,11 @@ import numpy as np
 
 # load data
 def data_loader(fname):
-    fid = open(fname, "r")
-    data = fid.readlines()
-    fid.close()
+    import numpy as np
 
-    energy = []
-    pdos = []
-
-    for row in range(len(data)):
-        data_row = data[row]
-        if (data_row[0][0] != '#'):
-            data_row = data_row[:-1].split('  ')
-            energy.append(float(data_row[1]))
-            pdos.append(float(data_row[3]))
-
-    energy = np.asarray(energy)
-    pdos = np.asarray(pdos)
+    data = np.loadtxt(fname)
+    energy = data[:, 0]
+    pdos = data[:, 2]
 
     return energy, pdos
 

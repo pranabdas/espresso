@@ -1,6 +1,6 @@
- &BANDS
-    prefix  = 'graphene'
-    outdir  = './tmp/'
-    filband = 'graphene_bands.dat'
-    lsym = .true.,
- /
+&BANDS
+  prefix  = 'graphene'
+  outdir  = '/tmp/'
+  filband = 'graphene_bands.dat'
+  lsym = .true.,
+/

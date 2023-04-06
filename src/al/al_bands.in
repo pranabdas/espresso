@@ -2,8 +2,8 @@
   calculation= 'bands',
   restart_mode= 'from_scratch',
   prefix= 'al',
-  outdir= './tmp/',
-  pseudo_dir= './'
+  outdir= '/tmp/',
+  pseudo_dir= '../pseudos/'
 /
 
 &SYSTEM

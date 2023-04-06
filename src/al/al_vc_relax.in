@@ -1,21 +1,21 @@
-&CONTROL 
-  calculation= 'vc-relax', 
-  prefix= 'al', 
-  outdir= './tmp/' 
-  pseudo_dir = './'
-  etot_conv_thr= 1e-6, 
+&CONTROL
+  calculation= 'vc-relax',
+  prefix= 'al',
+  outdir= '/tmp/'
+  pseudo_dir = '../pseudos/'
+  etot_conv_thr= 1e-6,
   forc_conv_thr= 1e-5
 /
 
-&SYSTEM 
-  ibrav=  2, 
-  celldm(1)= 7.652, 
+&SYSTEM
+  ibrav=  2,
+  celldm(1)= 7.652,
   nat=  1,
   ntyp= 1,
-  ecutwfc = 50, 
-  ecutrho= 500,  
-  occupations= 'smearing', 
-  smearing= 'gaussian', 
+  ecutwfc = 50,
+  ecutrho= 500,
+  occupations= 'smearing',
+  smearing= 'gaussian',
   degauss= 0.01
 /
 
@@ -23,10 +23,10 @@
   conv_thr= 1e-8
 /
 
-&IONS 
+&IONS
 /
 
-&CELL 
+&CELL
   cell_dofree= 'ibrav'
 /
 
@@ -37,4 +37,4 @@ ATOMIC_POSITIONS (alat)
   Al 0.00 0.00 0.00
 
 K_POINTS (automatic)
-  10 10 10 0 0 0 
+  10 10 10 0 0 0
