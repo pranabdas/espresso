@@ -11,8 +11,8 @@
     celldm(3) = 3.0,
     nat  = 2,
     ntyp = 1,
-    ecutwfc = 20.0,
-    ecutrho = 200.0,
+    ecutwfc = 40.0,
+    ecutrho = 400.0,
     nbnd=8
     !occupations = 'tetrahedra'
  /
