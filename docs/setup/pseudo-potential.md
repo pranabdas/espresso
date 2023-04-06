@@ -16,10 +16,11 @@ we should choose a full relativistic pseudo potential. We need to be careful
 whether our chosen pseudo potential correctly reproduces physical properties.
 Various pseudopotential libraries:
 
-- [https://www.quantum-espresso.org/pseudopotentials](https://www.quantum-espresso.org/pseudopotentials)
-- [https://www.materialscloud.org/discover/sssp/table/efficiency](https://www.materialscloud.org/discover/sssp/table/efficiency)
-- [http://www.pseudo-dojo.org](http://www.pseudo-dojo.org)
-- [https://www.physics.rutgers.edu/gbrv/](https://www.physics.rutgers.edu/gbrv/)
+- <https://www.quantum-espresso.org/pseudopotentials>
+- <https://www.materialscloud.org/discover/sssp/table/efficiency>
+- <http://www.pseudo-dojo.org>
+- <https://www.physics.rutgers.edu/gbrv/>
+- <https://nninc.cnf.cornell.edu>
 
 Ultra soft pseudo potentials are computationally efficient than the norm
 conserving pseudo potentials. You will find the recommended `ecutwfc` in the

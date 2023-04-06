@@ -151,8 +151,8 @@ information. The releases via GitLab can be found under:
 [Download](https://gitlab.com/QEF/q-e/-/releases) and decompress the source
 files.
 ```bash
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
-tar zxvf q-e-qe-7.1.tar.gz
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
+tar zxvf q-e-qe-7.2.tar.gz
 ```
 
 Load the necessary modules (applicable for NUS clusters, last checked in Jun
@@ -164,11 +164,12 @@ module load fftw/3.3.7
 
 Go to QE directory and run `configure`:
 ```bash
-cd q-e-qe-7.1
+cd q-e-qe-7.2
 ./configure
 ```
 
 You will see output something like:
+
 ```bash
 ...
 BLAS_LIBS=  -lmkl_intel_lp64  -lmkl_sequential -lmkl_core
@@ -182,6 +183,7 @@ need to specify them manually. First, get the link libraries line specific to
 your version of MKL and other configurations from the [Intel link advisor](
 https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl/link-line-advisor.html).
 For my case, the link line was:
+
 ```bash
 -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 ```
@@ -212,12 +214,14 @@ FFLAGS_NOOPT   = -O0 -assume byterecl -g -traceback
 # BLAS_LIBS = $(TOPDIR)/LAPACK/libblas.a
 - BLAS_LIBS      =   -lmkl_intel_lp64  -lmkl_sequential -lmkl_core
 + BLAS_LIBS      = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
+
 # If you have nothing better, use the local copy
-# LAPACK_LIBS_SWITCH = internal
-# LAPACK_LIBS = $(TOPDIR)/LAPACK/liblapack.a
-- LAPACK_LIBS    =
-+ LAPACK_LIBS    = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
-LAPACK_LIBS_SWITCH = external
+# LAPACK = liblapack
+# LAPACK_LIBS = $(TOPDIR)/external/lapack/liblapack.a
+- LAPACK      =
++ LAPACK      = liblapack
+- LAPACK_LIBS =
++ LAPACK_LIBS = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 
 - SCALAPACK_LIBS =
 + SCALAPACK_LIBS = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
@@ -231,14 +235,16 @@ LAPACK_LIBS_SWITCH = external
 ```
 
 Now we are ready to compile:
+
 ```bash
 make -j8 all
 ```
 
 I am parallelizing with 8 processors to speed things up. You may add the
-`q-e-qe-7.1/bin` path to your `.bashrc`:
+`q-e-qe-7.2/bin` path to your `.bashrc`:
+
 ```bash
-echo 'export PATH="/home/svu/{username}/q-e-qe-7.1/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/svu/{username}/q-e-qe-7.2/bin:$PATH"' >> ~/.bashrc
 ```
 
 And don't forget to load dependencies before calling QE executables.
@@ -250,32 +256,36 @@ module load fftw/3.3.7
 :::note
 
 If you are submitting job via PBS queue, you need to provide full path of the QE
-executables, e.g., `/home/svu/{username}/q-e-qe-7.1/bin/pw.x`. PBS system won't
+executables, e.g., `/home/svu/{username}/q-e-qe-7.2/bin/pw.x`. PBS system won't
 read your bash settings, neither the relative paths of your login node would
 apply.
 
 :::
 
 ## Installing Intel oneAPI libraries
+
 If you need to install Intel oneAPI libraries yourself, following instructions
 might be useful. Please refer to Intel [website](
 https://www.intel.com/content/www/us/en/developer/tools/oneapi/overview.html)
 for up to date information.
 
 #### Intel oneAPI Base Toolkit:
+
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19079/l_BaseKit_p_2023.0.0.25537_offline.sh
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7deeaac4-f605-4bcf-a81b-ea7531577c61/l_BaseKit_p_2023.1.0.46401_offline.sh
+
+# requires gnu-awk
+sudo apt update && sudo apt install -y --no-install-recommends gawk
 
 # interactive cli installation
-sudo apt update
 sudo apt install -y --no-install-recommends ncurses-term
-sudo sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --cli
+sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --cli
 
 # list components included in oneAPI Base Toolkit
-sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --list-components
+sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --list-components
 
 # install a subset of components with silent/unattended option
-sudo sh ./l_BaseKit_p_2023.0.0.25537_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
+sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
 ```
 
 :::note
@@ -287,9 +297,10 @@ completed, the setup script will print the installation location.
 :::
 
 #### HPC Toolkit
+
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19084/l_HPCKit_p_2023.0.0.25400_offline.sh
-sudo sh ./l_HPCKit_p_2023.0.0.25400_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/1ff1b38a-8218-4c53-9956-f0b264de35a4/l_HPCKit_p_2023.1.0.46346_offline.sh
+sudo sh ./l_HPCKit_p_2023.1.0.46346_offline.sh -a --silent --eula accept
 ```
 
 #### Intel MKL library
@@ -297,8 +308,8 @@ sudo sh ./l_HPCKit_p_2023.0.0.25400_offline.sh -a --silent --eula accept
 Installing individual components:
 
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19138/l_onemkl_p_2023.0.0.25398_offline.sh
-sudo sh ./l_onemkl_p_2023.0.0.25398_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/cd17b7fe-500e-4305-a89b-bd5b42bfd9f8/l_onemkl_p_2023.1.0.46342_offline.sh
+sudo sh ./l_onemkl_p_2023.1.0.46342_offline.sh -a --silent --eula accept
 ```
 
 After installation, do not forget to `source` the environment variables before
@@ -309,11 +320,11 @@ source /opt/intel/oneapi/setvars.sh
 
 Compile quantum espresso:
 ```bash
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
-tar zxvf q-e-qe-7.1.tar.gz
-rm q-e-qe-7.1.tar.gz
-cd q-e-qe-7.1
-./configure F90=mpiifort MPIF90=mpiifort CC=mpicc CXX=icc F77=mpiifort LAPACK_LIBS="${MKLROOT}/lib/intel64/libmkl_blas95_lp64.a ${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a ${MKLROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl" BLAS_LIBS="${MKLROOT}/lib/intel64/libmkl_blas95_lp64.a ${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a ${MKLROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl" SCALAPACK_LIBS="${MKLROOT}/lib/intel64/libmkl_blas95_lp64.a ${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a ${MKLROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl"
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
+tar zxvf q-e-qe-7.2.tar.gz
+rm q-e-qe-7.2.tar.gz
+cd q-e-qe-7.2
+./configure F90=mpiifort MPIF90=mpiifort CC=mpicc CXX=icc F77=mpiifort LAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" BLAS_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" SCALAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl"
 make -j4 all
 ```
 
@@ -329,7 +340,7 @@ apt update && apt install autoconf cmake make
 I used following steps to successfully compile Quantum Espresso using 2023
 versions of Intel libraries in Ubuntu 22.04 system:
 ```bash
-cd q-e-qe-7.1
+cd q-e-qe-7.2
 mkdir build && cd build
 cmake -DCMAKE_C_COMPILER=mpiicc -DCMAKE_Fortran_COMPILER=mpiifort -DQE_ENABLE_SCALAPACK=ON ..
 make -j4

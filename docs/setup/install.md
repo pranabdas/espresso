@@ -30,9 +30,9 @@ sudo apt install --no-install-recommends \
 ```
 
 If you want to compile from the source yourself, here are the installation steps
-for the latest version of Quantum Espresso (7.1) in a Ubuntu (LTS 22.04)
-machine. I will be compiling for single processor. First install the recommended
-libraries and dependencies:
+for the Quantum Espresso version 7.2 in a Ubuntu (LTS 22.04) system. I will be
+compiling for single processor. First install the recommended libraries and
+dependencies:
 
 ```bash
 sudo apt install --no-install-recommends \
@@ -58,20 +58,20 @@ sudo apt install --no-install-recommends \
 ```
 
 [Download](https://gitlab.com/QEF/q-e/-/releases) Quantum Espresso (latest
-version 7.1 at the time of writing):
+version 7.2 at the time of writing):
 
 ```bash
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
 ```
 
 Un-tar the source files:
 ```bash
-tar -zxvf q-e-qe-7.1.tar.gz
+tar -zxvf q-e-qe-7.2.tar.gz
 ```
 
 Go to the qe directory and issue configure:
 ```bash
-cd q-e-qe-7.1
+cd q-e-qe-7.2
 ./configure
 ```
 
@@ -106,7 +106,7 @@ Now, the binary files or their symbolic links (shortcuts) would be placed in the
 
 ```bash
 # use the correct path if it differs from mine
-echo 'export PATH="/root/q-e-qe-7.1/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/root/q-e-qe-7.2/bin:$PATH"' >> ~/.bashrc
 ```
 
 Finally, you may need to restart your terminal or `source .bashrc`.
