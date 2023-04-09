@@ -1,5 +1,5 @@
 &CONTROL
-    calculation = 'scf'
+    calculation = 'bands'
     prefix = 'GaAs'
     outdir = './tmp/'
     pseudo_dir = './'
