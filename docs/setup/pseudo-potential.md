@@ -21,6 +21,7 @@ Various pseudopotential libraries:
 - <http://www.pseudo-dojo.org>
 - <https://www.physics.rutgers.edu/gbrv/>
 - <https://nninc.cnf.cornell.edu>
+- <http://www.quantum-simulation.org/potentials/>
 
 Ultra soft pseudo potentials are computationally efficient than the norm
 conserving pseudo potentials. You will find the recommended `ecutwfc` in the
@@ -39,7 +40,10 @@ with the valence electrons.
 :::info
 
 1. We can mix different types of pseudo potentials (e.g., norm conserving,
-ultra-soft, or PAW), but we cannot mix different functional (e.g., PBE and LDA).
+ultra-soft, or PAW), but we cannot mix different exchange correlation functional
+(e.g., PBE and LDA). Exchange correlation functional can be read from the
+pseudopotential file or be provided via `input_dft` parameter in Quantum
+Espresso.
 
 2. "sol" in PBE-sol stands for solid. For bulk systems PBE-sol should be used,
 while PBE is appropriate for molecules. In case of 2D materials generally PBE is
@@ -51,8 +55,8 @@ chosen, but one can check PBE-sol.
 
 If you mix PBE with PBE-sol type, it results in Error: conflicting values for
 igcx. However, it is allowed to mix those two types of pseudo. We can set
-desired exchange functional via `input_dft` instead of reading from the pseudo
-potential file.
+desired exchange correlation functional via `input_dft` instead of reading from
+the pseudo potential file.
 
 :::
 

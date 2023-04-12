@@ -7,7 +7,7 @@ keywords: ["SCF calculation", "Self consistent field calculation", "Self consist
 We need to provide various important parameters for the self consistent
 calculation (solves the Kohn-Sham equation self-consistently) via an input file.
 In QE input files, there are `NAMELISTS` and `INPUT_CARDS`. `NAMELISTS`
-variables have default values, and should be provided a new value as required by
+variables have default values, and new values can be provided as required for a
 specific calculation. The variables can be declared in any specific order. On
 the other hand, the variables in the `INPUT_CARDS` has always to be specified
 and in specific order. Logically independent `INPUT_CARDS` may be organized in
@@ -23,22 +23,25 @@ Three `INPUT_CARDS`: `ATOMIC_SPECIES`, `ATOMIC_POSITIONS`, and `K_POINTS` in
 `PWscf` are mandatory. There are few others that must be provided in certain
 calculations.
 
-Blow is out input file is [pw.scf.silicon.in](
-https://github.com/pranabdas/espresso/). The input files are typically named with
-a prefix `.in`. The inputs are organized as `&namelists` followed by their
-fields or cards. The `&control`, `&system`, and `&electrons` namelists are
-required. There are also optional `&cell` and `&ions`, you must provide them if
-your calculation require them. Most variables in the `namelists` have certain
-default values (which may or may not fit your needs), however some variables you
-must always provide. Comment lines can be added with lines starting with a `!`
-like in Fortran.
+Below is our input file [pw.scf.silicon.in](
+https://github.com/pranabdas/espresso/) for silicon in standard diamond (FCC)
+structure. The input files are typically named with `.in` prefix, while output
+files are named with `.out` prefix for their easier identification. The input
+parameters are organized in `&namelists` followed by their fields or cards. The
+`&control`, `&system`, and `&electrons` namelists are required. There are also
+optional `&cell` and `&ions`, you must provide them if your calculation require
+them. Most parameters in the `namelists` have default values (which may or may
+not suit your needs), however some variables you must always provide. Comment
+lines can be added with lines starting with a `!` like in Fortran. Also,
+parameter names are not case-sensitive, i.e., `&control` and `&CONTROL` are the
+same.
 
 import CodeBlock from '@theme/CodeBlock';
 import pw_scf_silicon_in from '!!raw-loader!/src/silicon/pw.scf.silicon.in';
 
 <CodeBlock language="bash" title="src/silicon/pw.scf.silicon.in" showLineNumbers>{pw_scf_silicon_in}</CodeBlock>
 
-I am using the pseudo potential file (Si.pz-vbc.UPF) downloaded from [Quantum
+I am using the pseudo potential file (`Si.pz-vbc.UPF`) downloaded from [Quantum
 Espresso Website](https://www.quantum-espresso.org/pseudopotentials).
 
 You must read the **PWscf user manual** for in-depth understanding. Check the
@@ -155,3 +158,4 @@ would be 4 bands for 8 electrons in case of non spin-polarized systems.
 
 ## Resources
 - <https://www.quantum-espresso.org/Doc/pw_user_guide/>
+- [Quantum Espresso Input Generator](https://www.materialscloud.org/work/tools/qeinputgenerator) (can help crating QE input files)

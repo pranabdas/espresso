@@ -19,26 +19,32 @@ pw.x < si_bands_scf.in > si_bands_scf.out
 ```
 
 Next step is our band calculation (non-self consistent field) calculation. The
-`bands` calculation is *non self-consistent* in the sense that it uses the
-ground state electron density, Hartree, exchange and correlation potentials
-determined in the previous step. In case of non self-consistent calculation, the
+`bands` calculation is *non self-consistent* and reads/uses the ground state
+electron density, Hartree, exchange and correlation potentials obtained in the
+previous step (scf calculation). In case of non self-consistent calculation, the
 **pw.x** program determines the Kohn-Sham eigenfunction and eigenvalues without
 updating Kohn-Sham Hamiltonian at every iteration. We need to specify the
-k-points for which we want to calculate the eigenvalues. We can also specify
-`nbnd`. Below is the input file for band calculation:
+k-points for which we want to calculate the eigenvalues. You may use the
+[See-K-path tool by materials cloud](
+https://www.materialscloud.org/work/tools/seekpath) to visualize the K-path. We
+can specify `nbnd`, by default it calculates half the number of valence
+electrons, i.e., only the occupied ground state bands. Usually we are interested
+also in the unoccupied bands above the Fermi energy. Below is a sample input
+file for the band calculation:
 
 import si_bands_in from '!!raw-loader!/src/silicon/si_bands.in';
 
 <CodeBlock language="bash" title="src/silicon/si_bands.in" showLineNumbers>{si_bands_in}</CodeBlock>
 
-Again run `pw.x` for `bands` calculation:
+Run `pw.x` with `bands` calculation input file:
 
 ```bash
 pw.x < si_bands.in > si_bands.out
 ```
 
-The bands are now calculated. We need some post processing in order to obtain
-the data in more usable manner. Input file for `bands.x`:
+After the bands calculation is performed, we need some postprocessing using
+`bands.x` utility in order to obtain the data in more usable format. Input file
+for `bands.x` postprocessing:
 
 import si_bands_pp_in from '!!raw-loader!/src/silicon/si_bands_pp.in';
 
@@ -50,9 +56,9 @@ Run `bands.x` from post processing (PP) module:
 bands.x < si_bands_pp.in > si_bands_pp.out
 ```
 
-Next we need to run `plotband.x` We can run it interactively as follows (or you
-can provide an input file instead). In order to run interactively, type
-`plotband.x` in your terminal.
+Finally, we run `plotband.x` to visualize bandstructure. We can either run it
+interactively (as described below) or provide an input file. In order to run
+interactively, type `plotband.x` in your terminal.
 
 ```bash
      Input file > si_bands.dat
@@ -73,8 +79,9 @@ deltaE, reference E (for tics) 4, 0
 bands in PostScript format written to file si_bands.ps
 ```
 
-You will have `si_bands.ps` with band diagram. Or you can use your favorite
-plotting program to make plots:
+You will have `si_bands.ps` with band diagram. Alternatively, you can use your
+favorite plotting program to make the plots. Below is an example of using Python
+matplotlib.
 
 ```python title="notebooks/si-bands.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
@@ -117,8 +124,9 @@ plt.show()
 
 :::info
 
-The k values for high symmetry points can be found in the output file
-(si_bands_pp.out).
+The `k` values corresponding to high symmetry points (such as $\Gamma$, X, U, L)
+which we need to label in our band diagram, can be found in the post-processing
+output file (`si_bands_pp.out`).
 
 :::
 
@@ -151,4 +159,6 @@ inorganic scintillator materials., ACS Combinatorial Science. (2011)
 [https://doi.org/10.1021/co200012w](https://doi.org/10.1021/co200012w).
 
 ## Resources
+
 - <https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure#accuracy-of-band-structures>
+- [See K-pat online tool](https://www.materialscloud.org/work/tools/seekpath)

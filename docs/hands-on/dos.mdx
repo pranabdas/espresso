@@ -3,13 +3,23 @@ title: Density of States calculation
 sidebar_label: DOS calculation
 ---
 
-import CodeBlock from '@theme/CodeBlock';
+Electronic density of states is an important property of a material.
+
+$\rho(E)dE$ = number of electronic states in the energy interval $(E, E + dE)$
 
 Before we can run the Density of States (DOS) calculation, we need
 
-1. Perform fixed-ion self consistent filed (scf) calculation.
-2. Fix the parameters and run non-self consistent field (nscf) calculation with
-denser k-point grid.
+1. Perform fixed-ion self consistent filed (scf) calculation. In plane-wave
+based DFT calculations the electronic density is expressed by functions of the
+form $\exp (i \textbf{k} \cdot \textbf{r})$ with energy given by
+$E = \hbar^2k^2/2m$.
+
+2. Perform non-self consistent field (nscf) calculation with denser k-point
+grid. A large number of $k$ points are required DOS calculation, as the accuracy
+of DOS depends on the integration in $k$ space.
+
+3. Finally, the DOS can be determined by integrating the electron density in $k$
+space.
 
 I have created a new input file (`si_scf_dos.in`) which is very much the same as
 our previous scf input file except some parameters are modified. You can find
@@ -39,6 +49,7 @@ pw.x < si_nscf_dos.in > si_nscf_dos.out
 Now our final step is to calculate the density of states. The DOS input file as
 follows:
 
+import CodeBlock from '@theme/CodeBlock';
 import si_dos_in from '!!raw-loader!/src/silicon/si_dos.in';
 
 <CodeBlock language="bash" title="src/silicon/si_dos.in" showLineNumbers>{si_dos_in}</CodeBlock>

@@ -55,6 +55,13 @@ not tell us how the energy depends on the electron density. In reality, apart
 from some special cases, the exact $E(n)$ is unknown and only approximate
 functionals are used.
 
+The essence of the HK theorem is that the non-degenerate ground-state wave
+function is a unique functional of the ground-state density:
+
+$$
+\Psi_0(\textbf{r}_1, \textbf{r}_2, \dots, \textbf{r}_N) = \Psi[n_0(\textbf{r})]
+$$
+
 ## Kohn-Sham hypothesis
 
 > For any system of $N$ interacting electrons in a given external potential
@@ -105,10 +112,12 @@ $$
 \hat{H} \ket{\psi} = E\ket{\psi}
 $$
 
-We start with an initial guess for the electron density $n(\textbf{r})$, and
-construct a pseudo potential for the nuclear potential. In turn, we have the
-Hamiltonian. Solve for $\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and
-iterate until self consistency is achieved.
+we are going to solve non-interacting single particle Hamiltonian in terms of
+known basis functions (plane waves) with unknown coefficients. We start with an
+initial guess for the electron density $n(\textbf{r})$, and construct a pseudo
+potential for the nuclear potential. In turn, we have the Hamiltonian. Solve for
+$\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and iterate until self
+consistency is achieved.
 
 <picture>
   <source type="image/webp" srcSet={require("/img/self-consistent-solution.webp").default} />
@@ -130,7 +139,11 @@ PBE).
 It is important to note that DFT is calculations are not exact solution to the
 real systems because exact functional ($v_{xc}$) we need to solve the Kohn-Sham
 equation is not known. Therefore, we have to compare the results with
-experimental observations.
+experimental observations. The Kohn-Sham wavefunction of orbitals is not an
+approximation to the exact wavefunction. Rather it is precisely defined property
+of any electronic system, which is uniquely determined by the density. The
+in-exactness of DFT results come from the fact that we do not know the exact
+correlation functional that truly describes real systems.
 
 ## Plane-wave expansion
 

@@ -275,7 +275,3 @@ body {
 .hash-link:hover {
   text-decoration: none;
 }
-
-.main-wrapper > div {
-  flex: 1 0
-}
