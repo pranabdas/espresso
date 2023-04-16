@@ -1,0 +1,11 @@
+&INPUTPH
+  outdir = './tmp/'
+  prefix = 'GaAs'
+  tr2_ph = 1d-14
+  ldisp = .true.
+!  recover = .true.
+  nq1 = 6
+  nq2 = 6
+  nq3 = 6
+  fildyn = 'GaAs.dyn'
+/

@@ -1,8 +1,8 @@
 &control
   calculation = 'vc-relax'
-  prefix = 'GaAs'
-  pseudo_dir = './'
-  outdir = './tmp/'
+  prefix      = 'GaAs'
+  outdir      = '/tmp/',
+  pseudo_dir  = '../pseudos/',
 /
 
 &system
@@ -20,8 +20,8 @@
   conv_thr = 1.0e-8
 /
 
-&ions 
-/ 
+&ions
+/
 
 &cell
   cell_dofree= 'ibrav'

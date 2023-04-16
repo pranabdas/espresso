@@ -103,7 +103,17 @@ We obtain the following bandstructure:
 
 ## Importance of smearing in convergence
 
-Here we will test the convergence using PWTK against the number of k-points,
+Smearing is a technique used for suppressing unstable electron density in the
+calculation of metals. Such a problem occurs in metals (and semimetals) because
+the valence bands that cross Fermi level are partially occupied. Due to
+numerical accuracy, the electrons may occupy the unoccupied states during some
+iterations, making the algorithm unstable. In order to stablize the algorithm
+without using excessive number of k-points, smearing technique is used, which
+replaces the occupation number (either 0 or 1) is replaced by a smoothly varying
+function of energy. Such a smearing function could be Fermi Dirac distribution,
+instead of a step function (T = 0 K), we can use the finite temperature form.
+
+Below we will test the convergence using PWTK against the number of k-points,
 three different smearing functions (Gauss, Methfessel-Paxton, and
 Marzari-Vanderbilt), and for various smearing values.
 

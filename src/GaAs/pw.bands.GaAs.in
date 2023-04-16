@@ -1,9 +1,9 @@
 &control
   calculation = 'bands'
   restart_mode= 'from_scratch',
-  prefix = 'GaAs'
-  pseudo_dir = './'
-  outdir= './tmp/'
+  prefix      = 'GaAs'
+  outdir      = '/tmp/',
+  pseudo_dir  = '../pseudos/',
 /
 
 &system

@@ -1,0 +1,14 @@
+&INPUT
+  asr = 'crystal'
+  flfrc = 'GaAs.fc'
+  flfrq = 'GaAs.freq'
+  flvec = 'GaAs.modes'
+  loto_2d = .true.
+  q_in_band_form = .true.
+/
+5
+0.500 0.500 0.500   20 ! L
+0.000 0.000 0.000   20 ! G
+0.500 0.000 0.500   20 ! X
+0.375 0.375 0.750   20 ! K
+0.000 0.000 0.000    1 ! G

@@ -1,0 +1,5 @@
+&INPUT
+  fildyn = 'GaAs.dyn'
+  zasr = 'crystal'
+  flfrc = 'GaAs.fc'
+/

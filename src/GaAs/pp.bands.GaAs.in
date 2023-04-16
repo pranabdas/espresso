@@ -1,6 +1,6 @@
 &bands
-   outdir = './tmp/',
-   prefix='GaAs',
-   filband='GaAs_bands.dat',
+   outdir = '/tmp/',
+   prefix = 'GaAs',
+   filband= 'GaAs_bands.dat',
    lsym=.true.
 /

@@ -1,10 +1,10 @@
 &control
   calculation = 'scf'
-  prefix      = 'GaAs'
-  outdir      = '/tmp/',
-  pseudo_dir  = '../pseudos/',
-  verbosity   = 'high'
-  wf_collect  = .true.
+  prefix = 'GaAs'
+  pseudo_dir = '../pseudos/'
+  outdir = './tmp/'
+  verbosity = 'high'
+  wf_collect = .true.
 /
 
 &system
@@ -12,8 +12,8 @@
   celldm(1) = 10.861462
   nat = 2
   ntyp = 2
-  ecutwfc = 60
-  ecutrho = 244
+  ecutwfc = 80
+  ecutrho = 640
 /
 
 &electrons
@@ -23,8 +23,8 @@
 /
 
 ATOMIC_SPECIES
-  Ga 69.723 Ga.pbe-dn-kjpaw_psl.1.0.0.UPF
-  As 74.921595 As.pbe-n-kjpaw_psl.1.0.0.UPF
+  Ga 69.723    Ga.pbe-dn-kjpaw_psl.1.0.0.UPF
+  As 74.921595 As.nc.z_15.oncvpsp3.dojo.v4-std.upf
 
 ATOMIC_POSITIONS
   Ga 0.00 0.00 0.00

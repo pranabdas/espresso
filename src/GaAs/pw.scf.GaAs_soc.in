@@ -1,40 +1,40 @@
 &CONTROL
-    calculation = 'scf'
-    prefix = 'GaAs'
-    outdir = './tmp/'
-    pseudo_dir = './'
+  calculation = 'scf'
+  prefix = 'GaAs'
+  outdir      = '/tmp/',
+  pseudo_dir  = '../pseudos/',
 /
 
 &SYSTEM
-    degauss = 0.002
-    ecutrho = 480
-    ecutwfc = 60
-    ibrav = 0
-    lspinorb = .TRUE.
-    nat = 2
-    noncolin = .TRUE.
-    ntyp = 2
-    occupations = 'smearing'
+  degauss = 0.002
+  ecutrho = 480
+  ecutwfc = 60
+  ibrav = 0
+  lspinorb = .TRUE.
+  nat = 2
+  noncolin = .TRUE.
+  ntyp = 2
+  occupations = 'smearing'
 /
 
 &ELECTRONS
-    conv_thr = 1e-08
-    electron_maxstep = 80
-    mixing_beta = 0.3
+  conv_thr = 1e-08
+  electron_maxstep = 80
+  mixing_beta = 0.3
 /
 
 ATOMIC_SPECIES
-As 74.9216 As.rel-pbesol-n-rrkjus_psl.1.0.0.UPF
-Ga 69.72 Ga.rel-pbesol-dnl-rrkjus_psl.1.0.0.UPF
+  As 74.9216 As.rel-pbesol-n-rrkjus_psl.1.0.0.UPF
+  Ga 69.72 Ga.rel-pbesol-dnl-rrkjus_psl.1.0.0.UPF
 
 K_POINTS {automatic}
-7 7 7 0 0 0
+  7 7 7 0 0 0
 
 CELL_PARAMETERS {angstrom}
-4.0659931300 0.0000000000 0.0000000000
-2.0329965650 3.5212533422 0.0000000000
-2.0329965650 1.1737511141 3.3198694887
+  4.0659931300 0.0000000000 0.0000000000
+  2.0329965650 3.5212533422 0.0000000000
+  2.0329965650 1.1737511141 3.3198694887
 
 ATOMIC_POSITIONS {angstrom}
-Ga 0 0 0
-As 6.098989695 3.52125334219 2.48990211654
+  Ga 0           0             0
+  As 6.098989695 3.52125334219 2.48990211654

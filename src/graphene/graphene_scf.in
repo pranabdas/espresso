@@ -1,8 +1,8 @@
 &CONTROL
   calculation = 'scf',
   prefix      = 'graphene',
-  outdir      = './tmp/',
-  pseudo_dir  = './',
+  outdir      = '/tmp/',
+  pseudo_dir  = '../pseudos/',
 /
 
 &SYSTEM

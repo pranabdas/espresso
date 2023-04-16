@@ -1,9 +1,9 @@
 &control
   calculation = 'nscf'
-  prefix = 'GaAs'
-  pseudo_dir = './'
-  outdir= './tmp/'
-  verbosity = 'high'
+  prefix      = 'GaAs'
+  outdir      = '/tmp/',
+  pseudo_dir  = '../pseudos/',
+  verbosity   = 'high'
 /
 
 &system
