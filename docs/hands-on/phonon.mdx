@@ -1,5 +1,5 @@
 ---
-title: Phonon Dispersion
+title: Phonon dispersion
 keywords: ["phonon dispersion calculation in Quantum Espresso", "Raman spectra"]
 ---
 
@@ -47,7 +47,7 @@ mpirun -np 4 ph.x -i ph.GaAs.in > ph.GaAs.out
 ```
 
 The above calculation is computationally demanding. Our example calculation took
-more than 18 hours on a 2.6 GHz quad core processor.
+about a whole day on a 2.6 GHz quad core processor.
 
 :::info
 
@@ -80,7 +80,38 @@ import matdyn_GaAs_in from '!!raw-loader!/src/GaAs-phonon/matdyn.GaAs.in';
 mpirun -np 4 matdyn.x -i matdyn.GaAs.in > matdyn.GaAs.out
 ```
 
-*[incomplete...]*
+We can now plot the phonon dispersion of GaAs:
+
+```py title="notebooks/GaAs-phonon.ipynb"
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.rcParams["figure.dpi"]=150
+plt.rcParams["figure.facecolor"]="white"
+
+data = np.loadtxt("../src/GaAs-phonon/GaAs.freq.gp")
+
+nbands = data.shape[1] - 1
+for band in range(nbands):
+    plt.plot(data[:, 0], data[:, band], linewidth=1, alpha=0.5, color='k')
+# High symmetry k-points (check matdyn.GaAs.in)
+plt.axvline(x=data[0, 0], linewidth=0.5, color='k', alpha=0.5)
+plt.axvline(x=data[20, 0], linewidth=0.5, color='k', alpha=0.5)
+plt.axvline(x=data[40, 0], linewidth=0.5, color='k', alpha=0.5)
+plt.axvline(x=data[60, 0], linewidth=0.5, color='k', alpha=0.5)
+plt.xticks(ticks= [0, data[20, 0], data[40, 0], data[60, 0], data[-1, 0]], \
+           labels=['L', '$\Gamma$', 'X', 'U,K', '$\Gamma$'])
+plt.ylabel("Frequency (cm$^{-1}$)")
+plt.xlim(data[0, 0], data[-1, 0])
+plt.ylim(0, )
+plt.show()
+```
+
+<picture>
+  <source type="image/webp" srcSet={require("/img/GaAs-phonon.webp").default} />
+  <img src={require("/img/GaAs-phonon.png").default} alt="GaAs-phonon" width="600px" />
+</picture>
 
 ## Resources
 

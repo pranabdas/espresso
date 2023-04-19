@@ -3,7 +3,7 @@
   flfrc = 'GaAs.fc'
   flfrq = 'GaAs.freq'
   flvec = 'GaAs.modes'
-  loto_2d = .true.
+!  loto_2d = .true.
   q_in_band_form = .true.
 /
 5

@@ -2,6 +2,7 @@
 title: High Performance Computing
 keywords: ["HPC", "High Performance Computing", "Compiling Quantum Espresso", "Installing Quantum Espresso", "Quantum Espresso Installation", "Intel MKL", "Parallel Computing", "PBS job", "HPC job"]
 ---
+
 In order to perform computationally heavy calculations, we would require access
 to high performance computing facilities.
 
@@ -66,9 +67,9 @@ Quantum Espresso is already installed in NUS HPC clusters. Here is a sample job
 script for [NUS HPC](https://nusit.nus.edu.sg/hpc/) clusters:
 
 import CodeBlock from '@theme/CodeBlock';
-import pbs_job_sh from '!!raw-loader!/src/pbs_job.sh';
+import pbs_job_sh from '!!raw-loader!/scripts/pbs_job.sh';
 
-<CodeBlock language="bash" title="src/pbs_job.sh" showLineNumbers>{pbs_job_sh}</CodeBlock>
+<CodeBlock language="bash" title="scripts/pbs_job.sh" showLineNumbers>{pbs_job_sh}</CodeBlock>
 
 
 :::info
@@ -152,7 +153,7 @@ information. The releases via GitLab can be found under:
 files.
 ```bash
 wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
-tar zxvf q-e-qe-7.2.tar.gz
+tar -zxvf q-e-qe-7.2.tar.gz
 ```
 
 Load the necessary modules (applicable for NUS clusters, last checked in Jun
@@ -275,7 +276,7 @@ for up to date information.
 wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7deeaac4-f605-4bcf-a81b-ea7531577c61/l_BaseKit_p_2023.1.0.46401_offline.sh
 
 # requires gnu-awk
-sudo apt update && sudo apt install -y --no-install-recommends gawk
+sudo apt update && sudo apt install -y --no-install-recommends gawk gcc g++
 
 # interactive cli installation
 sudo apt install -y --no-install-recommends ncurses-term
@@ -321,7 +322,7 @@ source /opt/intel/oneapi/setvars.sh
 Compile quantum espresso:
 ```bash
 wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
-tar zxvf q-e-qe-7.2.tar.gz
+tar -zxvf q-e-qe-7.2.tar.gz
 rm q-e-qe-7.2.tar.gz
 cd q-e-qe-7.2
 ./configure F90=mpiifort MPIF90=mpiifort CC=mpicc CXX=icc F77=mpiifort LAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" BLAS_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" SCALAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl"
@@ -334,7 +335,7 @@ Please check out the [official documentation](
 https://gitlab.com/QEF/q-e/-/wikis/Developers/CMake-build-system) for more
 details. It requires `cmake` version `3.14` or later.
 ```bash
-apt update && apt install autoconf cmake make
+apt update && apt install autoconf cmake gawk gcc g++ make
 ```
 
 I used following steps to successfully compile Quantum Espresso using 2023

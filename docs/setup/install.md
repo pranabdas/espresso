@@ -177,7 +177,7 @@ Above command will download and save the file to your current directory. Next we
 need to just un-tar (no need to compile):
 
 ```bash
-tar zxvf pwtk-2.0.tar.gz
+tar -zxvf pwtk-2.0.tar.gz
 ```
 
 Add the path (modify below as appropriate) to `.bashrc`:

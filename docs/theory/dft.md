@@ -36,10 +36,10 @@ number.
 energy $$v(\textbf{r})$$ to within a trivial additive constant.
 
 So what Hohenberg-Kohn theorem says, may not sound very trivial. Schrödinger
-equation says how we can get the wavefunction from a given potential. Then there
-is the Schrödinger equation, if we can solve it (which could be difficult), we
-know how to get the density. Now Hohenberg and Kohn say the opposite is also
-true. For a given density, the potential can be uniquely determined. For
+equation says how we can get the wavefunction from a given potential. Once
+solved the wavefunction (which could be difficult), we can determine the density
+or any other properties. Now Hohenberg and Kohn theorem says the opposite is
+also true. For a given density, the potential can be uniquely determined. For
 non-degenerate ground states, two different Hamiltonian cannot have the same
 ground-state electron density. It is possible to define the ground-state energy
 as a function of electronic density.
@@ -92,7 +92,7 @@ $v_{ext}$. Therefore the problem is non-linear. It is usually solved
 computationally by starting from a trial potential and iterate to
 self-consistency. Also note that we have not included the kinetic energy term
 for the nucleus. This is because the nuclear mass is about three orders of
-magnitude heavier than the electronic mass ($M \gg m)$, so essentially
+magnitude heavier than the electronic mass ($M \gg m$), so essentially
 electronic dynamics is much faster than the nuclear dynamics (see
 Born-Oppenheimer approximation).
 
@@ -228,7 +228,7 @@ Contribution from higher Fourier components are small, we can limit the sum at
 finite $|\textbf{k + G}|$
 
 $$
-\frac{\hbar^2 |\textbf{k + G}|}{2m} \le E_{cutoff}
+\frac{\hbar^2 |\textbf{k + G}|}{2m} \le E_{\text{cutoff}}
 $$
 
 The charge density can be obtained from:
