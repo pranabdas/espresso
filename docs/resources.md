@@ -14,6 +14,7 @@ https://github.com/thepranab/DFT-MASTANI-School-IISER-Pune-2014))
 - [QE mailing list archive](https://lists.quantum-espresso.org/pipermail/users/)
 - [Materials square blog](https://www.materialssquare.com/blog/list/module-tip)
 - [Cornell PARADIM Summer School](https://www.paradim.org/summer_schools)
+- [School on Electron-Phonon Physics from First Principles (2018)](https://indico.ictp.it/event/8301/other-view?view=ictptimetable)
 
 
 ### Papers describing DFT implementations in QE

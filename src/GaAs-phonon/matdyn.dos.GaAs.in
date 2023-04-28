@@ -1,0 +1,11 @@
+&INPUT
+  asr   = 'crystal'
+  flfrc = 'GaAs.fc'
+  flfrq = 'GaAs.dos.freq'
+  flvec = 'GaAs.dos.modes'
+  dos   = .true.
+  fldos = 'GaAs.dos'
+  nk1   = 25
+  nk2   = 25
+  nk3   = 25
+/

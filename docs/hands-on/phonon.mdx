@@ -85,10 +85,6 @@ We can now plot the phonon dispersion of GaAs:
 ```py title="notebooks/GaAs-phonon.ipynb"
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
-
-plt.rcParams["figure.dpi"]=150
-plt.rcParams["figure.facecolor"]="white"
 
 data = np.loadtxt("../src/GaAs-phonon/GaAs.freq.gp")
 
@@ -113,6 +109,42 @@ plt.show()
   <img src={require("/img/GaAs-phonon.png").default} alt="GaAs-phonon" width="600px" />
 </picture>
 
+:::tip
+
+We may need to lower the value of `conv_thr` in `scf` calculation for more
+accurate result.
+
+:::
+
+### Phonon Density of States
+
+Input file for phonon DOS calculation:
+
+import matdyn_dos_GaAs_in from '!!raw-loader!/src/GaAs-phonon/matdyn.dos.GaAs.in';
+
+<CodeBlock language="bash" title="src/GaAs-phonon/matdyn.dos.GaAs.in" showLineNumbers>{matdyn_dos_GaAs_in}</CodeBlock>
+
+Plot phonon DOS:
+
+```py title="notebooks/GaAs-phonon.ipynb"
+freq, dos, pdos_Ga, pdos_As = np.loadtxt("../src/GaAs-phonon/GaAs.dos", unpack=True)
+
+plt.plot(freq, dos, c='k', lw=0.5, label='Total')
+plt.plot(freq, pdos_Ga, c='b', lw=0.5, label='Ga')
+plt.plot(freq, pdos_As, c='r', lw=0.5, label='As')
+plt.xlabel('$\\Omega~(cm^{-1}$)')
+plt.ylabel('Phonon DOS (state/cm$^{-1}/u.c.$)')
+plt.legend(frameon=False, loc='upper left')
+plt.xlim(freq[0], freq[-1])
+plt.show()
+```
+
+<picture>
+  <source type="image/webp" srcSet={require("/img/GaAs-phonon-dos.webp").default} />
+  <img src={require("/img/GaAs-phonon-dos.png").default} alt="GaAs-phonon-dos" width="600px" />
+</picture>
+
 ## Resources
 
+- [School on Electron-Phonon Physics from First Principles (2018)](https://indico.ictp.it/event/8301/other-view?view=ictptimetable)
 - <https://github.com/nguyen-group/QE-SSP>
