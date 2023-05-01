@@ -1,0 +1,5 @@
+&BANDS
+  prefix = 'silicon'
+  outdir = '/tmp/silicon-blyp/'
+  filband = 'si_bands_blyp.dat'
+/

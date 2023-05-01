@@ -1,0 +1,36 @@
+&CONTROL
+  calculation = 'scf',
+  prefix = 'silicon',
+  outdir = '/tmp/silicon-scan/'
+  pseudo_dir = '../pseudos/'
+/
+
+&SYSTEM
+  ibrav =  2,
+  celldm(1) = 10.2076,
+  nat =  2,
+  ntyp = 1,
+  ecutwfc = 120,
+  ecutrho = 800,
+  nbnd = 8,
+  input_dft = "SCAN"
+  exxdiv_treatment = "g-b"
+  x_gamma_extrapolation = .true.
+  ecutfock = 120
+/
+
+&ELECTRONS
+  conv_thr = 1e-9,
+  mixing_beta = 0.5
+/
+
+ATOMIC_SPECIES
+  Si 28.086 Si.SCAN.UPF ! when SCAN pseudo is not available, use pseudos without
+                        ! non-collinear core correction e.g., SG15 ONCV
+
+ATOMIC_POSITIONS (alat)
+  Si 0.0 0.0 0.0
+  Si 0.25 0.25 0.25
+
+K_POINTS (automatic)
+  12 12 12 0 0 0

@@ -1,0 +1,39 @@
+&CONTROL
+  calculation = 'scf',
+  prefix = 'silicon',
+  outdir = '/tmp/silicon-pbe0/'
+  pseudo_dir = '../pseudos/'
+/
+
+&SYSTEM
+  ibrav =  2,
+  celldm(1) = 10.2076,
+  nat =  2,
+  ntyp = 1,
+  ecutwfc = 50,
+  ecutrho = 400,
+  nbnd = 8,
+  input_dft = "pbe0"
+  nqx1 = 4      ! default same as K_POINTS grid, has to be commensurate
+  nqx2 = 4      ! with the k-grid, e.g., for 12 ✕ 12 ✕ 12 k-grid, we
+  nqx3 = 4      ! could choose 3 ✕ 3 ✕ 3 or 4 ✕ 4 ✕ 4 or 6 ✕ 6 ✕ 6
+  exxdiv_treatment = "g-b"
+  x_gamma_extrapolation = .true.
+  ecutfock = 60 ! default is ecutrho, cannot be smaller than ecutwfc
+/
+
+&ELECTRONS
+  conv_thr = 1e-9,
+  adaptive_thr = .true.
+  mixing_beta = 0.5
+/
+
+ATOMIC_SPECIES
+  Si 28.086 Si.NC.SR.ONCVPSP.upf
+
+ATOMIC_POSITIONS (alat)
+  Si 0.0 0.0 0.0
+  Si 0.25 0.25 0.25
+
+K_POINTS (automatic)
+  12 12 12 0 0 0

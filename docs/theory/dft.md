@@ -86,15 +86,18 @@ $$
 
 where $f_i$ is the occupation factor of electrons ($0 \le f_i \le 2$). The
 KS equation looks like single particle Schrödinger equation, however $e^2 \int
-d^3r' \frac{n(\textbf{r})}{|\textbf{r} - \textbf{r}'|}$ and $v_{xc} (\textbf{r};
-[n])$ terms depend on $n(\textbf{r})$ i.e., on $\psi_i$ which in turn depends on
-$v_{ext}$. Therefore the problem is non-linear. It is usually solved
-computationally by starting from a trial potential and iterate to
-self-consistency. Also note that we have not included the kinetic energy term
-for the nucleus. This is because the nuclear mass is about three orders of
-magnitude heavier than the electronic mass ($M \gg m$), so essentially
-electronic dynamics is much faster than the nuclear dynamics (see
-Born-Oppenheimer approximation).
+d^3r' \frac{n(\textbf{r})}{|\textbf{r} - \textbf{r}'|}$ (the Hartree energy due
+to electrostatic interaction of electronic cloud) and $v_{xc} (\textbf{r}; [n])$
+(*exchange-correlation* potential, reminiscence from Hartree-Fock theory, it
+includes all the remaining/unknown energy corrections) terms depend on
+$n(\textbf{r})$ i.e., on $\psi_i$ which in turn depends on $v_{ext}$. Therefore
+the problem is non-linear. It is usually solved computationally by starting from
+a trial potential and iterate to self-consistency. Also note that we have not
+included the kinetic energy term for the nucleus. This is because the nuclear
+mass is about three orders of magnitude heavier than the electronic mass
+($M \gg m$), so essentially electronic dynamics is much faster than the nuclear
+dynamics (see Born-Oppenheimer approximation). Now we are left with the task of
+solving a non-interacting Hamiltonian.
 
 
 :::info
@@ -103,6 +106,38 @@ $v_{ext}(\textbf{r})$ includes the potential energy due to nuclear field, and
 external electric and magnetic fields if present.
 
 :::
+
+## Exchange-correlation functional
+
+### Local Density Approximation (LDA)
+
+Energy functional is a function of the local charge density:
+
+$$
+E_{xc} = \int n(\textbf{r}) \epsilon_{xc}(n(\textbf{r})) d\textbf{r}
+$$
+
+$$
+v_{xc}(\textbf{r}) = \epsilon_{xc}(n(\textbf{r})) + n(\textbf{r})\frac{d\epsilon_{xc}(n)}{dn}\bigg\rvert_{n=n(\textbf{r})}
+$$
+
+where $\epsilon_{xc}(n)$ is obtained for the homogeneous electron gas of density
+$n$ (using Quantum Monte Carlo techniques) and fitted to some analytic form.
+
+### Generalized Gradient Approximation (GGA)
+
+These are a family of functionals that depends on the local density and the
+local gradient of the density:
+
+$$
+E_{xc} = \int n(\textbf{r}) \epsilon_{GGA}(n(\textbf{r}), |\nabla n(\textbf{r})|) d\textbf{r}
+$$
+
+There are many flavor of this functional. There are also more advanced
+functionals: Meta-GGA (e.g., SCAN), hybrids (e.g., B3LYP), nonlocal functionals
+for van der Waals forces, Grimme's DFT+D (a semi-empirical correction to GGA).
+They usually produces more accurate result, but computationally more expensive
+and sometimes numerically unstable.
 
 ## Algorithmic implementation
 
@@ -186,6 +221,17 @@ This is a linear algebra problem, solving the above involves diagonalization of
 ($N_b \times N_b$) matrix which gives us corresponding eigenvalue and
 eigenfunction.
 
+Apart from plane waves, various localized basis set could be used, e.g., Linear
+Combination of Atomic Orbitals (LCAO), Gaussian-type Orbitals (GTO), Linearized
+Muffin-Tin Orbitals (LMTO). Once could also consider mixed basis sets, such as
+the Linearized Augmented Plane Waves (LAPW). Localized sets are smaller in size,
+they can be used for both finite and periodic systems, however they are
+difficult to use/calculate.
+
+In case of plane waves, we need larger basis set, and requires periodicity. Need
+to construct supercell for finite systems. Use of [pseudopotential](
+/setup/pseudo-potential) reduces the number of required plane waves.
+
 ## Variational Principle
 
 Finding the ground state:
@@ -253,4 +299,5 @@ the `ecutwfc`.
 
 - [MIT Course](https://ocw.mit.edu/courses/materials-science-and-engineering/3-320-atomistic-computer-modeling-of-materials-sma-5107-spring-2005/video-lectures/)
 - [Quantum Espresso Tutorials](https://www.quantum-espresso.org/resources/tutorials)
+- [Introduction to DFT by Paolo Giannozzi](https://www.youtube.com/watch?v=1AH2pkijDPg&list=PLYc-eBoIpXTIboem6dKTYD1-1m0sMYnYz&index=1)
 - [http://compmatphys.epotentia.com](http://compmatphys.epotentia.com/)

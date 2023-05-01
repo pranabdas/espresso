@@ -1,0 +1,5 @@
+&BANDS
+  prefix = 'silicon'
+  outdir = '/tmp/silicon-gga/'
+  filband = 'si_bands_gga.dat'
+/

@@ -1,0 +1,5 @@
+&BANDS
+  prefix = 'silicon'
+  outdir = '/tmp/silicon-scan/'
+  filband = 'si_bands_scan.dat'
+/

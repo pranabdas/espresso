@@ -22,6 +22,8 @@ Various pseudopotential libraries:
 - <https://www.physics.rutgers.edu/gbrv/>
 - <https://nninc.cnf.cornell.edu>
 - <http://www.quantum-simulation.org/potentials/>
+- [BLYP pseudopotentials](http://pseudopotentials.quantum-espresso.org/legacy_tables/hartwigesen-goedecker-hutter-pp)
+- [SCAN pseudopotentials](https://yaoyi92.github.io/scan-tm-pseudopotentials.html)
 
 Pseudopotential naming conventions in PSLibrary: an example pseudopotential
 filename is `O.rel-pbe-n-rrkjus_psl.1.0.0.UPF`.

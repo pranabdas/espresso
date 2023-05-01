@@ -27,5 +27,7 @@ mv bin ..
 cd ..
 rm -rf build
 echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
-echo 'export PATH="${INSTALL_DIR}/q-e-qe-${QE_VER}/bin:$PATH"' >> ~/.bashrc
+cat << EOF | tee -a ~/.bashrc > /dev/null
+export PATH="${INSTALL_DIR}/q-e-qe-${QE_VER}/bin:$PATH"
+EOF
 cd ${CWD}

@@ -1,0 +1,38 @@
+&CONTROL
+  calculation = 'scf',
+  prefix = 'silicon',
+  outdir = '/tmp/silicon-hse/'
+  pseudo_dir = '../pseudos/'
+/
+
+&SYSTEM
+  ibrav =  2,
+  celldm(1) = 10.2076,
+  nat =  2,
+  ntyp = 1,
+  ecutwfc = 40,
+  nbnd = 8,
+  input_dft = "hse"
+  exxdiv_treatment = "g-b"
+  x_gamma_extrapolation = .true.
+  ecutfock = 40
+  nqx1 = 4
+  nqx2 = 4
+  nqx3 = 4
+/
+
+&ELECTRONS
+  conv_thr = 1e-8,
+  mixing_beta = 0.5
+  adaptive_thr = .true.
+/
+
+ATOMIC_SPECIES
+  Si 28.086 Si.pbe-n-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (alat)
+  Si 0.0 0.0 0.0
+  Si 0.25 0.25 0.25
+
+K_POINTS (automatic)
+  8 8 8 0 0 0

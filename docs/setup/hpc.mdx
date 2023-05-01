@@ -249,6 +249,7 @@ echo 'export PATH="/home/svu/{username}/q-e-qe-7.2/bin:$PATH"' >> ~/.bashrc
 ```
 
 And don't forget to load dependencies before calling QE executables.
+
 ```bash
 module load xe_2018
 module load fftw/3.3.7
@@ -315,17 +316,27 @@ sudo sh ./l_onemkl_p_2023.1.0.46342_offline.sh -a --silent --eula accept
 
 After installation, do not forget to `source` the environment variables before
 using:
+
 ```bash
 source /opt/intel/oneapi/setvars.sh
 ```
 
 Compile quantum espresso:
+
 ```bash
 wget https://gitlab.com/QEF/q-e/-/archive/qe-7.2/q-e-qe-7.2.tar.gz
 tar -zxvf q-e-qe-7.2.tar.gz
 rm q-e-qe-7.2.tar.gz
 cd q-e-qe-7.2
-./configure F90=mpiifort MPIF90=mpiifort CC=mpicc CXX=icc F77=mpiifort LAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" BLAS_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" SCALAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl"
+./configure \
+  F90=mpiifort \
+  MPIF90=mpiifort \
+  CC=mpicc CXX=icc \
+  F77=mpiifort \
+  FFLAGS="-O3 -assume byterecl -g -traceback" \
+  LAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" \
+  BLAS_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl" \
+  SCALAPACK_LIBS="-L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl"
 make -j4 all
 ```
 
@@ -334,12 +345,14 @@ make -j4 all
 Please check out the [official documentation](
 https://gitlab.com/QEF/q-e/-/wikis/Developers/CMake-build-system) for more
 details. It requires `cmake` version `3.14` or later.
+
 ```bash
 apt update && apt install autoconf cmake gawk gcc g++ make
 ```
 
 I used following steps to successfully compile Quantum Espresso using 2023
 versions of Intel libraries in Ubuntu 22.04 system:
+
 ```bash
 cd q-e-qe-7.2
 mkdir build && cd build
