@@ -1,0 +1,8 @@
+&inputpp
+  outdir     =  '/tmp/'   ! quantum espresso outdir
+  prefix     =  'silicon' ! prefix of the pw.x scf calculation
+  seedname   =  'silicon' ! must be same as the file name of win file
+  write_amn  =  .true.
+  write_mmn  =  .true.
+  write_unk  =  .true.
+/

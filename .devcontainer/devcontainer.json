@@ -1,46 +1,47 @@
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
-    // https://github.com/microsoft/vscode-dev-containers/tree/main/containers
-    "features": {
-        "node": {
-            "version": "18"
-        }
-    },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "telemetry.telemetryLevel": "off",
-                "telemetry.enableTelemetry": false,
-                "workbench.settings.enableNaturalLanguageSearch": false,
-                "editor.wordWrap": "on",
-                "editor.tabSize": 2,
-                "files.insertFinalNewline": true,
-                "files.trimTrailingWhitespace": true,
-                "editor.fontSize": 14,
-                "editor.minimap.enabled": false,
-                "editor.rulers": [
-                    80
-                ],
-                "workbench.colorCustomizations": {
-                    "editorRuler.foreground": "#fdb88056"
-                },
-                "workbench.colorTheme": "Dracula At Night",
-                "terminal.integrated.fontSize": 13,
-                "cSpell.enableFiletypes": [
-                    "mdx"
-                ]
-            },
-            "extensions": [
-                "bceskavich.theme-dracula-at-night",
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "mutantdino.resourcemonitor",
-                "SirTori.indenticator",
-                "streetsidesoftware.code-spell-checker",
-                "unifiedjs.vscode-mdx"
-            ]
-        }
-    },
-    "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh",
-    "waitFor": "postCreateCommand"
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  // https://github.com/microsoft/vscode-dev-containers/tree/main/containers
+  "features": {
+    "node": {
+      "version": "18"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "telemetry.telemetryLevel": "off",
+        "telemetry.enableTelemetry": false,
+        "workbench.settings.enableNaturalLanguageSearch": false,
+        "editor.wordWrap": "on",
+        "editor.tabSize": 2,
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "editor.fontSize": 14,
+        "editor.minimap.enabled": false,
+        "editor.rulers": [
+          80
+        ],
+        "workbench.colorCustomizations": {
+          "editorRuler.foreground": "#fdb88056"
+        },
+        "workbench.colorTheme": "Dracula At Night",
+        "terminal.integrated.fontSize": 13,
+        "cSpell.enableFiletypes": [
+          "mdx"
+        ]
+      },
+      "extensions": [
+        "bceskavich.theme-dracula-at-night",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mutantdino.resourcemonitor",
+        "SirTori.indenticator",
+        "streetsidesoftware.code-spell-checker",
+        "unifiedjs.vscode-mdx",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh",
+  "waitFor": "postCreateCommand"
 }

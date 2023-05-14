@@ -1,0 +1,34 @@
+&control
+  calculation  = "scf"
+  restart_mode = "from_scratch"
+  prefix       = "silicon"
+  pseudo_dir   = "../pseudos/"
+  outdir       = "/tmp/"
+/
+
+&system
+  ibrav = 0
+  nat = 2
+  ntyp = 1
+  ecutwfc = 25.0
+  ecutrho = 200.0
+/
+
+&electrons
+  conv_thr = 1.0d-10
+/
+
+ATOMIC_SPECIES
+  Si 28. Si.pbe-n-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS crystal
+  Si -0.25 0.75 -0.25
+  Si 0.00 0.00 0.00
+
+K_POINTS automatic
+  10 10 10 0 0 0
+
+CELL_PARAMETERS bohr
+  -5.1 0.0 5.1
+  0.0 5.1 5.1
+  -5.1 5.1 0.0

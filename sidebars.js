@@ -27,6 +27,7 @@ module.exports = {
         "theory/problem-statement",
         "theory/hartree-fock",
         "theory/dft",
+        "theory/wannier",
       ],
     },
     {
@@ -55,6 +56,7 @@ module.exports = {
         "hands-on/epsilon",
         "hands-on/fermi-surface",
         "hands-on/phonon",
+        "hands-on/wannier",
       ],
     },
     "resources",

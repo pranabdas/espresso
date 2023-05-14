@@ -1,0 +1,64 @@
+---
+title: Wannier method
+---
+
+## Obtain bandstructure of Silicon
+
+1. Perform `scf` calculation using Quantum Espresso `pw.x`
+
+```console
+QE_PATH="/workspaces/q-e-qe-7.2/bin"
+mpirun -np 4 ${QE_PATH}/pw.x -i pw.scf.silicon.in > pw.scf.silicon.out
+```
+
+2. Perform `nscf` calculation using `pw.x`. Instead of automatic k-grid, we need
+to provide explicit list of k-points. Such explicit list of k-points can be
+generated using perl script included in the Wannier package under utility.
+
+```console
+WANNIER_PATH="/workspaces/wannier90-3.1.0"
+# directly append the k-points to the input file
+${WANNIER_PATH}/utility/kmesh.pl 4 4 4 >> pw.nscf.silicon.in
+```
+
+Run `nscf` calculation:
+
+```console
+mpirun -np 4 ${QE_PATH}/pw.x -i pw.nscf.silicon.in > pw.nscf.silicon.out
+```
+
+3. Prepare input file for wannier90 (`silicon.win`). Here we need the k-points
+list without the weights:
+
+```console
+${WANNIER_PATH}/utility/kmesh.pl 4 4 4 wan
+```
+
+4. Generate nnkp input:
+
+```console
+# we can just provide the seedname or seedname.win
+${WANNIER_PATH}/wannier90.x -pp silicon
+```
+
+5. Create input file for `pw2wan`, and generate initial projections:
+
+```console
+mpirun -np 4 ${WANNIER_PATH}/pw2wannier90.x -i pw2wan.silicon.in > pw2
+wan.silicon.out
+```
+
+6. Run wannier calculation:
+
+```console
+mpirun -np 4 ${WANNIER_PATH}/wannier90.x silicon
+```
+
+<picture>
+  <source type="image/webp" srcSet={require("/img/silicon-wannier-bands.webp").default} />
+  <img src={require("/img/silicon-wannier-bands.png").default} alt="silicon-wannier-bands" />
+</picture>
+
+## Resources
+
+- <https://sites.google.com/view/hubbard-koopmans/program>
