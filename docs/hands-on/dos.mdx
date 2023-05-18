@@ -26,7 +26,7 @@ our previous scf input file except some parameters are modified. You can find
 all the input files in my [GitHub repository](
 https://github.com/pranabdas/espresso/). We used the lattice constant value that
 we obtained from the relaxation calculation. We should not directly use the
-experimental/real lattice constant value. Depending on the method and
+experimental/real lattice constant values. Depending on the method and
 pseudo-potential, it might result stress in the system. We have increased the
 `ecutwfc` to have better precision. We run the scf calculation:
 
@@ -40,7 +40,10 @@ calculation). We have increased the number of k-points to 12 × 12 × 12 with
 automatic option. Also specify `nosym = .TRUE.` to avoid generation of
 additional k-points in low symmetry cases. `outdir` and `prefix` must be the
 same as in the `scf` step, some of the inputs and output are read from previous
-step.
+step. Here we can specify a larger number of `nbnd` to calculate unoccupied
+bands. Number of occupied bands can be found in the `scf` output as number of
+Kohn-Sham states.
+
 
 ```bash
 pw.x < si_nscf_dos.in > si_nscf_dos.out

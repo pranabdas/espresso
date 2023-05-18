@@ -1,0 +1,62 @@
+&control
+  calculation = 'bands',
+  pseudo_dir = '../pseudos/'
+  outdir='/tmp/CrO/'
+  prefix='CrO',
+/
+
+&system
+  ibrav = 0,
+  celldm(1) = 8.0,
+  nat = 4,
+  ntyp = 3,
+  nspin = 2,
+  starting_magnetization(1) =  0.4,
+  starting_magnetization(2) = -0.4,
+  ecutwfc = 40.0,
+  ecutrho = 400.0,
+  occupations = 'smearing',
+  smearing = 'mv',
+  degauss = 0.01
+  starting_ns_eigenvalue(3,1,1) = 0.0
+  starting_ns_eigenvalue(1,1,1) = 1.0
+  starting_ns_eigenvalue(2,1,1) = 1.0
+  starting_ns_eigenvalue(3,2,2) = 0.0
+  starting_ns_eigenvalue(1,2,2) = 1.0
+  starting_ns_eigenvalue(2,2,2) = 1.0
+/
+
+&electrons
+  mixing_beta = 0.2
+  diagonalization = 'cg'
+  conv_thr =  1.0d-8,
+  electron_maxstep = 200
+/
+
+ATOMIC_SPECIES
+  Cr1 1.0 Cr_pbesol_v1.5.uspp.F.UPF
+  Cr2 1.0 Cr_pbesol_v1.5.uspp.F.UPF
+  O   1.0 O.pbesol-n-kjpaw_psl.0.1.UPF
+
+CELL_PARAMETERS
+  0.502322857   0.502322857   1.010537243
+  0.502322857   1.010537243   0.502322857
+  1.010537243   0.502322857   0.502322857
+
+ATOMIC_POSITIONS {crystal}
+  Cr1      0.000000000   0.000000000   0.000000000
+  Cr2      0.500000000   0.500000000   0.500000000
+  O        0.250000000   0.250000000   0.250000000
+  O        0.750000000   0.750000000   0.750000000
+
+K_POINTS crystal_b
+  5
+  0.0     0.0     0.0     20    !G
+  0.5     0.0     0.0     20  	!L
+  0.81213 0.34393 0.34393 20    !
+  0.5     0.5     0.5     20    !T
+  0.0     0.0     0.0     1     !G
+
+HUBBARD ortho-atomic
+  U Cr1-3d 7.86
+  U Cr2-3d 7.86

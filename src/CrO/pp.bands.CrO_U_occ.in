@@ -1,0 +1,5 @@
+&BANDS
+  outdir='/tmp/CrO/'
+  prefix='CrO',
+  filband = 'CrO_bands_U_occ.dat'
+/

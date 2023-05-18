@@ -29,8 +29,9 @@ k-points for which we want to calculate the eigenvalues. You may use the
 https://www.materialscloud.org/work/tools/seekpath) to visualize the K-path. We
 can specify `nbnd`, by default it calculates half the number of valence
 electrons, i.e., only the occupied ground state bands. Usually we are interested
-also in the unoccupied bands above the Fermi energy. Below is a sample input
-file for the band calculation:
+also in the unoccupied bands above the Fermi energy. Number of occupied bands
+can be found in the `scf` output as number of Kohn-Sham states. Below is a
+sample input file for the band calculation:
 
 import si_bands_in from '!!raw-loader!/src/silicon/si_bands.in';
 

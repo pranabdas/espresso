@@ -39,8 +39,10 @@ pw.x -i pw.scf.fe_afm.in > pw.scf.fe_afm.out
 In case of the AFM calculation, if we have started with FM (say, for both atom
 types `starting_magnetization=0.6` ), the calculation would still converge to
 AFM state as it is the true ground state for this system, albeit it would take
-more iteration to converge. If you get different results due to different
-starting magnetization, you might need a stricter convergence criteria.
+more iteration to converge. If a system has complex potential surface with local
+minima, it it possible to get different final state magnetization depending on
+the starting magnetization. In such cases, a stricter convergence criteria might
+help.
 
 :::
 
