@@ -1,0 +1,49 @@
+&control
+  calculation='scf'
+  prefix='CoO'
+  pseudo_dir = '../pseudos/'
+  outdir='/tmp/CoO/'
+  verbosity='high'
+/
+
+&system
+  ibrav = 0,
+  celldm(1) = 8.00,
+  nat = 4,
+  ntyp = 3,
+  ecutwfc = 35.0
+  ecutrho = 280.0
+  nspin = 2
+  tot_magnetization = 0
+  occupations = 'fixed'
+  nbnd = 28
+/
+
+&electrons
+  conv_thr =  1.d-10
+  startingwfc = 'file'
+  startingpot = 'file'
+/
+
+ATOMIC_SPECIES
+  Co1  58.933194  Co_pbesol_v1.2.uspp.F.UPF
+  Co2  58.933194  Co_pbesol_v1.2.uspp.F.UPF
+  O    15.999     O.pbesol-n-kjpaw_psl.0.1.UPF
+
+ATOMIC_POSITIONS {crystal}
+  Co1      0.00000000     0.00000000     0.00000000
+  Co2      0.50000000     0.50000000     0.50000000
+  O        0.25000000     0.25000000     0.25000000
+  O        0.75000000     0.75000000     0.75000000
+
+CELL_PARAMETERS {alat}
+  0.504866135   0.504866135   1.010600690
+  0.504866135   1.010600690   0.504866135
+  1.010600690   0.504866135   0.504866135
+
+K_POINTS {automatic}
+ 3 3 3 0 0 0
+
+HUBBARD {ortho-atomic}
+U Co1-3d  7.1108
+U Co2-3d  7.1108
