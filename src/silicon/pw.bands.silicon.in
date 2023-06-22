@@ -3,7 +3,7 @@
   restart_mode = 'from_scratch',
   prefix = 'silicon',
   outdir = './tmp/'
-  pseudo_dir = './pseudos/'
+  pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
 

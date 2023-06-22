@@ -3,19 +3,23 @@ title: Bandstructure Calculation
 sidebar_label: Bandstructure
 ---
 
+import Mat3raAdmonition from '../../src/apps/mat3ra';
+
+<Mat3raAdmonition url="https://platform.mat3ra.com/seminar/projects/seminar-espresso-tutorials/jobs/DgNA7K8o46K6CTM6W" />
+
 Before we can run `bands` calculation, we need to perform single-point [self
 consistent field calculation](scf.mdx). We have our input `scf` file with some
 new parameters:
 
 import CodeBlock from '@theme/CodeBlock';
-import si_bands_scf_in from '!!raw-loader!/src/silicon/si_bands_scf.in';
+import si_bands_scf_in from '!!raw-loader!/src/silicon/pw.scf.silicon_bands.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands_scf.in" showLineNumbers>{si_bands_scf_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pw.scf.silicon_bands.in" showLineNumbers>{si_bands_scf_in}</CodeBlock>
 
 Run the `scf` calculation:
 
 ```bash
-pw.x < si_bands_scf.in > si_bands_scf.out
+pw.x < pw.scf.silicon_bands.in > pw.scf.silicon_bands.out
 ```
 
 Next step is our band calculation (non-self consistent field) calculation. The
@@ -33,28 +37,28 @@ also in the unoccupied bands above the Fermi energy. Number of occupied bands
 can be found in the `scf` output as number of Kohn-Sham states. Below is a
 sample input file for the band calculation:
 
-import si_bands_in from '!!raw-loader!/src/silicon/si_bands.in';
+import si_bands_in from '!!raw-loader!/src/silicon/pw.bands.silicon.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands.in" showLineNumbers>{si_bands_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pw.bands.silicon.in" showLineNumbers>{si_bands_in}</CodeBlock>
 
 Run `pw.x` with `bands` calculation input file:
 
 ```bash
-pw.x < si_bands.in > si_bands.out
+pw.x < pw.bands.silicon.in > pw.bands.silicon.out
 ```
 
 After the bands calculation is performed, we need some postprocessing using
 `bands.x` utility in order to obtain the data in more usable format. Input file
 for `bands.x` postprocessing:
 
-import si_bands_pp_in from '!!raw-loader!/src/silicon/si_bands_pp.in';
+import si_bands_pp_in from '!!raw-loader!/src/silicon/pp.bands.silicon.in';
 
-<CodeBlock language="bash" title="src/silicon/si_bands_pp.in" showLineNumbers>{si_bands_pp_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pp.bands.silicon.in" showLineNumbers>{si_bands_pp_in}</CodeBlock>
 
 Run `bands.x` from post processing (PP) module:
 
 ```bash
-bands.x < si_bands_pp.in > si_bands_pp.out
+bands.x < pp.bands.silicon.in > pp.bands.silicon.out
 ```
 
 Finally, we run `plotband.x` to visualize bandstructure. We can either run it

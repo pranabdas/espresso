@@ -6,7 +6,7 @@ const Mat3raAdmonition = ({ url }) => {
   return (
     <Admonition type="tip" title="MAT3RA.COM">
       <p>
-        Review, clone, modify, and run below calculation on{" "}
+        Review, clone, modify, and run this calculation on{" "}
         <Mat3raButton url={url} />
       </p>
       <p style={{ color: "grey", fontSize: "0.9em" }}>

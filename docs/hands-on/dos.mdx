@@ -34,6 +34,10 @@ pseudo-potential, it might result stress in the system. We have increased the
 pw.x < pw.scf.silicon_dos.in > pw.scf.silicon_dos.out
 ```
 
+import Mat3raAdmonition from '../../src/apps/mat3ra';
+
+<Mat3raAdmonition url="https://platform.mat3ra.com/seminar/projects/seminar-espresso-tutorials/jobs/6XhvtFpEc7kmwK5Q3" />
+
 Next, we have prepared the input file for the `nscf` calculation. Where is have
 added `occupations` in the `&system` card as `tetrahedra` (appropriate for DOS
 calculation). We have increased the number of k-points to 12 × 12 × 12 with
@@ -53,14 +57,14 @@ Now our final step is to calculate the density of states. The DOS input file as
 follows:
 
 import CodeBlock from '@theme/CodeBlock';
-import si_dos_in from '!!raw-loader!/src/silicon/dos.silicon.in';
+import si_dos_in from '!!raw-loader!/src/silicon/pp.dos.silicon.in';
 
-<CodeBlock language="bash" title="src/silicon/dos.silicon.in" showLineNumbers>{si_dos_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pp.dos.silicon.in" showLineNumbers>{si_dos_in}</CodeBlock>
 
 We run:
 
 ```bash
-dos.x < dos.silicon.in > dos.silicon.out
+dos.x < pp.dos.silicon.in > pp.dos.silicon.out
 ```
 
 The DOS data in the `si_dos.dat` file that we specified in our input file. We
