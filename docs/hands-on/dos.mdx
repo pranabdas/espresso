@@ -21,7 +21,7 @@ of DOS depends on the integration in $k$ space.
 3. Finally, the DOS can be determined by integrating the electron density in $k$
 space.
 
-I have created a new input file (`si_scf_dos.in`) which is very much the same as
+I have created a new input file (`pw.scf.silicon_dos.in`) which is very much the same as
 our previous scf input file except some parameters are modified. You can find
 all the input files in my [GitHub repository](
 https://github.com/pranabdas/espresso/). We used the lattice constant value that
@@ -31,7 +31,7 @@ pseudo-potential, it might result stress in the system. We have increased the
 `ecutwfc` to have better precision. We run the scf calculation:
 
 ```bash
-pw.x < si_scf_dos.in > si_scf_dos.out
+pw.x < pw.scf.silicon_dos.in > pw.scf.silicon_dos.out
 ```
 
 Next, we have prepared the input file for the `nscf` calculation. Where is have
@@ -46,21 +46,21 @@ Kohn-Sham states.
 
 
 ```bash
-pw.x < si_nscf_dos.in > si_nscf_dos.out
+pw.x < pw.nscf.silicon_dos.in > pw.nscf.silicon_dos.out
 ```
 
 Now our final step is to calculate the density of states. The DOS input file as
 follows:
 
 import CodeBlock from '@theme/CodeBlock';
-import si_dos_in from '!!raw-loader!/src/silicon/si_dos.in';
+import si_dos_in from '!!raw-loader!/src/silicon/dos.silicon.in';
 
-<CodeBlock language="bash" title="src/silicon/si_dos.in" showLineNumbers>{si_dos_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/dos.silicon.in" showLineNumbers>{si_dos_in}</CodeBlock>
 
 We run:
 
 ```bash
-dos.x < si_dos.in > si_dos.out
+dos.x < dos.silicon.in > dos.silicon.out
 ```
 
 The DOS data in the `si_dos.dat` file that we specified in our input file. We
