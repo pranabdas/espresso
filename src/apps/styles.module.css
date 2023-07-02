@@ -1,0 +1,52 @@
+.mat3ra {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  padding: 4px 12 px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: url('../../static/img/mat3ra-logo.svg') no-repeat;
+  height: 24px;
+  width: 94px;
+  background-color: #3f2a98;
+}
+
+.mat3ra:hover {
+  background-color: purple;
+}
+
+details {
+  color: grey;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+summary:hover {
+  color: var(--ifm-font-color-base);
+}
+
+details[open] {
+  color: var(--ifm-font-color-base);
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}

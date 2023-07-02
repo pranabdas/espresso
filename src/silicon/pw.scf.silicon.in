@@ -6,10 +6,10 @@
   prefix = 'silicon',
 
 ! output directory. Note that it is deprecated.
-  outdir = './tmp/silicon/'
+  outdir = './tmp/'
 
 ! directory for the pseudo potential directory
-  pseudo_dir = './pseudos/'
+  pseudo_dir = '../pseudos/'
 
 ! verbosity high will give more details on the output file
   verbosity = 'high'
