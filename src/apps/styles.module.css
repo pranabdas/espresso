@@ -28,3 +28,25 @@
 .mat3ra:hover {
   background-color: purple;
 }
+
+details {
+  color: grey;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+summary:hover {
+  color: var(--ifm-font-color-base);
+}
+
+details[open] {
+  color: var(--ifm-font-color-base);
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}
