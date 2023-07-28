@@ -6,7 +6,7 @@ title: Wannier method
 
 1. Perform `scf` calculation using Quantum Espresso `pw.x`
 
-```console
+```bash
 QE_PATH="/workspaces/q-e-qe-7.2/bin"
 mpirun -np 4 ${QE_PATH}/pw.x -i pw.scf.silicon.in > pw.scf.silicon.out
 ```
@@ -15,7 +15,7 @@ mpirun -np 4 ${QE_PATH}/pw.x -i pw.scf.silicon.in > pw.scf.silicon.out
 to provide explicit list of k-points. Such explicit list of k-points can be
 generated using perl script included in the Wannier package under utility.
 
-```console
+```bash
 WANNIER_PATH="/workspaces/wannier90-3.1.0"
 # directly append the k-points to the input file
 ${WANNIER_PATH}/utility/kmesh.pl 4 4 4 >> pw.nscf.silicon.in
@@ -23,34 +23,34 @@ ${WANNIER_PATH}/utility/kmesh.pl 4 4 4 >> pw.nscf.silicon.in
 
 Run `nscf` calculation:
 
-```console
+```bash
 mpirun -np 4 ${QE_PATH}/pw.x -i pw.nscf.silicon.in > pw.nscf.silicon.out
 ```
 
 3. Prepare input file for wannier90 (`silicon.win`). Here we need the k-points
 list without the weights:
 
-```console
+```bash
 ${WANNIER_PATH}/utility/kmesh.pl 4 4 4 wan
 ```
 
 4. Generate nnkp input:
 
-```console
+```bash
 # we can just provide the seedname or seedname.win
 ${WANNIER_PATH}/wannier90.x -pp silicon
 ```
 
 5. Create input file for `pw2wan`, and generate initial projections:
 
-```console
+```bash
 mpirun -np 4 ${WANNIER_PATH}/pw2wannier90.x -i pw2wan.silicon.in > pw2
 wan.silicon.out
 ```
 
 6. Run wannier calculation:
 
-```console
+```bash
 mpirun -np 4 ${WANNIER_PATH}/wannier90.x silicon
 ```
 

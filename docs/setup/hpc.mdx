@@ -274,20 +274,20 @@ for up to date information.
 #### Intel oneAPI Base Toolkit:
 
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7deeaac4-f605-4bcf-a81b-ea7531577c61/l_BaseKit_p_2023.1.0.46401_offline.sh
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/992857b9-624c-45de-9701-f6445d845359/l_BaseKit_p_2023.2.0.49397_offline.sh
 
 # requires gnu-awk
 sudo apt update && sudo apt install -y --no-install-recommends gawk gcc g++
 
 # interactive cli installation
 sudo apt install -y --no-install-recommends ncurses-term
-sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --cli
+sudo sh ./l_BaseKit_p_2023.2.0.49397_offline.sh -a --cli
 
 # list components included in oneAPI Base Toolkit
-sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --list-components
+sh ./l_BaseKit_p_2023.2.0.49397_offline.sh -a --list-components
 
 # install a subset of components with silent/unattended option
-sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
+sudo sh ./l_BaseKit_p_2023.2.0.49397_offline.sh -a --silent --eula accept --components intel.oneapi.lin.dpcpp-cpp-compiler:intel.oneapi.lin.mkl.devel
 ```
 
 :::note
@@ -301,8 +301,8 @@ completed, the setup script will print the installation location.
 #### HPC Toolkit
 
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/1ff1b38a-8218-4c53-9956-f0b264de35a4/l_HPCKit_p_2023.1.0.46346_offline.sh
-sudo sh ./l_HPCKit_p_2023.1.0.46346_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0722521a-34b5-4c41-af3f-d5d14e88248d/l_HPCKit_p_2023.2.0.49440_offline.sh
+sudo sh ./l_HPCKit_p_2023.2.0.49440_offline.sh -a --silent --eula accept
 ```
 
 #### Intel MKL library
@@ -310,8 +310,8 @@ sudo sh ./l_HPCKit_p_2023.1.0.46346_offline.sh -a --silent --eula accept
 Installing individual components:
 
 ```bash
-wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/cd17b7fe-500e-4305-a89b-bd5b42bfd9f8/l_onemkl_p_2023.1.0.46342_offline.sh
-sudo sh ./l_onemkl_p_2023.1.0.46342_offline.sh -a --silent --eula accept
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/adb8a02c-4ee7-4882-97d6-a524150da358/l_onemkl_p_2023.2.0.49497_offline.sh
+sudo sh ./l_onemkl_p_2023.2.0.49497_offline.sh -a --silent --eula accept
 ```
 
 After installation, do not forget to `source` the environment variables before
