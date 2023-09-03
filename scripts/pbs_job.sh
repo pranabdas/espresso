@@ -7,5 +7,5 @@ source /etc/profile.d/rec_modules.sh
 module load espresso6.5-intel_18
 ## module load espresso6.5-Centos6_Intel
 cd $PBS_O_WORKDIR;
-np=$( cat  ${PBS_NODEFILE} |wc -l );
+np=$( cat ${PBS_NODEFILE} | wc -l );
 mpirun -np $np -f ${PBS_NODEFILE} pw.x -inp qe-scf.in > qe-scf.out
