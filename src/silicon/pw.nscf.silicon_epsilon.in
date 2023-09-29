@@ -1,7 +1,7 @@
 &CONTROL
   calculation = 'nscf',
   prefix = 'silicon',
-  outdir = '/tmp/silicon/'
+  outdir = '/tmp/'
   pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
@@ -12,7 +12,7 @@
   nat =  2,
   ntyp = 1,
   ecutwfc = 30
-  nbnd = 16
+  nbnd = 20
   nosym = .true.
   noinv = .true.
 /

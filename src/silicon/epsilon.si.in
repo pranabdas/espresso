@@ -1,5 +1,5 @@
 &inputpp
-  outdir = "/tmp/silicon/"
+  outdir = "/tmp/"
   prefix = "silicon"
   calculation = "eps"
 /

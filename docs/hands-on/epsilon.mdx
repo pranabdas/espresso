@@ -2,23 +2,21 @@
 title: Dielectric constant
 ---
 
-First we perform our self consistent field calculation:
+First we perform self consistent field calculation:
 
 ```bash
-mpirun -np 4 pw.x -in pw.scf.silicon.in > pw.scf.silicon.out
+mpirun -np 4 pw.x -i pw.scf.silicon_epsilon.in > pw.scf.silicon_epsilon.out
 ```
 
-Next step we perform `nscf` calculation:
-
 import CodeBlock from '@theme/CodeBlock';
-import pw_nscf_silicon_in from '!!raw-loader!/src/silicon/pw.nscf.silicon_epsilon.in';
+import pw_scf_silicon_in from '!!raw-loader!/src/silicon/pw.scf.silicon_epsilon.in';
 
-<CodeBlock language="bash" title="src/silicon/pw.nscf.silicon_epsilon.in" showLineNumbers>{pw_nscf_silicon_in}</CodeBlock>
+<CodeBlock language="bash" title="src/silicon/pw.scf.silicon_epsilon.in" showLineNumbers>{pw_scf_silicon_in}</CodeBlock>
 
 Especially, notice following changes:
 
 ```fortran
-  nbnd = 16
+  nbnd = 20
   nosym = .true.
   noinv = .true.
 ```
@@ -27,9 +25,16 @@ We turn off the automatic reduction of k-points that `pw.x` does by using
 crystal symmetries (`nosym = .true.` and `noinv = .true.`). This is because
 `epsilon.x` does not recognize crystal symmetries, therefore the entire list of
 k-points in the grid is needed. Secondly, we calculate a larger number of bands
-(16), since we are interested in interband transitions.
+(20), since we are interested in interband transitions. Also, note that
+`epsilon.x` doesn't support the reduction of the k-points grid into the
+irreducible Brillouin zone, so the PW runs must be performed with a uniform
+k-points grid and all k-points weights must be equal to each other, i.e. in the
+k-points card the k-points coordinates must be given manually in `crystal` or
+`alat` or `bohr`, but not with the `automatic` option. However, the automatic
+k-points option seems to work. If necessary, we can perform `nscf` calculation
+with finer k-grid.
 
-The final step is to prepare the input file for `epsilon.x`:
+Next step is to prepare the input file for `epsilon.x`:
 
 import epsilon_si from '!!raw-loader!/src/silicon/epsilon.si.in';
 
@@ -41,7 +46,7 @@ given above. The variables `wmin`, `wmax` and `nw` define the energy grid for
 the dielectric function. All the energy variables are in eV.
 
 ```bash
-mpirun -np 1 epsilon.x < epsilon.si.in > epsilon.si.out
+mpirun -np 4 epsilon.x -i epsilon.si.in > epsilon.si.out
 ```
 
 We will see the results are saved in separate `.dat` files. We can plot the real
@@ -76,6 +81,15 @@ plt.show()
 
 :::warning
 
-Ultra-soft pseudopotentials do not work with `epsilon.x`.
+Ultra-soft pseudopotentials do not work with `epsilon.x`. Also note that the
+above example is not tested against the k-mesh. We usually need finer k-mesh for
+$\epsilon$ to converge. By default the maximum number of k-points is set to
+40000 in Quantum Espresso, if we need more k-points, we can change
+[Modules/parameters.f90](https://gitlab.com/QEF/q-e/-/blob/develop/Modules/parameters.f90)
+and recompile Quantum Espresso.
 
 :::
+
+### Resources
+
+- <a target="_blank" href={require('/resources/eps_man.pdf').default}>Epsilon.x manual</a>
