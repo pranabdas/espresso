@@ -34,7 +34,7 @@ details {
 }
 
 summary {
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   padding-bottom: 0;
 }
@@ -49,4 +49,20 @@ details[open] {
 
 details[open] summary {
   margin-bottom: 0.5em;
+  border: grey;
+  border-radius: 5px;
+  border-style: solid;
+}
+
+.colab:hover {
+  cursor: pointer;
+}
+
+.colab {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.colab img {
+  margin-right: auto;
 }
