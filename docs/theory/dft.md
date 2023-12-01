@@ -158,10 +158,7 @@ consistency is achieved.
   <source type="image/webp" srcSet={require("/img/self-consistent-solution.webp").default} />
   <img src={require("/img/self-consistent-solution.png").default} alt="self-consistent-solution" />
 </picture>
-<p className="fig-caption">Self consistency loop in DFT calculation. The above
-screenshot was taken from lecture slide of Professor Ralph Gevauer from {" "}
-<a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable">
-ICTP MAX School 2021</a>.</p>
+<p className="fig-caption">Self consistency loop in DFT calculation. The above screenshot was taken from lecture slide of Professor Ralph Gevauer from <a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable"> ICTP MAX School 2021</a>.</p>
 
 The potential due to the ions is replaced by the pseudo potentials which removes
 the oscillations near the atomic core (reducing number of required plane wave

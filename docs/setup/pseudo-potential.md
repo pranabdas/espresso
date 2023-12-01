@@ -16,12 +16,12 @@ we should choose a full relativistic pseudopotential. We need to be careful
 whether our chosen pseudopotential correctly reproduces physical properties.
 Various pseudopotential libraries:
 
-- <https://www.quantum-espresso.org/pseudopotentials>
-- <https://www.materialscloud.org/discover/sssp/table/efficiency>
-- <http://www.pseudo-dojo.org>
-- <https://www.physics.rutgers.edu/gbrv/>
-- <https://nninc.cnf.cornell.edu>
-- <http://www.quantum-simulation.org/potentials/>
+- https://www.quantum-espresso.org/pseudopotentials
+- https://www.materialscloud.org/discover/sssp/table/efficiency
+- http://www.pseudo-dojo.org
+- https://www.physics.rutgers.edu/gbrv/
+- https://nninc.cnf.cornell.edu
+- http://www.quantum-simulation.org/potentials/
 - [BLYP pseudopotentials](http://pseudopotentials.quantum-espresso.org/legacy_tables/hartwigesen-goedecker-hutter-pp)
 - [SCAN pseudopotentials](https://yaoyi92.github.io/scan-tm-pseudopotentials.html)
 

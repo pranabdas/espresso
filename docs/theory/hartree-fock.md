@@ -55,4 +55,4 @@ The above antisymmetrized product can describe electrons that move independently
 of each other while they experience an average (mean-field) Coulomb force.
 
 ## Resources
-- <http://vergil.chemistry.gatech.edu/notes/hf-intro/hf-intro.html>
+- http://vergil.chemistry.gatech.edu/notes/hf-intro/hf-intro.html

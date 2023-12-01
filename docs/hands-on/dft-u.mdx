@@ -7,7 +7,7 @@ Electronic structure for transition metals (with localized $$d$$ or $$f$$
 electrons) is not accurately described by standard DFT, and therefore the need
 for DFT+U formulation.
 
-```bash
+```fortran
 &SYSTEM
     ...
     lda_plus_u = .TRUE.
@@ -25,7 +25,7 @@ exchange interaction. Number of $$J$$ terms depends on the manifold of localized
 electrons. For $$p$$, we have 1; for $$d$$, we have 2; and for $$f$$, we have 3
 terms.
 
-```bash
+```fortran
     ...
     lda_plus_u = .TRUE.
     lda_plus_u_kind = 1

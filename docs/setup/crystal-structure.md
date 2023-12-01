@@ -41,7 +41,7 @@ problems may arrise.
 3,-3    | Body centered cubic
 4       | Hexagonal
 5       | Trigonal with c as 3-fold axis
--5      | Trigonal with <111> as 3-fold axis
+-5      | Trigonal with &lt;111&gt; as 3-fold axis
 6       | Simple tetragonal
 7       | Centered tetragonal
 8       | Simple orthorhombic
@@ -115,10 +115,10 @@ and set `export DISPLAY=:0` in your WSL instance.
 ### QE Input generator
 
 You can generate **PWscf** input files using tools in this website as well
-<https://www.materialscloud.org/work/tools/qeinputgenerator>
+https://www.materialscloud.org/work/tools/qeinputgenerator
 
 The same website also has a tool for k-path visualization and generation
-<https://www.materialscloud.org/work/tools/seekpath>
+https://www.materialscloud.org/work/tools/seekpath
 
 
 ## Resources

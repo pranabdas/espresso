@@ -7,7 +7,7 @@ In order to consider spin orbit coupling effect in our electronic structure
 calculation in quantum espresso, we need to use a full relativistic pseudo
 potential. Following settings are needed in the `&SYSTEM` card:
 
-```bash
+```fortran
 &SYSTEM
     ...
     noncolin = .true.
@@ -31,7 +31,7 @@ coupling.
 
 We can constrain the magnetic moment:
 
-```bash
+```fortran
 &SYSTEM
   ...
   constrained_magnetization = 'atomic direction'
@@ -43,7 +43,7 @@ Starting magnetization can be specified by `angle1` (angle with $z$ axis) and
 `angle2` (angle of projection in $xy$-plane and with $x$-axis). Also check the
 penalty function ($\lambda$).
 
-```bash
+```fortran
 &SYSTEM
   ...
   angle1(i) = 0.0d0
@@ -63,7 +63,7 @@ Spin-orbit coupling calculations are often hard to converge. Use a smaller
 non-relativistic pseudopotential, and then start from the obtained charge
 density to perform non-colinear spin orbit calculation.
 
-```bash
+```fortran
 &ELECTRONS
   ...
   mixing_beta = 1.0000000000d-01
@@ -77,7 +77,7 @@ assumes previous density points in z direction, and rotates in the direction
 specified by `angle1` (initial magnetization angle with $z$-axis in degrees),
 and `angle2` (angle in degrees for projections in $xy$-plane and with $x$-axis).
 
-```bash
+```fortran
 &SYSTEM
 ...
   angle1(i) = 0.0

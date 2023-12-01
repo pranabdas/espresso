@@ -15,7 +15,7 @@ HPC clusters.
 
 Perhaps the easiest way to install Quantum Espresso is from the package manager
 of respective Linux distribution. This should work fine for us and this is
-recommended option. Following commands are for Ubuntu / Debian. First make sure
+recommended option. Following commands are for Ubuntu/Debian. First make sure
 your system is up-to-date.
 
 ```bash
@@ -167,7 +167,7 @@ need to install following dependencies:
 sudo apt install tcl tcllib
 ```
 
-Download the file from - <http://pwtk.ijs.si/download/pwtk-2.0.tar.gz>
+Download the file from - http://pwtk.ijs.si/download/pwtk-2.0.tar.gz
 
 ```bash
 wget "http://pwtk.ijs.si/download/pwtk-2.0.tar.gz"
