@@ -57,6 +57,7 @@ module.exports = {
         "hands-on/fermi-surface",
         "hands-on/phonon",
         "hands-on/wannier",
+        "hands-on/molecular-dynamics-pw",
       ],
     },
     "resources",

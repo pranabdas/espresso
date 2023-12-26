@@ -1,0 +1,16 @@
+---
+title: Molecular Dynamics (using pw.x)
+sidebar_label: Molecular Dynamics (PW)
+---
+
+We will start from the relaxation calculation, and use the relaxed structure for
+`md` calculation. Below in the input file for `md` calculation:
+
+import CodeBlock from '@theme/CodeBlock';
+import pw_md_h2o from '!!raw-loader!/src/H2O-md-pw/pw.md.h2o.in';
+
+<CodeBlock language="bash" title="src/H2O-md-pw/pw.md.h2o.in" showLineNumbers>{pw_md_h2o}</CodeBlock>
+
+Quantum ESPRESSO output file can be loaded in Xcrysden for visualization.
+
+<img src={require("/img/H2O-molecular-dynamics.gif").default} alt="Molecular dynamics of H2O" />
