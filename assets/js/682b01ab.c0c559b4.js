@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkespresso=self.webpackChunkespresso||[]).push([[7507],{6113:s=>{s.exports=JSON.parse('{"title":"Hands-on","slug":"/category/hands-on","permalink":"/espresso/category/hands-on","navigation":{"previous":{"title":"Wannier basis","permalink":"/espresso/theory/wannier"},"next":{"title":"SCF calculation","permalink":"/espresso/hands-on/scf"}}}')}}]);
