@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+      "bandgap",
+      "bandstructure",
+      "beamline",
+      "ellipsometry",
+      "photoemitted",
+      "plasmons",
+      "pseudopotential",
+      "pseudopotentials",
+      "wavefunction"
+  ],
+  "ignoreWords": [
+      "ARPES",
+      "BLYP",
+      "GBRV",
+      "SSLS",
+      "SSSP",
+      "VLEED"
+  ],
+  "import": []
+}

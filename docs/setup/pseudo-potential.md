@@ -9,6 +9,15 @@ field near the atomic core is replaced by a smoother function that simulates the
 potential field far from the core very well. By doing so, it requires less
 number plane wave basis for wavefunction expansion.
 
+:::tip
+
+You may try my [Pseudos Web-App](https://pseudos.netlify.app/), where you can
+look for pseudopotentials by element name, and download them. Currently,
+Standard Solid State Pseudopotentials (SSSP) and GBRV pseudopotentials are
+included.
+
+:::
+
 We can choose form various pseudopotential libraries. Choice of pseudopotential
 depends on the problem we are investigating, e.g., if there is a heavy element
 present in our system and we are interested in the spin-orbit coupling effects,
@@ -32,7 +41,7 @@ filename is `O.rel-pbe-n-rrkjus_psl.1.0.0.UPF`.
 `rel` → full relativistic (optional)
 `pbe` → exchange correlation functional
 `n` → non-linear core correction (optional)
-`rrkus` → pseudopotential type
+`rrkjus` → pseudopotential type
 
 Exchange correlation functionals:
 
