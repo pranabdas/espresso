@@ -1,0 +1,52 @@
+&control
+    calculation   = 'cp'
+    restart_mode  = 'from_scratch'
+    prefix        = 'h2o'
+    outdir        = './tmp/'
+    pseudo_dir    = '../pseudos/'
+    nstep         = 3000
+    iprint        = 10
+    isave         = 100
+    dt            = 5.0,
+    ndr           = 50
+    ndw           = 50
+    tstress       = .true.
+    tprnfor       = .true.
+    etot_conv_thr = 1.d-9
+    ekin_conv_thr = 1.d-7
+/
+
+&system
+    ibrav     = 1
+    celldm(1) = 15
+    nat       = 3
+    ntyp      = 2
+    ecutwfc   = 50
+    ecutrho   = 400
+    nr1b      = 20
+    nr2b      = 20
+    nr3b      = 20
+/
+
+&electrons
+    electron_dynamics = 'damp'
+    electron_damping  = 0.05,
+    emass             = 300.0
+    orthogonalization = 'ortho'
+    ortho_eps         = 1d-11
+/
+
+&ions
+    ion_dynamics = 'none'
+    tranp        = .true.       ! randomize atomic positions
+    amprp        = 0.05         ! displacement amplitude for the randomization
+/
+
+ATOMIC_SPECIES
+ H  1.00784  H_pbe_v1.4.uspp.F.upf
+ O  15.999   O_pbe_v1.2.uspp.F.upf
+
+ATOMIC_POSITIONS (angstrom)
+O        5.000425817   4.781574242   4.999840589
+H        4.999764264   5.408907510   5.779839929
+H        4.999809919   5.409518248   4.220319481

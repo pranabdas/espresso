@@ -54,11 +54,12 @@ However, the challenge is to solve the Schrödinger equation as a real physical
 system is consists of a large number of atoms. The Schrödinger equation becomes
 coupled many-body equation.
 
-$$\left[-\frac{\hbar}{2m} \sum_{i=1}^N \nabla_i^2 + \sum_{i=1}^NV(\textbf{r}_i)
+$$
+\left[-\frac{\hbar}{2m} \sum_{i=1}^N \nabla_i^2 + \sum_{i=1}^NV(\textbf{r}_i)
 + \sum_{i=1}^N \sum_{j<i}U(\textbf{r}_i, \textbf{r}_j)\right]\psi(\textbf{r}_1,
-\textbf{r}_2, ..., \textbf{r}_N)$$
-$$= E\psi(\textbf{r}_1, \textbf{r}_2, ...,
-\textbf{r}_N)$$
+\textbf{r}_2, ..., \textbf{r}_N) = E\psi(\textbf{r}_1, \textbf{r}_2, ...,
+\textbf{r}_N)
+$$
 
 With today's available computing power, it is far from feasible to solve the
 actual electronic wavefunction of a condensed matter system, where $N$ is of the

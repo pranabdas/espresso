@@ -1,0 +1,10 @@
+&inputpp
+  prefix = 'h2o'
+  fileout = 'h2o'
+  output = 'xsf'
+  outdir  = './tmp/'
+  nframes = 100
+  ndr = 51
+  atomic_number(1) = 1
+  atomic_number(2) = 16
+/
