@@ -29,6 +29,15 @@ sudo apt install --no-install-recommends \
     quantum-espresso
 ```
 
+:::tip
+
+In my GitHub repository [releases](https://github.com/pranabdas/espresso/releases),
+I provide pre-built binaries of Quantum ESPRESSO for Ubuntu 22.04 LTS. Please
+see GitHub [README](https://github.com/pranabdas/espresso#quantum-espresso-installer)
+for more details on how to use.
+
+:::
+
 If you want to compile from the source yourself, here are the installation steps
 for the Quantum Espresso version 7.2 in a Ubuntu (LTS 22.04) system. I will be
 compiling for single processor. First install the recommended libraries and
