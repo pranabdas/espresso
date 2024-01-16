@@ -11,18 +11,18 @@ https://pranabdas.github.io/espresso/
 
 ## Quantum ESPRESSO Installer
 
-In the repository [releases](https://github.com/pranabdas/espresso/releases),
-I provide pre-built binaries of Quantum ESPRESSO for easy installation.
-Currently, only Linux `.deb` packages are provided. Note that these packages are
-not well tested. If you find problems, you may open [issues](
+Pre-built binaries of Quantum ESPRESSO are included in the repository
+[releases](https://github.com/pranabdas/espresso/releases) for easy
+installation. Currently, only Linux `.deb` packages are provided. Note that
+these packages are not well tested. If you find problems, you may open [issues](
 https://github.com/pranabdas/espresso/issues).
 
 ### Quantum ESPRESSO 7.3
 
 Compiled using GNU libraries with parallel/OpenMPI enabled on a Ubuntu 22.04
-system. It should also work on Debian 11, or any other Linux distributions based
-on Ubuntu 22.04 or Debian 11. Other than these operating systems or versions, it
-is unlikely to work.
+system. The package should also work on Debian 11, or any other Linux
+distributions based on Ubuntu 22.04 or Debian 11. Other than these operating
+systems or versions, it is unlikely to work.
 
 ### Installation
 
@@ -57,4 +57,10 @@ mpirun -np 4 pw.x -i filename.in > filename.out
 sudo apt remove quantum-espresso
 sudo apt autoremove --purge
 sudo rm -rf /opt/espresso
+```
+
+Cleanup `.bashrc`:
+
+```console
+sed -i.bak '/^export\sPATH=\"\/opt\/espresso\/7.3:$PATH\"/d' ~/.bashrc
 ```
