@@ -69,7 +69,7 @@ def data_loader(fname):
 
     data = np.loadtxt(fname)
     energy = data[:, 0]
-    pdos = data[:, 2]
+    pdos = data[:, 1]
 
     return energy, pdos
 
