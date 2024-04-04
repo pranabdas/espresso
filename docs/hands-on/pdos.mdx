@@ -38,9 +38,9 @@ polarized calculations, we have separate up and down columns):
 E  LDOS(E) PDOS_1(E) ... PDOS_{2l+1}(E)
 ```
 
-$$LDOS = \sum\limits_{m=1}^{2l+1} PDOS_m (E)$$
+$LDOS = \sum\limits_{m=1}^{2l+1} PDOS_m (E)$
 
-$$PDOS_m (E) \rightarrow$$ projected DOS on atomic wfc with component $m$.
+$PDOS_m (E) \rightarrow$ projected DOS on atomic wfc with component $m$.
 
 **Orbital order:**
 - for $l=1$:
@@ -55,7 +55,9 @@ $$PDOS_m (E) \rightarrow$$ projected DOS on atomic wfc with component $m$.
   - $d_{x^2-y^2}$ (real combination of $m=\pm 2$ with cosine)
   - $d_{xy}$ (real combination of $m=\pm 2$ with sine)
 
-Let's make our plots:
+For more details and PROJWFC output format, please consult the documentation
+[here](https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html#idm96). Let's
+create our plots:
 
 ```python title="src/notebooks/al-pdos.ipynb" showLineNumbers
 import matplotlib.pyplot as plt
@@ -69,7 +71,7 @@ def data_loader(fname):
 
     data = np.loadtxt(fname)
     energy = data[:, 0]
-    pdos = data[:, 1]
+    pdos = data[:, 1]  # ldos col, total contribution for a given orbital
 
     return energy, pdos
 
