@@ -24,17 +24,20 @@ Three `INPUT_CARDS`: `ATOMIC_SPECIES`, `ATOMIC_POSITIONS`, and `K_POINTS` in
 calculations.
 
 Below is our input file [pw.scf.silicon.in](
-https://github.com/pranabdas/espresso/) for silicon in standard diamond (FCC)
-structure. The input files are typically named with `.in` prefix, while output
-files are named with `.out` prefix for their easier identification. The input
-parameters are organized in `&namelists` followed by their fields or cards. The
-`&control`, `&system`, and `&electrons` namelists are required. There are also
-optional `&cell` and `&ions`, you must provide them if your calculation require
-them. Most parameters in the `namelists` have default values (which may or may
-not suit your needs), however some variables you must always provide. Comment
-lines can be added with lines starting with a `!` like in Fortran. Also,
-parameter names are not case-sensitive, i.e., `&control` and `&CONTROL` are the
-same.
+https://github.com/pranabdas/espresso/tree/main/src/silicon) for silicon in
+standard diamond (FCC) structure. Note that Quantum ESPRESSO uses primitive unit
+cell when `CELL_PARAMETERS` are not provided. One can use any other type of cell
+e.g., conventional unit cell or supercell by specifying corresponding
+`CELL_PARAMETERS` and `ATOMIC_POSITIONS`.The input files are typically named
+with `.in` prefix, while output files are named with `.out` prefix for their
+easier identification. The input parameters are organized in `&namelists`
+followed by their fields or cards. The `&control`, `&system`, and `&electrons`
+namelists are required. There are also optional `&cell` and `&ions`, you must
+provide them if your calculation require them. Most parameters in the
+`namelists` have default values (which may or may not suit your needs), however
+some variables you must always provide. Comment lines can be added with lines
+starting with a `!` like in FORTRAN. Also, parameter names are not
+case-sensitive as in FORTRAN, i.e., `&control` and `&CONTROL` are the same.
 
 import CodeBlock from '@theme/CodeBlock';
 import pw_scf_silicon_in from '!!raw-loader!/src/silicon/pw.scf.silicon.in';
@@ -45,9 +48,8 @@ I am using the pseudo potential file (`Si.pz-vbc.UPF`) downloaded from [Quantum
 Espresso Website](https://www.quantum-espresso.org/pseudopotentials).
 
 You must read the **PWscf user manual** for in-depth understanding. Check the
-`qe-x.x/PW/Doc/` folder under your installation directory. There is also another
-file `INPUT_PW.html` regarding the details of input parameters. PW stands for
-plane waves.
+`qe-x.x/PW/Doc/` folder under your installation directory. Also see
+`INPUT_PW.html` describing various input parameters. PW stands for plane waves.
 
 Run `pw.x` in self consistent mode for silicon.
 
@@ -59,8 +61,9 @@ mpirun -np 4 pw.x -inp pw.scf.silicon.in > pw.scf.silicon.out
 
 :::note
 
-Note that I have added the executable path to my bash/zsh profile, otherwise you
-have to provide the full path where the `pw.x` executable is located.
+I have added the Quantum ESPRESSO executable directory to the `PATH` environment
+variable in bash/zsh profile, otherwise we have to type the full path of `pw.x`
+executable location.
 
 :::
 
@@ -158,4 +161,4 @@ would be 4 bands for 8 electrons in case of non spin-polarized systems.
 
 ## Resources
 - https://www.quantum-espresso.org/Doc/pw_user_guide/
-- [Quantum Espresso Input Generator](https://www.materialscloud.org/work/tools/qeinputgenerator) (can help crating QE input files)
+- [Quantum Espresso Input Generator](https://www.materialscloud.org/work/tools/qeinputgenerator) (can help creating QE input files)
