@@ -17,17 +17,13 @@
         "files.trimTrailingWhitespace": true,
         "editor.fontSize": 14,
         "editor.minimap.enabled": false,
-        "editor.rulers": [
-          80
-        ],
+        "editor.rulers": [80],
         "workbench.colorCustomizations": {
           "editorRuler.foreground": "#fdb88056"
         },
         "workbench.colorTheme": "Dracula At Night",
         "terminal.integrated.fontSize": 13,
-        "cSpell.enableFiletypes": [
-          "mdx"
-        ]
+        "cSpell.enableFiletypes": ["mdx"]
       },
       "extensions": [
         "bceskavich.theme-dracula-at-night",
