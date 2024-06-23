@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkespresso=self.webpackChunkespresso||[]).push([[8874],{2872:e=>{e.exports=JSON.parse('{"title":"Setup","slug":"/category/setup","permalink":"/espresso/category/setup","navigation":{"previous":{"title":"Welcome","permalink":"/espresso/"},"next":{"title":"Installation","permalink":"/espresso/setup/install"}}}')}}]);
