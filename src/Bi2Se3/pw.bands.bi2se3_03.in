@@ -4,7 +4,7 @@
   etot_conv_thr =   1.5000000000d-04
   outdir = '/hpctmp/slspkd/bi2se3-03/'
   prefix = 'bi2se3-03'
-  pseudo_dir = '../pseudo/'
+  pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
 

@@ -4,7 +4,7 @@
   etot_conv_thr =   1.5000000000d-04
   outdir = '/hpctmp/slspkd/bi2se3-02/'
   prefix = 'bi2se3-02'
-  pseudo_dir = '../pseudo/'
+  pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
 
@@ -14,7 +14,7 @@
   ecutwfc =   8.0000000000d+01
   ibrav = 4
   celldm(1) = 7.819686140739584
-  celldm(3) = 6.882551957467376 
+  celldm(3) = 6.882551957467376
   nat = 15
   ntyp = 2
   occupations = 'smearing'
