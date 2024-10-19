@@ -44,10 +44,7 @@ spin-orbit calculation without spin magnetization. It assumes that time reversal
 symmetry holds and it does not calculate the magnetization. The states are
 still two-component spinors but the total magnetization is zero.
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/Bi2Se3-bands.webp").default} />
-  <img src={require("/img/Bi2Se3-bands.png").default} alt="Bi2Se3-bands" />
-</picture>
+![Bi2Se3-bands](../../static/img/Bi2Se3-bands.webp)
 
 Notice that for the Dirac surface states the gap did not completely close at the
 Fermi energy. This is possibly due to finite size effect. We could repeat the
@@ -58,10 +55,7 @@ In order to sample the $\Gamma$ point for our DOS calculation, an odd k-grid
 mesh (25✕25✕5) was used. The signature of Dirac cone is evident from the DOS
 figure.
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/Bi2Se3-dos.webp").default} />
-  <img src={require("/img/Bi2Se3-dos.png").default} alt="Bi2Se3-dos" />
-</picture>
+![Bi2Se3-dos](../../static/img/Bi2Se3-dos.webp)
 
 ## Resources
 - [https://docs.quantumatk.com/tutorials/topological_insulator_bi2se3/](

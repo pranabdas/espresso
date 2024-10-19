@@ -189,10 +189,7 @@ For my case, the link line was:
 -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lm -ldl
 ```
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/intel-link-line-adviser.webp").default} />
-  <img src={require("/img/intel-link-line-adviser.png").default} alt="intel-link-line-adviser" width="600px" />
-</picture>
+<img src={require("../../static/img/intel-link-line-adviser.webp").default} alt="intel-link-line-adviser" width="600px" />
 
 We need to insert the link for `BLAS_LIBS`, `LAPACK_LIBS`, and `SCALAPACK_LIBS`.
 We also need to find out where is the FFTW lib located. In NUS HPC, we can use
