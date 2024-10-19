@@ -139,10 +139,7 @@ the file `fe.noncolin.data.3`. All values in this case are either +1/2 or -1/2.
 mpirun -np 8 bands.x -i pp.bands.fe_soc.in > pp.bands.fe_soc.out
 ```
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/fe-soc-bands.webp").default} />
-  <img src={require("/img/fe-soc-bands.png").default} alt="fe-soc-bands" />
-</picture>
+![fe-soc-bands](../../static/img/fe-soc-bands.webp)
 
 ## SOC calculation for GaAs
 
@@ -155,7 +152,4 @@ mpirun -np 8 pw.x -i pw.bands.GaAs_soc.in > pw.bands.GaAs_soc.out
 mpirun -np 8 bands.x -i pp.bands.GaAs_soc.in > pp.bands.GaAs_soc.out
 ```
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/GaAs-soc-bands.webp").default} />
-  <img src={require("/img/GaAs-soc-bands.png").default} alt="GaAs-soc-bands" />
-</picture>
+![GaAs-soc-bands](../../static/img/GaAs-soc-bands.webp)

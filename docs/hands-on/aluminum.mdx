@@ -66,10 +66,7 @@ dos.x < al_dos.in > al_dos.out
 Note from our `al_nscf.out` that our Fermi energy is at 7.9421 eV. We plot our
 density of states:
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/al-dos.webp").default} />
-  <img src={require("/img/al-dos.png").default} alt="al-dos" />
-</picture>
+![al-dos](../../static/img/al-dos.webp)
 
 ## Bandstructure calculation
 
@@ -96,10 +93,7 @@ bands.x < al_bands_pp.in > al_bands_pp.out
 ```
 We obtain the following bandstructure:
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/al-bands.webp").default} />
-  <img src={require("/img/al-bands.png").default} alt="al-bands" />
-</picture>
+![al-bands](../../static/img/al-bands.webp)
 
 ## Importance of smearing in convergence
 
@@ -121,10 +115,7 @@ Marzari-Vanderbilt), and for various smearing values.
 pwtk al.degauss.pwtk
 ```
 
-<picture>
-  <source type="image/webp" srcSet={require("/img/al-smearing.webp").default} />
-  <img src={require("/img/al-smearing.png").default} alt="al-smearing" />
-</picture>
+![al-smearing](../../static/img/al-smearing.webp)
 
 We see that the `m-v` and `m-p` broadening allow for faster and smother
 convergence while depending less on `degauss` value than Gaussian broadening.
