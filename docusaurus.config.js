@@ -17,7 +17,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [{ name: "theme-color", content: "#006bb3" }],
+      metadata: [{ name: "theme-color", content: "#081020" }],
       prism: {
         theme: themes.github,
         darkTheme: themes.nightOwl,
