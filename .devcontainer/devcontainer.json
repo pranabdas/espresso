@@ -2,7 +2,7 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "node": {
-      "version": "20"
+      "version": "22"
     }
   },
   "customizations": {
