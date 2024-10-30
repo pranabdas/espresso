@@ -32,7 +32,7 @@ const config = {
       colorMode: {
         // disableSwitch: true,
         // defaultMode: "dark",
-        // respectPrefersColorScheme: false,
+        respectPrefersColorScheme: true,
         // switchConfig: {
         //   darkIcon: '☾',
         //   lightIcon: "☀️"
