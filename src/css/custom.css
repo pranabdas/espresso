@@ -37,8 +37,9 @@ html[data-theme="dark"] {
   --ifm-menu-color: var(--color-white);
   --ifm-toc-link-color: var(--color-white);
   --ifm-tabs-color: var(--color-white);
-  --ifm-background-surface-color: #081020;
+  --ifm-background-surface-color: #161b22;
   --ifm-table-row-hover-color: rgba(255, 255, 255, 0.05);
+  --ifm-toc-border-color: #1e293b;
 }
 
 .docusaurus-highlight-code-line {
@@ -160,10 +161,6 @@ a:hover {
 .navbar {
   border-bottom: 1px solid var(--ifm-toc-border-color);
   box-shadow: none;
-}
-
-html[data-theme="dark"] .navbar {
-  border-bottom: 0;
 }
 
 .fig-caption {
