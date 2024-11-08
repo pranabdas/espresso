@@ -155,8 +155,7 @@ $\psi_i(\textbf{r})$, subsequently $n(\textbf{r})$, and iterate until self
 consistency is achieved.
 
 ![self-consistent-solution](../../static/img/self-consistent-solution.webp)
-
-<p className="fig-caption">Self consistency loop in DFT calculation. The above screenshot was taken from lecture slide of Professor Ralph Gevauer from <a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable"> ICTP MAX School 2021</a>.</p>
+<span className="fig-caption">Self consistency loop in DFT calculation. The above screenshot was taken from lecture slide of Professor Ralph Gevauer from <a href="http://indico.ictp.it/event/9616/other-view?view=ictptimetable"> ICTP MAX School 2021</a>.</span>
 
 The potential due to the ions is replaced by the pseudo potentials which removes
 the oscillations near the atomic core (reducing number of required plane wave
