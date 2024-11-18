@@ -38,13 +38,11 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Build for cloudflare
+      - name: Deploy on cloudflare
+        if: "!${{ github.event_name == 'schedule' }}"
         run: |
           sed -i 's|^const site_url\ =.*|const site_url\ =\ "https://pranab.pages.dev";|I' docusaurus.config.js
           npm run build
-
-      - name: Deploy on cloudflare
-        run: |
           COMMIT_HASH=$( git rev-parse --short HEAD )
           cd ..
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
