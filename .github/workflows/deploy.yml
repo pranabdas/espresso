@@ -1,0 +1,53 @@
+name: Deploy docs
+
+on:
+  schedule:
+    - cron: '0 0 1 1 *'
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare Node environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install NPM packages
+        run: npm install
+
+      - name: Build website
+        run: npm run build
+
+      - name: Deploy on gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Deploy on cloudflare
+        run: |
+          COMMIT_HASH=$( git rev-parse --short HEAD )
+          cd ..
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global credential.helper cache
+          git clone --branch cf-pages https://${{ secrets.CLOUDFLARE_DEPLOY_KEY }}@github.com/${{ github.repository_owner }}/${{ secrets.CLOUDFLARE_REPO_NAME }}
+          cd ${{ secrets.CLOUDFLARE_REPO_NAME }}
+          rsync -azh --exclude .git --delete ../${{ github.event.repository.name }}/build/ ${{ github.event.repository.name }}
+          git add --all
+          git commit -m "deploying ${{ github.event.repository.name }} ${COMMIT_HASH}" || echo "No changes to commit"
+          git push origin cf-pages
