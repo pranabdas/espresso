@@ -39,7 +39,7 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Deploy on cloudflare
-        if: "!${{ github.event_name == 'schedule' }}"
+        if: ${{ github.event_name != 'schedule' }}
         run: |
           sed -i 's|^const site_url\ =.*|const site_url\ =\ "https://pranab.pages.dev";|I' docusaurus.config.js
           npm run build
@@ -48,7 +48,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git config --global credential.helper cache
-          git clone --branch cf-pages https://${{ secrets.CLOUDFLARE_DEPLOY_KEY }}@github.com/${{ github.repository_owner }}/${{ secrets.CLOUDFLARE_REPO_NAME }}
+          git clone --branch cf-pages --depth 1 https://${{ secrets.CLOUDFLARE_DEPLOY_KEY }}@github.com/${{ github.repository_owner }}/${{ secrets.CLOUDFLARE_REPO_NAME }}
           cd ${{ secrets.CLOUDFLARE_REPO_NAME }}
           rsync -azh --exclude .git --delete ../${{ github.event.repository.name }}/build/ ${{ github.event.repository.name }}
           git add --all
