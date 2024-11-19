@@ -3,7 +3,6 @@ import { themes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const site_url = "https://pranabdas.github.io";
-const drive_url = "https://pranab.pages.dev/assets";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Quantum Espresso Tutorial",
@@ -183,10 +182,11 @@ const config = {
 
   stylesheets: [
     {
-      href: drive_url + "/fonts/katex/katex.min.css",
+      href: "https://pranab.pages.dev/assets/fonts/katex/0.16.11/katex.min.css",
       type: "text/css",
     },
   ],
+
   future: {
     experimental_faster: true,
   },
