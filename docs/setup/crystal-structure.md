@@ -87,7 +87,7 @@ You can explore the crystal structure, find out k-path and many more using
 **Xcrysdens** application - [http://www.xcrysden.org](http://www.xcrysden.org)
 
 For certain functionality, Xcrysdens requires basic calculator program. On
-Ubuntu/ Debian:
+Ubuntu/<wbr/>Debian:
 
 ```bash
 sudo apt update

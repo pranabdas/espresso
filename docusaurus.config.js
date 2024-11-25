@@ -31,13 +31,8 @@ const config = {
         },
       },
       colorMode: {
-        // disableSwitch: true,
         // defaultMode: "dark",
         respectPrefersColorScheme: true,
-        // switchConfig: {
-        //   darkIcon: '☾',
-        //   lightIcon: "☀️"
-        // },
       },
       navbar: {
         title: "Quantum Espresso",

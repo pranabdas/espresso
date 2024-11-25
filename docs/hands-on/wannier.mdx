@@ -44,8 +44,7 @@ ${WANNIER_PATH}/wannier90.x -pp silicon
 5. Create input file for `pw2wan`, and generate initial projections:
 
 ```bash
-mpirun -np 4 ${WANNIER_PATH}/pw2wannier90.x -i pw2wan.silicon.in > pw2
-wan.silicon.out
+mpirun -np 4 ${WANNIER_PATH}/pw2wannier90.x -i pw2wan.silicon.in > pw2wan.silicon.out
 ```
 
 6. Run wannier calculation:
