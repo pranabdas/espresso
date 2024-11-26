@@ -281,4 +281,7 @@ html[data-theme="dark"] {
   .footer {
     background-color: var(--ifm-background-surface-color);
   }
+  .inv-hue-rot-180 {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }

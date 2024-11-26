@@ -38,7 +38,7 @@ bands.x < pp.bands.GaAs.in > pp.bands.GaAs.out
 ```
 If everything goes well, you will get the bandstructure as below:
 
-![GaAs-bands](../../static/img/GaAs-bands.webp)
+<img src={require("../../static/img/GaAs-bands.webp").default} class="inv-hue-rot-180" alt="GaAs-bands"/>
 
 :::caution Warning
 
