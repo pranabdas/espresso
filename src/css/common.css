@@ -31,6 +31,7 @@
 }
 
 html[data-theme="dark"] {
+  --color-primary: #0ea5e9;
   --ifm-background-color: var(--color-black);
   --border-color: #3f4554;
   --ifm-font-color-base: var(--color-white);
@@ -283,5 +284,8 @@ html[data-theme="dark"] {
   }
   .inv-hue-rot-180 {
     filter: invert(1) hue-rotate(180deg);
+  }
+  .fig-caption {
+    color: #ccc;
   }
 }
