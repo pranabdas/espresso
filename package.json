@@ -15,21 +15,19 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.6.3",
-    "@docusaurus/faster": "^3.6.3",
-    "@docusaurus/preset-classic": "^3.6.3",
-    "@easyops-cn/docusaurus-search-local": "^0.46.1",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/faster": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@easyops-cn/docusaurus-search-local": "^0.48.3",
     "@mdx-js/react": "^3.1.0",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
-    "file-loader": "^6.2.0",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0",
-    "url-loader": "^4.1.1"
+    "remark-math": "^6.0.0"
   },
   "browserslist": {
     "production": [
