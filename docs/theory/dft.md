@@ -12,7 +12,8 @@ calculating the electronic structure of solid state systems.
 :::info
 
 A functional is a function whose argument is itself a function. $f(x)$ is a
-function of the variable $x$ while $F[f]$ is a functional of the function $f$.
+function of the variable $x$ while $\mathcal{F}[f]$ is a functional of the
+function $f$.
 
 $$
 y = f(x)
@@ -22,10 +23,10 @@ $f$ is a function, it takes a number $x$ as input and output $y$ is also a
 number.
 
 $$
-y = F[f(x)]
+y = \mathcal{F}[f(x)]
 $$
 
-$F$ is a functional it takes function $f(x)$ as input and output $y$ is a
+$\mathcal{F}$ is a functional it takes function $f(x)$ as input and output $y$ is a
 number.
 
 :::
@@ -144,7 +145,7 @@ and sometimes numerically unstable.
 We can write our Schrödinger in Dirac Bra-Ket notation:
 
 $$
-\hat{H} \ket{\psi} = E\ket{\psi}
+\hat{\mathcal{H}} \ket{\psi} = E\ket{\psi}
 $$
 
 we are going to solve non-interacting single particle Hamiltonian in terms of
@@ -188,15 +189,15 @@ $$
 Where $N_b$ is the size basis set. Then the eigenvalue equation becomes:
 
 $$
-\sum_{\beta} \rm{H}_{\alpha\beta} c_{i\beta} = \epsilon_i c_{i\alpha}
+\sum_{\beta} \mathcal{H}_{\alpha\beta} c_{i\beta} = \epsilon_i c_{i\alpha}
 $$
 
 $$
 \Rightarrow
 \begin{pmatrix}
-H_{11} &  ... & H_{1b} \\
+\mathcal{H}_{11} &  ... & \mathcal{H}_{1b} \\
 ... & ... & ... \\
-H_{b1} & ... & H_{bb}
+\mathcal{H}_{b1} & ... & \mathcal{H}_{bb}
 \end{pmatrix}
 \begin{pmatrix}
 c_1 \\
@@ -231,7 +232,7 @@ to construct supercell for finite systems. Use of [pseudopotential](
 Finding the ground state:
 
 $$
-E[\Phi] = \frac{\braket{\Phi | \hat H | \Phi}}{\braket{\Phi|\Phi}}
+E[\Phi] = \frac{\braket{\Phi | \hat{\mathcal{H}} | \Phi}}{\braket{\Phi|\Phi}}
 $$
 
 $$
@@ -288,6 +289,21 @@ cutoff for energy, therefore `ecutrho` might require 8 or 12 times higher than
 the `ecutwfc`.
 
 :::
+
+
+## Flavors of DFT
+
+Depending on the properties of material we are interested and accuracy we need
+to achieve, there are several different flavors of DFT appropriate for a
+specific scenario. For example, in case of calculation of ground state
+properties such as total energy, structure, magnetization and vibrational
+properties plain DFT (with GGA) or DFPT is good enough. While for calculation
+spectroscopic (excited state) properties, there are more advanced and
+computationally expensive methods. For single particle excitation
+(*N+1* problem), such as photoemission, bandgap, tunneling, we may choose *GW*
+method. While in case of two particle excitation (*N+2* problem), such as
+optical responses and excitons, *GW+BSE* formalism is better suited. For van der
+Waals systems, *SCAN+rVV10* functional is more appropriate.
 
 ## Resources
 

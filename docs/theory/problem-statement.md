@@ -4,16 +4,21 @@ sidebar_label: Problem statement
 ---
 
 We want to calculate the electronic structure of real materials and their
-physical properties by *ab-initio* method. Electrons are microscopic particle,
-hence their dynamics is governed by the laws of quantum mechanics. Quantum
-particles are described by the wave function.
+physical properties by *ab-initio* method. A material is composed of atoms,
+while atoms themselves consist of electrons, protons, and neutrons. The dynamics
+of macroscopic particles such as electrons are governed by the laws of quantum
+mechanics. Quantum particles are described by the wave function.
 
 $$
 \lambda \cdot p = h
 $$
 
-where $h$ is the Plank constant. The Wavefunction of an electron in a potential
-filed $(V)$ is calculated by solving the Schrödinger equation:
+where $h$ is the Plank constant. There are four fundamental forces of nature:
+electromagnetic, strong nuclear, weak nuclear, and gravitational influencing the
+influencing the dynamics of any particle. However, when it comes to
+understanding the behavior of materials, we only need to consider the
+electromagnetic force. The Wavefunction of an electron in a potential filed
+$(V)$ is calculated by solving the Schrödinger equation:
 
 $$
 -\frac{\hbar^2}{2m} \nabla^2 \Psi(\textbf{r}, t) + V(\textbf{r}, t) = i\hbar
@@ -47,7 +52,7 @@ $$
 $$
 
 $$
-\braket{\psi_i | \hat{H} | \psi_i} = \epsilon_i
+\braket{\psi_i | \hat{\mathcal{H}} | \psi_i} = \epsilon_i
 $$
 
 However, the challenge is to solve the Schrödinger equation as a real physical
