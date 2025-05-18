@@ -8,6 +8,7 @@
   --color-blue: #00c1ff;
   --color-orange: #faad00;
   --border-color: #d1dce5;
+  --ifm-background-surface-color: #f9fafb;
   --ifm-code-font-size: 95%;
   --ifm-code-border-color: #0000001a;
   --ifm-tabs-color: var(--color-black);
@@ -344,4 +345,10 @@ html[data-theme="dark"] {
   .fig-caption {
     color: #ccc;
   }
+}
+
+sup a {
+  padding: 2px 5px;
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
 }
