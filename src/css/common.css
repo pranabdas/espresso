@@ -58,7 +58,7 @@ html[data-theme="dark"] {
   font-style: normal;
   font-weight: 400;
   src: local('Inter Regular'), local(Inter-Regular),
-    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1-regular.woff2') format('woff2');
+    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1b-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -67,7 +67,7 @@ html[data-theme="dark"] {
   font-style: italic;
   font-weight: 400;
   src: local('Inter Italic'), local('Inter-Italic'),
-    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1-italic.woff2') format('woff2');
+    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1b-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -76,7 +76,7 @@ html[data-theme="dark"] {
   font-style: normal;
   font-weight: 700;
   src: local('Inter Bold'), local('Inter-Bold'),
-    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1-bold.woff2') format('woff2');
+    url('https://pranab.pages.dev/assets/fonts/inter/inter-4.1b-bold.woff2') format('woff2');
 }
 
 @font-face {
