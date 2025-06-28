@@ -85,7 +85,7 @@ html[data-theme="dark"] {
   font-style: normal;
   font-weight: 400;
   src: local("Roboto Mono Regular"), local("RobotoMono-Regular"),
-    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-23a-regular.woff2") format("woff2");
+    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-v30-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -94,7 +94,7 @@ html[data-theme="dark"] {
   font-style: normal;
   font-weight: 700;
   src: local("Roboto Mono Bold"), local("RobotoMono-Bold"),
-    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-23a-bold.woff2") format("woff2");
+    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-v30-bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -103,7 +103,7 @@ html[data-theme="dark"] {
   font-style: italic;
   font-weight: 400;
   src: local("Roboto Mono Italic"), local("RobotoMono-Italic"),
-    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-23a-italic.woff2") format("woff2");
+    url("https://pranab.pages.dev/assets/fonts/roboto-mono/roboto-mono-v30-italic.woff2") format("woff2");
 }
 
 /* general */
