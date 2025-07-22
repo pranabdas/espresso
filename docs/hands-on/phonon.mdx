@@ -90,7 +90,7 @@ data = np.loadtxt("../src/GaAs-phonon/GaAs.freq.gp")
 
 nbands = data.shape[1] - 1
 for band in range(nbands):
-    plt.plot(data[:, 0], data[:, band], linewidth=1, alpha=0.5, color='k')
+    plt.plot(data[:, 0], data[:, band + 1], linewidth=1, alpha=0.5, color='k')
 # High symmetry k-points (check matdyn.GaAs.in)
 plt.axvline(x=data[0, 0], linewidth=0.5, color='k', alpha=0.5)
 plt.axvline(x=data[20, 0], linewidth=0.5, color='k', alpha=0.5)
