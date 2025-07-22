@@ -4,6 +4,7 @@
 *.log
 *.rap
 *.ps
+.venv
 
 # Dependencies
 /node_modules
