@@ -1,0 +1,22 @@
+{
+  "build_tools": [
+    "autoconf",
+    "build-essential",
+    "ca-certificates",
+    "git",
+    "wget"
+  ],
+  "dependencies": [
+    "gcc",
+    "gfortran",
+    "libblas3",
+    "libopenblas-dev",
+    "libc6",
+    "libfftw3-dev",
+    "libgcc-s1",
+    "liblapack-dev",
+    "libopenmpi-dev",
+    "libscalapack-openmpi-dev",
+    "libelpa-dev"
+  ]
+}

@@ -34,7 +34,7 @@
 }
 
 html[data-theme="dark"] {
-  --color-primary: #0ea5e9;
+  --color-primary: #2997ff;
   --ifm-background-color: var(--color-black);
   --border-color: #3f4554;
   --ifm-font-color-base: var(--color-white);
