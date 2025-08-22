@@ -1,0 +1,95 @@
+name: build espresso
+
+on:
+  workflow_dispatch:
+    inputs:
+      espresso_version:
+        description: Quantum espresso version (e.g., 7.5)
+        type: string
+        default: 7.5
+      build_iteration:
+        description: Build iteration
+        type: number
+        default: 1
+
+jobs:
+  build-espresso:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set ENV variables
+        run: |
+          version=${{ inputs.espresso_version }}
+          iteration=${{ inputs.build_iteration }}
+          dependencies=$(cat .github/workflows/build-manifest.json | jq -r '(.dependencies // []) | map("--depends " + .) | join(" ")')
+          arch=$(uname -m)
+          echo "QE_VER=$version" >> "$GITHUB_ENV"
+          echo "ITERATION=$iteration" >> "$GITHUB_ENV"
+          echo "FPM_DEPS=$dependencies" >> "$GITHUB_ENV"
+          echo "ARCH=$arch" >> "$GITHUB_ENV"
+
+      - name: Install build tools
+        run: sudo apt update && sudo apt install -y $(cat .github/workflows/build-manifest.json | jq -r '(.build_tools // []) | join(" ")')
+
+      - name: Setup fpm
+        run: sudo apt install -y ruby && sudo gem install fpm
+
+      - name: Install dependencies
+        run: sudo apt install -y $(cat .github/workflows/build-manifest.json | jq -r '(.dependencies // []) | join(" ")')
+
+      - name: Build espresso
+        run: |
+          INSTALL_PREFIX=/opt/espresso/${QE_VER}
+          wget https://gitlab.com/QEF/q-e/-/archive/qe-${QE_VER}/q-e-qe-${QE_VER}.tar.gz
+          tar -xf q-e-qe-${QE_VER}.tar.gz
+          cd q-e-qe-${QE_VER}
+
+          ./configure CC=mpicc FC=mpifort F77=mpifort F90=mpifort \
+            MPIF90=mpif90 --prefix=${INSTALL_PREFIX} --enable-openmp
+          make -j$(nproc) all
+          cd EPW
+          make -j$(nproc) all
+          cd ../GWW/util
+          FC=mpifort make all
+          cd ../..
+          sudo make install
+
+      - name: Build deb package
+        run: |
+          fpm --verbose \
+            --force \
+            --debug \
+            --workdir "/tmp" \
+            --input-type "dir" \
+            --output-type "deb" \
+            --deb-user "root" \
+            --deb-group "root" \
+            --chdir "/opt/espresso/${QE_VER}/bin" \
+            --name "quantum-espresso" \
+            --prefix "/opt/espresso/${QE_VER}" \
+            --version "${QE_VER}" \
+            --iteration "${ITERATION}" \
+            --url "https://github.com/pranabdas/espresso" \
+            --maintainer "https://pranabdas.github.io" \
+            --architecture "$ARCH" \
+            --description "Quantum Espresso ${QE_VER} parallel GNU build for 24.04 LTS." ${FPM_DEPS}
+
+      - uses: actions/upload-artifact@v4
+        if: runner.arch == 'X64'
+        with:
+          name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
+          path: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
+
+      - uses: actions/upload-artifact@v4
+        if: runner.arch == 'ARM64'
+        with:
+          name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_arm64.deb
+          path: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_arm64.deb
