@@ -3,7 +3,7 @@
   restart_mode = "from_scratch"
   prefix       = "silicon"
   pseudo_dir   = "../pseudos/"
-  outdir       = "/tmp/"
+  outdir       = "./tmp/"
 /
 
 &system

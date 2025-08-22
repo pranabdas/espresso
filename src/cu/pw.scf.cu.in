@@ -2,7 +2,7 @@
   calculation = "scf",
   prefix = "cu",
   pseudo_dir = "../pseudos/",
-  outdir = "/tmp/cu/"
+  outdir = "./tmp/cu/"
 /
 
 &system

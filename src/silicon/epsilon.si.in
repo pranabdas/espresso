@@ -1,13 +1,14 @@
 &inputpp
-  outdir = "/tmp/"
+  outdir = "./tmp/"
   prefix = "silicon"
   calculation = "eps"
 /
 
 &energy_grid
   smeartype = "gauss"
-  intersmear = 0.2
+  intersmear = 0.15
+  intrasmear = 0.0
   wmin =  0.0
   wmax = 30.0
-  nw = 500
+  nw = 1000
 /

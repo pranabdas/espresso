@@ -1,7 +1,7 @@
 &CONTROL
   calculation = 'nscf',
   prefix = 'silicon',
-  outdir = '/tmp/'
+  outdir = './tmp/'
   pseudo_dir = '../pseudos/'
   verbosity = 'high'
 /
@@ -11,7 +11,7 @@
   celldm(1) = 10.26,
   nat =  2,
   ntyp = 1,
-  ecutwfc = 30
+  ecutwfc = 40
   nbnd = 20
   nosym = .true.
   noinv = .true.
@@ -19,6 +19,7 @@
 
 &ELECTRONS
   mixing_beta = 0.6
+  conv_thr = 1.0d-10
 /
 
 ATOMIC_SPECIES
