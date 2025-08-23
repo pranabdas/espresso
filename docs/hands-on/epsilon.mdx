@@ -88,6 +88,24 @@ Quantum Espresso.
 
 :::
 
+## Joint Density of States
+JDOS gives the number of states for a pair of initial and final states as a
+function of frequency (in eV). A larger intensity indicates a larger absorption
+in the absorption spectra. Input file for JDOS calculation:
+
+import jdos_si from '!!raw-loader!/src/silicon/epsilon.jdos.si.in';
+
+<CodeBlock language="bash" title="src/silicon/epsilon.jdossi.in" showLineNumbers>{jdos_si}</CodeBlock>
+
+Sequence of steps to run:
+```bash
+mpirun -np 16 pw.x -in pw.scf.silicon_epsilon.in > pw.scf.silicon_epsilon.out
+mpirun -np 16 pw.x -in pw.nscf.silicon_epsilon.in > pw.nscf.silicon_epsilon.out
+mpirun -np 16 epsilon.x -in epsilon.jdos.si.in > epsilon.jdos.si.out
+```
+
+<img src={require("../../static/img/silicon-epsilon-jdos.webp").default} class="inv-hue-rot-180" alt="silicon-epsilon-jdos"/>
+
 ### Resources
 
 - <a target="_blank" href={require('/resources/eps_man.pdf').default}>Epsilon.x Manual</a>
