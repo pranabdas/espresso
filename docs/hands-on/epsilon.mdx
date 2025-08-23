@@ -1,5 +1,6 @@
 ---
 title: Dielectric constant
+keywords: ["dielectric", "epsilon", "jdos", "dft"]
 ---
 
 First we perform self consistent field calculation:
@@ -31,8 +32,8 @@ irreducible Brillouin zone, so the PW runs must be performed with a uniform
 k-points grid and all k-points weights must be equal to each other, i.e. in the
 k-points card the k-points coordinates must be given manually in `crystal` or
 `alat` or `bohr`, but not with the `automatic` option. However, the automatic
-k-points option seems to work. If required, we can perform `nscf` calculation
-with finer k-grid.
+k-points option seems to work with `nosym = .true.` and `noinv = .true.`. If
+required, we can perform `nscf` calculation with finer k-grid.
 
 Next step is to prepare the input file for `epsilon.x`:
 
@@ -42,8 +43,9 @@ import epsilon_si from '!!raw-loader!/src/silicon/epsilon.si.in';
 
 The variables `smeartype` and `intersmear` define the numerical approximation
 used to represent the Dirac delta functions in the expression for $\epsilon_2$
-given above. The variables `wmin`, `wmax` and `nw` define the energy grid for
-the dielectric function. All the energy variables are in eV.
+given above. For metals, we also need to use `intrasmear` broadening parameter,
+usually 0.1 - 0.2 eV. The variables `wmin`, `wmax` and `nw` define the energy
+grid for the dielectric function. All the energy variables are in eV.
 
 ```bash
 mpirun -np 4 epsilon.x -i epsilon.si.in > epsilon.si.out
@@ -62,8 +64,8 @@ plt.rcParams["figure.facecolor"]="white"
 
 data_r = np.loadtxt('../src/silicon/epsr_silicon.dat')
 data_i = np.loadtxt('../src/silicon/epsi_silicon.dat')
-energy_r, epsilon_r = data_r[:, 0], data_r[:, 2]
-energy_i, epsilon_i = data_i[:, 0], data_i[:, 2]
+energy_r, epsilon_r = data_r[:, 0], data_r[:, 1]
+energy_i, epsilon_i = data_i[:, 0], data_i[:, 1]
 
 plt.plot(energy_r, epsilon_r, lw=1, label="$\\epsilon_1$")
 plt.plot(energy_i, epsilon_i, lw=1, label="$\\epsilon_2$")
@@ -77,15 +79,34 @@ plt.show()
 
 :::warning
 
-Ultra-soft pseudopotentials do not work with `epsilon.x`. Also note that the
-above example is not tested against the k-mesh. We usually need finer k-mesh for
-$\epsilon$ to converge. By default the maximum number of k-points is set to
-40000 in Quantum Espresso, if we need more k-points, we can change
-[Modules/parameters.f90](https://gitlab.com/QEF/q-e/-/blob/develop/Modules/parameters.f90)
-and recompile Quantum Espresso.
+Ultra-soft pseudopotentials do not work with `epsilon.x`. Use norm-conserving
+pseudopotentials. Also note that the above example is not tested against the
+k-mesh. We usually need finer k-mesh for $\epsilon$ to converge. By default the
+maximum number of k-points is set to 40000 in Quantum Espresso, if we need more
+k-points, we can change [Modules/parameters.f90](
+https://gitlab.com/QEF/q-e/-/blob/develop/Modules/parameters.f90) and recompile
+Quantum Espresso.
 
 :::
 
+## Joint Density of States
+JDOS gives the number of states for a pair of initial and final states as a
+function of frequency (in eV). A larger intensity indicates a larger absorption
+in the absorption spectra. Input file for JDOS calculation:
+
+import jdos_si from '!!raw-loader!/src/silicon/epsilon.jdos.si.in';
+
+<CodeBlock language="bash" title="src/silicon/epsilon.jdossi.in" showLineNumbers>{jdos_si}</CodeBlock>
+
+Sequence of steps to run:
+```bash
+mpirun -np 16 pw.x -in pw.scf.silicon_epsilon.in > pw.scf.silicon_epsilon.out
+mpirun -np 16 pw.x -in pw.nscf.silicon_epsilon.in > pw.nscf.silicon_epsilon.out
+mpirun -np 16 epsilon.x -in epsilon.jdos.si.in > epsilon.jdos.si.out
+```
+
+<img src={require("../../static/img/silicon-epsilon-jdos.webp").default} class="inv-hue-rot-180" alt="silicon-epsilon-jdos"/>
+
 ### Resources
 
-- <a target="_blank" href={require('/resources/eps_man.pdf').default}>Epsilon.x manual</a>
+- <a target="_blank" href={require('/resources/eps_man.pdf').default}>Epsilon.x Manual</a>
