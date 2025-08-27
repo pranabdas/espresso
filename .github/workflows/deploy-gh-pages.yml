@@ -41,7 +41,7 @@ jobs:
       - name: Build for cloudflare
         if: ${{ github.event_name != 'schedule' }}
         run: |
-          sed -i 's|^const site_url\s*=.*|const site_url\ =\ "https://pranab.pages.dev";|I' docusaurus.config.js
+          sed -i 's|^const site_url\s*=.*|const site_url="https://pranab.pages.dev";|I' docusaurus.config.js
           bash scripts/build_doc.sh
 
       - name: Deploy on cloudflare
