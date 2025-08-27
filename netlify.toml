@@ -1,6 +1,10 @@
 [build]
-  command = "bash scripts/netlify-build.sh"
+  command = """
+  sed -i 's|baseUrl:.*|baseUrl: "/",|I' docusaurus.config.js
+  bash scripts/build_doc.sh
+  """
+
   publish = "build/"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "lts/*"
