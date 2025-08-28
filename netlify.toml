@@ -1,7 +1,7 @@
 [build]
   command = """
   sed -i 's|baseUrl:.*|baseUrl: "/",|I' docusaurus.config.js
-  bash scripts/build_doc.sh
+  bash scripts/build_docusaurus.sh
   """
 
   publish = "build/"
