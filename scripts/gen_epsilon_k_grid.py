@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from itertools import product
 
 def print_points(kx: int, ky: int, kz: int, precision: int = 8) -> None:
