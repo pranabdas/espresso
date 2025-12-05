@@ -9,7 +9,7 @@ git lfs pull
 
 ## Useful information to save
 - Processor info (`cat /proc/cpuinfo > cpuinfo.txt`)
-- Library linking info (`ldd $(command -v pw.x) > lib-info.txt`)
+- Library linking info (`ldd /path/to/pw.x > lib-info.txt`)
 - Quantum ESPRESSO output (`pw.out`).
 
 ## Benchmarks
