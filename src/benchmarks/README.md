@@ -20,5 +20,5 @@ git lfs pull
 
 | Machine               | Build type | # CPU | Wall time (s) |
 |:----------------------|:----------:|:-----:|--------------:|
-| Intel Xeon @ 3.10GHz  | Intel      |4      | 514.75        |
-| Intel Xeon @ 3.10GHz  | GNU        |4      | 728.49        |
+| [Intel Xeon @ 3.10GHz](CuO/reference-0/cpuinfo.txt)  | [GNU](CuO/reference-0/libinfo.txt)        |4      | [728.49](CuO/reference-0/pw.out)        |
+| [Intel Xeon @ 3.10GHz](CuO/reference-1/cpuinfo.txt)  | [Intel](CuO/reference-1/libinfo.txt)      |4      | [514.75](CuO/reference-1/pw.out)        |
