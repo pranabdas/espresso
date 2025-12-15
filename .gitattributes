@@ -1,0 +1,1 @@
+src/benchmarks/**/*.upf filter=lfs diff=lfs merge=lfs -text
