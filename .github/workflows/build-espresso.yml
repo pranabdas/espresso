@@ -82,13 +82,13 @@ jobs:
             --architecture "$ARCH" \
             --description "Quantum Espresso ${QE_VER} parallel GNU build for 24.04 LTS." ${FPM_DEPS}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: runner.arch == 'X64'
         with:
           name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
           path: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: runner.arch == 'ARM64'
         with:
           name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_arm64.deb
