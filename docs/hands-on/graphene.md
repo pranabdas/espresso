@@ -26,7 +26,7 @@ pw.x -i graphene_nscf.in > graphene_nscf.out
 dos.x -i graphene_dos.in > graphene_dos.out
 ```
 
-<img src={require("../../static/img/graphene-dos.webp").default} class="inv-hue-rot-180" alt="graphene-dos"/>
+<img src={require("../../static/img/graphene-dos.webp").default} className="inv-hue-rot-180" alt="graphene-dos"/>
 
 ## Bandstructure calculation
 
@@ -65,4 +65,4 @@ plt.ylabel("Energy (eV)")
 plt.show()
 ```
 
-<img src={require("../../static/img/graphene-bands.webp").default} class="inv-hue-rot-180" alt="graphene-bands"/>
+<img src={require("../../static/img/graphene-bands.webp").default} className="inv-hue-rot-180" alt="graphene-bands"/>
