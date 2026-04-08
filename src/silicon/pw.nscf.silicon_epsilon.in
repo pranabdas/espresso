@@ -7,9 +7,9 @@
 /
 
 &SYSTEM
-  ibrav =  2,
+  ibrav = 2,
   celldm(1) = 10.26,
-  nat =  2,
+  nat = 2,
   ntyp = 1,
   ecutwfc = 40
   nbnd = 40

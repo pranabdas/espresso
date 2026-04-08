@@ -17,13 +17,13 @@
 
 &SYSTEM
 ! Bravais lattice index, which is 2 for FCC structure
-  ibrav =  2,
+  ibrav = 2,
 
 ! Lattice constant in BOHR
   celldm(1) = 10.26,
 
 ! number of atoms in an unit cell
-  nat =  2,
+  nat = 2,
 
 ! number of different types of atom in the cell
   ntyp = 1,

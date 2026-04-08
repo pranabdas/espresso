@@ -8,7 +8,7 @@
 /
 
 &SYSTEM
-  ibrav=  2,
+  ibrav= 2,
   celldm(1)= 7.652,
   nat=  1,
   ntyp= 1,

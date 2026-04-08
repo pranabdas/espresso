@@ -8,9 +8,9 @@
 /
 
 &system
-  ibrav =  2,
+  ibrav = 2,
   celldm(1) = 10.2076,
-  nat =  2,
+  nat = 2,
   ntyp = 1,
   ecutwfc = 50,
   ecutrho = 400,
