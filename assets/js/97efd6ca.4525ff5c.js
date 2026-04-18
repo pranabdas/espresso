@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkespresso=self.webpackChunkespresso||[]).push([["9329"],{4941(e){e.exports=JSON.parse('{"metadata":{"permalink":"/espresso/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
