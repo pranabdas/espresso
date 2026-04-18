@@ -181,13 +181,13 @@ const config = {
 
   stylesheets: [
     {
-      href: "https://pranab.pages.dev/assets/fonts/katex/0.16.28/katex.min.css",
+      href: "https://pranab.pages.dev/assets/fonts/katex/0.16.45/katex.min.css",
       type: "text/css",
     },
   ],
 
   future: {
-    experimental_faster: true,
+    faster: true,
     v4: {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: false,

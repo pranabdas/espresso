@@ -28,6 +28,7 @@ module.exports = {
         "theory/hartree-fock",
         "theory/dft",
         "theory/wannier",
+        "theory/complexity",
       ],
     },
     {

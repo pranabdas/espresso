@@ -41,7 +41,7 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-<img src={require("../../static/img/etot-vs-ecutwfc.webp").default} class="inv-hue-rot-180" alt="etot-vs-ecutwfc"/>
+<img src={require("../../static/img/etot-vs-ecutwfc.webp").default} className="inv-hue-rot-180" alt="etot-vs-ecutwfc"/>
 
 ## Convergence test using UNIX shell script
 
@@ -106,7 +106,7 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-<img src={require("../../static/img/etot-vs-kpoints.webp").default} class="inv-hue-rot-180" alt="etot-vs-kpoints"/>
+<img src={require("../../static/img/etot-vs-kpoints.webp").default} className="inv-hue-rot-180" alt="etot-vs-kpoints"/>
 
 ## Convergence against lattice constant
 
@@ -131,15 +131,4 @@ plt.legend(frameon=False)
 plt.show()
 ```
 
-<img src={require("../../static/img/etot-vs-alat.webp").default} class="inv-hue-rot-180" alt="etot-vs-alat"/>
-
-
-## Note on CPU time
-
-- CPU time is proportional to the number of plane waves used for the
-calculation. Number of plane wave is proportional to the (ecutwfc)<sup>3/2</sup>
-
-- CPU time is proportional to the number if inequivalent k-points
-
-- CPU time increases as N<sup>3</sup>, where N is the number of atoms in the
-system.
+<img src={require("../../static/img/etot-vs-alat.webp").default} className="inv-hue-rot-180" alt="etot-vs-alat"/>

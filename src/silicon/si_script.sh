@@ -11,9 +11,9 @@ cat > ${NAME}_${CUTOFF}.in << EOF
     pseudo_dir = './pseudos/'
  /
  &system
-    ibrav =  2,
+    ibrav = 2,
     celldm(1) = 10.0,
-    nat =  2,
+    nat = 2,
     ntyp = 1,
     ecutwfc = $CUTOFF
  /

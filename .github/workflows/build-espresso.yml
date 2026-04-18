@@ -23,7 +23,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set ENV variables
         run: |
@@ -82,13 +82,13 @@ jobs:
             --architecture "$ARCH" \
             --description "Quantum Espresso ${QE_VER} parallel GNU build for 24.04 LTS." ${FPM_DEPS}
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: runner.arch == 'X64'
         with:
           name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
           path: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_amd64.deb
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: runner.arch == 'ARM64'
         with:
           name: quantum-espresso_${{ inputs.espresso_version }}-${{ inputs.build_iteration }}_arm64.deb
