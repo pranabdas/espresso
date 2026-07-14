@@ -20,6 +20,7 @@ jobs:
         os:
           - ubuntu-26.04
           - ubuntu-26.04-arm
+      fail-fast: false
     permissions:
       contents: read
     steps:
@@ -57,7 +58,7 @@ jobs:
           make -j$(nproc) all
           make -j$(nproc) all_currents
           make -j$(nproc) couple
-          make -j$(nproc) epw
+          make epw
           make -j$(nproc) gwl
           make -j$(nproc) kcw
           make -j$(nproc) pioud
