@@ -66,6 +66,9 @@ jobs:
           # make -j$(nproc) gipaw
           # make -j$(nproc) want
           # make -j$(nproc) yambo
+          cd GWW/util
+          FC=mpifort make all
+          cd -
           sudo make install
 
       - name: Build deb package
