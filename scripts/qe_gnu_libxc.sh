@@ -4,10 +4,9 @@
 # exit upon any command failure
 set -e
 
-QE_VER="7.2"
-LIBXC_VER="6.2.0"
+QE_VER="7.6"
+LIBXC_VER="7.0.0"
 INSTALL_PATH="/workspaces/applications"
-NUM_PROCS=4
 export LIBXCROOT="/opt/libxc"
 export OMP_NUM_THREADS=1
 BUILD_DIR="/tmp"
@@ -36,12 +35,12 @@ sudo apt install --no-install-recommends -y \
   libelpa17 \
   wget
 
-wget http://www.tddft.org/programs/libxc/down.php?file=${LIBXC_VER}/libxc-${LIBXC_VER}.tar.gz -O libxc-${LIBXC_VER}.tar.gz
+wget https://gitlab.com/libxc/libxc/-/archive/${LIBXC_VER}/libxc-${LIBXC_VER}.tar -O libxc-${LIBXC_VER}.tar.gz
 tar -zxf libxc-${LIBXC_VER}.tar.gz
 rm libxc-${LIBXC_VER}.tar.gz
 cd libxc-${LIBXC_VER}
 ./configure --prefix=${LIBXCROOT} CC=gcc FC=gfortran
-make -j${NUM_PROCS}
+make -j$(nproc)
 sudo make install
 cd ..
 rm -rf libxc-${LIBXC_VER}
@@ -54,7 +53,24 @@ cd q-e-qe-${QE_VER}
 ./configure CC=mpicc FC=mpifort F77=mpifort F90=mpifort \
   MPIF90=mpif90 --prefix=${INSTALL_PATH}/qe-${QE_VER} --with-libxc --with-libxc-prefix=${LIBXCROOT} --enable-openmp
 # there is race condition affecting parallel builds, retrying once seems to work
-make -j${NUM_PROCS} all || { echo "Retrying..."; make clean; make -j$NUM_PROCS all; }
+# make -j$(nproc) all || { echo "Retrying..."; make clean; make -j$(nproc) all; }
+./configure CC=mpicc FC=mpifort F77=mpifort F90=mpifort \
+  MPIF90=mpif90 --prefix=${INSTALL_PREFIX} --enable-openmp
+make -j$(nproc) all
+make -j$(nproc) all_currents
+make -j$(nproc) couple
+make epw
+make -j$(nproc) gwl
+make -j$(nproc) kcw
+make -j$(nproc) pioud
+make -j$(nproc) w90
+# make -j$(nproc) d3q
+# make -j$(nproc) gipaw
+# make -j$(nproc) want
+# make -j$(nproc) yambo
+cd GWW/util
+FC=mpifort make all
+cd -
 sudo make install
 cd ..
 rm -rf q-e-qe-${QE_VER}
