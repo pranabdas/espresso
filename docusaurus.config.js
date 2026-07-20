@@ -177,7 +177,12 @@ const config = {
         highlightSearchTermsOnTargetPage: true,
       },
     ],
+    "@docusaurus/theme-mermaid",
   ],
+
+  markdown: {
+    mermaid: true,
+  },
 
   stylesheets: [
     {

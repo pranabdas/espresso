@@ -125,6 +125,36 @@ atomic, ortho-atomic etc.).
 
 :::
 
+Calculating the self-consistent Hubbard $U$ parameter involves an iterative
+workflow that begins with a standard self-consistent field (SCF) calculation
+using a tiny initial value $U_{in} \sim 0.001$. Next, Density Functional
+Perturbation Theory (DFPT) is performed via the **hp.x** module to calculate a
+new linear-response Hubbard parameter $U_{out}$. This newly obtained $U_{out}$
+is then used to perform a structural optimization (relaxation) of the crystal
+system. Finally, the calculated $U_{out}$ is compared against the initial
+$U_{in}$; if they have converged to a matching value, self-consistency is
+successfully reached. If they do not match, the loop repeats by feeding the new
+$U_{out}$ value and the updated `CELL_PARAMETERS` back into a fresh SCF
+calculation until convergence is achieved.
+
+
+```mermaid
+graph TD
+    A[SCF Calculation with <br> U<sub>in</sub> ~ 0.001] --> B["DFPT (hp.x) calculation <br> to obtain U<sub>out</sub>"]
+    B --> C[Structural optimization <br> using U<sub>out</sub>]
+    C --> D{U<sub>in</sub> ~ U<sub>out</sub>}
+
+    D -->|YES| E[Self consistency <br> reached]
+    D -->|NO: Use U<sub>out</sub> and newly obtained CELL_PARAMETERS| A
+
+    %% High Contrast Styling (Light Backgrounds + Dark Text)
+    style A fill:#fff9e6,stroke:#b38f00,stroke-width:1.5px,color:#4d3d00
+    style B fill:#ebf2ff,stroke:#3366cc,stroke-width:1.5px,color:#001a4d
+    style C fill:#ffefe6,stroke:#e65c00,stroke-width:1.5px,color:#4d1f00
+    style D fill:#f2f2f2,stroke:#888888,stroke-width:1.5px,color:#222222
+    style E fill:#e6f7e6,stroke:#2e8b57,stroke-width:1.5px,color:#003300
+```
+
 :::danger
 
 The above **hp.x** code is not suitable for closed cell systems (e.g., fully
