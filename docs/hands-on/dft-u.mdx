@@ -135,7 +135,8 @@ system. Finally, the calculated $U_{out}$ is compared against the initial
 $U_{in}$; if they have converged to a matching value, self-consistency is
 successfully reached. If they do not match, the loop repeats by feeding the new
 $U_{out}$ value and the updated `CELL_PARAMETERS` back into a fresh SCF
-calculation until convergence is achieved.
+calculation until convergence is achieved. A convergence tolerance of 10
+meV/site for $U$ is typically recommended.
 
 
 ```mermaid
@@ -203,3 +204,4 @@ the `pdos` columns. Also there arise important Lowdin charges information in the
 
 - [Hands-on DFT+U by Iurii Timrov and Matteo Cococcioni](https://youtu.be/34mHl0Iw2_E)
 - [Hubbard parameter calculation](https://youtu.be/64JKOF5lh2U)
+- https://sites.psu.edu/jgoffcapstone/overview/
