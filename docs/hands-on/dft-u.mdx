@@ -146,7 +146,7 @@ graph TD
     C --> D{U<sub>in</sub> ~ U<sub>out</sub>}
 
     D -->|YES| E[Self consistency <br> reached]
-    D -->|NO: Use U<sub>out</sub> and newly obtained CELL_PARAMETERS| A
+    D -.->|NO: Use U<sub>out</sub> and newly obtained CELL_PARAMETERS| A
 
     %% High Contrast Styling (Light Backgrounds + Dark Text)
     style A fill:#fff9e6,stroke:#b38f00,stroke-width:1.5px,color:#4d3d00
