@@ -177,11 +177,16 @@ const config = {
         highlightSearchTermsOnTargetPage: true,
       },
     ],
+    "@docusaurus/theme-mermaid",
   ],
+
+  markdown: {
+    mermaid: true,
+  },
 
   stylesheets: [
     {
-      href: "https://pranab.pages.dev/assets/fonts/katex/0.17.0/katex.min.css",
+      href: "https://pranab.pages.dev/assets/fonts/katex/0.18.1/katex.min.css",
       type: "text/css",
     },
   ],
