@@ -186,7 +186,7 @@ const config = {
 
   stylesheets: [
     {
-      href: "https://pranab.pages.dev/assets/fonts/katex/0.17.0/katex.min.css",
+      href: "https://pranab.pages.dev/assets/fonts/katex/0.18.1/katex.min.css",
       type: "text/css",
     },
   ],
