@@ -46,7 +46,7 @@
 <tr><th style="margin: 3 3 3 10; background: #005789; background: linear-gradient(rgba(0,87,137,1),rgba(0,119,189,1)); color: #ffffee; ">
 <h1 style="margin: 10 10 10 15; text-align: left;"> Input File Description </h1>
 <h2 style="margin: 10 10 10 15; text-align: left;"> Program:
-	      dos.x / PWscf / Quantum ESPRESSO<span style="font-weight: normal;"> (version: 7.2)</span>
+	      dos.x / PWscf / Quantum ESPRESSO<span style="font-weight: normal;"> (version: 7.5)</span>
 </h2>
 </th></tr>
 <tr><td style="padding: 10 3 3 3; background: #ffffff; color: #222222; ">
@@ -55,18 +55,18 @@
 <blockquote>
    
    
-   <p><a href="#idm3">INTRODUCTION</a></p>
-   <p><a href="#idm8">&amp;DOS</a></p>
+   <p><a href="#id1">INTRODUCTION</a></p>
+   <p><a href="#id2">&amp;DOS</a></p>
 <blockquote>
-<a href="#idm9">prefix</a> | <a href="#idm12">outdir</a> | <a href="#idm16">bz_sum</a> | <a href="#idm26">ngauss</a> | <a href="#idm30">degauss</a> | <a href="#idm33">Emin</a> | <a href="#idm34">Emax</a> | <a href="#idm37">DeltaE</a> | <a href="#idm39">fildos</a>
+<a href="#id3">prefix</a> | <a href="#id4">outdir</a> | <a href="#id5">bz_sum</a> | <a href="#id6">ngauss</a> | <a href="#id7">degauss</a> | <a href="#id8">Emin</a> | <a href="#id9">Emax</a> | <a href="#id10">DeltaE</a> | <a href="#id11">fildos</a>
 </blockquote>
-   <p><a href="#idm43">Notes</a></p>
-<blockquote><a href="#idm44">Output</a></blockquote>
-<blockquote><a href="#idm48">Important !</a></blockquote>
+   <p><a href="#id12">Notes</a></p>
+<blockquote><a href="#id13">Output</a></blockquote>
+<blockquote><a href="#id14">Important !</a></blockquote>
 </blockquote>
 </blockquote>
    <blockquote>
-<a name="idm3"></a><h3>INTRODUCTION</h3>
+<a name="id1"></a><h3>INTRODUCTION</h3>
 <blockquote><pre>
 <b>Purpose of dos.x:</b>
     calculates the Density of States (DOS)
@@ -83,11 +83,11 @@
 IMPORTANT: since v.5 namelist name is &amp;DOS and no longer &amp;INPUTPP
    </pre></blockquote>
 </blockquote>
-   <a name="idm8"></a><a name="DOS"></a><table border="0" width="100%" style="margin-bottom: 20;">
+   <a name="id2"></a><a name="DOS"></a><table border="0" width="100%" style="margin-bottom: 20;">
 <tr><th bgcolor="#ddcba6"><h2 style="margin: 10 10 10 15; text-align: left;"> Namelist: <span class="namelist"><span style="font-weight:normal">&amp;</span>DOS</span>
 </h2></th></tr>
 <tr><td style="text-align: left; background: #ffebc6; padding: 5 5 5 30; "><table style="border-color: #505087; border-style: solid; border-width: 0; margin-bottom: 10; table-layout: auto; width: 800;"><tbody><tr><td>
-      <a name="idm9"></a><a name="prefix"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id3"></a><a name="prefix"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">prefix</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">CHARACTER</td>
@@ -103,7 +103,7 @@ prefix of input file produced by pw.x
          </pre></blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm12"></a><a name="outdir"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id4"></a><a name="outdir"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">outdir</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">CHARACTER</td>
@@ -120,7 +120,7 @@ directory containing the input data, i.e. the same as in pw.x
          </pre></blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm16"></a><a name="bz_sum"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id5"></a><a name="bz_sum"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">bz_sum</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">CHARACTER</td>
@@ -169,7 +169,7 @@ see M. Kawamura, <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB
 </blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm26"></a><a name="ngauss"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id6"></a><a name="ngauss"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">ngauss</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">INTEGER</td>
@@ -197,7 +197,7 @@ Type of gaussian broadening:
          </pre></blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm30"></a><a name="degauss"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id7"></a><a name="degauss"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">degauss</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">REAL</td>
@@ -211,7 +211,7 @@ gaussian broadening, Ry (not eV!)
       <table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="white-space: nowrap; background: #ffff99; padding: 2 2 2 10; ">
-<a name="idm33"></a><a name="Emin"></a>Emin, <a name="idm34"></a><a name="Emax"></a>Emax</th>
+<a name="id8"></a><a name="Emin"></a>Emin, <a name="id9"></a><a name="Emax"></a>Emax</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">REAL</td>
 </tr>
 <tr>
@@ -226,7 +226,7 @@ value of the gaussian smearing if present, will be used.
          </pre></blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm37"></a><a name="DeltaE"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id10"></a><a name="DeltaE"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">DeltaE</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">REAL</td>
@@ -236,7 +236,7 @@ energy grid step (eV)
          </pre></blockquote></td></tr>
 </table>
 <div align="right" style="margin-bottom: 5;">[<a href="#__top__">Back to Top</a>]</div>
-      <a name="idm39"></a><a name="fildos"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
+      <a name="id11"></a><a name="fildos"></a><table width="100%" style="border-color:   #b5b500; border-style: solid; border-width: 2; margin-bottom: 10; table-layout: auto; background-color: #FFFFFF;">
 <tr>
 <th align="left" valign="top" width="20%" style="background: #ffff99; padding: 2 2 2 10; ">fildos</th>
 <td style="text-align: left; vertical-align: top; background: #ffffc3; padding: 2 2 2 5; ">CHARACTER</td>
@@ -254,15 +254,15 @@ output file containing DOS(E)
    </td></tr></tbody></table></td></tr>
 </table>
    <blockquote>
-<a name="idm43"><h3>Notes</h3></a>
+<a name="id12"><h3>Notes</h3></a>
       <blockquote>
-<a name="idm44"><h4>Output</h4></a>
+<a name="id13"><h4>Output</h4></a>
          <blockquote><pre>
 The total DOS (states/eV plotted vs <i>E</i> in eV) is written to file <a href="#fildos">fildos</a>
          </pre></blockquote>
       </blockquote>
       <blockquote>
-<a name="idm48"><h4>Important !</h4></a>
+<a name="id14"><h4>Important !</h4></a>
          <blockquote><pre>
 The tetrahedron method is used if
 
@@ -290,7 +290,7 @@ Gaussian broadening is used in all other cases:
 </td></tr>
 </table>
 <small>
-	  This file has been created by helpdoc utility on Thu Mar 30 12:14:01 CEST 2023.
+	  This file has been created by helpdoc utility on Wed Sep 03 14:28:58 CEST 2025.
 	</small>
 </body>
 </html>
